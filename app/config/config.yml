@@ -101,3 +101,6 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Uknow\UtilisateurBundle\Entity\Compte
+    registration:
+            form:
+                type: uknow_utilisateur_registration

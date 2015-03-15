@@ -30,28 +30,30 @@ class Compte extends BaseUser
      *
      * @ORM\Column(name="niveau_chapitre", type="text")
      */
-    private $niveauChapitre;
+    protected $niveauChapitre;
 
     /**
      * @var string
      *
      * @ORM\Column(name="voix_chapitre", type="text")
      */
-    private $voixChapitre;
+    protected $voixChapitre;
 
     /**
      * @var string
      *
      * @ORM\Column(name="donnees_sauvegardees", type="string", length=255, nullable=true)
      */
-    private $donneesSauvegardees;
+    protected $donneesSauvegardees;
 
     /**
      * @var string
      *
      * @ORM\Column(name="donnees_evaluees", type="string", length=255, nullable=true)
      */
-    private $donneesEvaluees;
+    protected $donneesEvaluees;
+
+
 
 
     /**
