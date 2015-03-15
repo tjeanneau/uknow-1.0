@@ -1,0 +1,89 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: thomas
+ * Date: 06/03/15
+ * Time: 11:34
+ */
+
+namespace Uknow\PlatformBundle\Services;
+
+class ServiceModification {
+
+    private $evaluation;
+
+    public function __construct($evaluation){
+        $this->evaluation = $evaluation;
+    }
+
+    public function listAJour($listDonnees){
+
+        $k = 0;
+        $listModification = array();
+        for($i = 0; $i < count($listDonnees); $i++){
+            if($i == 0){
+                $listModification[$k] = $listDonnees[$i];
+            }else{
+                for($j = 0; $j < count($listModification); $j++){
+                    if($listDonnees[$i]->getDomaine() == $listModification[$j]->getDomaine()
+                        && $listDonnees[$i]->getMatiere() == $listModification[$j]->getMatiere()
+                        && $listDonnees[$i]->getTheme() == $listModification[$j]->getTheme()
+                        && $listDonnees[$i]->getChapitre() == $listModification[$j]->getChapitre()
+                        && $listDonnees[$i]->getTitre() == $listModification[$j]->getTitre()){
+                        if($this->evaluation->ratio($listDonnees[$i]) > $this->evaluation->ratio($listModification[$j])){
+                            $listModification[$j] = $listDonnees[$i];
+                        }elseif($this->evaluation->ratio($listDonnees[$i]) == $this->evaluation->ratio($listModification[$j])){
+                            if($listModification[$j]->getDate() < $listDonnees[$i]->getDate()){
+                                $listModification[$j] = $listDonnees[$i];
+                            }
+                        }
+                    }else{
+                        if($j == $k){
+                            $k++;
+                            $listModification[$k] = $listDonnees[$i];
+                        }
+                    }
+                }
+            }
+        }
+        return $listModification;
+    }
+
+    public function idAJour($chaineId, $listDonnees){
+
+        if ($chaineId == null){
+            return null;
+        }else{
+            $tableauId = explode('/', $chaineId);
+            for($i = 0; $i < count($tableauId); $i++){
+                for($j = 0; $j < count($listDonnees); $j++){
+                    if($tableauId[$i] == $listDonnees[$j]->getId()){
+                        $tableauId[$i] = $this->donneeAJour($listDonnees[$j], $listDonnees)->getId();
+                    }
+                }
+            }
+            $chaineId = implode('/', $tableauId);
+            return $chaineId;
+        }
+    }
+
+    public function donneeAJour($donnee, $listDonnees){
+
+        for($k = 0; $k < count($listDonnees) ; $k++){
+            if($listDonnees[$k]->getDomaine() == $donnee->getDomaine()
+                && $listDonnees[$k]->getMatiere() == $donnee->getMatiere()
+                && $listDonnees[$k]->getTheme() == $donnee->getTheme()
+                && $listDonnees[$k]->getChapitre() == $donnee->getChapitre()
+                && $listDonnees[$k]->getTitre() == $donnee->getTitre()){
+                if($this->evaluation->ratio($listDonnees[$k]) > $this->evaluation->ratio($donnee)){
+                    $donnee = $listDonnees[$k];
+                }elseif($this->evaluation->ratio($listDonnees[$k]) == $this->evaluation->ratio($donnee)){
+                    if($donnee->getDate() < $listDonnees[$k]->getDate()){
+                        $donnee = $listDonnees[$k];
+                    }
+                }
+            }
+        }
+        return $donnee;
+    }
+}

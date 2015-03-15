@@ -1,0 +1,77 @@
+html, body
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+}
+
+.police3
+{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.police4
+{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+header
+ {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #065DB0;
+    position: fixed;
+    top:0;
+    z-index: 3;
+    box-shadow: 0 0 15px black;
+ }
+
+.lienBouton
+{
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.footer
+{
+    height: 50px;
+    position: fixed;
+    bottom:0;
+    width: 25%;
+    text-align: center;
+}
+
+#question {
+    background-color: #B0D5F9;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    position: fixed;
+    bottom: 0;
+    top: 54px;
+    right: 0;
+    box-shadow: 0 0 15px black;
+    z-index: 2;
+}
+
+#contenu
+{
+    position: relative;
+    text-align: center;
+    margin-top: 36px;
+}
+
+#bulle
+{
+    height: 100px;
+    width: 100px;
+    margin: 28px;
+    border-radius: 50px;
+    display:inline-block;
+}
+
+
+
+

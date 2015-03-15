@@ -1,0 +1,33 @@
+Uknow\PlatformBundle\Entity\Question:
+    type: entity
+    table: null
+    repositoryClass: Uknow\PlatformBundle\Entity\QuestionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        identifiant:
+            type: integer
+        date:
+            type: datetime
+        question:
+            type: string
+            length: 255
+        domaine:
+            type: string
+            length: 255
+        matiere:
+            type: string
+            length: 255
+        theme:
+            type: string
+            length: 255
+        chapitre:
+            type: string
+            length: 255
+        niveau:
+            type: integer
+    lifecycleCallbacks: {  }

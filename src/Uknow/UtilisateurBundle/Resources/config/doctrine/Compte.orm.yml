@@ -1,0 +1,23 @@
+Uknow\UtilisateurBundle\Entity\Compte:
+    type: entity
+    table: null
+    repositoryClass: Uknow\UtilisateurBundle\Entity\CompteRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        niveauChapitre:
+            type: text
+        voixChapitre:
+            type: text
+        donneesSauvegardees:
+            type: string
+            length: 255
+            nullable: true
+        donneesEvaluees:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

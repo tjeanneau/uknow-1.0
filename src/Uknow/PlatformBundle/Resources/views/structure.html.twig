@@ -1,0 +1,97 @@
+{# src/Uknow/PlatformBundle/Resources/views/structure.html.twig#}
+
+{% extends "UknowPlatformBundle::index.html.twig" %}
+
+{% block title %}{{ parent() }} - Recherche{% endblock %}
+
+{% block contenu %}
+
+    {% if domaine == null %}
+        <div class="row">
+            <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+                <ol class="breadcrumb">
+                    <li class="active">Accueil</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9" id="contenu">
+                {% for structure in listStructure %}
+                    <a href="{{ path('uknow_platform_recherche_domaine', {
+                        'domaine': structure.domaineLien
+                    }) }}"><button type="button" class="btn btn-primary" id="bulle">{{ structure.domaine }}</button></a>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% elseif matiere == null %}
+        <div class="row">
+            <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('uknow_platform_recherche') }}">Accueil</a></li>
+                    <li class="active">{{ titreDomaine }}</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9" id="contenu">
+                {% for structure in listStructure %}
+                    <a href="{{ path('uknow_platform_recherche_matiere', {
+                        'domaine': structure.domaineLien,
+                        'matiere': structure.matiereLien
+                    }) }}"><button type="button" class="btn btn-primary" id="bulle">{{ structure.matiere }}</button></a>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    {% elseif theme == null  %}
+        <div class="row">
+            <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('uknow_platform_recherche') }}">Accueil</a></li>
+                    <li><a href="{{ path('uknow_platform_recherche_domaine', {'domaine': domaine}) }}">{{ titreDomaine }}</a></li>
+                    <li class="active">{{ titreMatiere }}</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9" id="contenu">
+                {% for structure in listStructure %}
+                    <a href="{{ path('uknow_platform_recherche_theme', {
+                        'domaine': structure.domaineLien,
+                        'matiere': structure.matiereLien,
+                        'theme': structure.themeLien
+                    }) }}"><button type="button" class="btn btn-primary" id="bulle">{{ structure.theme }}</button></a>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    {% elseif chapitre == null  %}
+        <div class="row">
+            <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('uknow_platform_recherche') }}">Accueil</a></li>
+                    <li><a href="{{ path('uknow_platform_recherche_domaine', {'domaine': domaine }) }}">{{ titreDomaine }}</a></li>
+                    <li><a href="{{ path('uknow_platform_recherche_matiere', {'domaine': domaine, 'matiere': matiere }) }}">{{ titreMatiere }}</a></li>
+                    <li class="active">{{ titreTheme }}</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9" id="contenu">
+                {% for structure in listStructure %}
+                    <a href="{{ path('uknow_platform_recherche_chapitre', {
+                        'domaine': structure.domaineLien,
+                        'matiere': structure.matiereLien,
+                        'theme': structure.themeLien,
+                        'chapitre': structure.chapitreLien
+                    }) }}"><button type="button" class="btn btn-primary" id="bulle">{{ structure.chapitre }}</button></a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

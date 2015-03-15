@@ -1,4 +1,20 @@
 services:
-#    uknow_platform.example:
-#        class: Uknow\PlatformBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    uknow_platform.tri:
+        class: Uknow\PlatformBundle\Services\ServiceTri
+        arguments: [@uknow_platform.modification, @uknow_platform.evaluation, @uknow_platform.affichage]
+    uknow_platform.recherche:
+        class: Uknow\PlatformBundle\Services\ServiceRecherche
+    uknow_platform.boutons:
+        class: Uknow\PlatformBundle\Services\ServiceBoutons
+        arguments: [@uknow_platform.affichage]
+    uknow_platform.session:
+        class: Uknow\PlatformBundle\Services\ServiceSession
+    uknow_platform.question:
+        class: Uknow\PlatformBundle\Services\ServiceQuestion
+    uknow_platform.evaluation:
+        class: Uknow\PlatformBundle\Services\ServiceEvaluation
+    uknow_platform.modification:
+        class: Uknow\PlatformBundle\Services\ServiceModification
+        arguments: [@uknow_platform.evaluation]
+    uknow_platform.affichage:
+        class: Uknow\PlatformBundle\Services\ServiceAffichage

@@ -1,3 +1,37 @@
-uknow_platform_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: UknowPlatformBundle:Default:index }
+uknow_platform_ajouter:
+    path:     /ajouter
+    defaults: { _controller: UknowPlatformBundle:Action:ajouter}
+
+uknow_platform_modifier:
+    path:     /modifier/{id}
+    defaults: { _controller: UknowPlatformBundle:Action:modifier, id: null}
+
+uknow_platform_modification:
+    path:     /modifications/{id}
+    defaults: { _controller: UknowPlatformBundle:Donnees:modifications, id: null}
+
+uknow_platform_favoris:
+    path:     /{action}
+    defaults: { _controller: UknowPlatformBundle:Donnees:favoris}
+    requirements:
+        action: mes_cours|mes_exercices|actualites
+
+uknow_platform_recherche:
+    path:     /recherche
+    defaults: { _controller: UknowPlatformBundle:Structure:structure, domaine: null, matiere: null, theme:null, chapitre:null}
+
+uknow_platform_recherche_domaine:
+    path:     /recherche/{domaine}
+    defaults: { _controller: UknowPlatformBundle:Structure:structure, matiere: null, theme:null, chapitre:null}
+
+uknow_platform_recherche_matiere:
+    path:     /recherche/{domaine}/{matiere}
+    defaults: { _controller: UknowPlatformBundle:Structure:structure, theme:null, chapitre:null }
+
+uknow_platform_recherche_theme:
+    path:     /recherche/{domaine}/{matiere}/{theme}
+    defaults: { _controller: UknowPlatformBundle:Structure:structure, chapitre:null }
+
+uknow_platform_recherche_chapitre:
+    path:     /recherche/{domaine}/{matiere}/{theme}/{chapitre}
+    defaults: { _controller: UknowPlatformBundle:Donnees:recherche}

@@ -1,0 +1,19 @@
+{# src/Uknow/PlatformBundle/Resources/views/profil.html.twig#}
+
+{% extends "UknowPlatformBundle::index.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Profil
+{% endblock %}
+
+{% block contenu %}
+    <div class="row">
+        <div class="col-md-9">
+            <h3>Mon profil: </h3>
+            <strong>Adresse Mail :</strong> {{ profil.adresseMail }}
+            <br/>
+            Se déconnecter ?
+        </div>
+    </div>
+
+{% endblock %}

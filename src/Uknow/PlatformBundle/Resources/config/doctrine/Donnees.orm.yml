@@ -1,0 +1,47 @@
+Uknow\PlatformBundle\Entity\Donnees:
+    type: entity
+    table: null
+    repositoryClass: Uknow\PlatformBundle\Entity\DonneesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        domaine:
+            type: string
+            length: 255
+        matiere:
+            type: string
+            length: 255
+        theme:
+            type: string
+            length: 255
+        chapitre:
+            type: string
+            length: 255
+        titre:
+            type: string
+            length: 255
+        texte:
+            type: text
+        date:
+            type: datetime
+        modification:
+            type: integer
+        positive:
+            type: integer
+        negative:
+            type: integer
+        type:
+            type: string
+            length: 255
+        niveau:
+            type: integer
+        fiabilite:
+            type: integer
+        temps:
+            type: integer
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,58 @@
+{# src/Uknow/PlatformBundle/Resources/views/modifier.html.twig#}
+
+{% extends "UknowPlatformBundle::index.html.twig" %}
+
+{% block title %}{{ parent() }} - Modification{% endblock %}
+
+{% block contenu %}
+    <div class="row">
+        <div class="col-md-9" style="padding: 0">
+            <ol class="breadcrumb">
+                <li><a href="{{ path('uknow_platform_recherche')}}">Accueil</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_domaine', {'domaine': domaine }) }}">{{ titreDomaine }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_matiere', {'domaine': domaine, 'matiere': matiere }) }}">{{ titreMatiere }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_theme', {'domaine': domaine, 'matiere': matiere, 'theme': theme }) }}">{{ titreTheme }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_chapitre', {'domaine': domaine, 'matiere': matiere, 'theme': theme, 'chapitre': chapitre }) }}">{{ titreChapitre }}</a></li>
+                <li class="active">{{ titredonnee }}</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <h3>Modification d'un cours ou d'un exercice.</h3>
+            <div class="form-group">
+                {{ form_start(formModifier) }}
+                <div class="form-group">
+                    {{ form_errors(formModifier) }}
+                    {{ type }} de niveau {{ niveau }}.
+                </div>
+                    <div class="form-group">
+                        <div class="form-inline">
+                            <div class="input-group">
+                                {% if type == 'Cours' %}
+                                    <span class="input-group-addon">Mettre à jour le temps d'apprentissage:</span>
+                                {% else %}
+                                    <span class="input-group-addon">Mettre à jour le temps de réalisation:</span>
+                                {% endif %}
+                                {{ form_errors(formModifier.temps) }}
+                                {{ form_widget(formModifier.temps, {'attr': {'class': 'form-control', 'style': 'text-align:right'}}) }}
+                                <span class="input-group-addon">minutes.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <script src="{{ asset('js/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+                        {{ form_errors(formModifier.contenu) }}
+                        {{ form_widget(formModifier.contenu) }}
+                    </div>
+
+                    <div id="form_bouton">
+                        {{ form_widget(formModifier.modifier) }}
+                    </div>
+                {{ form_end(formModifier) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
