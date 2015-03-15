@@ -1,0 +1,4 @@
+services:
+#    uknow_platform.example:
+#        class: Uknow\PlatformBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

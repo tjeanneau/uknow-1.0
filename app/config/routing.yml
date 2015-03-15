@@ -1,0 +1,11 @@
+uknow_platform:
+    resource: "@UknowPlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+
+uknow_utilisateur:
+    resource: "@UknowUtilisateurBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation

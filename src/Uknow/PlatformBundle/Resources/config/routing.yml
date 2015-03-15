@@ -1,0 +1,3 @@
+uknow_platform_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: UknowPlatformBundle:Default:index }
