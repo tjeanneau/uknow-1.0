@@ -24,7 +24,6 @@ class ActionController extends Controller{
 
         // Initialisation des variables principales
 
-        $session = new Session();
         $donnees = new Donnees();
         $formAjout = new FormulaireAjouter();
         $em = $this->getDoctrine()->getManager();
@@ -33,14 +32,6 @@ class ActionController extends Controller{
         $servicesQuestion = $this->container->get('uknow_platform.question');
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
-
-
-
-        // Vérification de la session
-
-        if ($session->get('identifiant', null) == null){
-           // return $this->redirect($this->generateUrl('uknow_connexion'));
-        }
 
 
         // Initialisation des bases de données à utiliser
@@ -111,7 +102,6 @@ class ActionController extends Controller{
         // Initialisation des variables principales
 
         $k = 0;
-        $session = new Session();
         $donnees = new Donnees();
         $formModifier = new FormulaireModifier();
         $em = $this->getDoctrine()->getManager();
@@ -119,13 +109,6 @@ class ActionController extends Controller{
         $servicesQuestion = $this->container->get('uknow_platform.question');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
-
-
-        // Vérification de la session
-
-        if ($session->get('identifiant', null) == null){
-            return $this->redirect($this->generateUrl('uknow_connexion'));
-        }
 
         // Initialisation des bases de données à utiliser
 
@@ -250,18 +233,11 @@ class ActionController extends Controller{
 
         // Initialisation des variables principales
 
-        $session = new Session();
         $servicesRecherche = $this->container->get('uknow_platform.recherche');
         $servicesQuestion = $this->container->get('uknow_platform.question');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
 
-
-        // Vérification de la session
-
-        if ($session->get('identifiant', null) == null){
-            return $this->redirect($this->generateUrl('uknow_connexion'));
-        }
 
         // Initialisation des bases de données à utiliser
 

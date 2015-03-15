@@ -2,6 +2,10 @@ uknow_platform_ajouter:
     path:     /ajouter
     defaults: { _controller: UknowPlatformBundle:Action:ajouter}
 
+uknow_platform_profil:
+    path:     /profil
+    defaults: { _controller: UknowPlatformBundle:Action:profil}
+
 uknow_platform_modifier:
     path:     /modifier/{id}
     defaults: { _controller: UknowPlatformBundle:Action:modifier, id: null}

@@ -4,11 +4,12 @@ namespace Uknow\UtilisateurBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Compte
  *
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="compte")
  * @ORM\Entity
  */
 class Compte extends BaseUser
@@ -43,6 +44,7 @@ class Compte extends BaseUser
      * @var string
      *
      * @ORM\Column(name="donnees_sauvegardees", type="string", length=255, nullable=true)
+     * @Assert\Null()
      */
     protected $donneesSauvegardees;
 
@@ -50,6 +52,7 @@ class Compte extends BaseUser
      * @var string
      *
      * @ORM\Column(name="donnees_evaluees", type="string", length=255, nullable=true)
+     * @Assert\Null()
      */
     protected $donneesEvaluees;
 

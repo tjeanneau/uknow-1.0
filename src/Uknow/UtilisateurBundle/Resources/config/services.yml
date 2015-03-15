@@ -1,5 +1,1 @@
-services:
-    acme_user.registration.form.type:
-        class: Uknow\UtilisateurBundle\Form\Type\RegistrationFormType
-        tags:
-            - { name: form.type, alias: uknow_utilisateur_registration }
+

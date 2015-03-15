@@ -30,20 +30,12 @@ class StructureController extends Controller
         $titreMatiereLien = null;
         $titreTheme = null;
         $titreAffichage = null;
-        $session = new Session();
         $servicesTri = $this->container->get('uknow_platform.tri');
         $servicesRecherche = $this->container->get('uknow_platform.recherche');
         $servicesQuestion = $this->container->get('uknow_platform.question');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
         $em = $this->getDoctrine()->getManager();
-
-
-        // Vérification de la session
-
-        if ($session->get('identifiant', null) == null){
-            return $this->redirect($this->generateUrl('uknow_connexion'));
-        }
 
 
         // Initialisation des bases de données à utiliser

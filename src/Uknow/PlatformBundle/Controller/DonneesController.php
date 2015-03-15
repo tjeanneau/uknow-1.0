@@ -25,7 +25,6 @@ class DonneesController extends Controller
         // Initialisation des variables principales
 
         $k = 0;
-        $session = new Session();
         $newlistdonnees = array();
         $em = $this->getDoctrine()->getManager();
         $servicesTri = $this->container->get('uknow_platform.tri');
@@ -36,13 +35,6 @@ class DonneesController extends Controller
         $servicesQuestion = $this->container->get('uknow_platform.question');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
-
-
-        // Vérification de la session
-
-        if ($session->get('identifiant', null) == null){
-            return $this->redirect($this->generateUrl('uknow_connexion'));
-        }
 
 
         // Initialisation des bases de données à utiliser
@@ -178,7 +170,6 @@ class DonneesController extends Controller
 
         // Initialisation des variables principales
 
-        $session = new Session();
         $newlistdonnees = array();
         $em = $this->getDoctrine()->getManager();
         $servicesRecherche = $this->container->get('uknow_platform.recherche');
@@ -189,14 +180,6 @@ class DonneesController extends Controller
         $servicesModifications = $this->container->get('uknow_platform.modification');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
-
-
-
-        //Vérification de la session
-
-        if ($session->get('identifiant', null) == null) {
-            return $this->redirect($this->generateUrl('uknow_connexion'));
-        }
 
 
         // Initialisation des bases de données à utiliser
@@ -358,7 +341,6 @@ class DonneesController extends Controller
         // Initialisation des variables principales
 
         $k = 0;
-        $session = new Session();
         $em = $this->getDoctrine()->getManager();
         $servicesTri = $this->container->get('uknow_platform.tri');
         $servicesBoutons = $this->container->get('uknow_platform.boutons');
@@ -367,13 +349,6 @@ class DonneesController extends Controller
         $servicesQuestion = $this->container->get('uknow_platform.question');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
-
-
-        // Vérification de la session
-
-        if ($session->get('identifiant', null) == null){
-            return $this->redirect($this->generateUrl('uknow_connexion'));
-        }
 
 
         // Initialisation des bases de données à utiliser
