@@ -1,3 +1,19 @@
-uknow_utilisateur_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: UknowUtilisateurBundle:Default:index }
+fos_user_security:
+    resource: "@UknowUtilisateurBundle/Resources/config/routing/security.xml"
+    prefix: /
+
+fos_user_profile:
+    resource: "@UknowUtilisateurBundle/Resources/config/routing/profile.xml"
+    prefix: /profil
+
+fos_user_register:
+    resource: "@UknowUtilisateurBundle/Resources/config/routing/registration.xml"
+    prefix: /inscription
+
+fos_user_resetting:
+    resource: "@UknowUtilisateurBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@UknowUtilisateurBundle/Resources/config/routing/change_password.xml"
+    prefix: /changement_mot_de_passe
