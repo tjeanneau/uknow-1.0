@@ -10,9 +10,9 @@
     <div class="row">
         <div class="col-md-9">
             <h3>Mon profil: </h3>
-            <strong>Adresse Mail :</strong> {{ profil.adresseMail }}
+            <strong>Adresse Mail :</strong> {{ profil.email }}
             <br/>
-            Se déconnecter ?
+            <a href="{{ path('fos_user_security_logout') }}">Se déconnecter ?</a>
         </div>
     </div>
 

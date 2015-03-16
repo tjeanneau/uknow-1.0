@@ -229,7 +229,7 @@ class ActionController extends Controller{
         ));
     }
 
-    public function profilAction(Request $request){
+    public function compteAction(Request $request){
 
         // Initialisation des variables principales
 
@@ -262,13 +262,13 @@ class ActionController extends Controller{
 
         $profil = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
-            ->find($session->get('identifiant', null));
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->find($this->getUser()->getId());
 
 
         // Gestion de l'affichage des données
 
-        return $this->render('UknowPlatformBundle::profil.html.twig', array(
+        return $this->render('UknowPlatformBundle::compte.html.twig', array(
             'formQuestion' => $formQuestion->createView(),
             'formRecherche' => $formRecherche->createView(),
             'listQuestion' => $listQuestion,

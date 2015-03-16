@@ -56,8 +56,8 @@ class DonneesController extends Controller
 
         $compte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
-            ->find($session->get('identifiant', null));
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->find($this->getUser()->getId());
 
         $compte->setDonneesSauvegardees($servicesModifications->idAJour($compte->getDonneesSauvegardees(), $listDonnees));
         $em->persist($compte);
@@ -117,12 +117,12 @@ class DonneesController extends Controller
 
         $compte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
+            ->getRepository('UknowUtilisateurBundle:Compte')
             ->find($session->get('identifiant', null));
 
         $listCompte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
+            ->getRepository('UknowUtilisateurBundle:Compte')
             ->findAll();
 
 
@@ -210,8 +210,8 @@ class DonneesController extends Controller
 
         $compte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
-            ->find($session->get('identifiant', null));
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->find($this->getUser()->getId());
 
         $compte->setDonneesSauvegardees($servicesModifications->idAJour($compte->getDonneesSauvegardees(), $listDonnees));
         $em->persist($compte);
@@ -285,12 +285,12 @@ class DonneesController extends Controller
 
         $compte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
-            ->find($session->get('identifiant', null));
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->find($this->getUser()->getId());
 
         $listCompte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
+            ->getRepository('UknowUtilisateurBundle:Compte')
             ->findAll();
 
 
@@ -355,8 +355,8 @@ class DonneesController extends Controller
 
         $compte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
-            ->find($session->get('identifiant', null));
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->find($this->getUser()->getId());
 
         $donneeId = $this->getDoctrine()
             ->getManager()
@@ -424,12 +424,12 @@ class DonneesController extends Controller
 
         $compte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
+            ->getRepository('UknowUtilisateurBundle:Compte')
             ->find($session->get('identifiant', null));
 
         $listCompte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
+            ->getRepository('UknowUtilisateurBundle:Compte')
             ->findAll();
 
 

@@ -2,9 +2,9 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block title %}Confirmation{% endblock title %}
+
 {% block fos_user_content %}
     <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    {% if app.session is not empty %}
-       <p><a href="{{ path('uknow_platform_recherche')}}">Accéder à Uknow !</a></p>
-    {% endif %}
+    <p><a href="{{ path('uknow_platform_recherche')}}">Accéder à Uknow !</a></p>
 {% endblock fos_user_content %}
