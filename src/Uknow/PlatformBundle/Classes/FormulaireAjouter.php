@@ -11,7 +11,8 @@ namespace Uknow\PlatformBundle\Classes;
 class FormulaireAjouter {
 
     private $titre;
-    private $contenu;
+    private $cours;
+    private $exercice;
     private $structure;
     private $type;
     private $niveau;
@@ -29,15 +30,26 @@ class FormulaireAjouter {
         return $this->titre;
     }
 
-    public function setContenu($contenu)
+    public function setCours($cours)
     {
-        $this->contenu = $contenu;
+        $this->cours = $cours;
         return $this;
     }
 
-    public function getContenu()
+    public function getCours()
     {
-        return $this->contenu;
+        return $this->cours;
+    }
+
+    public function setExercice($exercice)
+    {
+        $this->exercice = $exercice;
+        return $this;
+    }
+
+    public function getExercice()
+    {
+        return $this->exercice;
     }
 
     public function setStructure($structure)

@@ -102,3 +102,10 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Uknow\UtilisateurBundle\Entity\Compte
+
+ivory_ck_editor:
+    default_config:
+         my_config
+    configs:
+         my_config:
+             language:  '%locale%'

@@ -10,8 +10,10 @@ namespace Uknow\PlatformBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Uknow\PlatformBundle\Classes\FormulaireModifier;
-use Uknow\PlatformBundle\Form\ModifierType;
+use Uknow\PlatformBundle\Classes\FormulaireModifierExercice;
+use Uknow\PlatformBundle\Classes\FormulaireModifierCours;
+use Uknow\PlatformBundle\Form\ModifierCoursType;
+use Uknow\PlatformBundle\Form\ModifierExerciceType;
 use Uknow\PlatformBundle\Services;
 use Uknow\PlatformBundle\Form\AjoutType;
 use Uknow\PlatformBundle\Classes\FormulaireAjouter;
@@ -61,7 +63,11 @@ class ActionController extends Controller{
                     $donnees->setTheme($listStructure[$i]->getThemeLien());
                     $donnees->setChapitre($listStructure[$i]->getChapitreLien());
                     $donnees->setTitre($formAjout->getTitre());
-                    $donnees->setTexte($formAjout->getContenu());
+                    if($formAjout->getType() == 'Exercice'){
+                        $donnees->setTexte($formAjout->getExercice());
+                    }else{
+                        $donnees->setTexte($formAjout->getCours());
+                    }
                     $donnees->setType($formAjout->getType());
                     $donnees->setNiveau($formAjout->getNiveau());
                     $donnees->setTemps($formAjout->getTemps());
@@ -103,7 +109,6 @@ class ActionController extends Controller{
 
         $k = 0;
         $donnees = new Donnees();
-        $formModifier = new FormulaireModifier();
         $em = $this->getDoctrine()->getManager();
         $servicesRecherche = $this->container->get('uknow_platform.recherche');
         $servicesQuestion = $this->container->get('uknow_platform.question');
@@ -133,9 +138,18 @@ class ActionController extends Controller{
 
         }
 
-        $formModifier->setContenu($donneerecu->getTexte());
-        $formModifier->setTemps($donneerecu->getTemps());
-        $formDonnees = $this->get('form.factory')->create(new ModifierType(), $formModifier);
+        if($donneerecu->getType() == 'Exercice'){
+            $formModifier = new FormulaireModifierExercice();
+            $formModifier->setExercice($donneerecu->getTexte());
+            $formModifier->setTemps($donneerecu->getTemps());
+            $formDonnees = $this->get('form.factory')->create(new ModifierExerciceType(), $formModifier);
+        }else{
+            $formModifier = new FormulaireModifierCours();
+            $formModifier->setCours($donneerecu->getTexte());
+            $formModifier->setTemps($donneerecu->getTemps());
+            $formDonnees = $this->get('form.factory')->create(new ModifierCoursType(), $formModifier);
+        }
+
         if ($formDonnees->handleRequest($request)->isValid()){
             for ($i = 0; $i < count($listStructure); $i++){
                 if ($listStructure[$i]->getChapitreLien() == $donneerecu->getChapitre()
@@ -147,7 +161,11 @@ class ActionController extends Controller{
                     $donnees->setTheme($listStructure[$i]->getThemeLien());
                     $donnees->setChapitre($listStructure[$i]->getChapitreLien());
                     $donnees->setTitre($donneerecu->getTitre());
-                    $donnees->setTexte($formModifier->getContenu());
+                    if($donneerecu->getType() == 'Exercice'){
+                        $donnees->setTexte($formModifier->getExercice());
+                    }else{
+                        $donnees->setTexte($formModifier->getCours());
+                    }
                     $donnees->setTemps($formModifier->getTemps());
                     $donnees->setType($donneerecu->getType());
                     $donnees->setNiveau($donneerecu->getNiveau());

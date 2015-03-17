@@ -118,7 +118,7 @@ class DonneesController extends Controller
         $compte = $this->getDoctrine()
             ->getManager()
             ->getRepository('UknowUtilisateurBundle:Compte')
-            ->find($session->get('identifiant', null));
+            ->find($this->getUser()->getId());
 
         $listCompte = $this->getDoctrine()
             ->getManager()
@@ -425,7 +425,7 @@ class DonneesController extends Controller
         $compte = $this->getDoctrine()
             ->getManager()
             ->getRepository('UknowUtilisateurBundle:Compte')
-            ->find($session->get('identifiant', null));
+            ->find($this->getUser()->getId());
 
         $listCompte = $this->getDoctrine()
             ->getManager()

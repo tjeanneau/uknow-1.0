@@ -28,7 +28,7 @@
                     <input type="hidden" name="valeur" value="{{ loop.index }}">
                     <div id="donnee{{ loop.index }}" class ="donnee">
                         <div id="textedonnee">
-                            {{ donnees.texte }}
+                            {{ donnees.texte|raw }}
                         </div>
                         <h6 class="null">Dernière mise à jour: {{ donnees.date|date("d/m/Y") }}; </h6>
                         <div class="bouton">
