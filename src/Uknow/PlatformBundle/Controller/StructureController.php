@@ -10,11 +10,7 @@ namespace Uknow\PlatformBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Uknow\PlatformBundle\Classes\FormulaireRechercher;
-use Uknow\PlatformBundle\Entity\Question;
-use Uknow\PlatformBundle\Form\RechercheType;
 use Uknow\PlatformBundle\Services;
-use Uknow\PlatformBundle\Form\QuestionType;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class StructureController extends Controller
@@ -39,7 +35,6 @@ class StructureController extends Controller
 
 
         // Initialisation des bases de données à utiliser
-
 
 
         // Gestion des requètes demandées
