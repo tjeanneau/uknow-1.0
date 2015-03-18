@@ -39,3 +39,9 @@ uknow_platform_recherche_theme:
 uknow_platform_recherche_chapitre:
     path:     /recherche/{domaine}/{matiere}/{theme}/{chapitre}
     defaults: { _controller: UknowPlatformBundle:Donnees:recherche}
+
+uknow_platform_rechercher:
+    path:     /rechercher
+    defaults: { _controller: MyAppFilmothequeBundle:Acteur:rechercher }
+    requirements:
+        _method: POST

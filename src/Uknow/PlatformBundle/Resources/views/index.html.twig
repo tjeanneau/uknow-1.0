@@ -30,14 +30,16 @@
                     {{ form_start(formRecherche) }}
                         <div class="input-group">
                             {{ form_errors(formRecherche.recherche) }}
-                            {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control'}}) }}
-                            <input id="search" type="text" autocomplete="off" />
-                            <div id="results"></div>
+                            {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control', 'autocomplete': 'off'}}) }}
+                            <div id="resultats_recherche"></div>
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                <button id="lancerRecherche" class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
                             </span>
                         </div>
                     {{ form_end(formRecherche) }}
+
                 </div>
 
                 <div class="col-md-offset-1 col-md-3" style="text-align: center">
@@ -106,10 +108,13 @@
                 </div>
             </section>
         </div>
+
         {% javascripts
         '@bootstrap_js'
         '@jquery'
         'js/uknowAjouter.js'
+        'js/uknowRechercher.js'
+        'js/recherche.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}

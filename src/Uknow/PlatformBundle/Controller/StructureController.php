@@ -32,6 +32,7 @@ class StructureController extends Controller
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
         $em = $this->getDoctrine()->getManager();
+        $donneeRecherche = '';
 
 
         // Initialisation des bases de données à utiliser
@@ -60,10 +61,17 @@ class StructureController extends Controller
             ->getRepository('UknowPlatformBundle:Structure')
             ->findAll();
 
+        $listDonnees = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowPlatformBundle:Donnees')
+            ->findAll();
+
 
         // Gestion de l'affichage des données
 
-         if($domaine != null){
+        $servicesRecherche->fichierDonneesRecherche($listStructure, $listDonnees);
+
+        if($domaine != null){
             if($matiere != null){
                 if($theme != null){
                     $listStructure = $servicesTri->triChapitre($listStructure, $domaine, $matiere, $theme, 'structure');
@@ -98,6 +106,7 @@ class StructureController extends Controller
             'theme' => $theme,
             'chapitre' => $chapitre,
             'listQuestion' => $listQuestion,
-            'listStructure' => $listStructure ));
+            'listStructure' => $listStructure,
+            ));
     }
 }

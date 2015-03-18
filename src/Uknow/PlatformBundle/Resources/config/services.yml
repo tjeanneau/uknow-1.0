@@ -4,6 +4,7 @@ services:
         arguments: [@uknow_platform.modification, @uknow_platform.evaluation, @uknow_platform.affichage]
     uknow_platform.recherche:
         class: Uknow\PlatformBundle\Services\ServiceRecherche
+        arguments: [@uknow_platform.affichage]
     uknow_platform.boutons:
         class: Uknow\PlatformBundle\Services\ServiceBoutons
         arguments: [@uknow_platform.affichage]
