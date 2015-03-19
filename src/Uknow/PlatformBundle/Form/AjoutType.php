@@ -114,36 +114,36 @@ class AjoutType extends AbstractType{
                     'empty_value' => 'Choisir le type'
                     ))
             ->add('temps', 'choice', array('choices' => array(
-                    '1' => '5',
-                    '2' => '10',
-                    '3' => '15',
-                    '4' => '20',
-                    '5' => '25',
-                    '6' => '30',
-                    '7' => '35',
-                    '8' => '40',
-                    '9' => '45',
-                    '10' => '50',
-                    '11' => '55',
-                    '12' => '60'
+                    '5' => '5',
+                    '10' => '10',
+                    '15' => '15',
+                    '20' => '20',
+                    '25' => '25',
+                    '30' => '30',
+                    '35' => '35',
+                    '40' => '40',
+                    '45' => '45',
+                    '50' => '50',
+                    '55' => '55',
+                    '60' => '60'
                     ), 'empty_value' => 'Choisir le temps'
                     ))
             ->add('niveau', 'choice', array('choices' => array(
-                    '1' => 'Sixième',
-                    '2' => 'Cinquième',
-                    '3' => 'Quatrième',
-                    '4' => 'Troisième',
-                    '5' => 'Seconde',
-                    '6' => 'Première',
-                    '7' => 'Terminal',
-                    '8' => 'Bac + 1',
-                    '9' => 'Bac + 2',
-                    '10' => 'Bac + 3',
-                    '11' => 'Bac + 4',
-                    '12' => 'Bac + 5',
-                    '13' => 'Bac + 6',
-                    '14' => 'Bac + 7',
-                    '15' => 'Bac + 8'), 'empty_value' => 'Choisir le niveau'
+                    'Sixième' => 'Sixième',
+                    'Cinquième' => 'Cinquième',
+                    'Quatrième' => 'Quatrième',
+                    'Troisième' => 'Troisième',
+                    'Seconde' => 'Seconde',
+                    'Première' => 'Première',
+                    'Terminal' => 'Terminal',
+                    'Bac + 1' => 'Bac + 1',
+                    'Bac + 2' => 'Bac + 2',
+                    'Bac + 3' => 'Bac + 3',
+                    'Bac + 4' => 'Bac + 4',
+                    'Bac + 5' => 'Bac + 5',
+                    'Bac + 6' => 'Bac + 6',
+                    'Bac + 7' => 'Bac + 7',
+                    'Bac + 8' => 'Bac + 8'), 'empty_value' => 'Choisir le niveau'
                     ))
             ->add('ajouter', 'submit');
     }

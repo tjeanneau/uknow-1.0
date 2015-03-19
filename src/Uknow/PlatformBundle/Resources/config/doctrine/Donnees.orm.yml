@@ -38,7 +38,8 @@ Uknow\PlatformBundle\Entity\Donnees:
             type: string
             length: 255
         niveau:
-            type: integer
+            type: string
+            length: 255
         fiabilite:
             type: integer
         temps:

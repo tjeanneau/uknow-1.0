@@ -99,9 +99,9 @@ class Donnees
     private $type;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="niveau", type="integer")
+     * @ORM\Column(name="niveau", type="string", length=255)
      */
     private $niveau;
 
@@ -393,8 +393,8 @@ class Donnees
     /**
      * Set niveau
      *
-     * @param integer $niveau
-     * @return Donnees
+     * @param string  $niveau
+     * @return string
      */
     public function setNiveau($niveau)
     {
@@ -406,7 +406,7 @@ class Donnees
     /**
      * Get niveau
      *
-     * @return integer 
+     * @return string
      */
     public function getNiveau()
     {

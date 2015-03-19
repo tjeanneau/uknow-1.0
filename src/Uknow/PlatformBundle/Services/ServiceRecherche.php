@@ -39,6 +39,7 @@ class ServiceRecherche {
             $donneeCaracteristiques['chapitre'] = $listDonnees[$i]->getChapitre();
             $donneeCaracteristiques['titre'] = $listDonnees[$i]->getTitre();
             $donneeCaracteristiques['type'] = $listDonnees[$i]->getType();
+            $donneeCaracteristiques['niveau'] = $listDonnees[$i]->getNiveau();
             $donneesRecherche[$i] = $donneeCaracteristiques;
         }
 

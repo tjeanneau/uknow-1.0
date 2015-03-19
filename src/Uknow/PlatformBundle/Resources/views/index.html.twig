@@ -5,9 +5,9 @@
     <head>
         <meta charset="utf-8" />
         {% stylesheets
+        '@bootstrap_css'
         'css/uknowIndex.css'
         'css/uknowDonnees.css'
-        '@bootstrap_css'
         %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
@@ -31,7 +31,6 @@
                         <div class="input-group">
                             {{ form_errors(formRecherche.recherche) }}
                             {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control', 'autocomplete': 'off'}}) }}
-                            <div id="resultats_recherche"></div>
                             <span class="input-group-btn">
                                 <button id="lancerRecherche" class="btn btn-default" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>
@@ -74,6 +73,14 @@
                     </a>
                 </div>
             </header>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-6">
+                    <div id="bloqueOmbre"></div>
+                    <div class="scrollbar" id="resultats_recherche">
+                        <div class="force-overflow" id="donnees" style="font-family: 'Open Sans', sans-serif; font-weight: 400"></div>
+                    </div>
+                </div>
+            </div>
 
             <div style="
             margin-top: 54px;
@@ -113,26 +120,9 @@
         '@jquery'
         '@bootstrap_js'
         'js/uknowAjouter.js'
+        'js/uknowRecherche.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
-
-        <script>
-            $(function(){
-                $('#uknow_platformbundle_recherche_recherche') .keydown(function(){
-                    $.ajax({
-                        type: 'GET',
-                        url: '{{ path('uknow_platform_autocompletion') }}',
-                        success: function(donnees) {
-                            $.each(donnees, function(i, item){
-                                $('#resultats_recherche').append('<p><b>' + item.titre + '</b></br>' + item.domaine + '/' + item.matiere + '/' + item.theme + '/' + item.chapitre + '</p>');
-                            })
-                        },
-                        error: function() {
-                            alert('La requête n\'a pas abouti'); }
-                    });
-                });
-            });
-        </script>
     </body>
 </html>
