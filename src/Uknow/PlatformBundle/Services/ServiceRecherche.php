@@ -26,9 +26,8 @@ class ServiceRecherche {
         return $formRecherche;
     }
 
-    public function fichierDonneesRecherche($listStructure, $listDonnees){
+    public function donneesRecherche($listStructure, $listDonnees){
 
-        $fichier = fopen('json/donneesRecherche.json', 'w+');
         $donneesRecherche = array();
         $listDonnees = $this->affichage->affichageLien($listStructure, $listDonnees);
 
@@ -43,7 +42,7 @@ class ServiceRecherche {
             $donneesRecherche[$i] = $donneeCaracteristiques;
         }
 
-        fputs($fichier, json_encode($donneesRecherche));
-        fclose($fichier);
+        return $donneesRecherche;
+
     }
 }

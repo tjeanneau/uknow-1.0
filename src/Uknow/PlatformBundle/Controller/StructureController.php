@@ -69,8 +69,6 @@ class StructureController extends Controller
 
         // Gestion de l'affichage des données
 
-        $servicesRecherche->fichierDonneesRecherche($listStructure, $listDonnees);
-
         if($domaine != null){
             if($matiere != null){
                 if($theme != null){

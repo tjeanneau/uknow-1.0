@@ -33,7 +33,7 @@
                             {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control', 'autocomplete': 'off'}}) }}
                             <div id="resultats_recherche"></div>
                             <span class="input-group-btn">
-                                <button id="lancerRecherche" class="btn btn-default" type="button">
+                                <button id="lancerRecherche" class="btn btn-default" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>
                                 </button>
                             </span>
@@ -110,13 +110,29 @@
         </div>
 
         {% javascripts
-        '@bootstrap_js'
         '@jquery'
+        '@bootstrap_js'
         'js/uknowAjouter.js'
-        'js/uknowRechercher.js'
-        'js/recherche.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
+
+        <script>
+            $(function(){
+                $('#uknow_platformbundle_recherche_recherche') .keydown(function(){
+                    $.ajax({
+                        type: 'GET',
+                        url: '{{ path('uknow_platform_autocompletion') }}',
+                        success: function(donnees) {
+                            $.each(donnees, function(i, item){
+                                $('#resultats_recherche').append('<p><b>' + item.titre + '</b></br>' + item.domaine + '/' + item.matiere + '/' + item.theme + '/' + item.chapitre + '</p>');
+                            })
+                        },
+                        error: function() {
+                            alert('La requête n\'a pas abouti'); }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
