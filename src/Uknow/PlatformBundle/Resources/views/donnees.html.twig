@@ -31,10 +31,7 @@
 
                         <input type="hidden" name="valeur" value="{{ loop.index }}">
 
-                        <div id="donnee{{ loop.index }}"
-                             class ="donnee"
-                             onclick="selectionner('{{ loop.index }}','bouton{{ loop.index }}','enregistrer{{ loop.index }}','ajour{{ loop.index }}')"
-                             onmouseover="main('donnee{{ loop.index }}')">
+                        <div id="donnee{{ loop.index }}" class ="donnee">
                             <h5 class="null">{{ donnees.titre }}<br/></h5>
 
                             <span id="enregistrer{{ loop.index }}">

@@ -19,4 +19,4 @@ security:
         - { path: ^/mes_cours, role: ROLE_USER }
         - { path: ^/mes_exercices, role: ROLE_USER }
         - { path: ^/actualites, role: ROLE_USER }
-        - { path: ^/actualites, role: ROLE_USER }
+        - { path: ^/autocompletion, role: ROLE_USER }

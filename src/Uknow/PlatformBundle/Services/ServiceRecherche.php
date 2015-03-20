@@ -26,13 +26,22 @@ class ServiceRecherche {
         return $formRecherche;
     }
 
-    public function donneesRecherche($listStructure, $listDonnees){
+    public function donneesRecherche($listDonnees, $listStructure, $lettres){
 
         $donneesRecherche = array();
-        $listDonnees = $this->affichage->affichageLien($listStructure, $listDonnees);
 
         for( $i = 0; $i < count($listDonnees); $i++){
+
             $donneeCaracteristiques = array();
+            $listDonnees = $this->affichage->correctionLien($listStructure, $listDonnees);
+
+            $donneeCaracteristiques['domaineTitre'] = $listDonnees[$i]->getDomaine();
+            $donneeCaracteristiques['matiereTitre'] = $listDonnees[$i]->getMatiere();
+            $donneeCaracteristiques['themeTitre'] = $listDonnees[$i]->getTheme();
+            $donneeCaracteristiques['chapitreTitre'] = $listDonnees[$i]->getChapitre();
+
+            $listDonnees = $this->affichage->affichageLien($listStructure, $listDonnees);
+
             $donneeCaracteristiques['domaine'] = $listDonnees[$i]->getDomaine();
             $donneeCaracteristiques['matiere'] = $listDonnees[$i]->getMatiere();
             $donneeCaracteristiques['theme'] = $listDonnees[$i]->getTheme();
@@ -40,7 +49,22 @@ class ServiceRecherche {
             $donneeCaracteristiques['titre'] = $listDonnees[$i]->getTitre();
             $donneeCaracteristiques['type'] = $listDonnees[$i]->getType();
             $donneeCaracteristiques['niveau'] = $listDonnees[$i]->getNiveau();
-            $donneesRecherche[$i] = $donneeCaracteristiques;
+
+            if(stripos($donneeCaracteristiques['domaine'], $lettres) === 0){
+                $donneesRecherche[] = $donneeCaracteristiques;
+            }elseif(stripos($donneeCaracteristiques['matiere'], $lettres) === 0){
+                $donneesRecherche[] = $donneeCaracteristiques;
+            }elseif(stripos($donneeCaracteristiques['theme'], $lettres) === 0){
+                $donneesRecherche[] = $donneeCaracteristiques;
+            }elseif(stripos($donneeCaracteristiques['chapitre'], $lettres) === 0){
+                $donneesRecherche[] = $donneeCaracteristiques;
+            }elseif(stripos($donneeCaracteristiques['titre'], $lettres) === 0){
+                $donneesRecherche[] = $donneeCaracteristiques;
+            }elseif(stripos($donneeCaracteristiques['type'], $lettres) === 0){
+                $donneesRecherche[] = $donneeCaracteristiques;
+            }elseif(stripos($donneeCaracteristiques['niveau'], $lettres) === 0){
+                $donneesRecherche[] = $donneeCaracteristiques;
+            }
         }
 
         return $donneesRecherche;

@@ -10,6 +10,7 @@ namespace Uknow\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class AjaxController extends Controller{
 
@@ -17,6 +18,8 @@ class AjaxController extends Controller{
 
         $donneesEnvoyee = array();
         $servicesRecherche = $this->container->get('uknow_platform.recherche');
+        $request = Request::createFromGlobals();
+        $lettres = $request->query->get('lettres');
 
         if ($this->container->get('request')->isXmlHttpRequest()) {
 
@@ -30,7 +33,7 @@ class AjaxController extends Controller{
                 ->getRepository('UknowPlatformBundle:Structure')
                 ->findAll();
 
-            $donneesEnvoyee = $servicesRecherche->donneesRecherche($listStructure, $listDonnees);
+            $donneesEnvoyee = $servicesRecherche->donneesRecherche($listDonnees, $listStructure, $lettres);
 
         }
 
