@@ -30,4 +30,5 @@ class RechercheType extends AbstractType{
     {
         return 'uknow_platformbundle_recherche';
     }
+
 }

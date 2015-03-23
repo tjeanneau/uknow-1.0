@@ -4,7 +4,7 @@
 
 $(function(){
     $('#uknow_platformbundle_recherche_recherche').keyup(function(e){
-        if(e.which >= 65 && e.which <= 90 || e.which == 32 || e.which == 8 || e.which == 46){
+        if(e.which >= 65 && e.which <= 90 || e.which == 222 || e.which == 8 || e.which == 46){
             var lettres = encodeURIComponent($('#uknow_platformbundle_recherche_recherche').val());
             $.ajax({
                 type: 'GET',

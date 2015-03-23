@@ -31,8 +31,8 @@ class DonneesController extends Controller
         $servicesBoutons = $this->container->get('uknow_platform.boutons');
         $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
         $servicesModifications = $this->container->get('uknow_platform.modification');
-        $servicesRecherche = $this->container->get('uknow_platform.recherche');
         $servicesQuestion = $this->container->get('uknow_platform.question');
+        $servicesRecherche = $this->container->get('uknow_platform.recherche');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
 
@@ -62,14 +62,10 @@ class DonneesController extends Controller
         $compte->setDonneesSauvegardees($servicesModifications->idAJour($compte->getDonneesSauvegardees(), $listDonnees));
         $em->persist($compte);
         $em->flush();
-        $listDonnees = $servicesTri->triDonneesAfficher($listStructure, $listDonnees, $compte->getDonneesSauvegardees(), $newlistdonnees, 'boutonRecherche');
+        $listDonnees = $servicesTri->triDonneesAfficher($listStructure, $listDonnees, $compte->getDonneesSauvegardees(), $newlistdonnees, 'boutonRecherche', null);
 
 
         // Gestion des requètes demandées
-
-        if ($formRecherche->handleRequest($request)->isValid()){
-
-        }
 
         if ($formQuestion->handleRequest($request)->isValid()){
 
@@ -132,7 +128,7 @@ class DonneesController extends Controller
         $em->persist($compte);
         $em->flush();
         $listDonneesAffichage = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
-        $listDonneesAffichage = $servicesTri->triDonneesAfficher($listStructure, $listDonneesAffichage, $compte->getDonneesSauvegardees(), $newlistdonnees, 'recherche');
+        $listDonneesAffichage = $servicesTri->triDonneesAfficher($listStructure, $listDonneesAffichage, $compte->getDonneesSauvegardees(), $newlistdonnees, 'recherche' , null);
         $tableauInfoSauvegarde = $servicesTri->triDonneesSauvegardees($listDonneesAffichage, $compte->getDonneesSauvegardees());
         $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonneesAffichage, $compte->getDonneesEvaluees());
 
@@ -179,7 +175,8 @@ class DonneesController extends Controller
         $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
         $servicesModifications = $this->container->get('uknow_platform.modification');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
-        $formRecherche = $servicesRecherche->initialisationRecherche($this);
+        $recherche = new FormulaireRechercher();
+        $formRecherche = $this->get('form.factory')->create(new RechercheType(), $recherche);
 
 
         // Initialisation des bases de données à utiliser
@@ -199,8 +196,11 @@ class DonneesController extends Controller
                 ->getManager()
                 ->getRepository('UknowPlatformBundle:Donnees')
                 ->findBy(array('type' => 'Exercice'), null, null, null);
-        }else{
-            $listDonnees = null;
+        }elseif($action == 'rechercher'){
+            $listDonnees = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowPlatformBundle:Donnees')
+                ->findAll();
         }
 
         $listStructure = $this->getDoctrine()
@@ -216,7 +216,7 @@ class DonneesController extends Controller
         $compte->setDonneesSauvegardees($servicesModifications->idAJour($compte->getDonneesSauvegardees(), $listDonnees));
         $em->persist($compte);
         $em->flush();
-        $listDonnees = $servicesTri->triDonneesAfficher($listStructure, $listDonnees, $compte->getDonneesSauvegardees(), $newlistdonnees, 'boutonFavoris');
+        $listDonnees = $servicesTri->triDonneesAfficher($listStructure, $listDonnees, $compte->getDonneesSauvegardees(), $newlistdonnees, 'boutonFavoris', $action);
 
 
         // Gestion des requètes demandées
@@ -238,7 +238,7 @@ class DonneesController extends Controller
         }
 
         if ($formRecherche->handleRequest($request)->isValid()){
-
+            $listDonnees = $servicesRecherche->affichageRecherche($listDonnees, $recherche->getRecherche());
         }
 
         if ($request->request->get('bouton', null) == 'Modifier') {
@@ -269,8 +269,6 @@ class DonneesController extends Controller
                 ->getManager()
                 ->getRepository('UknowPlatformBundle:Donnees')
                 ->findBy(array('type' => 'Exercice'), null, null, null);
-        }else{
-            $listDonnees = null;
         }
 
         $listQuestion = $this->getDoctrine()
@@ -300,7 +298,7 @@ class DonneesController extends Controller
         $em->persist($compte);
         $em->flush();
         $listDonneesAffichage = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
-        $listDonneesAffichage = $servicesTri->triDonneesAfficher($listStructure, $listDonneesAffichage, $compte->getDonneesSauvegardees(), $newlistdonnees, 'favoris');
+        $listDonneesAffichage = $servicesTri->triDonneesAfficher($listStructure, $listDonneesAffichage, $compte->getDonneesSauvegardees(), $newlistdonnees, 'favoris', $action);
         $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonneesAffichage, $compte->getDonneesEvaluees());
 
         if($action == 'actualites'){
@@ -321,6 +319,14 @@ class DonneesController extends Controller
             ));
         }elseif($action == 'mes_exercices'){
             return $this->render('UknowPlatformBundle::exercices.html.twig', array(
+                'formQuestion' => $formQuestion->createView(),
+                'formRecherche' => $formRecherche->createView(),
+                'listQuestion' => $listQuestion,
+                'tableauEvaluation' => $tableauInfoEvaluation,
+                'listDonnees' => $listDonneesAffichage
+            ));
+        }elseif($action == 'rechercher'){
+            return $this->render('UknowPlatformBundle::recherche.html.twig', array(
                 'formQuestion' => $formQuestion->createView(),
                 'formRecherche' => $formRecherche->createView(),
                 'listQuestion' => $listQuestion,
@@ -379,10 +385,6 @@ class DonneesController extends Controller
         // Gestion des requètes demandées
 
         if ($formQuestion->handleRequest($request)->isValid()){
-
-        }
-
-        if ($formRecherche->handleRequest($request)->isValid()){
 
         }
 

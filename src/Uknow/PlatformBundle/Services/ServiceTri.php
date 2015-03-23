@@ -225,7 +225,7 @@ class ServiceTri{
         return $triTableau;
     }
 
-    public function triDonneesAfficher($listStructure, $listDonnees, $chaineDonnees, $newlistdonnees, $type){
+    public function triDonneesAfficher($listStructure, $listDonnees, $chaineDonnees, $newlistdonnees, $type, $action){
 
         $listDonnees = $this->modification->listAJour($listDonnees);
 
@@ -233,7 +233,10 @@ class ServiceTri{
            $listDonnees = $this->affichage->affichageLien($listStructure, $listDonnees);
         }
 
-        if ($chaineDonnees != null && ($type == 'favoris' || $type == 'boutonFavoris')){
+        if($action == 'rechercher')
+        {
+           return $listDonnees;
+        }elseif($chaineDonnees != null && ($type == 'favoris' || $type == 'boutonFavoris')){
             $tableauDonnees = explode('/', $chaineDonnees);
             for($j = 0; $j < count($listDonnees); $j++){
                 for ($i = 0; $i < count($tableauDonnees); $i++) {

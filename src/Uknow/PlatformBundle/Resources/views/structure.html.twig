@@ -14,7 +14,7 @@
                 </ol>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top: 36px">
             <div class="col-md-9" id="contenu">
                 {% for structure in listStructure %}
                     <a href="{{ path('uknow_platform_recherche_domaine', {
@@ -33,7 +33,7 @@
                 </ol>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top: 36px">
             <div class="col-md-9" id="contenu">
                 {% for structure in listStructure %}
                     <a href="{{ path('uknow_platform_recherche_matiere', {
@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-top: 36px">
             <div class="col-md-9" id="contenu">
                 {% for structure in listStructure %}
                     <a href="{{ path('uknow_platform_recherche_theme', {
@@ -70,7 +70,7 @@
 
 
     {% elseif chapitre == null  %}
-        <div class="row">
+        <div class="row" style="margin-top: 36px">
             <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
                 <ol class="breadcrumb">
                     <li><a href="{{ path('uknow_platform_recherche') }}">Accueil</a></li>
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-top: 36px">
             <div class="col-md-9" id="contenu">
                 {% for structure in listStructure %}
                     <a href="{{ path('uknow_platform_recherche_chapitre', {

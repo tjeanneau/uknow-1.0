@@ -60,7 +60,6 @@ header
 {
     position: relative;
     text-align: center;
-    margin-top: 36px;
 }
 
 #bulle
@@ -168,5 +167,13 @@ h5
     background: #F5F5F5;
     overflow-y: scroll;
     margin-bottom: 25px;
+}
+
+.titre
+{
+    padding: 8px 15px;
+    list-style: none;
+    background-color: #f5f5f5;
+    width: 100%;
 }
 

@@ -18,7 +18,7 @@ uknow_platform_favoris:
     path:     /{action}
     defaults: { _controller: UknowPlatformBundle:Donnees:favoris}
     requirements:
-        action: mes_cours|mes_exercices|actualites
+        action: mes_cours|mes_exercices|actualites|rechercher
 
 uknow_platform_recherche:
     path:     /recherche

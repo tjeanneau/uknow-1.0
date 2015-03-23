@@ -14,11 +14,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AjaxController extends Controller{
 
-    public function autocompletionAction(){
+    public function autocompletionAction(Request $request){
 
         $donneesEnvoyee = array();
         $servicesRecherche = $this->container->get('uknow_platform.recherche');
-        $request = Request::createFromGlobals();
         $lettres = $request->query->get('lettres');
 
         if ($this->container->get('request')->isXmlHttpRequest()) {

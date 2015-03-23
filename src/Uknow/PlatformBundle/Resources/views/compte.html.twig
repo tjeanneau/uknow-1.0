@@ -6,8 +6,12 @@
 
 {% block contenu %}
     <div class="row">
+        <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+            <div class="titre">Compte</div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 36px">
         <div class="col-md-9">
-            <h3>Mon profil: </h3>
             <strong>Adresse Mail :</strong> {{ profil.email }}
             <br/>
             <a href="{{ path('fos_user_security_logout') }}">Se déconnecter ?</a>

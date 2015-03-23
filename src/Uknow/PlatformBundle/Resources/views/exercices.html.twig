@@ -6,8 +6,12 @@
 
 {% block contenu %}
     <div class="row">
+        <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+            <div class="titre">Mes Exercices</div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 36px">
         <div class="col-md-9">
-            <h3>Mes Exercices</h3>
             {%  if listDonnees == null %}
                 <h4>Vous n'avez pas encore enregistré d'exercices.<br/> Mais vous pouvez <em><a href="{{ path('uknow_platform_recherche') }}">en trouver ici</a></em> !</h4>
             {% else %}
@@ -15,10 +19,7 @@
                     <form method="post" action="{{ path('uknow_platform_favoris', {'action': 'mes_exercices'})}}">
                         <input type="hidden" name="valeur" value="{{ loop.index }}">
 
-                        <div id="donnee{{ loop.index }}"
-                             class ="donnee"
-                             onclick="selectionner('{{ loop.index }}','bouton{{ loop.index }}','enregistrer{{ loop.index }}','ajour{{ loop.index }}')"
-                             onmouseover="main('donnee{{ loop.index }}')">
+                        <div id="donnee{{ loop.index }}" class ="donnee">
                             <h5 class="null">{{ donnees.titre }}<br/></h5>
 
                             <span id="enregistrer{{ loop.index }}">
