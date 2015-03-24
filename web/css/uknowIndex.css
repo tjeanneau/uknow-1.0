@@ -59,6 +59,7 @@ header
 {
     text-align: center;
     height: 100%;
+    padding:0;
 }
 
 .strut, #content {
@@ -73,7 +74,7 @@ header
 {
     height: auto;
     width: auto;
-    max-width: 90%;
+    max-width: 99%;
 }
 
 .bulleFirst
@@ -101,7 +102,7 @@ header
 .bulleCadreFirst
 {
     width: 300px;
-    margin: 8% 0;
+    margin: 8% 4%;
     vertical-align: middle;
     display:inline-block;
     text-align: center;
@@ -149,6 +150,12 @@ header
 {
     display: inline-block;
     margin-top: 10px;
+}
+
+.bulleFirst:focus,
+.bulle:focus
+{
+    outline: none;
 }
 
 #btn-rd
@@ -206,6 +213,14 @@ h5
     width: 100%;
     text-align: left;
     margin: 0;
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    -moz-transition-property: background-color, color;
+    -moz-transition-duration: 250ms;
+    -webkit-transition-property: background-color, color;
+    -webkit-transition-duration: 250ms;
+    -o-transition-property: background-color, color;
+    -o-transition-duration: 250ms;
 }
 
 .blockDonnee:hover

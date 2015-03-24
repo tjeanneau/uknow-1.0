@@ -6,11 +6,27 @@
 
 .donnee
 {
-    border-radius: 5px;
+    width: 230px;
     background-color: #f5f5f5;
-    padding: 10px;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin: 10px;
+    display: inline-block;
+}
+
+h5.titre
+{
+    background-color: #555;
+    color: #ffffff;
+    height: 100px;
+}
+
+#btn-rd-eva
+{
+    height: 32px;
+    border-radius: 16px;
+    padding: 3px 7px;
+    color: #fff;
+    font-size: 0.9em;
+    text-align: center;
 }
 
 .bouton
@@ -33,21 +49,29 @@
     margin-right: 10px;
 }
 
-#details
-{
-    display: inline-block;
-    float: right;
-}
-
 #textedonnee
 {
     border: 1px solid black;
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
+    display: none;
 }
 
 #temps
 {
     float: right;
+    font-size: 1.0em;
+
+}
+
+#ajour
+{
+    float: left;
+    font-size: 1.0em;
+}
+
+#fiable
+{
+    font-size: 1.0em;
 }

@@ -5,29 +5,25 @@
 {% block title %}Actualités{% endblock %}
 
 {% block contenu %}
-    <div class="row">
+    <div class="row" xmlns="http://www.w3.org/1999/html">
         <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
             <div class="titre">Actualités</div>
         </div>
     </div>
     <div class="row" style="margin-top: 36px">
-        <div class="col-md-9">
+        <div class="col-md-9" style="padding: 10px; text-align: center">
             {%  if listDonnees == null %}
                 <h4>Il n'y a pas d'actualités car vous ne suivez pas encours de cours ou d'exercices.<br/> Mais vous pouvez <em><a href="{{ path('uknow_platform_recherche')}}">en trouver ici</a></em> !</h4>
             {% else %}
                 {% for donnees in listDonnees %}
-                    <form method="post" action="{{ path('uknow_platform_favoris', {'action': 'actualites'})}}">
-                        <input type="hidden" name="valeur" value="{{ loop.index }}">
+                    <div id="donnee{{ loop.index }}" class="donnee">
+                        <form method="post" action="{{ path('uknow_platform_favoris', {'action': 'actualites'})}}">
+                            <input type="hidden" name="valeur" value="{{ loop.index }}">
 
-                        <div id="donnee{{ loop.index }}"
-                             class ="donnee"
-                             onclick="selectionner('{{ loop.index }}','bouton{{ loop.index }}','enregistrer{{ loop.index }}','ajour{{ loop.index }}')"
-                             onmouseover="main('donnee{{ loop.index }}')">
-                            <h5 class="null">{{ donnees.titre }}<br/></h5>
 
-                            <span id="enregistrer{{ loop.index }}">
-                                <input type="submit" name="bouton" value="Enlever">
-                            </span>
+                            <h5 class="titre">{{ donnees.titre }}<br/></h5>
+
+
                             <span id="details">
                                     {{ donnees.matiere }}: {{ donnees.type }}: Niveau {{ donnees.niveau }}
                             </span>
@@ -38,32 +34,51 @@
                                 </div>
                             </div>
 
-                            <h6 class="null" id="ajour{{ loop.index }}">Dernière mise à jour: {{ donnees.date|date("d/m/Y") }}</h6>
-                            <div id="bouton{{ loop.index }}">
-                                <div class="null">
-                                    {% if tableauEvaluation[loop.index0] == 1 %}
-                                        <div class="jugement">C'est à développer.</div>
-                                        Pertinence : {{ donnees.positive }}, à développer: {{ donnees.negative }},
-                                    {% elseif tableauEvaluation[loop.index0] == 2 %}
-                                        <div class="jugement">C'est pertinent !</div>
-                                        Pertinence : {{ donnees.positive }}, à développer: {{ donnees.negative }}
-                                    {% else %}
-                                        <input type="submit" name="bouton" value="Pertinent">: {{ donnees.positive }},
-                                        <input type="submit" name="bouton" value="A développer">: {{ donnees.negative }},
-                                    {% endif %}
-                                    <input type="submit" name="bouton" value="Modifier">
-                                    <input type="submit" name="bouton" value="Modifications">
-                                </div>
-                            </div>
-                            <br/>
-                            <div class="null">Fiabilité: {{ donnees.fiabilite }}%</div>
+                            <h6 class="null" id="ajour">{{ donnees.date|date("d/m/Y") }}</h6>
+
+                            <div class="null" id="fiable">{{ donnees.fiabilite }}%</div>
+
                             {% if donnees.type == 'Cours' %}
-                                <div class="null" id="temps">Temps d'apprentissage: {{ donnees.temps }} minutes.</div>
+                                <div class="null" id="temps">{{ donnees.temps }} minutes.</div>
                             {% else %}
-                                <div class="null" id="temps">Temps de réalisation: {{ donnees.temps }} minutes.</div>
+                                <div class="null" id="temps">{{ donnees.temps }} minutes.</div>
                             {% endif %}
-                        </div>
-                    </form>
+
+                            {% if tableauEvaluation[loop.index0] == 1 %}
+                                <button name="bouton" value="Pertinent" class="btn btn-success" id="btn-rd-eva">
+                                    <span class="badge text-success">{{ donnees.positive }}</span>
+                                </button>
+                                <button name="bouton" value="A développer" class="btn btn-warning" id="btn-rd-eva">A développer
+                                    <span class="badge text-warning">{{ donnees.negative }}</span>
+                                </button>
+                            {% elseif tableauEvaluation[loop.index0] == 2 %}
+                                <div class="text-success" id="btn-rd-eva">Pertinent
+                                    <span class="badge text-success">{{ donnees.positive }}</span>
+                                </div>
+                                <div class="text-warning" id="btn-rd-eva">
+                                    <span class="badge text-warning">{{ donnees.negative }}</span>
+                                </div>
+                            {% else %}
+                                <button type="submit" name="bouton" value="Pertinent" class="btn btn-success" id="btn-rd-eva">Pertinent
+                                    <span class="badge text-success">{{ donnees.positive }}</span>
+                                </button>
+                                <button type="submit" name="bouton" value="A développer" class="btn btn-warning" id="btn-rd-eva">A développer
+                                    <span class="badge text-warning">{{ donnees.negative }}</span>
+                                </button>
+                            {% endif %}
+                                <button type="submit" name="bouton" value="Modifier" class="btn btn-default" id="btn-rd">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                </button>
+                                <button type="submit" name="bouton" value="Modifications" class="btn btn-default" id="btn-rd">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </button>
+                                <span id="enregistrer{{ loop.index }}">
+                                    <button type="submit" name="bouton" value="Enlever" class="btn btn-default" id="btn-rd">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                        </form>
+                    </div>
                 {% endfor %}
             {% endif %}
         </div>
