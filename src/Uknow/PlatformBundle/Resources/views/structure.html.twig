@@ -14,13 +14,16 @@
                 </ol>
             </div>
         </div>
-        <div class="row" style="margin-top: 36px">
+        <div class="row" style="margin-top: 36px; height: 100%">
             <div class="col-md-9" id="contenu">
-                {% for structure in listStructure %}
-                    <a href="{{ path('uknow_platform_recherche_domaine', {
-                        'domaine': structure.domaineLien
-                    }) }}"><button type="button" class="btn btn-primary" id="bulle">{{ structure.domaine }}</button></a>
-                {% endfor %}
+                <div class="strut"></div>
+                <div id="content">
+                    {% for structure in listStructure %}
+                        <a href="{{ path('uknow_platform_recherche_domaine', {
+                            'domaine': structure.domaineLien
+                        }) }}"><button type="button" class="bulleFirst">{{ structure.domaine }}</button></a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
@@ -33,14 +36,17 @@
                 </ol>
             </div>
         </div>
-        <div class="row" style="margin-top: 36px">
+        <div class="row" style="margin-top: 36px; height: 100%">
             <div class="col-md-9" id="contenu">
-                {% for structure in listStructure %}
-                    <a href="{{ path('uknow_platform_recherche_matiere', {
-                        'domaine': structure.domaineLien,
-                        'matiere': structure.matiereLien
-                    }) }}"><button type="button" class="btn btn-primary" id="bulle">{{ structure.matiere }}</button></a>
-                {% endfor %}
+                <div class="strut"></div>
+                <div id="content">
+                    {% for structure in listStructure %}
+                        <a href="{{ path('uknow_platform_recherche_matiere', {
+                            'domaine': structure.domaineLien,
+                            'matiere': structure.matiereLien
+                        }) }}"><button type="button" class="bulle">{{ structure.matiere }}</button></a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
@@ -56,15 +62,18 @@
             </div>
         </div>
 
-        <div class="row" style="margin-top: 36px">
+        <div class="row" style="margin-top: 36px; height: 100%">
             <div class="col-md-9" id="contenu">
-                {% for structure in listStructure %}
-                    <a href="{{ path('uknow_platform_recherche_theme', {
-                        'domaine': structure.domaineLien,
-                        'matiere': structure.matiereLien,
-                        'theme': structure.themeLien
-                    }) }}"><button type="button" class="btn btn-primary" id="bulle">{{ structure.theme }}</button></a>
-                {% endfor %}
+                <div class="strut"></div>
+                <div id="content">
+                    {% for structure in listStructure %}
+                        <a href="{{ path('uknow_platform_recherche_theme', {
+                            'domaine': structure.domaineLien,
+                            'matiere': structure.matiereLien,
+                            'theme': structure.themeLien
+                        }) }}"><button type="button" class="bulle">{{ structure.theme }}</button></a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
@@ -81,16 +90,19 @@
             </div>
         </div>
 
-        <div class="row" style="margin-top: 36px">
+        <div class="row" style="margin-top: 36px; height: 100%">
             <div class="col-md-9" id="contenu">
-                {% for structure in listStructure %}
-                    <a href="{{ path('uknow_platform_recherche_chapitre', {
-                        'domaine': structure.domaineLien,
-                        'matiere': structure.matiereLien,
-                        'theme': structure.themeLien,
-                        'chapitre': structure.chapitreLien
-                    }) }}"><button type="button" class="btn btn-primary" id="bulle">{{ structure.chapitre }}</button></a>
-                {% endfor %}
+                <div class="strut"></div>
+                <div id="content">
+                    {% for structure in listStructure %}
+                        <a href="{{ path('uknow_platform_recherche_chapitre', {
+                            'domaine': structure.domaineLien,
+                            'matiere': structure.matiereLien,
+                            'theme': structure.themeLien,
+                            'chapitre': structure.chapitreLien
+                        }) }}"><button type="button" class="bulle">{{ structure.chapitre }}</button></a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     {% endif %}

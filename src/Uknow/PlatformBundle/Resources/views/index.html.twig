@@ -16,7 +16,7 @@
         <title>{% block title %}Uknow{% endblock %}</title>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid" style="height: 100%">
             <header class="row">
                 <div class="col-md-offset-1 col-md-1" style="text-align: center">
                     <a href="{{ path('uknow_platform_recherche')}}" class="lienBouton">
@@ -26,21 +26,28 @@
                     </a>
                 </div>
 
-                <div class="col-md-offset-1 col-md-4" id="barre" style="font-family: 'Open Sans', sans-serif; font-weight: 400">
-                    {{ form_start(formRecherche, {'action': path('uknow_platform_favoris', {'action' : 'rechercher'})}) }}
-                        <div class="input-group">
-                            {{ form_errors(formRecherche.recherche) }}
-                            {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control', 'autocomplete': 'off'}}) }}
-                            <span class="input-group-btn">
-                                <button id="lancerRecherche" class="btn btn-default" type="submit" data-href="">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>
+                <div class="col-md-6" style="padding: 0">
+                    <div class="barre">
+                        {{ form_start(formRecherche, {'action': path('uknow_platform_favoris', {'action' : 'rechercher'})}) }}
+                            <div class="input-group">
+                                {{ form_errors(formRecherche.recherche) }}
+                                {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control', 'autocomplete': 'off'}}) }}
+                                <span class="input-group-btn">
+                                    <button id="lancerRecherche" class="btn btn-default" type="submit" data-href="">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        {{ form_end(formRecherche) }}
+                    </div>
+                    <div class="ensemble">
+                        <div class="scrollbar" id="resultats_recherche">
+                            <div class="force-overflow" id="donnees" style="font-family: 'Open Sans', sans-serif; font-weight: 400"></div>
                         </div>
-                    {{ form_end(formRecherche) }}
+                    </div>
                 </div>
 
-                <div class="col-md-offset-1 col-md-3" style="text-align: center">
+                <div class="col-md-3" style="text-align: center">
                     <a href="{{ path('uknow_platform_favoris', {'action': 'actualites'})}}" class="lienBouton">
                         <button class="btn btn-default" id="btn-rd">
                             <span class="glyphicon glyphicon-globe"></span>
@@ -72,19 +79,12 @@
                     </a>
                 </div>
             </header>
-            <div class="row">
-                <div class="col-md-offset-2 col-md-6">
-                    <div id="bloqueOmbre"></div>
-                    <div class="scrollbar" id="resultats_recherche">
-                        <div class="force-overflow" id="donnees" style="font-family: 'Open Sans', sans-serif; font-weight: 400"></div>
-                    </div>
-                </div>
-            </div>
 
             <div style="
             margin-top: 54px;
             font-family: 'Open Sans', sans-serif;
             font-weight: 400;
+            height: calc(100% - 125px);
             ">
                 {% block contenu %}
                 {% endblock %}
@@ -120,6 +120,7 @@
         '@bootstrap_js'
         'js/uknowAjouter.js'
         'js/uknowRecherche.js'
+        'js/uknowStructure.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
