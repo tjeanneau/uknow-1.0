@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f96ba57-0716-4b09-b8d6-8e12cbbea2fb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/uknowStructure.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/AjaxController.php" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/AjaxController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceTri.php" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceTri.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/StructureController.php" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/StructureController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/structure.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/structure.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/uknowIndex.css" afterPath="$PROJECT_DIR$/web/css/uknowIndex.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/uknowRecherche.js" afterPath="$PROJECT_DIR$/web/js/uknowRecherche.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Uknow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,59 +55,47 @@
       <file leaf-file-name="structure.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/structure.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="2052">
-              <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
+            <state vertical-scroll-proportion="-22.333334" vertical-offset="1341" max-vertical-offset="2232">
+              <caret line="108" column="61" selection-start-line="108" selection-start-column="61" selection-end-line="108" selection-end-column="61" />
               <folding>
                 <element signature="e#500#538#0#HTML" expanded="true" />
-                <element signature="e#1155#1202#0#HTML" expanded="true" />
-                <element signature="e#1478#1516#0#HTML" expanded="true" />
-                <element signature="e#2190#2237#0#HTML" expanded="true" />
-                <element signature="e#2645#2683#0#HTML" expanded="true" />
-                <element signature="e#3379#3403#0#HTML" expanded="true" />
-                <element signature="e#3439#3486#0#HTML" expanded="true" />
-                <element signature="e#4045#4083#0#HTML" expanded="true" />
+                <element signature="e#1236#1283#0#HTML" expanded="true" />
+                <element signature="e#1559#1597#0#HTML" expanded="true" />
+                <element signature="e#2347#2394#0#HTML" expanded="true" />
+                <element signature="e#2802#2840#0#HTML" expanded="true" />
+                <element signature="e#3612#3636#0#HTML" expanded="true" />
+                <element signature="e#3672#3719#0#HTML" expanded="true" />
+                <element signature="e#4278#4316#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uknowIndex.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StructureController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/StructureController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="17.851852" vertical-offset="950" max-vertical-offset="1962">
+              <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceTri.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceTri.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8181818" vertical-offset="5679" max-vertical-offset="6570">
+              <caret line="361" column="9" selection-start-line="361" selection-start-column="9" selection-end-line="361" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uknowIndex.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/uknowIndex.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5359828" vertical-offset="1751" max-vertical-offset="4356">
-              <caret line="125" column="18" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uknowRecherche.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/uknowRecherche.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666">
-              <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uknowStructure.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/uknowStructure.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uknowDonnees.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/uknowDonnees.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1679" max-vertical-offset="4770">
+              <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -146,7 +129,6 @@
         <option value="$PROJECT_DIR$/web/json/donneesRecherche.json" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Ajax/test.php" />
         <option value="$PROJECT_DIR$/web/js/uknowRechercher.js" />
-        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/StructureController.php" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Form/AjoutType.php" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/config/doctrine/Donnees.orm.yml" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Entity/Donnees.php" />
@@ -167,7 +149,6 @@
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/exercices.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Form/RechercheType.php" />
-        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceTri.php" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/DonneesController.php" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceRecherche.php" />
@@ -175,8 +156,10 @@
         <option value="$PROJECT_DIR$/vendor/twitter/bootstrap/dist/css/bootstrap-theme.css" />
         <option value="$PROJECT_DIR$/web/js/uknowStructure.js" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/StructureController.php" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/structure.html.twig" />
         <option value="$PROJECT_DIR$/web/css/uknowIndex.css" />
+        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceTri.php" />
       </list>
     </option>
   </component>
@@ -373,6 +356,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlatformBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -404,6 +413,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlatformBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -591,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/StructureController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0" vertical-offset="990" max-vertical-offset="1980">
-          <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Form/AjoutType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-29.333334" vertical-offset="1692" max-vertical-offset="2880">
@@ -740,6 +768,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="450">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="20" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -747,6 +776,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.386681" vertical-offset="0" max-vertical-offset="954">
           <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -793,13 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceTri.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-43.333332" vertical-offset="3780" max-vertical-offset="5958">
-          <caret line="280" column="18" selection-start-line="280" selection-start-column="18" selection-end-line="280" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Form/RechercheType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="576">
@@ -811,6 +834,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8141593" vertical-offset="1442" max-vertical-offset="2862">
           <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
+          <folding>
+            <element signature="e#6#86#0#PHP" expanded="false" />
+            <element signature="e#130#184#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -888,14 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6666667" vertical-offset="252" max-vertical-offset="1764">
-          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-27.333334" vertical-offset="810" max-vertical-offset="2412">
@@ -906,27 +925,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/structure.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="2052">
-          <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
-          <folding>
-            <element signature="e#500#538#0#HTML" expanded="true" />
-            <element signature="e#1155#1202#0#HTML" expanded="true" />
-            <element signature="e#1478#1516#0#HTML" expanded="true" />
-            <element signature="e#2190#2237#0#HTML" expanded="true" />
-            <element signature="e#2645#2683#0#HTML" expanded="true" />
-            <element signature="e#3379#3403#0#HTML" expanded="true" />
-            <element signature="e#3439#3486#0#HTML" expanded="true" />
-            <element signature="e#4045#4083#0#HTML" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-2.6666667" vertical-offset="252" max-vertical-offset="1764">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/uknowIndex.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5359828" vertical-offset="1751" max-vertical-offset="4356">
-          <caret line="125" column="18" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1679" max-vertical-offset="4770">
+          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/structure.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.333334" vertical-offset="1341" max-vertical-offset="2232">
+          <caret line="108" column="61" selection-start-line="108" selection-start-column="61" selection-end-line="108" selection-end-column="61" />
+          <folding>
+            <element signature="e#500#538#0#HTML" expanded="true" />
+            <element signature="e#1236#1283#0#HTML" expanded="true" />
+            <element signature="e#1559#1597#0#HTML" expanded="true" />
+            <element signature="e#2347#2394#0#HTML" expanded="true" />
+            <element signature="e#2802#2840#0#HTML" expanded="true" />
+            <element signature="e#3612#3636#0#HTML" expanded="true" />
+            <element signature="e#3672#3719#0#HTML" expanded="true" />
+            <element signature="e#4278#4316#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/StructureController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="17.851852" vertical-offset="950" max-vertical-offset="1962">
+          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceTri.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8181818" vertical-offset="5679" max-vertical-offset="6570">
+          <caret line="361" column="9" selection-start-line="361" selection-start-column="9" selection-end-line="361" selection-end-column="9" />
           <folding />
         </state>
       </provider>

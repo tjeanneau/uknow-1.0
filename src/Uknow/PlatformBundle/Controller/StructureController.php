@@ -26,13 +26,13 @@ class StructureController extends Controller
         $titreMatiereLien = null;
         $titreTheme = null;
         $titreAffichage = null;
+        $tableauBadge = array();
         $servicesTri = $this->container->get('uknow_platform.tri');
         $servicesRecherche = $this->container->get('uknow_platform.recherche');
         $servicesQuestion = $this->container->get('uknow_platform.question');
         $formQuestion = $servicesQuestion->initialisationQuestion($this);
         $formRecherche = $servicesRecherche->initialisationRecherche($this);
         $em = $this->getDoctrine()->getManager();
-        $donneeRecherche = '';
 
 
         // Initialisation des bases de données à utiliser
@@ -73,6 +73,7 @@ class StructureController extends Controller
             if($matiere != null){
                 if($theme != null){
                     $listStructure = $servicesTri->triChapitre($listStructure, $domaine, $matiere, $theme, 'structure');
+                    $tableauBadge = $servicesTri->triDonneesList($listStructure, $listDonnees);
                 }else {
                     $listStructure = $servicesTri->triTheme($listStructure, $domaine, $matiere, 'structure');
                 }
@@ -105,6 +106,7 @@ class StructureController extends Controller
             'chapitre' => $chapitre,
             'listQuestion' => $listQuestion,
             'listStructure' => $listStructure,
+            'tableauBadge' => $tableauBadge
             ));
     }
 }

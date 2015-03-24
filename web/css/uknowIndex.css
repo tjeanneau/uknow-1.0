@@ -80,7 +80,7 @@ header
 {
     height: 130px;
     width: 130px;
-    margin: 5% 8%;
+    padding: 10px;
     border-radius: 65px;
     border-style: hidden;
     display:inline-block;
@@ -88,44 +88,67 @@ header
     color:#ffffff;
     font-size: 1.0em;
     vertical-align: middle;
-    transition-property: background-color, color, font-size;
+    transition-property: background-color, color, font-size, width;
     transition-duration: 500ms;
-    -moz-transition-property: background-color, color, font-size;
+    -moz-transition-property: background-color, color, font-size, width;
     -moz-transition-duration: 500ms;
-    -webkit-transition-property: background-color, color, font-size;
+    -webkit-transition-property: background-color, color, font-size, width;
     -webkit-transition-duration: 500ms;
-    -o-transition-property: background-color, color, font-size;
+    -o-transition-property: background-color, color, font-size, width;
     -o-transition-duration: 500ms;
+}
+
+.bulleCadreFirst
+{
+    width: 300px;
+    margin: 8% 0;
+    vertical-align: middle;
+    display:inline-block;
+    text-align: center;
+}
+
+.bulleCadre
+{
+    vertical-align: middle;
+    display:inline-block;
+    text-align: center;
+    width: 280px;
+    margin: 8% 0;
 }
 
 .bulle
 {
     height: 130px;
     width: 130px;
-    margin: 8%;
+    padding: 10px;
     border-radius: 65px;
     border-style: hidden;
-    display:inline-block;
     background-color: #065DB0;
     color:#ffffff;
     font-size: 1.0em;
-    vertical-align: middle;
-    transition-property: background-color, color, font-size;
+    transition-property: background-color, color, font-size, width;
     transition-duration: 500ms;
-    -moz-transition-property: background-color, color, font-size;
+    -moz-transition-property: background-color, color, font-size, width;
     -moz-transition-duration: 500ms;
-    -webkit-transition-property: background-color, color, font-size;
+    -webkit-transition-property: background-color, color, font-size, width;
     -webkit-transition-duration: 500ms;
-    -o-transition-property: background-color, color, font-size;
+    -o-transition-property: background-color, color, font-size, width;
     -o-transition-duration: 500ms;
 }
 
 .bulleFirst:hover,
 .bulle:hover
 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     background-color: #ffffff;
     color: #555;
+    width: 100%;
+}
+
+#badge
+{
+    display: inline-block;
+    margin-top: 10px;
 }
 
 #btn-rd

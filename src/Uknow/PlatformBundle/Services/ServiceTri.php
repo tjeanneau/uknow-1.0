@@ -324,8 +324,42 @@ class ServiceTri{
             }
         }
 
-
-
         return $listDonneesTriee;
+    }
+
+    public function triDonneesList($listStructure, $listDonnee){
+
+        $nombreDonnees = array();
+        $aJourDonnees = array();
+        $exist = false;
+
+        for( $i = 0 ; $i < count($listStructure) ; $i++){
+            $nombreDonnees[$i] = 0;
+            for( $j = 0 ; $j < count($listDonnee) ; $j++){
+                if($listStructure[$i]->getDomaineLien() == $listDonnee[$j]->getDomaine()
+                && $listStructure[$i]->getMatiereLien() == $listDonnee[$j]->getMatiere()
+                && $listStructure[$i]->getThemeLien() == $listDonnee[$j]->getTheme()
+                && $listStructure[$i]->getChapitreLien() == $listDonnee[$j]->getChapitre()){
+                    if($j == 0){
+                        $aJourDonnees[] = $listDonnee[$j];
+                    }
+                    for($k = 0 ; $k < count($aJourDonnees); $k++){
+                        if($aJourDonnees[$k]->getDomaine() == $listDonnee[$j]->getDomaine()
+                        && $aJourDonnees[$k]->getMatiere() == $listDonnee[$j]->getMatiere()
+                        && $aJourDonnees[$k]->getTheme() == $listDonnee[$j]->getTheme()
+                        && $aJourDonnees[$k]->getChapitre() == $listDonnee[$j]->getChapitre()
+                        && $aJourDonnees[$k]->getTitre() == $listDonnee[$j]->getTitre()){
+                            $exist = true;
+                        }
+                    }
+                    if($exist == false){
+                        $aJourDonnees[] = $listDonnee[$j];
+                        $nombreDonnees[$i] = $nombreDonnees[$i] + 1;
+                    }
+                    $exist = false;
+                }
+            }
+        }
+        return $nombreDonnees;
     }
 }
