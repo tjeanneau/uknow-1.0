@@ -6,9 +6,9 @@
 
 .donnee
 {
-    width: 230px;
+    width: 240px;
     background-color: #f5f5f5;
-    margin: 10px;
+    margin: 15px;
     display: inline-block;
 }
 
@@ -16,7 +16,24 @@ h5.titre
 {
     background-color: #555;
     color: #ffffff;
-    height: 100px;
+    height: 180px;
+    padding-top: 80px;
+    font-size: 1.4em;
+    transition-property: background-color, color;
+    transition-duration: 500ms;
+    -moz-transition-property: background-color, color;
+    -moz-transition-duration: 500ms;
+    -webkit-transition-property: background-color, color;
+    -webkit-transition-duration: 500ms;
+    -o-transition-property: background-color, color;
+    -o-transition-duration: 500ms;
+}
+
+h5.titre:hover
+{
+    background-color: #ffffff;
+    color: #555;
+    cursor: pointer;
 }
 
 #btn-rd-eva
@@ -26,19 +43,12 @@ h5.titre
     padding: 3px 7px;
     color: #fff;
     font-size: 0.9em;
-    text-align: center;
 }
 
 .bouton
 {
     display: inline-block;
     float:right;
-}
-
-.lien
-{
-    text-align: center;
-    font-style: italic;
 }
 
 .jugement
@@ -62,16 +72,56 @@ h5.titre
 {
     float: right;
     font-size: 1.0em;
-
-}
-
-#ajour
-{
-    float: left;
-    font-size: 1.0em;
+    height: 40px;
+    padding: 10px;
 }
 
 #fiable
 {
     font-size: 1.0em;
+    font-weight: bold;
+    height: 40px;
+    padding: 10px;
 }
+
+#inutile, #pertinent,#developper
+{
+    height: 40px;
+    padding: 9px;
+    color:#ffffff;
+    font-weight: bold;
+}
+
+#pertinent
+{
+    background-color: #5cb85c;
+}
+
+#developper
+{
+    background-color: #f0ad4e;
+}
+
+#inutile
+{
+    background-color: #d9534f;
+}
+
+#modifier,#modification,#enregistrer
+{
+    background-color: #f5f5f5;
+    border: 0;
+    height: 40px;
+}
+
+#modifier:hover,#modification:hover,#enregistrer:hover
+{
+    background-color: #555;
+    color:#ffffff;
+}
+
+#modifier:focus,#modification:focus,#enregistrer:focus
+{
+    outline: none;
+}
+

@@ -6,7 +6,7 @@
 
 {% block contenu %}
     <div class="row">
-        <div class="col-md-9" style="padding: 0">
+        <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
             <ol class="breadcrumb">
                 <li><a href="{{ path('uknow_platform_recherche')}}">Accueil</a></li>
                 <li><a href="{{ path('uknow_platform_recherche_domaine', {'domaine': domaine }) }}">{{ titreDomaine }}</a></li>
@@ -17,50 +17,40 @@
         </div>
     </div>
     <div class="row" style="margin-top: 36px">
-        <div class="col-md-9">
+        <div class="col-md-9" style="padding: 15px; text-align: center">
             {%  if listDonnees == null %}
                 <h4>Il n'existe pas de cours pour cette section.<br/> Mais vous pouvez <em><a href="{{ path('uknow_platform_ajouter') }}">en créer un</a></em> !</h4>
             {% else %}
                 {% for donnees in listDonnees %}
-                    <form method="post" action="{{ path('uknow_platform_recherche_chapitre',{
-                        'domaine':domaine,
-                        'matiere':matiere,
-                        'theme':theme,
-                        'chapitre':chapitre
-                    })}}">
+                    <div id="donnee{{ loop.index }}" class="donnee">
+                        <form method="post" action="{{ path('uknow_platform_recherche_chapitre',{
+                            'domaine':domaine,
+                            'matiere':matiere,
+                            'theme':theme,
+                            'chapitre':chapitre
+                        })}}">
 
-                        <input type="hidden" name="valeur" value="{{ loop.index }}">
+                            <input type="hidden" name="valeur" value="{{ loop.index }}">
 
-                        <div id="donnee{{ loop.index }}" class ="donnee">
-                            <h5 class="null">{{ donnees.titre }}<br/></h5>
+                            <h5 class="titre">{{ donnees.titre }}<br/></h5>
 
-                            <span id="enregistrer{{ loop.index }}">
-                                    {% if tableauSauvegarde[loop.index0] == 1 %}
-                                            {% if donnees.type == 'Cours' %}
-                                                Déjà suivi
-                                            {% else %}
-                                                Enregistré
-                                            {% endif %}
-                                    {% else %}
-                                        {% if donnees.type == 'Cours' %}
-                                            <input type="submit" name="bouton" value="Suivre">
-                                        {% else %}
-                                            <input type="submit" name="bouton" value="Enregistrer">
-                                        {% endif %}
-                                    {% endif %}
-                            </span>
-                            <span id="details">
-                                {{ donnees.type }}: Niveau {{ donnees.niveau }}
-                            </span>
-
-                            <div id="{{ loop.index }}">
+                            {#<div id="{{ loop.index }}">
                                 <div id="textedonnee">
                                     {{ donnees.texte|raw}}
                                 </div>
+                            </div>#}
+
+                            <div class="row" style="margin:0">
+                                <span id="details">
+                                    {{ donnees.matiere }} : {{ donnees.type }} : {{ donnees.niveau }}
+                                </span>
+                            </div>
+                            <div class="row" style="margin:0">
+                                <div class="col-md-6" id="fiable">{{ donnees.fiabilite }}%</div>
+                                <div class="col-md-6" id="temps">{{ donnees.temps }} minutes</div>
                             </div>
 
-                            <h6 class="null" id="ajour{{ loop.index }}">Dernière mise à jour: {{ donnees.date|date("d/m/Y") }}</h6>
-                            <div id="bouton{{ loop.index }}">
+                            {#<div id="bouton{{ loop.index }}">
                                 <div class="null">
                                     {% if tableauEvaluation[loop.index0] == 1 %}
                                         <div class="jugement">C'est à développer.</div>
@@ -75,16 +65,45 @@
                                     <input type="submit" name="bouton" value="Modifier">
                                     <input type="submit" name="bouton" value="Modifications">
                                 </div>
+                            </div>#}
+
+                        <div class="row" style="margin:0">
+                            <div id="pertinent" class="col-md-2">
+                                {{ donnees.positive }}
                             </div>
-                            <br/>
-                            <div class="null">Fiabilité: {{ donnees.fiabilite }}%</div>
-                            {% if donnees.type == 'Cours' %}
-                                <div class="null" id="temps">Temps d'apprentissage: {{ donnees.temps }} minutes.</div>
-                            {% else %}
-                                <div class="null" id="temps">Temps de réalisation: {{ donnees.temps }} minutes.</div>
-                            {% endif %}
+                            <div id="developper" class="col-md-2">
+                                {{ donnees.negative }}
+                            </div>
+                            <div id="inutile" class="col-md-2">
+                                {{ donnees.negative }}
+                            </div>
+
+                            <button type="submit" name="bouton" value="Modifier" class="col-md-2" id="modifier">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                            <button type="submit" name="bouton" value="Modifications" class="col-md-2" id="modification">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </button>
+                            <span id="enregistrer{{ loop.index }}">
+                                {% if tableauSauvegarde[loop.index0] == 1 %}
+                                    <button type="button" name="bouton" value="Enlever" class="col-md-2" id="enregistrer">
+                                        <span class="glyphicon glyphicon-floppy-saved"></span>
+                                    </button>
+                                {% else %}
+                                    {% if donnees.type == 'Cours' %}
+                                        <button type="submit" name="bouton" value="Suivre" class="col-md-2" id="enregistrer">
+                                            <span class="glyphicon glyphicon-floppy-disk"></span>
+                                        </button>
+                                    {% else %}
+                                        <button type="submit" name="bouton" value="Enregistrer" class="col-md-2" id="enregistrer">
+                                            <span class="glyphicon glyphicon-floppy-disk"></span>
+                                        </button>
+                                    {% endif %}
+                                {% endif %}
+                            </span>
                         </div>
-                    </form>
+                        </form>
+                    </div>
                 {% endfor %}
             {% endif %}
         </div>

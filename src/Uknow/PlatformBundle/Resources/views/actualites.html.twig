@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="row" style="margin-top: 36px">
-        <div class="col-md-9" style="padding: 10px; text-align: center">
+        <div class="col-md-9" style="padding: 15px; text-align: center">
             {%  if listDonnees == null %}
                 <h4>Il n'y a pas d'actualités car vous ne suivez pas encours de cours ou d'exercices.<br/> Mais vous pouvez <em><a href="{{ path('uknow_platform_recherche')}}">en trouver ici</a></em> !</h4>
             {% else %}
@@ -20,63 +20,73 @@
                         <form method="post" action="{{ path('uknow_platform_favoris', {'action': 'actualites'})}}">
                             <input type="hidden" name="valeur" value="{{ loop.index }}">
 
-
                             <h5 class="titre">{{ donnees.titre }}<br/></h5>
 
-
-                            <span id="details">
-                                    {{ donnees.matiere }}: {{ donnees.type }}: Niveau {{ donnees.niveau }}
-                            </span>
-
-                            <div id="{{ loop.index }}">
+                            {#<div id="{{ loop.index }}">
                                 <div id="textedonnee">
                                     {{ donnees.texte|raw}}
                                 </div>
+                            </div>#}
+
+                            <div class="row" style="margin:0">
+                                <span id="details">
+                                        {{ donnees.matiere }} : {{ donnees.type }} : {{ donnees.niveau }}
+                                </span>
+                            </div>
+                            <div class="row" style="margin:0">
+                                <div class="col-md-6" id="fiable">{{ donnees.fiabilite }}%</div>
+                                <div class="col-md-6" id="temps">{{ donnees.temps }} minutes</div>
                             </div>
 
-                            <h6 class="null" id="ajour">{{ donnees.date|date("d/m/Y") }}</h6>
+                                {#
+                                    {% if donnees.type == 'Cours' %}
+                                        <div class="null" id="temps">{{ donnees.temps }} minutes</div>
+                                    {% else %}
+                                        <div class="null" id="temps">{{ donnees.temps }} minutes</div>
+                                    {% endif %}
 
-                            <div class="null" id="fiable">{{ donnees.fiabilite }}%</div>
+                                {% if tableauEvaluation[loop.index0] == 1 %}
+                                    <button name="bouton" value="Pertinent" class="btn btn-success" id="btn-rd-eva">
+                                        <span class="badge text-success">{{ donnees.positive }}</span>
+                                    </button>
+                                    <button name="bouton" value="A développer" class="btn btn-warning" id="btn-rd-eva">A développer
+                                        <span class="badge text-warning">{{ donnees.negative }}</span>
+                                    </button>
+                                {% elseif tableauEvaluation[loop.index0] == 2 %}
+                                    <div class="text-success" id="btn-rd-eva">Pertinent
+                                        <span class="badge text-success">{{ donnees.positive }}</span>
+                                    </div>
+                                    <div class="text-warning" id="btn-rd-eva">
+                                        <span class="badge text-warning">{{ donnees.negative }}</span>
+                                    </div>
+                                {% else %}
 
-                            {% if donnees.type == 'Cours' %}
-                                <div class="null" id="temps">{{ donnees.temps }} minutes.</div>
-                            {% else %}
-                                <div class="null" id="temps">{{ donnees.temps }} minutes.</div>
-                            {% endif %}
+                                {% endif %}
+                                #}
 
-                            {% if tableauEvaluation[loop.index0] == 1 %}
-                                <button name="bouton" value="Pertinent" class="btn btn-success" id="btn-rd-eva">
-                                    <span class="badge text-success">{{ donnees.positive }}</span>
-                                </button>
-                                <button name="bouton" value="A développer" class="btn btn-warning" id="btn-rd-eva">A développer
-                                    <span class="badge text-warning">{{ donnees.negative }}</span>
-                                </button>
-                            {% elseif tableauEvaluation[loop.index0] == 2 %}
-                                <div class="text-success" id="btn-rd-eva">Pertinent
-                                    <span class="badge text-success">{{ donnees.positive }}</span>
+                            <div class="row" style="margin:0">
+                                <div id="pertinent" class="col-md-2">
+                                    {{ donnees.positive }}
                                 </div>
-                                <div class="text-warning" id="btn-rd-eva">
-                                    <span class="badge text-warning">{{ donnees.negative }}</span>
+                                <div id="developper" class="col-md-2">
+                                    {{ donnees.negative }}
                                 </div>
-                            {% else %}
-                                <button type="submit" name="bouton" value="Pertinent" class="btn btn-success" id="btn-rd-eva">Pertinent
-                                    <span class="badge text-success">{{ donnees.positive }}</span>
-                                </button>
-                                <button type="submit" name="bouton" value="A développer" class="btn btn-warning" id="btn-rd-eva">A développer
-                                    <span class="badge text-warning">{{ donnees.negative }}</span>
-                                </button>
-                            {% endif %}
-                                <button type="submit" name="bouton" value="Modifier" class="btn btn-default" id="btn-rd">
+                                <div id="inutile" class="col-md-2">
+                                    {{ donnees.negative }}
+                                </div>
+
+                                <button type="submit" name="bouton" value="Modifier" class="col-md-2" id="modifier">
                                     <span class="glyphicon glyphicon-edit"></span>
                                 </button>
-                                <button type="submit" name="bouton" value="Modifications" class="btn btn-default" id="btn-rd">
+                                <button type="submit" name="bouton" value="Modifications" class="col-md-2" id="modification">
                                     <span class="glyphicon glyphicon-th"></span>
                                 </button>
                                 <span id="enregistrer{{ loop.index }}">
-                                    <button type="submit" name="bouton" value="Enlever" class="btn btn-default" id="btn-rd">
-                                        <span class="glyphicon glyphicon-remove"></span>
+                                    <button type="submit" name="bouton" value="Enlever" class="col-md-2" id="enregistrer">
+                                        <span class="glyphicon glyphicon-floppy-remove"></span>
                                     </button>
                                 </span>
+                            </div>
                         </form>
                     </div>
                 {% endfor %}

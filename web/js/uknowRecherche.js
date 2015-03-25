@@ -7,7 +7,6 @@ $(function(){
     $('#uknow_platformbundle_recherche_recherche').keyup(function(e){
         if(e.which >= 65 && e.which <= 90 || e.which == 222 || e.which == 8 || e.which == 46){
             var lettres = encodeURIComponent($('#uknow_platformbundle_recherche_recherche').val());
-
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost/Uknow/web/app_dev.php/autocompletion?lettres=' + lettres,
@@ -30,5 +29,9 @@ $(function(){
                     alert('La requête n\'a pas abouti'); }
             });
         }
+    }).focusin(function(){
+        $('#resultats_recherche').show(500);
+    }).focusout(function(){
+        $('#resultats_recherche').hide(500);
     });
 });
