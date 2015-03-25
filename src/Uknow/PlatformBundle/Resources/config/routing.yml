@@ -1,47 +1,34 @@
-uknow_platform_ajouter:
-    path:     /ajouter
-    defaults: { _controller: UknowPlatformBundle:Action:ajouter}
-
-uknow_platform_profil:
-    path:     /compte
-    defaults: { _controller: UknowPlatformBundle:Action:compte}
-
-uknow_platform_modifier:
-    path:     /modifier/{id}
-    defaults: { _controller: UknowPlatformBundle:Action:modifier, id: null}
-
-uknow_platform_modification:
-    path:     /modifications/{id}
-    defaults: { _controller: UknowPlatformBundle:Donnees:modifications, id: null}
-
-uknow_platform_favoris:
-    path:     /{action}
-    defaults: { _controller: UknowPlatformBundle:Donnees:favoris}
-    requirements:
-        action: mes_cours|mes_exercices|actualites|rechercher
-
 uknow_platform_recherche:
-    path:     /recherche
-    defaults: { _controller: UknowPlatformBundle:Structure:structure, domaine: null, matiere: null, theme:null, chapitre:null}
+    resource: "@UknowPlatformBundle/Resources/config/routing/recherche.yml"
+    prefix:   /recherche
 
-uknow_platform_recherche_domaine:
-    path:     /recherche/{domaine}
-    defaults: { _controller: UknowPlatformBundle:Structure:structure, matiere: null, theme:null, chapitre:null}
+uknow_platform_actualites:
+    resource: "@UknowPlatformBundle/Resources/config/routing/actualites.yml"
+    prefix:   /actualites
 
-uknow_platform_recherche_matiere:
-    path:     /recherche/{domaine}/{matiere}
-    defaults: { _controller: UknowPlatformBundle:Structure:structure, theme:null, chapitre:null }
+uknow_platform_cartable:
+    resource: "@UknowPlatformBundle/Resources/config/routing/cartable.yml"
+    prefix:   /cartable
 
-uknow_platform_recherche_theme:
-    path:     /recherche/{domaine}/{matiere}/{theme}
-    defaults: { _controller: UknowPlatformBundle:Structure:structure, chapitre:null }
+uknow_platform_ajouter:
+    resource: "@UknowPlatformBundle/Resources/config/routing/ajouter.yml"
+    prefix:   /ajouter
 
-uknow_platform_recherche_chapitre:
-    path:     /recherche/{domaine}/{matiere}/{theme}/{chapitre}
-    defaults: { _controller: UknowPlatformBundle:Donnees:recherche}
+uknow_platform_evaluation:
+    resource: "@UknowPlatformBundle/Resources/config/routing/evaluation.yml"
+    prefix:   /evaluation
 
-uknow_platform_autocompletion:
-    path:     /autocompletion
-    defaults: { _controller: UknowPlatformBundle:Ajax:autocompletion }
+uknow_platform_compte:
+    resource: "@UknowPlatformBundle/Resources/config/routing/compte.yml"
+    prefix:   /compte
+
+uknow_platform_donnees:
+    resource: "@UknowPlatformBundle/Resources/config/routing/donnees.yml"
+    prefix:   /donnees
+
+uknow_platform_ajax:
+    resource: "@UknowPlatformBundle/Resources/config/routing/ajax.yml"
+    prefix:   /ajax
+
 
 

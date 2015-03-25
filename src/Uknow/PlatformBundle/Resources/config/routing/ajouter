@@ -1,0 +1,12 @@
+uknow_platform_ajouter_cours:
+    path:     /cours
+    defaults: { _controller: UknowPlatformBundle:Ajouter:cours}
+    
+uknow_platform_ajouter_exercices:
+    path:     /exercices
+    defaults: { _controller: UknowPlatformBundle:Ajouter:exercices}
+
+uknow_platform_ajouter_correction:
+    path:     /correction
+    defaults: { _controller: UknowPlatformBundle:Ajouter:correction}
+    

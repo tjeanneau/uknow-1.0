@@ -1,0 +1,15 @@
+uknow_platform_cartable_cours:
+    path:     /cours
+    defaults: { _controller: UknowPlatformBundle:Cartable:cours}
+
+uknow_platform_cartable_exercices:
+    path:     /exercices
+    defaults: { _controller: UknowPlatformBundle:Cartable:exercices}
+
+uknow_platform_cartable_matieres:
+    path:     /{matiere}
+    defaults: { _controller: UknowPlatformBundle:Cartable:matiere}
+
+uknow_platform_cartable_niveau:
+    path:     /{niveau}
+    defaults: { _controller: UknowPlatformBundle:Cartable:niveau}

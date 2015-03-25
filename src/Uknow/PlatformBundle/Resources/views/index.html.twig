@@ -28,7 +28,7 @@
 
                 <div class="col-md-6" style="padding: 0">
                     <div class="barre">
-                        {{ form_start(formRecherche, {'action': path('uknow_platform_favoris', {'action' : 'rechercher'})}) }}
+                        {{ form_start(formRecherche, {'action': path('uknow_platform_rechercher', {'action' : 'rechercher'})}) }}
                             <div class="input-group">
                                 {{ form_errors(formRecherche.recherche) }}
                                 {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control', 'autocomplete': 'off'}}) }}
@@ -48,17 +48,29 @@
                 </div>
 
                 <div class="col-md-3" style="text-align: center">
-                    <a href="{{ path('uknow_platform_favoris', {'action': 'actualites'})}}" class="lienBouton">
-                        <button class="btn btn-default" id="btn-rd">
-                            <span class="glyphicon glyphicon-globe"></span>
-                        </button>
-                    </a>
+                        <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+                            <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-globe"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header"> Actualités</li>
+                                <li><a href="{{ path('uknow_platform_actualites', {'action': 'cours'})}}">Cours</a></li>
+                                <li><a href="{{ path('uknow_platform_actualites', {'action': 'exercices'})}}">Exercices</a></li>
+                                <li><a href="{{ path('uknow_platform_actualites', {'action': 'evaluations'})}}">Evaluations</a></li>
+                                <li><a href="{{ path('uknow_platform_actualites', {'action': 'questions'})}}">Questions</a></li>
+                            </ul>
+                        </div>
 
-                    <a href="{{ path('uknow_platform_favoris', {'action': 'mes_cours'})}}" class="lienBouton">
-                        <button class="btn btn-default" id="btn-rd">
+                    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+                        <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-briefcase"></span>
                         </button>
-                    </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header"> Cartable</li>
+                            <li><a href="{{ path('uknow_platform_cartable', {'action': 'cours'})}}">Cours</a></li>
+                            <li><a href="{{ path('uknow_platform_cartable', {'action': 'exercices'})}}">Exercices</a></li>
+                        </ul>
+                    </div>
 
                     <a href="{{ path('uknow_platform_ajouter') }}" class="lienBouton">
                         <button class="btn btn-default" id="btn-rd">
@@ -66,7 +78,7 @@
                         </button>
                     </a>
 
-                    <a href="{{ path('uknow_platform_favoris', {'action': 'mes_exercices'})}}" class="lienBouton">
+                    <a href="{{ path('uknow_platform_evaluation')}}" class="lienBouton">
                         <button class="btn btn-default" id="btn-rd">
                             <span class="glyphicon glyphicon-list-alt"></span>
                         </button>

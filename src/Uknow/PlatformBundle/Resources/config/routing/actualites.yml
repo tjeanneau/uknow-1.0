@@ -1,0 +1,15 @@
+uknow_platform_actualites_cours:
+    path:     /cours
+    defaults: { _controller: UknowPlatformBundle:Actualites:cours}
+
+uknow_platform_actualites_exercices:
+    path:     /exercices
+    defaults: { _controller: UknowPlatformBundle:Actualites:exercices}
+
+uknow_platform_actualites_evaluations:
+    path:     /evaluations
+    defaults: { _controller: UknowPlatformBundle:Actualites:evaluations}
+
+uknow_platform_actualites_questions:
+    path:     /questions
+    defaults: { _controller: UknowPlatformBundle:Actualites:questions}

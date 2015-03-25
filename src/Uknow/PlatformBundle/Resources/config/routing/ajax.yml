@@ -1,0 +1,3 @@
+uknow_platform_ajax_autocompletion:
+    path:     /autocompletion
+    defaults: { _controller: UknowPlatformBundle:Ajax:autocompletion }
