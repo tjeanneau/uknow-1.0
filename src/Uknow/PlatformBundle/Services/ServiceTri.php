@@ -360,4 +360,27 @@ class ServiceTri{
         }
         return $nombreDonnees;
     }
+
+    public function triDoublonsNoms($listNoms){
+
+        $listNomsTriee = array();
+        $exist = false;
+
+        for($i = 0; $i < count($listNoms); $i++){
+            if($i == 0){
+                $listNomsTriee[] = $listNoms[$i];
+            }else{
+                for($j = 0; $j < count($listNomsTriee); $j++){
+                    if($listNoms[$i] == $listNomsTriee[$j]){
+                        $exist = true;
+                    }
+                }
+                if( $exist == false)
+                {
+                    $listNomsTriee[] = $listNoms[$i];
+                }
+                $exist = false;
+            }
+        }
+    }
 }

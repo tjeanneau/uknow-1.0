@@ -1,0 +1,78 @@
+{
+  "matiere": {
+    "litterature": [
+      {
+        "nom": "Allemand",
+        "lien": "allemand"
+      },
+      {
+        "nom": "Anglais",
+        "lien": "anglais"
+      },
+      {
+        "nom": "Education Civique",
+        "lien": "education_civique"
+      },
+      {
+        "nom": "Espagnol",
+        "lien": "espagnol"
+      },
+      {
+        "nom": "Français",
+        "lien": "francais"
+      },
+      {
+        "nom": "Géographie",
+        "lien": "geographie"
+      },
+      {
+        "nom": "Histoire",
+        "lien": "histoire"
+      },
+      {
+        "nom": "Latin",
+        "lien": "latin"
+      }
+    ],
+    "sciences": [
+      {
+        "nom": "Chimie",
+        "lien": "chimie"
+      },
+      {
+        "nom": "Mathématiques",
+        "lien": "mathematiques"
+      },
+      {
+        "nom": "Physique",
+        "lien": "physique"
+      },
+      {
+        "nom": "Sciences et Vie de la Terre",
+        "lien": "svt"
+      },
+      {
+        "nom": "Technologie",
+        "lien": "technologie"
+      }
+    ],
+    "art": [
+      {
+        "nom": "Arts Plastiques",
+        "lien": "arts_plastiques"
+      },
+      {
+        "nom": "Musique",
+        "lien": "musique"
+      },
+      {
+        "nom": "Sport",
+        "lien": "Sport"
+      },
+      {
+        "nom": "Histoire des Arts",
+        "lien": "histoire_des_arts"
+      }
+    ]
+  }
+}

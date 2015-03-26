@@ -1,0 +1,61 @@
+{
+  "theme": {
+    "litterature": {
+      "allemand": [
+
+      ],
+      "anglais": [
+
+      ],
+      "espagnol": [
+
+      ],
+      "francais": [
+
+      ],
+      "histoire": [
+
+      ],
+      "geographie": [
+
+      ],
+      "education_civique": [
+
+      ],
+      "latin": [
+
+      ]
+    },
+    "sciences": {
+      "chimie": [
+
+      ],
+      "mathematiques": [
+
+      ],
+      "physique": [
+
+      ],
+      "svt": [
+
+      ],
+      "technologie": [
+
+      ]
+    },
+    "art": {
+      "arts_plastiques": [
+
+      ],
+      "musique": [
+
+      ],
+      "sport": [
+
+      ],
+      "histoire_des_arts": [
+
+      ]
+    }
+  }
+}

@@ -19,4 +19,4 @@ services:
         class: Uknow\PlatformBundle\Services\ServiceAffichage
     uknow_platform.sauvegarde:
         class: Uknow\PlatformBundle\Services\ServiceSauvegarde
-        arguments: [@uknow_platform.tri]
+        arguments: [@uknow_platform.tri, @uknow_platform.affichage]

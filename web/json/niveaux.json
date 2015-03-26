@@ -1,0 +1,64 @@
+{
+  "niveaux": [
+    {
+      "nom": "Sixième",
+      "lien": "sixieme"
+    },
+    {
+      "nom": "Cinquième",
+      "lien": "cinquieme"
+    },
+    {
+      "nom": "Quatrième",
+      "lien": "quatrieme"
+    },
+    {
+      "nom": "Troisième",
+      "lien": "troisieme"
+    },
+    {
+      "nom": "Seconde",
+      "lien": "Seconde"
+    },
+    {
+      "nom": "Première",
+      "lien": "Première"
+    },
+    {
+      "nom": "Terminale",
+      "lien": "Terminale"
+    },
+    {
+      "nom": "Bac + 1",
+      "lien": "bac+1"
+    },
+    {
+      "nom": "Bac + 2",
+      "lien": "bac+2"
+    },
+    {
+      "nom": "Bac + 3",
+      "lien": "bac+3"
+    },
+    {
+      "nom": "Bac + 4",
+      "lien": "bac+5"
+    },
+    {
+      "nom": "Bac + 5",
+      "lien": "bac+5"
+    },
+    {
+      "nom": "Bac + 6",
+      "lien": "bac+6"
+    },
+    {
+      "nom": "Bac + 7",
+      "lien": "bac+7"
+    },
+    {
+      "nom": "Bac + 8",
+      "lien": "bac+8"
+    }
+  ]
+}

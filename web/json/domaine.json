@@ -1,0 +1,16 @@
+{
+  "domaine": [
+    {
+      "nom": "Littérature",
+      "lien": "litterature"
+    },
+    {
+      "nom": "Sciences",
+      "lien": "sciences"
+    },
+    {
+      "nom": "Art",
+      "lien": "art"
+    }
+  ]
+}

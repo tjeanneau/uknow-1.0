@@ -12,9 +12,11 @@ namespace Uknow\PlatformBundle\Services;
 class ServiceSauvegarde {
 
     private $tri;
+    private $affichage;
 
-    public function __construct($tri){
+    public function __construct($tri, $affichage){
         $this->tri = $tri;
+        $this->affichage = $affichage;
     }
 
     public function matiereSauvegardees($listDonnees, $chaineSauvegardees){
@@ -25,11 +27,25 @@ class ServiceSauvegarde {
         for( $i = 0 ; $i < count($listDonnees) ; $i++){
             $tableauMatiere = $listDonnees[$i]->getMatiere();
         }
+        $tableauMatiere = $this->tri->triDoublonsNoms($tableauMatiere);
+        $tableauMatiere = $this->affichage->tableauNomLien($tableauMatiere);
+
+        return $tableauMatiere;
     }
 
     public function niveauxSauvegardees($listDonnees, $chaineSauvegardees){
 
         $listDonnees = $this->tri->triDonneesSauvegardees($listDonnees, $chaineSauvegardees);
+
+        $tableauNiveaux = array();
+        for( $i = 0 ; $i < count($listDonnees) ; $i++){
+            $tableauNiveaux = $listDonnees[$i]->getNiveaux();
+        }
+
+        $tableauNiveaux = $this->tri->triDoublonsNoms($tableauNiveaux);
+        $tableauNiveaux = $this->affichage->tableauNomLien($tableauNiveaux);
+
+        return $tableauNiveaux;
     }
 
     public function tableauDonneesSauvegardees($listDonnees, $chaineSauvegardees){
