@@ -32,6 +32,10 @@
       {
         "nom": "Latin",
         "lien": "latin"
+      },
+      {
+        "nom": "Histoire des Arts",
+        "lien": "histoire_des_arts"
       }
     ],
     "sciences": [
@@ -54,24 +58,122 @@
       {
         "nom": "Technologie",
         "lien": "technologie"
-      }
+      },
+      {
+        "nom": "Informatique",
+        "lien": "informatique"
+      },
+      {
+        "nom": "Electronique",
+        "lien": "electronique"
+      },
+      {
+        "nom": "Mécanique",
+        "lien": "mecanique"
+      },
+      {
+        "nom": "Biologie",
+        "lien": "biologie"
+      },
     ],
     "art": [
-      {
-        "nom": "Arts Plastiques",
-        "lien": "arts_plastiques"
-      },
       {
         "nom": "Musique",
         "lien": "musique"
       },
       {
-        "nom": "Sport",
-        "lien": "Sport"
+        "nom": "Dessin",
+        "lien": "dessin"
       },
       {
-        "nom": "Histoire des Arts",
-        "lien": "histoire_des_arts"
+        "nom": "Peinture",
+        "lien": "peinture"
+      },
+      {
+        "nom": "Photographie",
+        "lien": "photographie"
+      },
+      {
+        "nom": "Sculpture",
+        "lien": "sculpture"
+      },
+      {
+        "nom": "Architecture",
+        "lien": "architecture"
+      },
+      {
+        "nom": "Théâtre",
+        "lien": "theatre"
+      },
+      {
+        "nom": "Danse",
+        "lien": "danse"
+      },
+      {
+        "nom": "Cinéma",
+        "lien": "cinema"
+      }
+    ],
+    "sport": [
+      {
+        "nom": "Athlétisme",
+        "lien": "athletisme"
+      },
+      {
+        "nom": "Collectif",
+        "lien": "collectif"
+      },
+      {
+        "nom": "Gymnastique",
+        "lien": "gymnastique"
+      },
+      {
+        "nom": "Mécanique",
+        "lien": "mecanique"
+      },
+      {
+        "nom": "Raquette",
+        "lien": "raquette"
+      },
+      {
+        "nom": "Animaux",
+        "lien": "animaux"
+      },
+      {
+        "nom": "Cyclisme",
+        "lien": "cyclisme"
+      },
+      {
+        "nom": "Arts Martiaux",
+        "lien": "arts_martiaux"
+      },
+      {
+        "nom": "Glace",
+        "lien": "glace"
+      },
+      {
+        "nom": "Force",
+        "lien": "force"
+      },
+      {
+        "nom": "Nature",
+        "lien": "nature"
+      },
+      {
+        "nom": "Aériens",
+        "lien": "aeriens"
+      },
+      {
+        "nom": "Cible",
+        "lien": "cible"
+      },
+      {
+        "nom": "Nautiques",
+        "lien": "nautiques"
+      },
+      {
+        "nom": "Glisse",
+        "lien": "glisse"
       }
     ]
   }
