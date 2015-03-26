@@ -17,3 +17,6 @@ services:
         arguments: [@uknow_platform.evaluation]
     uknow_platform.affichage:
         class: Uknow\PlatformBundle\Services\ServiceAffichage
+    uknow_platform.sauvegarde:
+        class: Uknow\PlatformBundle\Services\ServiceSauvegarde
+        arguments: [@uknow_platform.tri]

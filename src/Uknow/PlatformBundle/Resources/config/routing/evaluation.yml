@@ -1,11 +1,19 @@
+uknow_platform_evaluation_exercice:
+    path:     /test
+    defaults: { _controller: UknowPlatformBundle:Evaluation:exercice}
+
 uknow_platform_evaluation_test:
     path:     /test
     defaults: { _controller: UknowPlatformBundle:Evaluation:test}
+
+uknow_platform_evaluation_examen:
+    path:     /test
+    defaults: { _controller: UknowPlatformBundle:Evaluation:examen}
 
 uknow_platform_evaluation_progression:
     path:     /progression
     defaults: { _controller: UknowPlatformBundle:Evaluation:progression}
 
-uknow_platform_evaluation_niveau:
+uknow_platform_evaluation_niveaux:
     path:     /niveaux
     defaults: { _controller: UknowPlatformBundle:Evaluation:niveaux}

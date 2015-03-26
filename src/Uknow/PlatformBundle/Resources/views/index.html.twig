@@ -17,79 +17,11 @@
     </head>
     <body>
         <div class="container-fluid" style="height: 100%">
+
             <header class="row">
-                <div class="col-md-offset-1 col-md-1" style="text-align: center">
-                    <a href="{{ path('uknow_platform_recherche')}}" class="lienBouton">
-                        <button class="btn btn-default" id="btn-rd">
-                            <img src="{{ asset('images/logo-icon-noire-gd.png')}}"/>
-                        </button>
-                    </a>
-                </div>
-
-                <div class="col-md-6" style="padding: 0">
-                    <div class="barre">
-                        {{ form_start(formRecherche, {'action': path('uknow_platform_rechercher', {'action' : 'rechercher'})}) }}
-                            <div class="input-group">
-                                {{ form_errors(formRecherche.recherche) }}
-                                {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control', 'autocomplete': 'off'}}) }}
-                                <span class="input-group-btn">
-                                    <button id="lancerRecherche" class="btn btn-default" type="submit" data-href="">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-                            </div>
-                        {{ form_end(formRecherche) }}
-                    </div>
-                    <div class="ensemble">
-                        <div class="scrollbar" id="resultats_recherche">
-                            <div class="force-overflow" id="donnees" style="font-family: 'Open Sans', sans-serif; font-weight: 400"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3" style="text-align: center">
-                        <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
-                            <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-globe"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-header"> Actualités</li>
-                                <li><a href="{{ path('uknow_platform_actualites', {'action': 'cours'})}}">Cours</a></li>
-                                <li><a href="{{ path('uknow_platform_actualites', {'action': 'exercices'})}}">Exercices</a></li>
-                                <li><a href="{{ path('uknow_platform_actualites', {'action': 'evaluations'})}}">Evaluations</a></li>
-                                <li><a href="{{ path('uknow_platform_actualites', {'action': 'questions'})}}">Questions</a></li>
-                            </ul>
-                        </div>
-
-                    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
-                        <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-briefcase"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header"> Cartable</li>
-                            <li><a href="{{ path('uknow_platform_cartable', {'action': 'cours'})}}">Cours</a></li>
-                            <li><a href="{{ path('uknow_platform_cartable', {'action': 'exercices'})}}">Exercices</a></li>
-                        </ul>
-                    </div>
-
-                    <a href="{{ path('uknow_platform_ajouter') }}" class="lienBouton">
-                        <button class="btn btn-default" id="btn-rd">
-                            <span class="glyphicon glyphicon-pencil" ></span>
-                        </button>
-                    </a>
-
-                    <a href="{{ path('uknow_platform_evaluation')}}" class="lienBouton">
-                        <button class="btn btn-default" id="btn-rd">
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                        </button>
-                    </a>
-
-                    <a href="{{ path('uknow_platform_profil') }}" class="lienBouton">
-                        <button class="btn btn-default" id="btn-rd">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </button>
-                    </a>
-                </div>
+                {{ render(controller('UknowPlatformBundle:Navigation:home')) }}
+                {{ render(controller('UknowPlatformBundle:Navigation:recherche')) }}
+                {{ render(controller('UknowPlatformBundle:Navigation:lien')) }}
             </header>
 
             <div style="
@@ -103,27 +35,7 @@
             </div>
 
             <section class="col-md-3" id="question">
-                <article class="demande" style="font-family: 'Open Sans', sans-serif; font-weight: 400">
-                    {{ form_start(formQuestion) }}
-                    <div class="form-group">
-                        <div class="input-group">
-                            {{ form_errors(formQuestion.question) }}
-                            {{ form_widget(formQuestion.question, {'attr': {'class': 'form-control'}}) }}
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-comment"></span></button>
-                            </span>
-                        </div>
-                    </div>
-                    {{ form_end(formQuestion) }}
-                </article>
-                <table>
-                    {% for question in listQuestion %}
-                        <tr><td>{{ question.question }}</td></tr>
-                    {% endfor %}
-                </table>
-                <div class="footer">
-                    <h5>Staroad@{{ 'now'|date('Y') }}</h5>
-                </div>
+                {{ render(controller('UknowPlatformBundle:Question:question')) }}
             </section>
         </div>
 

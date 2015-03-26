@@ -254,21 +254,19 @@ class ServiceTri{
         }
     }
 
-    public function triDonneesSauvegardees($listDonneesAffichages, $chaineSauvegardees){
+    public function triDonneesSauvegardees($listDonnees, $chaineSauvegardees){
 
-        $tableauInfo = array();
-        for($i = 0 ; $i < count($listDonneesAffichages) ; $i++ ){
-            $tableauInfo[$i] = 0;
-        }
+        $donneesSauvegardees = array();
         $tableauSauvegardees = explode('/', $chaineSauvegardees);
-        for($i = 0 ; $i < count($listDonneesAffichages) ; $i++ ){
+        for($i = 0 ; $i < count($listDonnees) ; $i++ ){
             for($j = 0 ; $j < count($tableauSauvegardees) ; $j++){
-                if($listDonneesAffichages[$i]->getId() == $tableauSauvegardees[$j]){
-                    $tableauInfo[$i] = 1;
+                if($listDonnees[$i]->getId() == $tableauSauvegardees[$j]){
+                    $donneesSauvegardees[] = $listDonnees[$i];
                 }
             }
         }
-        return $tableauInfo;
+        return $donneesSauvegardees;
+
     }
 
     public function triDonneesEvaluees($listDonneesAffichages, $chaineEvaluees){

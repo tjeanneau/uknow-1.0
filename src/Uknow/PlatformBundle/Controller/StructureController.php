@@ -28,25 +28,6 @@ class StructureController extends Controller
         $titreAffichage = null;
         $tableauBadge = array();
         $servicesTri = $this->container->get('uknow_platform.tri');
-        $servicesRecherche = $this->container->get('uknow_platform.recherche');
-        $servicesQuestion = $this->container->get('uknow_platform.question');
-        $formQuestion = $servicesQuestion->initialisationQuestion($this);
-        $formRecherche = $servicesRecherche->initialisationRecherche($this);
-        $em = $this->getDoctrine()->getManager();
-
-
-        // Initialisation des bases de données à utiliser
-
-
-        // Gestion des requètes demandées
-
-        if ($formQuestion->handleRequest($request)->isValid()){
-            $servicesQuestion->enregistrementQuestion();
-        }
-
-        if ($formRecherche->handleRequest($request)->isValid()){
-
-        }
 
 
         // Mise à jour des bases de données modifiées à afficher
@@ -94,9 +75,7 @@ class StructureController extends Controller
             $titreTheme = $listStructure[0]->getTheme();
         }
 
-        return $this->render('UknowPlatformBundle::structure.html.twig', array(
-            'formQuestion' => $formQuestion->createView(),
-            'formRecherche' => $formRecherche->createView(),
+        return $this->render('UknowPlatformBundle:recherche:structure.html.twig', array(
             'titreDomaine' => $titreDomaine,
             'titreMatiere' => $titreMatiere,
             'titreTheme' => $titreTheme,

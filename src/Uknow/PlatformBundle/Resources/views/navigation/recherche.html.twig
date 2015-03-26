@@ -1,0 +1,22 @@
+{# src/Uknow/PlatformBundle/Resources/views/navigation/recherche.html.twig#}
+
+<div class="col-md-6" style="padding: 0">
+    <div class="barre">
+        {{ form_start(formRecherche, {'action': path('uknow_platform_donnees_rechercher')}) }}
+        <div class="input-group">
+            {{ form_errors(formRecherche.recherche) }}
+            {{ form_widget(formRecherche.recherche, {'attr': {'class': 'form-control', 'autocomplete': 'off'}}) }}
+            <span class="input-group-btn">
+                <button id="lancerRecherche" class="btn btn-default" type="submit" data-href="">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+        {{ form_end(formRecherche) }}
+    </div>
+    <div class="ensemble">
+        <div class="scrollbar" id="resultats_recherche">
+            <div class="force-overflow" id="donnees" style="font-family: 'Open Sans', sans-serif; font-weight: 400"></div>
+        </div>
+    </div>
+</div>

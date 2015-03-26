@@ -1,0 +1,82 @@
+{# src/Uknow/PlatformBundle/Resources/views/navigation/lien.html.twig#}
+
+<div class="col-md-3" style="text-align: center">
+    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+        <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-globe"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header"> Actualités</li>
+            <li><a href="{{ path('uknow_platform_actualites_cours')}}">Cours</a></li>
+            <li><a href="{{ path('uknow_platform_actualites_exercices')}}">Exercices</a></li>
+            <li><a href="{{ path('uknow_platform_actualites_evaluations')}}">Evaluations</a></li>
+            <li><a href="{{ path('uknow_platform_actualites_questions')}}">Questions</a></li>
+        </ul>
+    </div>
+
+    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+        <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-briefcase"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header"> Cartable</li>
+            <li><a href="{{ path('uknow_platform_cartable_cours')}}">Cours</a></li>
+            <li><a href="{{ path('uknow_platform_cartable_exercices')}}">Exercices</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#"> Matières</a>
+                <ul class="dropdown-menu">
+                    {% for matiere in  listMatiere %}
+                        <li><a href="{{ path('uknow_platform_cartable_matieres', {'matiere' : matiere.lien}) }}">{{ matiere.nom }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#"> Niveaux</a>
+                <ul class="dropdown-menu">
+                    {% for niveaux in  listNiveaux %}
+                        <li><a href="{{ path('uknow_platform_cartable_niveaux', {'niveaux' : niveaux.lien}) }}">{{ niveaux.nom }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+        <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header"> Ajouter</li>
+            <li><a href="{{ path('uknow_platform_ajouter_cours')}}">Cours</a></li>
+            <li><a href="{{ path('uknow_platform_ajouter_exercices')}}">Exercice</a></li>
+            <li><a href="{{ path('uknow_platform_ajouter_correction')}}">Correction</a></li>
+        </ul>
+    </div>
+
+    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+        <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-list-alt"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header"> Evaluation</li>
+            <li><a href="{{ path('uknow_platform_evaluation_exercice')}}">Exercice</a></li>
+            <li><a href="{{ path('uknow_platform_evaluation_test')}}">Test</a></li>
+            <li><a href="{{ path('uknow_platform_evaluation_examen')}}">Examen</a></li>
+            <li><a href="{{ path('uknow_platform_evaluation_progression')}}">Progression</a></li>
+            <li><a href="{{ path('uknow_platform_evaluation_niveaux')}}">Niveaux</a></li>
+        </ul>
+    </div>
+
+    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+        <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header"> Compte</li>
+            <li><a href="{{ path('uknow_platform_compte_profil')}}">Profil</a></li>
+            <li><a href="{{ path('uknow_platform_compte_parametres')}}">Paramètres</a></li>
+            <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+        </ul>
+    </div>
+</div>

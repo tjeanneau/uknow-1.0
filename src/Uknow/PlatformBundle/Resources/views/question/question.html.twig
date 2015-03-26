@@ -1,0 +1,23 @@
+{# src/Uknow/PlatformBundle/Resources/views/question/question.html.twig#}
+
+<article class="demande" style="font-family: 'Open Sans', sans-serif; font-weight: 400">
+    {{ form_start(formQuestion) }}
+    <div class="form-group">
+        <div class="input-group">
+            {{ form_errors(formQuestion.question) }}
+            {{ form_widget(formQuestion.question, {'attr': {'class': 'form-control'}}) }}
+            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-comment"></span></button>
+                            </span>
+        </div>
+    </div>
+    {{ form_end(formQuestion) }}
+</article>
+<table>
+    {% for question in listQuestion %}
+        <tr><td>{{ question.question }}</td></tr>
+    {% endfor %}
+</table>
+<div class="footer">
+    <h5>Staroad@{{ 'now'|date('Y') }}</h5>
+</div>
