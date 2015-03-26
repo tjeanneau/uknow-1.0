@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class StructureController extends Controller
 {
-    public function structureAction( $domaine, $matiere, $theme, $chapitre, Request $request)
+    public function structureAction( $domaine, $matiere, $theme, $chapitre)
     {
 
         // Initialisation des variables principales
