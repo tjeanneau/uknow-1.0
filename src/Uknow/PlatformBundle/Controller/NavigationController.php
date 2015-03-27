@@ -31,6 +31,7 @@ class NavigationController extends Controller{
     public function lienAction(){
 
         $servicesSauvegarde = $this->container->get('uknow_platform.sauvegarde');
+        $servicesModification = $this->container->get('uknow_platform.modification');
 
         $listDonnees = $this->getDoctrine()
             ->getManager()
@@ -41,6 +42,8 @@ class NavigationController extends Controller{
             ->getManager()
             ->getRepository('UknowUtilisateurBundle:Compte')
             ->find($this->getUser()->getId());
+
+        $listDonnees = $servicesModification->listAJour($listDonnees);
 
         $listMatiere = $servicesSauvegarde->matiereSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
         $listNiveaux = $servicesSauvegarde->niveauxSauvegardees($listDonnees, $compte->getDonneesSauvegardees());

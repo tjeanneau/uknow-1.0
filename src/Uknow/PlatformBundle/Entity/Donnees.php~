@@ -1,0 +1,165 @@
+<?php
+
+namespace Uknow\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Donnees
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Uknow\PlatformBundle\Entity\DonneesRepository")
+ */
+class Donnees
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="domaine_nom", type="string", length=255)
+     */
+    private $domaine_nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="domaine_lien", type="string", length=255)
+     */
+    private $domaine_lien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matiere_nom", type="string", length=255)
+     */
+    private $matiere_nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matiere_lien", type="string", length=255)
+     */
+    private $matiere_lien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="theme_nom", type="string", length=255)
+     */
+    private $theme_nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="theme_lien", type="string", length=255)
+     */
+    private $theme_lien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chapitre_nom", type="string", length=255)
+     */
+    private $chapitre_nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chapitre_lien", type="string", length=255)
+     */
+    private $chapitre_lien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="texte", type="text")
+     */
+    private $texte;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="modification", type="integer")
+     */
+    private $modification;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pertinent", type="integer")
+     */
+    private $pertinent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="developper", type="integer")
+     */
+    private $developper;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="inutile", type="integer")
+     */
+    private $inutile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="niveau", type="string", length=255)
+     */
+    private $niveau;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fiabilite", type="integer")
+     */
+    private $fiabilite;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="temps", type="integer")
+     */
+    private $temps;
+
+    public function __construct(){
+        $this->date = new \DateTime();
+        $this->modification = 0;
+        $this->positive = 0;
+        $this->negative = 0;
+        $this->fiabilite = 0;
+    }
+    
+}

@@ -21,17 +21,15 @@ class StructureController extends Controller
         $matiere = null;
         $theme = null;
         $servicesTri = $this->container->get('uknow_platform.tri');
+        $servicesModification = $this->container->get('uknow_platform.modification');
 
         if($lienTheme != null){
-            $listStructure = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('UknowPlatformBundle:Structure')
-                ->findAll();
             $listDonnees = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('UknowPlatformBundle:Donnees')
                 ->findAll();
-            $tableauBadge = $servicesTri->triDonneesList($listStructure, $listDonnees);
+            $listDonnees = $servicesModification->listAJour($listDonnees);
+            $tableauBadge = $servicesTri->triDonneesList($listDonnees, $lienDomaine, $lienMatiere, $lienTheme);
         }
 
         if($lienDomaine != null){
@@ -50,7 +48,7 @@ class StructureController extends Controller
 
         if($lienTheme != null){
             $theme = $servicesTri->findObject($lienTheme, 'theme', $lienDomaine, $lienMatiere, null);
-            if($domaine == null){
+            if($theme == null){
                 return $this->render('UknowPlatformBundle::erreur.html.twig');
             }
         }

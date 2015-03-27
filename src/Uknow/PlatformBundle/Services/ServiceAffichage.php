@@ -10,7 +10,7 @@ namespace Uknow\PlatformBundle\Services;
 
 class ServiceAffichage {
 
-    public function affichageLien($listStructure, $listDonnees){
+    public function affichageLien($listDonnees){
         for($i = 0; $i < count($listStructure) ; $i++ ){
             for($j = 0; $j < count($listDonnees) ; $j++ ){
                 if($listDonnees[$j]->getDomaine() == $listStructure[$i]->getDomaineLien()

@@ -27,7 +27,6 @@ class ServiceSauvegarde {
         for( $i = 0 ; $i < count($listDonnees) ; $i++){
             $tableauMatiere = $listDonnees[$i]->getMatiere();
         }
-        $tableauMatiere = $this->tri->triDoublonsNoms($tableauMatiere);
         $tableauMatiere = $this->affichage->tableauNomLien($tableauMatiere);
 
         return $tableauMatiere;
@@ -41,8 +40,6 @@ class ServiceSauvegarde {
         for( $i = 0 ; $i < count($listDonnees) ; $i++){
             $tableauNiveaux = $listDonnees[$i]->getNiveau();
         }
-
-        $tableauNiveaux = $this->tri->triDoublonsNoms($tableauNiveaux);
         $tableauNiveaux = $this->affichage->tableauNomLien($tableauNiveaux);
 
         return $tableauNiveaux;

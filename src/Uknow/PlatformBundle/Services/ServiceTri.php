@@ -117,131 +117,24 @@ class ServiceTri{
         return null;
     }
 
-    public function triListDomaine($jsonDomaine){
+    public function triDonneesList($listDonnee, $domaine, $matiere, $theme){
 
-        $listDomaine = array();
+        $nombreDonnees = array();
+        $json = file_get_contents('json/chapitres.json');
+        $jsonChapitre = json_decode($json, true);
 
-        for( $i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++ ){
-            $structure = new Structure();
-            $structure->setNom($jsonDomaine['domaine'][$i]['nom']);
-            $structure->setLien($jsonDomaine['domaine'][$i]['lien']);
-            $listDomaine[$i] = $structure;
-        }
-
-        return $listDomaine;
-    }
-
-    public function triListMatiere($listStructure, $domaine){
-
-        $listMatiere = array();
-
-        for( $i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++ ){
-            $structure = new Structure();
-            $structure->setNom($jsonDomaine['domaine'][$i]['nom']);
-            $structure->setLien($jsonDomaine['domaine'][$i]['lien']);
-            $listMatiere[$i] = $structure;
-        }
-
-        return $listMatiere;
-    }
-
-    public function triTheme($listStructure, $domaine, $matiere, $type){
-
-        $listTheme = array('theme' => array(), 'lien' => array());
-        $listThemeStructure = array();
-        $i = 0;
-        $k = 0;
-        $exist = false;
-        $lock = false;
-
-        do {
-            if($lock == true){$i++;}
-            if ($listStructure[$i]->getMatiereLien() == $matiere && $listStructure[$i]->getDomaineLien() == $domaine){
-                $listTheme['theme'][$k] = $listStructure[$i]->getTheme();
-                $listTheme['lien'][$k] = $listStructure[$i]->getThemeLien();
-                $listThemeStructure[$k] = $listStructure[$i];
-            }
-            $lock = true;
-        }While(($listStructure[$i]->getMatiereLien() != $matiere
-            || $listStructure[$i]->getDomaineLien() != $domaine)
-            && $i < (count($listStructure)));
-
-        if($i == (count($listStructure))){
-            return null;
-        }
-
-        for ($i = 1 ; $i < (count($listStructure)); $i++ ) {
-            for ($j = 0; $j < $k+1; $j++) {
-                if ($listStructure[$i]->getThemeLien() == $listTheme['lien'][$j]) {
-                    $exist = true;
+        for( $i = 0 ; $i < count($jsonChapitre['chapitre'][$domaine][$matiere][$theme]) ; $i++){
+            $nombreDonnees[$i] = 0;
+            for( $j = 0 ; $j < count($listDonnee) ; $j++){
+                if($domaine == $listDonnee[$j]->getDomaine()
+                    && $matiere == $listDonnee[$j]->getMatiere()
+                    && $theme == $listDonnee[$j]->getTheme()
+                    && $jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['lien'] == $listDonnee[$j]->getChapitre()){
+                    $nombreDonnees[$i] = $nombreDonnees[$i]+1;
                 }
             }
-            if ($exist == false && $listStructure[$i]->getMatiereLien() == $matiere && $listStructure[$i]->getDomaineLien() == $domaine) {
-                $k++;
-                $listTheme['theme'][$k] = $listStructure[$i]->getTheme();
-                $listTheme['lien'][$k] = $listStructure[$i]->getThemeLien();
-                $listThemeStructure[$k] = $listStructure[$i];
-            }
-            $exist = false;
         }
-
-        if ($type == 'structure'){
-            return $listThemeStructure;
-        }elseif($type == 'tableau'){
-            return $listTheme;
-        }
-        return null;
-    }
-
-    public function triChapitre($listStructure, $domaine, $matiere, $theme, $type){
-
-        $listChapitre = array('chapitre' => array(), 'lien' => array());
-        $listChapitreStructure = array();
-        $i = 0;
-        $k = 0;
-        $exist = false;
-        $lock = false;
-
-        do {
-            if($lock == true){$i++;}
-            if ($listStructure[$i]->getThemeLien() == $theme
-                && $listStructure[$i]->getMatiereLien() == $matiere
-                && $listStructure[$i]->getDomaineLien() == $domaine){
-                $listChapitre['chapitre'][$k] = $listStructure[$i]->getChapitre();
-                $listChapitre['lien'][$k] = $listStructure[$i]->getChapitreLien();
-                $listChapitreStructure[$k] = $listStructure[$i];
-            }
-            $lock = true;
-        }While(($listStructure[$i]->getThemeLien() != $theme
-            || $listStructure[$i]->getMatiereLien() != $matiere
-            || $listStructure[$i]->getDomaineLien() != $domaine)
-            && $i < (count($listStructure)));
-
-        if($i == (count($listStructure))){
-            return null;
-        }
-
-        for ($i = 1 ; $i < (count($listStructure)); $i++ ) {
-            for ($j = 0; $j < $k+1; $j++) {
-                if ($listStructure[$i]->getChapitreLien() == $listChapitre['lien'][$j]) {
-                    $exist = true;
-                }
-            }
-            if ($exist == false && $listStructure[$i]->getThemeLien() == $theme && $listStructure[$i]->getMatiereLien() == $matiere && $listStructure[$i]->getDomaineLien() == $domaine) {
-                $k++;
-                $listChapitre['chapitre'][$k] = $listStructure[$i]->getChapitre();
-                $listChapitre['lien'][$k] = $listStructure[$i]->getChapitreLien();
-                $listChapitreStructure[$k] = $listStructure[$i];
-            }
-            $exist = false;
-        }
-
-        if ($type == 'structure'){
-            return $listChapitreStructure;
-        }elseif($type == 'tableau'){
-            return $listChapitre;
-        }
-        return null;
+        return $nombreDonnees;
     }
 
     public function triTableau($listStructure){
@@ -267,12 +160,12 @@ class ServiceTri{
         return $triTableau;
     }
 
-    public function triDonneesAfficher($listStructure, $listDonnees, $chaineDonnees, $newlistdonnees, $type, $action){
+    public function triDonneesAfficher( $listDonnees, $chaineDonnees, $newlistdonnees, $type, $action){
 
         $listDonnees = $this->modification->listAJour($listDonnees);
 
         if($type != 'boutonRecherche' && $type != 'boutonFavoris'){
-           $listDonnees = $this->affichage->affichageLien($listStructure, $listDonnees);
+           $listDonnees = $this->affichage->affichageLien( $listDonnees);
         }
 
         if($action == 'rechercher')
@@ -365,64 +258,5 @@ class ServiceTri{
         }
 
         return $listDonneesTriee;
-    }
-
-    public function triDonneesList($listStructure, $listDonnee){
-
-        $nombreDonnees = array();
-        $aJourDonnees = array();
-        $exist = false;
-
-        for( $i = 0 ; $i < count($listStructure) ; $i++){
-            $nombreDonnees[$i] = 0;
-            for( $j = 0 ; $j < count($listDonnee) ; $j++){
-                if($listStructure[$i]->getDomaineLien() == $listDonnee[$j]->getDomaine()
-                && $listStructure[$i]->getMatiereLien() == $listDonnee[$j]->getMatiere()
-                && $listStructure[$i]->getThemeLien() == $listDonnee[$j]->getTheme()
-                && $listStructure[$i]->getChapitreLien() == $listDonnee[$j]->getChapitre()){
-                    if($j == 0){
-                        $aJourDonnees[] = $listDonnee[$j];
-                    }
-                    for($k = 0 ; $k < count($aJourDonnees); $k++){
-                        if($aJourDonnees[$k]->getDomaine() == $listDonnee[$j]->getDomaine()
-                        && $aJourDonnees[$k]->getMatiere() == $listDonnee[$j]->getMatiere()
-                        && $aJourDonnees[$k]->getTheme() == $listDonnee[$j]->getTheme()
-                        && $aJourDonnees[$k]->getChapitre() == $listDonnee[$j]->getChapitre()
-                        && $aJourDonnees[$k]->getTitre() == $listDonnee[$j]->getTitre()){
-                            $exist = true;
-                        }
-                    }
-                    if($exist == false){
-                        $aJourDonnees[] = $listDonnee[$j];
-                        $nombreDonnees[$i] = $nombreDonnees[$i] + 1;
-                    }
-                    $exist = false;
-                }
-            }
-        }
-        return $nombreDonnees;
-    }
-
-    public function triDoublonsNoms($listNoms){
-
-        $listNomsTriee = array();
-        $exist = false;
-
-        for($i = 0; $i < count($listNoms); $i++){
-            if($i == 0){
-                $listNomsTriee[] = $listNoms[$i];
-            }else{
-                for($j = 0; $j < count($listNomsTriee); $j++){
-                    if($listNoms[$i] == $listNomsTriee[$j]){
-                        $exist = true;
-                    }
-                }
-                if( $exist == false)
-                {
-                    $listNomsTriee[] = $listNoms[$i];
-                }
-                $exist = false;
-            }
-        }
     }
 }

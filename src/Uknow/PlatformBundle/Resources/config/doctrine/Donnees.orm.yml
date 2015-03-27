@@ -9,16 +9,28 @@ Uknow\PlatformBundle\Entity\Donnees:
             generator:
                 strategy: AUTO
     fields:
-        domaine:
+        domaine_nom:
             type: string
             length: 255
-        matiere:
+        domaine_lien:
             type: string
             length: 255
-        theme:
+        matiere_nom:
             type: string
             length: 255
-        chapitre:
+        matiere_lien:
+            type: string
+            length: 255
+        theme_nom:
+            type: string
+            length: 255
+        theme_lien:
+            type: string
+            length: 255
+        chapitre_nom:
+            type: string
+            length: 255
+        chapitre_lien:
             type: string
             length: 255
         titre:
@@ -30,9 +42,11 @@ Uknow\PlatformBundle\Entity\Donnees:
             type: datetime
         modification:
             type: integer
-        positive:
+        pertinent:
             type: integer
-        negative:
+        developper:
+            type: integer
+        inutile:
             type: integer
         type:
             type: string

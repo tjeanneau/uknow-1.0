@@ -18,34 +18,34 @@ class ServiceModification {
 
     public function listAJour($listDonnees){
 
-        $k = 0;
         $listModification = array();
+        $exist = false;
         for($i = 0; $i < count($listDonnees); $i++){
             if($i == 0){
-                $listModification[$k] = $listDonnees[$i];
-            }else{
-                for($j = 0; $j < count($listModification); $j++){
-                    if($listDonnees[$i]->getDomaine() == $listModification[$j]->getDomaine()
-                        && $listDonnees[$i]->getMatiere() == $listModification[$j]->getMatiere()
-                        && $listDonnees[$i]->getTheme() == $listModification[$j]->getTheme()
-                        && $listDonnees[$i]->getChapitre() == $listModification[$j]->getChapitre()
-                        && $listDonnees[$i]->getTitre() == $listModification[$j]->getTitre()){
-                        if($this->evaluation->ratio($listDonnees[$i]) > $this->evaluation->ratio($listModification[$j])){
+                $listModification[] = $listDonnees[$i];
+            }
+            for($j = 0; $j < count($listModification); $j++){
+                if($listDonnees[$i]->getDomaine() == $listModification[$j]->getDomaine()
+                    && $listDonnees[$i]->getMatiere() == $listModification[$j]->getMatiere()
+                    && $listDonnees[$i]->getTheme() == $listModification[$j]->getTheme()
+                    && $listDonnees[$i]->getChapitre() == $listModification[$j]->getChapitre()
+                    && $listDonnees[$i]->getTitre() == $listModification[$j]->getTitre()){
+                    if($this->evaluation->ratio($listDonnees[$i]) > $this->evaluation->ratio($listModification[$j])){
+                        $listModification[$j] = $listDonnees[$i];
+                    }elseif($this->evaluation->ratio($listDonnees[$i]) == $this->evaluation->ratio($listModification[$j])){
+                        if($listModification[$j]->getDate() < $listDonnees[$i]->getDate()){
                             $listModification[$j] = $listDonnees[$i];
-                        }elseif($this->evaluation->ratio($listDonnees[$i]) == $this->evaluation->ratio($listModification[$j])){
-                            if($listModification[$j]->getDate() < $listDonnees[$i]->getDate()){
-                                $listModification[$j] = $listDonnees[$i];
-                            }
-                        }
-                    }else{
-                        if($j == $k){
-                            $k++;
-                            $listModification[$k] = $listDonnees[$i];
                         }
                     }
+                    $exist = true;
                 }
             }
+            if($exist == false){
+                $listModification[] = $listDonnees[$i];
+            }
+            $exist = false;
         }
+
         return $listModification;
     }
 

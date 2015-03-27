@@ -24,30 +24,58 @@ class Donnees
     /**
      * @var string
      *
-     * @ORM\Column(name="domaine", type="string", length=255)
+     * @ORM\Column(name="domaine_nom", type="string", length=255)
      */
-    private $domaine;
+    private $domaine_nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="matiere", type="string", length=255)
+     * @ORM\Column(name="domaine_lien", type="string", length=255)
      */
-    private $matiere;
+    private $domaine_lien;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="theme", type="string", length=255)
+     * @ORM\Column(name="matiere_nom", type="string", length=255)
      */
-    private $theme;
+    private $matiere_nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="chapitre", type="string", length=255)
+     * @ORM\Column(name="matiere_lien", type="string", length=255)
      */
-    private $chapitre;
+    private $matiere_lien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="theme_nom", type="string", length=255)
+     */
+    private $theme_nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="theme_lien", type="string", length=255)
+     */
+    private $theme_lien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chapitre_nom", type="string", length=255)
+     */
+    private $chapitre_nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chapitre_lien", type="string", length=255)
+     */
+    private $chapitre_lien;
 
     /**
      * @var string
@@ -80,16 +108,23 @@ class Donnees
     /**
      * @var integer
      *
-     * @ORM\Column(name="positive", type="integer")
+     * @ORM\Column(name="pertinent", type="integer")
      */
-    private $positive;
+    private $pertinent;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="negative", type="integer")
+     * @ORM\Column(name="developper", type="integer")
      */
-    private $negative;
+    private $developper;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="inutile", type="integer")
+     */
+    private $inutile;
 
     /**
      * @var string
@@ -126,6 +161,7 @@ class Donnees
         $this->negative = 0;
         $this->fiabilite = 0;
     }
+    
 
     /**
      * Get id
@@ -138,95 +174,187 @@ class Donnees
     }
 
     /**
-     * Set domaine
+     * Set domaine_nom
      *
-     * @param string $domaine
+     * @param string $domaineNom
      * @return Donnees
      */
-    public function setDomaine($domaine)
+    public function setDomaineNom($domaineNom)
     {
-        $this->domaine = $domaine;
+        $this->domaine_nom = $domaineNom;
 
         return $this;
     }
 
     /**
-     * Get domaine
+     * Get domaine_nom
      *
      * @return string 
      */
-    public function getDomaine()
+    public function getDomaineNom()
     {
-        return $this->domaine;
+        return $this->domaine_nom;
     }
 
     /**
-     * Set matiere
+     * Set domaine_lien
      *
-     * @param string $matiere
+     * @param string $domaineLien
      * @return Donnees
      */
-    public function setMatiere($matiere)
+    public function setDomaineLien($domaineLien)
     {
-        $this->matiere = $matiere;
+        $this->domaine_lien = $domaineLien;
 
         return $this;
     }
 
     /**
-     * Get matiere
+     * Get domaine_lien
      *
-     * @return string
+     * @return string 
      */
-    public function getMatiere()
+    public function getDomaineLien()
     {
-        return $this->matiere;
+        return $this->domaine_lien;
     }
 
     /**
-     * Set theme
+     * Set matiere_nom
      *
-     * @param string $theme
+     * @param string $matiereNom
      * @return Donnees
      */
-    public function setTheme($theme)
+    public function setMatiereNom($matiereNom)
     {
-        $this->theme = $theme;
+        $this->matiere_nom = $matiereNom;
 
         return $this;
     }
 
     /**
-     * Get theme
+     * Get matiere_nom
      *
-     * @return string
+     * @return string 
      */
-    public function getTheme()
+    public function getMatiereNom()
     {
-        return $this->theme;
+        return $this->matiere_nom;
     }
 
     /**
-     * Set chapitre
+     * Set matiere_lien
      *
-     * @param string $chapitre
+     * @param string $matiereLien
      * @return Donnees
      */
-    public function setChapitre($chapitre)
+    public function setMatiereLien($matiereLien)
     {
-        $this->chapitre = $chapitre;
+        $this->matiere_lien = $matiereLien;
 
         return $this;
     }
 
     /**
-     * Get chapitre
+     * Get matiere_lien
      *
-     * @return string
+     * @return string 
      */
-    public function getChapitre()
+    public function getMatiereLien()
     {
-        return $this->chapitre;
+        return $this->matiere_lien;
+    }
+
+    /**
+     * Set theme_nom
+     *
+     * @param string $themeNom
+     * @return Donnees
+     */
+    public function setThemeNom($themeNom)
+    {
+        $this->theme_nom = $themeNom;
+
+        return $this;
+    }
+
+    /**
+     * Get theme_nom
+     *
+     * @return string 
+     */
+    public function getThemeNom()
+    {
+        return $this->theme_nom;
+    }
+
+    /**
+     * Set theme_lien
+     *
+     * @param string $themeLien
+     * @return Donnees
+     */
+    public function setThemeLien($themeLien)
+    {
+        $this->theme_lien = $themeLien;
+
+        return $this;
+    }
+
+    /**
+     * Get theme_lien
+     *
+     * @return string 
+     */
+    public function getThemeLien()
+    {
+        return $this->theme_lien;
+    }
+
+    /**
+     * Set chapitre_nom
+     *
+     * @param string $chapitreNom
+     * @return Donnees
+     */
+    public function setChapitreNom($chapitreNom)
+    {
+        $this->chapitre_nom = $chapitreNom;
+
+        return $this;
+    }
+
+    /**
+     * Get chapitre_nom
+     *
+     * @return string 
+     */
+    public function getChapitreNom()
+    {
+        return $this->chapitre_nom;
+    }
+
+    /**
+     * Set chapitre_lien
+     *
+     * @param string $chapitreLien
+     * @return Donnees
+     */
+    public function setChapitreLien($chapitreLien)
+    {
+        $this->chapitre_lien = $chapitreLien;
+
+        return $this;
+    }
+
+    /**
+     * Get chapitre_lien
+     *
+     * @return string 
+     */
+    public function getChapitreLien()
+    {
+        return $this->chapitre_lien;
     }
 
     /**
@@ -322,49 +450,72 @@ class Donnees
     }
 
     /**
-     * Set positive
+     * Set pertinent
      *
-     * @param integer $positive
+     * @param integer $pertinent
      * @return Donnees
      */
-    public function setPositive($positive)
+    public function setPertinent($pertinent)
     {
-        $this->positive = $positive;
+        $this->pertinent = $pertinent;
 
         return $this;
     }
 
     /**
-     * Get positive
+     * Get pertinent
      *
      * @return integer 
      */
-    public function getPositive()
+    public function getPertinent()
     {
-        return $this->positive;
+        return $this->pertinent;
     }
 
     /**
-     * Set negative
+     * Set developper
      *
-     * @param integer $negative
+     * @param integer $developper
      * @return Donnees
      */
-    public function setNegative($negative)
+    public function setDevelopper($developper)
     {
-        $this->negative = $negative;
+        $this->developper = $developper;
 
         return $this;
     }
 
     /**
-     * Get negative
+     * Get developper
      *
      * @return integer 
      */
-    public function getNegative()
+    public function getDevelopper()
     {
-        return $this->negative;
+        return $this->developper;
+    }
+
+    /**
+     * Set inutile
+     *
+     * @param integer $inutile
+     * @return Donnees
+     */
+    public function setInutile($inutile)
+    {
+        $this->inutile = $inutile;
+
+        return $this;
+    }
+
+    /**
+     * Get inutile
+     *
+     * @return integer 
+     */
+    public function getInutile()
+    {
+        return $this->inutile;
     }
 
     /**
@@ -393,8 +544,8 @@ class Donnees
     /**
      * Set niveau
      *
-     * @param string  $niveau
-     * @return string
+     * @param string $niveau
+     * @return Donnees
      */
     public function setNiveau($niveau)
     {
@@ -406,7 +557,7 @@ class Donnees
     /**
      * Get niveau
      *
-     * @return string
+     * @return string 
      */
     public function getNiveau()
     {
@@ -429,7 +580,7 @@ class Donnees
     /**
      * Get fiabilite
      *
-     * @return integer
+     * @return integer 
      */
     public function getFiabilite()
     {
@@ -452,7 +603,7 @@ class Donnees
     /**
      * Get temps
      *
-     * @return integer
+     * @return integer 
      */
     public function getTemps()
     {
