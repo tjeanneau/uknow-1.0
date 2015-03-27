@@ -14,13 +14,25 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class AjoutCoursType extends AbstractType{
 
+    private $domaine;
+    private $matiere;
+    private $theme;
+    private $chapitre;
+
+    public function __construct($domaine, $matiere, $theme, $chapitre){
+        $this->domaine = $domaine;
+        $this->matiere = $matiere;
+        $this->theme = $theme;
+        $this->chapitre = $chapitre;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('titre', 'text', array(
                     'attr' => array(
                         'placeholder' => 'Titre'
                     )))
-            ->add('cours', 'ckeditor', array(
+            ->add('ckeditor', 'ckeditor', array(
                     'config' => array(
                         'toolbar' => array(
                             array(
@@ -57,21 +69,21 @@ class AjoutCoursType extends AbstractType{
                         'config_name' => 'my_config',
                     )))
             ->add('domaine_nom', 'choice', array(
+                'choices' => $this->domaine,
                 'empty_value' => 'Choisir le domaine'
             ))
-            ->add('domaine_lien', 'text')
             ->add('matiere_nom', 'choice', array(
+                'choices' => $this->matiere,
                 'empty_value' => 'Choisir la matière'
             ))
-            ->add('matiere_lien', 'text')
             ->add('theme_nom', 'choice', array(
+                'choices' => $this->theme,
                 'empty_value' => 'Choisir le thème'
             ))
-            ->add('theme_lien', 'text')
             ->add('chapitre_nom', 'choice', array(
+                'choices' => $this->chapitre,
                 'empty_value' => 'Choisir le chapitre'
             ))
-            ->add('chapitre_lien', 'text')
             ->add('type', 'choice', array(
                     'choices' => array(
                         'Exercice' => 'Exercice',

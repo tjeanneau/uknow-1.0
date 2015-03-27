@@ -71,7 +71,7 @@ class ServiceTri{
         return $listStructure;
     }
 
-    public function findObject($lien, $type, $domaine, $matiere, $theme){
+    public function findObjectLien($lien, $type, $domaine, $matiere, $theme){
 
         $structureLien = new Structure();
         $structureLien->setLien($lien);
@@ -117,6 +117,52 @@ class ServiceTri{
         return null;
     }
 
+    public function findObjectNom($nom, $type, $domaine, $matiere, $theme){
+
+        $structureNom = new Structure();
+        $structureNom->setNom($nom);
+
+        if($type == 'domaine'){
+            $json = file_get_contents('json/domaines.json');
+            $jsonDomaine = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++ ){
+                if($structureNom->getNom() == $jsonDomaine['domaine'][$i]['nom']){
+                    $structureNom->setLien($jsonDomaine['domaine'][$i]['lien']);
+                    return $structureNom;
+                }
+            }
+        }elseif($type == 'matiere'){
+            $json = file_get_contents('json/matieres.json');
+            $jsonMatiere = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonMatiere['matiere'][$domaine]) ; $i++ ){
+                if($structureNom->getNom() == $jsonMatiere['matiere'][$domaine][$i]['nom']){
+                    $structureNom->setLien($jsonMatiere['matiere'][$domaine][$i]['lien']);
+                    return $structureNom;
+                }
+            }
+        }elseif($type == 'theme'){
+            $json = file_get_contents('json/themes.json');
+            $jsonTheme = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonTheme['theme'][$domaine][$matiere]) ; $i++ ){
+                if($structureNom->getNom() == $jsonTheme['theme'][$domaine][$matiere][$i]['nom']){
+                    $structureNom->setLien($jsonTheme['theme'][$domaine][$matiere][$i]['lien']);
+                    return $structureNom;
+                }
+            }
+        }elseif($type == 'chapitre'){
+            $json = file_get_contents('json/chapitres.json');
+            $jsonChapitre = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonChapitre['chapitre'][$domaine][$matiere][$theme]) ; $i++ ){
+                if($structureNom->getNom() == $jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['nom']){
+                    $structureNom->setLien($jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['lien']);
+                    return $structureNom;
+                }
+            }
+        }
+
+        return null;
+    }
+
     public function triDonneesList($listDonnee, $domaine, $matiere, $theme){
 
         $nombreDonnees = array();
@@ -135,29 +181,6 @@ class ServiceTri{
             }
         }
         return $nombreDonnees;
-    }
-
-    public function triTableau($listStructure){
-
-        $domaines = $this->triDomaine($listStructure, 'tableau');
-        for ( $i = 0; $i < (count($domaines['domaine'])); $i++){
-            $matieres = $this->triMatiere($listStructure, $domaines['lien'][$i], 'tableau');
-            for ( $j = 0; $j < (count($matieres['matiere'])); $j++){
-                $themes = $this->triTheme($listStructure, $domaines['lien'][$i], $matieres['lien'][$j], 'tableau');
-                for ( $k = 0; $k < (count($themes['theme'])); $k++){
-                    $chapitres = $this->triChapitre($listStructure, $domaines['lien'][$i], $matieres['lien'][$j],$themes['lien'][$k], 'tableau');
-                    for ( $l = 0; $l < (count($chapitres['chapitre'])); $l++){
-                        $triTableau
-                        [$domaines['domaine'][$i]]
-                        [$matieres['matiere'][$j]]
-                        [$themes['theme'][$k]]
-                        [$chapitres['lien'][$l]]
-                            = $chapitres['chapitre'][$l];
-                    }
-                }
-            }
-        }
-        return $triTableau;
     }
 
     public function triDonneesAfficher( $listDonnees, $chaineDonnees, $newlistdonnees, $type, $action){

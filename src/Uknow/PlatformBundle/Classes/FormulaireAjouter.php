@@ -11,16 +11,11 @@ namespace Uknow\PlatformBundle\Classes;
 class FormulaireAjouter {
 
     private $titre;
-    private $cours;
-    private $exercice;
+    private $ckeditor;
     private $domaine_nom;
-    private $domaine_lien;
     private $matiere_nom;
-    private $matiere_lien;
     private $theme_nom;
-    private $theme_lien;
     private $chapitre_nom;
-    private $chapitre_lien;
     private $type;
     private $niveau;
     private $modification;
@@ -37,26 +32,15 @@ class FormulaireAjouter {
         return $this->titre;
     }
 
-    public function setCours($cours)
+    public function setCkeditor($ckeditor)
     {
-        $this->cours = $cours;
+        $this->ckeditor = $ckeditor;
         return $this;
     }
 
-    public function getCours()
+    public function getCkeditor()
     {
-        return $this->cours;
-    }
-
-    public function setExercice($exercice)
-    {
-        $this->exercice = $exercice;
-        return $this;
-    }
-
-    public function getExercice()
-    {
-        return $this->exercice;
+        return $this->ckeditor;
     }
 
     public function setDomaineNom($domaineNom)
@@ -71,18 +55,6 @@ class FormulaireAjouter {
         return $this->domaine_nom;
     }
 
-    public function setDomaineLien($domaineLien)
-    {
-        $this->domaine_lien = $domaineLien;
-
-        return $this;
-    }
-
-    public function getDomaineLien()
-    {
-        return $this->domaine_lien;
-    }
-
     public function setMatiereNom($matiereNom)
     {
         $this->matiere_nom = $matiereNom;
@@ -93,18 +65,6 @@ class FormulaireAjouter {
     public function getMatiereNom()
     {
         return $this->matiere_nom;
-    }
-
-    public function setMatiereLien($matiereLien)
-    {
-        $this->matiere_lien = $matiereLien;
-
-        return $this;
-    }
-
-    public function getMatiereLien()
-    {
-        return $this->matiere_lien;
     }
 
     public function setThemeNom($themeNom)
@@ -119,18 +79,6 @@ class FormulaireAjouter {
         return $this->theme_nom;
     }
 
-    public function setThemeLien($themeLien)
-    {
-        $this->theme_lien = $themeLien;
-
-        return $this;
-    }
-
-    public function getThemeLien()
-    {
-        return $this->theme_lien;
-    }
-
     public function setChapitreNom($chapitreNom)
     {
         $this->chapitre_nom = $chapitreNom;
@@ -141,18 +89,6 @@ class FormulaireAjouter {
     public function getChapitreNom()
     {
         return $this->chapitre_nom;
-    }
-
-    public function setChapitreLien($chapitreLien)
-    {
-        $this->chapitre_lien = $chapitreLien;
-
-        return $this;
-    }
-
-    public function getChapitreLien()
-    {
-        return $this->chapitre_lien;
     }
 
     public function setType($type)

@@ -10,7 +10,6 @@ namespace Uknow\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Uknow\PlatformBundle\Services;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class StructureController extends Controller
 {
@@ -33,21 +32,21 @@ class StructureController extends Controller
         }
 
         if($lienDomaine != null){
-            $domaine = $servicesTri->findObject($lienDomaine, 'domaine', null, null, null);
+            $domaine = $servicesTri->findObjectLien($lienDomaine, 'domaine', null, null, null);
             if($domaine == null){
                 return $this->render('UknowPlatformBundle::erreur.html.twig');
             }
         }
 
         if($lienMatiere != null){
-            $matiere = $servicesTri->findObject($lienMatiere, 'matiere', $lienDomaine, null, null);
+            $matiere = $servicesTri->findObjectLien($lienMatiere, 'matiere', $lienDomaine, null, null);
             if($matiere == null){
                 return $this->render('UknowPlatformBundle::erreur.html.twig');
             }
         }
 
         if($lienTheme != null){
-            $theme = $servicesTri->findObject($lienTheme, 'theme', $lienDomaine, $lienMatiere, null);
+            $theme = $servicesTri->findObjectLien($lienTheme, 'theme', $lienDomaine, $lienMatiere, null);
             if($theme == null){
                 return $this->render('UknowPlatformBundle::erreur.html.twig');
             }

@@ -49,13 +49,6 @@
                         </div>
                     </div>
 
-                    <div style="display: none">
-                        {{ form_widget(formAjout.domaine_lien) }}
-                        {{ form_widget(formAjout.matiere_lien) }}
-                        {{ form_widget(formAjout.theme_lien) }}
-                        {{ form_widget(formAjout.chapitre_lien) }}
-                    </div>
-
                     <div class="form-group">
                         <div class="form-inline">
                             <div class="input-group">
@@ -78,8 +71,8 @@
                     </div>
 
                     <div id="cours" class="form-group">
-                        {{ form_errors(formAjout.cours) }}
-                        {{ form_widget(formAjout.cours) }}
+                        {{ form_errors(formAjout.ckeditor) }}
+                        {{ form_widget(formAjout.ckeditor) }}
                     </div>
 
                     <div class="form-group">

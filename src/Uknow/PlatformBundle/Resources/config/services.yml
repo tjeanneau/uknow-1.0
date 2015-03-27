@@ -2,6 +2,8 @@ services:
     uknow_platform.tri:
         class: Uknow\PlatformBundle\Services\ServiceTri
         arguments: [@uknow_platform.modification, @uknow_platform.evaluation, @uknow_platform.affichage]
+    uknow_platform.list:
+        class: Uknow\PlatformBundle\Services\ServiceList
     uknow_platform.recherche:
         class: Uknow\PlatformBundle\Services\ServiceRecherche
         arguments: [@uknow_platform.affichage, @uknow_platform.modification]
