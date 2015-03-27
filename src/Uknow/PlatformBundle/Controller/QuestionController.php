@@ -24,8 +24,14 @@ class QuestionController extends Controller{
             $servicesQuestion->enregistrementQuestion();
         }
 
+        $listQuestion = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowPlatformBundle:Question')
+            ->findAll();
+
         return $this->render('UknowPlatformBundle:question:question.html.twig', array(
             'formQuestion' => $formQuestion->createView(),
+            'listQuestion'  => $listQuestion
         ));
     }
 }

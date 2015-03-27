@@ -21,8 +21,8 @@
                     {% for structure in listStructure %}
                     <div class="bulleCadreFirst">
                         <a href="{{ path('uknow_platform_recherche_domaine', {
-                            'domaine': structure.domaineLien
-                        }) }}"><button type="button" class="bulleFirst">{{ structure.domaine }}</button></a>
+                            'lienDomaine': structure.lien
+                        }) }}" ><button type="button" class="bulleFirst">{{ structure.nom }}</button></a>
                         </div>
                     {% endfor %}
                 </div>
@@ -34,7 +34,7 @@
             <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
                 <ol class="breadcrumb">
                     <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_acceuil') }}">Accueil</a></li>
-                    <li class="active">{{ titreDomaine }}</li>
+                    <li class="active">{{ domaine.nom }}</li>
                 </ol>
             </div>
         </div>
@@ -45,9 +45,9 @@
                     {% for structure in listStructure %}
                     <div class="bulleCadre">
                         <a href="{{ path('uknow_platform_recherche_matiere', {
-                            'domaine': structure.domaineLien,
-                            'matiere': structure.matiereLien
-                        }) }}"><button type="button" class="bulle">{{ structure.matiere }}</button></a>
+                            'lienDomaine': domaine.lien,
+                            'lienMatiere': structure.lien
+                        }) }}"><button type="button" class="bulle">{{ structure.nom }}</button></a>
                         </div>
                     {% endfor %}
                 </div>
@@ -60,8 +60,8 @@
             <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
                 <ol class="breadcrumb">
                     <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_acceuil') }}">Accueil</a></li>
-                    <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_domaine', {'domaine': domaine}) }}">{{ titreDomaine }}</a></li>
-                    <li class="active">{{ titreMatiere }}</li>
+                    <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien}) }}">{{ domaine.nom }}</a></li>
+                    <li class="active">{{ matiere.nom }}</li>
                 </ol>
             </div>
         </div>
@@ -73,10 +73,10 @@
                     {% for structure in listStructure %}
                     <div class="bulleCadre">
                         <a href="{{ path('uknow_platform_recherche_theme', {
-                            'domaine': structure.domaineLien,
-                            'matiere': structure.matiereLien,
-                            'theme': structure.themeLien
-                        }) }}"><button type="button" class="bulle">{{ structure.theme }}</button></a>
+                            'lienDomaine': domaine.lien,
+                            'lienMatiere': matiere.lien,
+                            'lienTheme': structure.lien
+                        }) }}"><button type="button" class="bulle">{{ structure.nom }}</button></a>
                         </div>
                     {% endfor %}
                 </div>
@@ -84,14 +84,14 @@
         </div>
 
 
-    {% elseif chapitre == null  %}
+    {% else %}
         <div class="row" style="margin-top: 36px">
             <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
                 <ol class="breadcrumb">
                     <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_acceuil') }}">Accueil</a></li>
-                    <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_domaine', {'domaine': domaine }) }}">{{ titreDomaine }}</a></li>
-                    <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_matiere', {'domaine': domaine, 'matiere': matiere }) }}">{{ titreMatiere }}</a></li>
-                    <li class="active">{{ titreTheme }}</li>
+                    <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien }) }}">{{ domaine.nom }}</a></li>
+                    <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_matiere', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien }) }}">{{ matiere.nom }}</a></li>
+                    <li class="active">{{ theme.nom }}</li>
                 </ol>
             </div>
         </div>
@@ -104,11 +104,11 @@
                     {% for structure in listStructure %}
                         <div class="bulleCadre">
                             <a href="{{ path('uknow_platform_recherche_chapitre', {
-                                'domaine': structure.domaineLien,
-                                'matiere': structure.matiereLien,
-                                'theme': structure.themeLien,
-                                'chapitre': structure.chapitreLien
-                            }) }}"><button type="button" class="bulle">{{ structure.chapitre }}</button></a><br/>
+                                'lienDomaine': domaine.lien,
+                                'lienMatiere': matiere.lien,
+                                'lienTheme': theme.lien,
+                                'lienChapitre': structure.lien
+                            }) }}"><button type="button" class="bulle">{{ structure.nom }}</button></a><br/>
                             <div class="badge" id="badge">{{ tableauBadge[loop.index0] }}</div>
                         </div>
                     {% endfor %}

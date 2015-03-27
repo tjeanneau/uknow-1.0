@@ -8,6 +8,8 @@
 
 namespace Uknow\PlatformBundle\Services;
 
+use Uknow\PlatformBundle\Classes\Structure;
+
 class ServiceTri{
 
     private $modification;
@@ -20,87 +22,127 @@ class ServiceTri{
         $this->affichage = $affichage;
     }
 
-    public function triDomaine($listStructure, $type){
+    public function triListStructure($domaine, $matiere, $theme){
 
-        $listDomaine = array('domaine' => array(), 'lien' => array());
-        $listDomaineStructure = array();
-        $i = 0;
-        $k = 0;
-        $exist = false;
+        $listStructure = array();
 
-        $listDomaine['domaine'][$k] = $listStructure[$i]->getDomaine();
-        $listDomaine['lien'][$k] = $listStructure[$i]->getDomaineLien();
-        $listDomaineStructure[$k] = $listStructure[$i];
-        for ($i = 1 ; $i < (count($listStructure)-1); $i++ ) {
-            for ($j = 0; $j < $k+1; $j++) {
-                if ($listStructure[$i]->getDomaineLien() == $listDomaine['lien'][$j]) {
-                    $exist = true;
+        if($domaine != null){
+            if($matiere != null){
+                if($theme != null){
+                    $json = file_get_contents('json/chapitres.json');
+                    $jsonChapitre = json_decode($json, true);
+                    for( $i = 0 ; $i < count($jsonChapitre['chapitre'][$domaine][$matiere][$theme]) ; $i++ ){
+                        $structure = new Structure();
+                        $structure->setNom($jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['nom']);
+                        $structure->setLien($jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['lien']);
+                        $listStructure[$i] = $structure;
+                    }
+                }else{
+                    $json = file_get_contents('json/themes.json');
+                    $jsonTheme = json_decode($json, true);
+                    for( $i = 0 ; $i < count($jsonTheme['theme'][$domaine][$matiere]) ; $i++ ){
+                        $structure = new Structure();
+                        $structure->setNom($jsonTheme['theme'][$domaine][$matiere][$i]['nom']);
+                        $structure->setLien($jsonTheme['theme'][$domaine][$matiere][$i]['lien']);
+                        $listStructure[$i] = $structure;
+                    }
+                }
+            }else{
+                $json = file_get_contents('json/matieres.json');
+                $jsonMatiere = json_decode($json, true);
+                for( $i = 0 ; $i < count($jsonMatiere['matiere'][$domaine]) ; $i++ ){
+                    $structure = new Structure();
+                    $structure->setNom($jsonMatiere['matiere'][$domaine][$i]['nom']);
+                    $structure->setLien($jsonMatiere['matiere'][$domaine][$i]['lien']);
+                    $listStructure[$i] = $structure;
                 }
             }
-            if ($exist == false) {
-                $k++;
-                $listDomaine['domaine'][$k] = $listStructure[$i]->getDomaine();
-                $listDomaine['lien'][$k] = $listStructure[$i]->getDomaineLien();
-                $listDomaineStructure[$k] = $listStructure[$i];
+        }else{
+            $json = file_get_contents('json/domaines.json');
+            $jsonDomaine = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++ ){
+                $structure = new Structure();
+                $structure->setNom($jsonDomaine['domaine'][$i]['nom']);
+                $structure->setLien($jsonDomaine['domaine'][$i]['lien']);
+                $listStructure[$i] = $structure;
             }
-            $exist = false;
-
         }
 
-        if ($type == 'structure'){
-            return $listDomaineStructure;
-        }elseif($type == 'tableau'){
-            return $listDomaine;
+        return $listStructure;
+    }
+
+    public function findObject($lien, $type, $domaine, $matiere, $theme){
+
+        $structureLien = new Structure();
+        $structureLien->setLien($lien);
+
+        if($type == 'domaine'){
+            $json = file_get_contents('json/domaines.json');
+            $jsonDomaine = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++ ){
+                if($structureLien->getLien() == $jsonDomaine['domaine'][$i]['lien']){
+                    $structureLien->setNom($jsonDomaine['domaine'][$i]['nom']);
+                    return $structureLien;
+                }
+            }
+        }elseif($type == 'matiere'){
+            $json = file_get_contents('json/matieres.json');
+            $jsonMatiere = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonMatiere['matiere'][$domaine]) ; $i++ ){
+                if($structureLien->getLien() == $jsonMatiere['matiere'][$domaine][$i]['lien']){
+                    $structureLien->setNom($jsonMatiere['matiere'][$domaine][$i]['nom']);
+                    return $structureLien;
+                }
+            }
+        }elseif($type == 'theme'){
+            $json = file_get_contents('json/themes.json');
+            $jsonTheme = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonTheme['theme'][$domaine][$matiere]) ; $i++ ){
+                if($structureLien->getLien() == $jsonTheme['theme'][$domaine][$matiere][$i]['lien']){
+                    $structureLien->setNom($jsonTheme['theme'][$domaine][$matiere][$i]['nom']);
+                    return $structureLien;
+                }
+            }
+        }elseif($type == 'chapitre'){
+            $json = file_get_contents('json/chapitres.json');
+            $jsonChapitre = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonChapitre['chapitre'][$domaine][$matiere][$theme]) ; $i++ ){
+                if($structureLien->getLien() == $jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['lien']){
+                    $structureLien->setNom($jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['nom']);
+                    return $structureLien;
+                }
+            }
         }
+
         return null;
     }
 
-    public function triMatiere($listStructure, $domaine, $type){
+    public function triListDomaine($jsonDomaine){
 
-        $listMatiere = array('matiere' => array(), 'lien' => array());
-        $listMatiereStructure = array();
-        $i = 0;
-        $k = 0;
-        $exist = false;
-        $lock = false;
+        $listDomaine = array();
 
-        do {
-            if($lock == true){$i++;}
-            if ($listStructure[$i]->getDomaineLien() == $domaine ){
-                $listMatiere['matiere'][$k] = $listStructure[$i]->getMatiere();
-                $listMatiere['lien'][$k] = $listStructure[$i]->getMatiereLien();
-                $listMatiereStructure[$k] = $listStructure[$i];
-
-            }
-            $lock = true;
-        }While($listStructure[$i]->getDomaineLien() != $domaine
-            && $i < (count($listStructure)));
-
-        if($i == (count($listStructure))){
-            return null;
+        for( $i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++ ){
+            $structure = new Structure();
+            $structure->setNom($jsonDomaine['domaine'][$i]['nom']);
+            $structure->setLien($jsonDomaine['domaine'][$i]['lien']);
+            $listDomaine[$i] = $structure;
         }
 
-        for ($i = 1 ; $i < (count($listStructure)); $i++ ) {
-            for ($j = 0; $j < $k+1; $j++) {
-                if ($listStructure[$i]->getMatiereLien() == $listMatiere['lien'][$j]) {
-                    $exist = true;
-                }
-            }
-            if ($exist == false && $listStructure[$i]->getDomaineLien() == $domaine) {
-                $k++;
-                $listMatiere['matiere'][$k] = $listStructure[$i]->getMatiere();
-                $listMatiere['lien'][$k] = $listStructure[$i]->getMatiereLien();
-                $listMatiereStructure[$k] = $listStructure[$i];
-            }
-            $exist = false;
+        return $listDomaine;
+    }
+
+    public function triListMatiere($listStructure, $domaine){
+
+        $listMatiere = array();
+
+        for( $i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++ ){
+            $structure = new Structure();
+            $structure->setNom($jsonDomaine['domaine'][$i]['nom']);
+            $structure->setLien($jsonDomaine['domaine'][$i]['lien']);
+            $listMatiere[$i] = $structure;
         }
 
-        if ($type == 'structure'){
-            return $listMatiereStructure;
-        }elseif($type == 'tableau'){
-            return $listMatiere;
-        }
-        return null;
+        return $listMatiere;
     }
 
     public function triTheme($listStructure, $domaine, $matiere, $type){

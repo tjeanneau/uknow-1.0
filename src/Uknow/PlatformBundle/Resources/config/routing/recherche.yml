@@ -1,19 +1,19 @@
 uknow_platform_recherche_acceuil:
     path:     /
-    defaults: { _controller: UknowPlatformBundle:Structure:structure, domaine: null, matiere: null, theme:null, chapitre:null}
+    defaults: { _controller: UknowPlatformBundle:Structure:structure, lienDomaine: null, lienMatiere: null, lienTheme:null }
 
 uknow_platform_recherche_domaine:
-    path:     /{domaine}
-    defaults: { _controller: UknowPlatformBundle:Structure:structure, matiere: null, theme:null, chapitre:null}
+    path:     /{lienDomaine}
+    defaults: { _controller: UknowPlatformBundle:Structure:structure, lienMatiere: null, lienTheme:null }
 
 uknow_platform_recherche_matiere:
-    path:     /{domaine}/{matiere}
-    defaults: { _controller: UknowPlatformBundle:Structure:structure, theme:null, chapitre:null }
+    path:     /{lienDomaine}/{lienMatiere}
+    defaults: { _controller: UknowPlatformBundle:Structure:structure, lienTheme:null }
 
 uknow_platform_recherche_theme:
-    path:     /{domaine}/{matiere}/{theme}
-    defaults: { _controller: UknowPlatformBundle:Structure:structure, chapitre:null }
+    path:     /{lienDomaine}/{lienMatiere}/{lienTheme}
+    defaults: { _controller: UknowPlatformBundle:Structure:structure}
 
 uknow_platform_recherche_chapitre:
-    path:     /{domaine}/{matiere}/{theme}/{chapitre}
+    path:     /{lienDomaine}/{lienMatiere}/{lienTheme}/{lienChapitre}
     defaults: { _controller: UknowPlatformBundle:Donnees:recherche}

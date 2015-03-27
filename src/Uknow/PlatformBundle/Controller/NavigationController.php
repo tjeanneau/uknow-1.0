@@ -39,16 +39,16 @@ class NavigationController extends Controller{
 
         $compte = $this->getDoctrine()
             ->getManager()
-            ->getRepository('UknowPlatformBundle:Compte')
+            ->getRepository('UknowUtilisateurBundle:Compte')
             ->find($this->getUser()->getId());
 
         $listMatiere = $servicesSauvegarde->matiereSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
         $listNiveaux = $servicesSauvegarde->niveauxSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
 
         return $this->render('UknowPlatformBundle:navigation:lien.html.twig', array(
-            'listmatiere' => $listMatiere,
+            'listMatiere' => $listMatiere,
             'nbMatiere' => count($listMatiere),
-            'listniveaux' => $listNiveaux,
+            'listNiveaux' => $listNiveaux,
             'nbNiveaux' => count($listMatiere),
         ));
     }

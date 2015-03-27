@@ -39,7 +39,7 @@ class ServiceSauvegarde {
 
         $tableauNiveaux = array();
         for( $i = 0 ; $i < count($listDonnees) ; $i++){
-            $tableauNiveaux = $listDonnees[$i]->getNiveaux();
+            $tableauNiveaux = $listDonnees[$i]->getNiveau();
         }
 
         $tableauNiveaux = $this->tri->triDoublonsNoms($tableauNiveaux);

@@ -8,84 +8,64 @@
 
 namespace Uknow\PlatformBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Uknow\PlatformBundle\Services;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class StructureController extends Controller
 {
-    public function structureAction( $domaine, $matiere, $theme, $chapitre)
+    public function structureAction($lienDomaine, $lienMatiere, $lienTheme)
     {
-
-        // Initialisation des variables principales
-
-        $titreDomaine = null;
-        $titreDomaineLien = null;
-        $titreMatiere = null;
-        $titreMatiereLien = null;
-        $titreTheme = null;
-        $titreAffichage = null;
         $tableauBadge = array();
+        $domaine = null;
+        $matiere = null;
+        $theme = null;
         $servicesTri = $this->container->get('uknow_platform.tri');
 
-
-        // Mise à jour des bases de données modifiées à afficher
-
-        $listQuestion = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Question')
-            ->findAll();
-
-        $listStructure = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Structure')
-            ->findAll();
-
-        $listDonnees = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Donnees')
-            ->findAll();
-
-
-        // Gestion de l'affichage des données
-
-        if($domaine != null){
-            if($matiere != null){
-                if($theme != null){
-                    $listStructure = $servicesTri->triChapitre($listStructure, $domaine, $matiere, $theme, 'structure');
-                    $tableauBadge = $servicesTri->triDonneesList($listStructure, $listDonnees);
-                }else {
-                    $listStructure = $servicesTri->triTheme($listStructure, $domaine, $matiere, 'structure');
-                }
-            }else {
-                $listStructure = $servicesTri->triMatiere($listStructure, $domaine, 'structure');
-            }
-        }else{
-            $listStructure = $servicesTri->triDomaine($listStructure, 'structure');
+        if($lienTheme != null){
+            $listStructure = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowPlatformBundle:Structure')
+                ->findAll();
+            $listDonnees = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowPlatformBundle:Donnees')
+                ->findAll();
+            $tableauBadge = $servicesTri->triDonneesList($listStructure, $listDonnees);
         }
 
-        if ($listStructure == null){
-            return $this->render('UknowPlatformBundle::erreur.html.twig', array(
-                'formQuestion' => $formQuestion->createView(),
-                'listQuestion' => $listQuestion));
-        }else {
-            $titreDomaine = $listStructure[0]->getDomaine();
-            $titreMatiere = $listStructure[0]->getMatiere();
-            $titreTheme = $listStructure[0]->getTheme();
+        if($lienDomaine != null){
+            $domaine = $servicesTri->findObject($lienDomaine, 'domaine', null, null, null);
+            if($domaine == null){
+                return $this->render('UknowPlatformBundle::erreur.html.twig');
+            }
+        }
+
+        if($lienMatiere != null){
+            $matiere = $servicesTri->findObject($lienMatiere, 'matiere', $lienDomaine, null, null);
+            if($matiere == null){
+                return $this->render('UknowPlatformBundle::erreur.html.twig');
+            }
+        }
+
+        if($lienTheme != null){
+            $theme = $servicesTri->findObject($lienTheme, 'theme', $lienDomaine, $lienMatiere, null);
+            if($domaine == null){
+                return $this->render('UknowPlatformBundle::erreur.html.twig');
+            }
+        }
+
+        $listStructure = $servicesTri->triListStructure($lienDomaine, $lienMatiere, $lienTheme);
+        if($listStructure == null){
+            return $this->render('UknowPlatformBundle::erreur.html.twig');
         }
 
         return $this->render('UknowPlatformBundle:recherche:structure.html.twig', array(
-            'titreDomaine' => $titreDomaine,
-            'titreMatiere' => $titreMatiere,
-            'titreTheme' => $titreTheme,
+            'listStructure' => $listStructure,
+            'tableauBadge' => $tableauBadge,
             'domaine' => $domaine,
             'matiere' => $matiere,
-            'theme' => $theme,
-            'chapitre' => $chapitre,
-            'listQuestion' => $listQuestion,
-            'listStructure' => $listStructure,
-            'tableauBadge' => $tableauBadge
+            'theme' => $theme
             ));
     }
 }
