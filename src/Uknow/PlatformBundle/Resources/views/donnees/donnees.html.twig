@@ -2,17 +2,17 @@
 
 {% extends "UknowPlatformBundle::index.html.twig" %}
 
-{% block title %}{{ titreChapitre }}{% endblock %}
+{% block title %}{{ chapitre.nom }}{% endblock %}
 
 {% block contenu %}
     <div class="row">
         <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
             <ol class="breadcrumb">
                 <li><a href="{{ path('uknow_platform_recherche_acceuil')}}">Accueil</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_domaine', {'domaine': domaine }) }}">{{ titreDomaine }}</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_matiere', {'domaine': domaine, 'matiere': matiere }) }}">{{ titreMatiere }}</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_theme', {'domaine': domaine, 'matiere': matiere, 'theme': theme }) }}">{{ titreTheme }}</a></li>
-                <li class="active">{{ titreChapitre }}</li>
+                <li><a href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien }) }}">{{ domaine.nom }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_matiere', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien }) }}">{{ matiere.nom }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_theme', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien, 'lienTheme': theme.lien }) }}">{{ theme.nom }}</a></li>
+                <li class="active">{{ chapitre.nom }}</li>
             </ol>
         </div>
     </div>
@@ -24,10 +24,10 @@
                 {% for donnees in listDonnees %}
                     <div id="donnee{{ loop.index }}" class="donnee">
                         <form method="post" action="{{ path('uknow_platform_recherche_chapitre',{
-                            'domaine':domaine,
-                            'matiere':matiere,
-                            'theme':theme,
-                            'chapitre':chapitre
+                            'lienDomaine':domaine.lien,
+                            'lienMatiere':matiere.lien,
+                            'lienTheme':theme.lien,
+                            'lienChapitre':chapitre.lien
                         })}}">
 
                             <input type="hidden" name="valeur" value="{{ loop.index }}">

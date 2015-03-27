@@ -10,12 +10,8 @@ namespace Uknow\PlatformBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Uknow\PlatformBundle\Classes\FormulaireModifierExercice;
-use Uknow\PlatformBundle\Classes\FormulaireModifierCours;
-use Uknow\PlatformBundle\Form\ModifierCoursType;
-use Uknow\PlatformBundle\Form\ModifierExerciceType;
+use Uknow\PlatformBundle\Form\AjoutCoursType;
 use Uknow\PlatformBundle\Services;
-use Uknow\PlatformBundle\Form\AjoutType;
 use Uknow\PlatformBundle\Classes\FormulaireAjouter;
 use Uknow\PlatformBundle\Entity\Donnees;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -29,32 +25,8 @@ class AjouterController extends Controller{
         $donnees = new Donnees();
         $formAjout = new FormulaireAjouter();
         $em = $this->getDoctrine()->getManager();
-        $servicesTri = $this->container->get('uknow_platform.tri');
-        $servicesRecherche = $this->container->get('uknow_platform.recherche');
-        $servicesQuestion = $this->container->get('uknow_platform.question');
-        $formRecherche = $servicesRecherche->initialisationRecherche($this);
-        $formQuestion = $servicesQuestion->initialisationQuestion($this);
 
-
-        // Initialisation des bases de données à utiliser
-
-        $listStructure = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Structure')
-            ->findAll();
-
-
-        // Gestion des requètes demandées
-
-        if ($formQuestion->handleRequest($request)->isValid()){
-
-        }
-
-        if ($formRecherche->handleRequest($request)->isValid()){
-
-        }
-
-        $formDonnees = $this->get('form.factory')->create(new AjoutType($servicesTri->triTableau($listStructure)), $formAjout);
+        $formDonnees = $this->get('form.factory')->create(new AjoutCoursType(), $formAjout);
         if ($formDonnees->handleRequest($request)->isValid()){
             for ($i = 0; $i < count($listStructure); $i++){
                 if ($listStructure[$i]->getChapitreLien() == $formAjout->getStructure()){
@@ -85,21 +57,9 @@ class AjouterController extends Controller{
         }
 
 
-        // Mise à jour des bases de données modifiées à afficher
 
-        $listQuestion = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Question')
-            ->findAll();
-
-
-        // Gestion de l'affichage des données
-
-        return $this->render('UknowPlatformBundle::ajouter.html.twig', array(
-            'formQuestion' => $formQuestion->createView(),
-            'formRecherche' => $formRecherche->createView(),
+        return $this->render('UknowPlatformBundle:ajouter:cours.html.twig', array(
             'formAjout' => $formDonnees->createView(),
-            'listQuestion' => $listQuestion,
             ));
     }
 
@@ -110,32 +70,8 @@ class AjouterController extends Controller{
         $donnees = new Donnees();
         $formAjout = new FormulaireAjouter();
         $em = $this->getDoctrine()->getManager();
-        $servicesTri = $this->container->get('uknow_platform.tri');
-        $servicesRecherche = $this->container->get('uknow_platform.recherche');
-        $servicesQuestion = $this->container->get('uknow_platform.question');
-        $formRecherche = $servicesRecherche->initialisationRecherche($this);
-        $formQuestion = $servicesQuestion->initialisationQuestion($this);
 
-
-        // Initialisation des bases de données à utiliser
-
-        $listStructure = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Structure')
-            ->findAll();
-
-
-        // Gestion des requètes demandées
-
-        if ($formQuestion->handleRequest($request)->isValid()){
-
-        }
-
-        if ($formRecherche->handleRequest($request)->isValid()){
-
-        }
-
-        $formDonnees = $this->get('form.factory')->create(new AjoutType($servicesTri->triTableau($listStructure)), $formAjout);
+        $formDonnees = $this->get('form.factory')->create(new AjoutType(), $formAjout);
         if ($formDonnees->handleRequest($request)->isValid()){
             for ($i = 0; $i < count($listStructure); $i++){
                 if ($listStructure[$i]->getChapitreLien() == $formAjout->getStructure()){
@@ -165,22 +101,8 @@ class AjouterController extends Controller{
             )));
         }
 
-
-        // Mise à jour des bases de données modifiées à afficher
-
-        $listQuestion = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Question')
-            ->findAll();
-
-
-        // Gestion de l'affichage des données
-
-        return $this->render('UknowPlatformBundle::ajouter.html.twig', array(
-            'formQuestion' => $formQuestion->createView(),
-            'formRecherche' => $formRecherche->createView(),
+        return $this->render('UknowPlatformBundle:ajouter:ajouter.html.twig', array(
             'formAjout' => $formDonnees->createView(),
-            'listQuestion' => $listQuestion,
         ));
     }
 

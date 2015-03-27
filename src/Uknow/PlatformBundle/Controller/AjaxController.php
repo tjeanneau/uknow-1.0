@@ -18,6 +18,7 @@ class AjaxController extends Controller{
 
         $donneesEnvoyee = array();
         $servicesRecherche = $this->container->get('uknow_platform.recherche');
+        $servicesModification = $this->container->get('uknow_platform.modification');
         $lettres = $request->query->get('lettres');
 
         if ($this->container->get('request')->isXmlHttpRequest()) {
@@ -27,12 +28,8 @@ class AjaxController extends Controller{
                 ->getRepository('UknowPlatformBundle:Donnees')
                 ->findAll();
 
-            $listStructure = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('UknowPlatformBundle:Structure')
-                ->findAll();
-
-            $donneesEnvoyee = $servicesRecherche->donneesRecherche($listDonnees, $listStructure, $lettres);
+            $listDonnees = $servicesModification->listAJour($listDonnees);
+            $donneesEnvoyee = $servicesRecherche->donneesRecherche($listDonnees, $lettres);
 
         }
 

@@ -9,7 +9,7 @@ $(function(){
             var lettres = encodeURIComponent($('#uknow_platformbundle_recherche_recherche').val());
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost/Uknow/web/app_dev.php/autocompletion?lettres=' + lettres,
+                url: 'http://localhost/Uknow/web/app_dev.php/ajax/autocompletion?lettres=' + lettres,
                 success: function(donnees) {
                     if(donnees != null){
                         $('#donnees').html('');

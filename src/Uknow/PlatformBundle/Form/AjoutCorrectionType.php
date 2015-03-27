@@ -12,56 +12,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AjoutType extends AbstractType{
-
-    private $listStructure;
-
-    public function __construct($listStructure){
-        $this->listStructure = $listStructure;
-
-    }
+class AjoutCoursType extends AbstractType{
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('titre', 'text', array(
                     'attr' => array(
                         'placeholder' => 'Titre'
-                    )))
-            ->add('cours', 'ckeditor', array(
-                    'config' => array(
-                        'toolbar' => array(
-                            array(
-                                'name'  => 'document',
-                                'items' => array('Maximize', '-', 'NewPage', 'DocProps', 'Preview', 'Print', 'Templates'),
-                            ),
-                            array(
-                                'name'  => 'clipboard',
-                                'items' => array('Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord','Undo', 'Redo'),
-                            ),
-                            array(
-                                'name'  => 'indent',
-                                'items' => array( 'NumberedList', 'BulletedList', 'Outdent', 'Indent','Blockquote', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'),
-                            ),
-                            array(
-                                'name'  => 'insert',
-                                'items' => array( 'SpecialChar','Image', 'Table', 'HorizontalRule'),
-                            ),
-                            '/',
-                            array(
-                                'name'  => 'style',
-                                'items' => array('Styles', 'Format', 'Font', 'FontSize'),
-                            ),
-                            array(
-                                'name'  => 'basic style',
-                                'items' => array('Bold', 'Italic', 'Underline','Strike', 'Subscript', 'Superscript', 'RemoveFormat'),
-                            ),
-                            array(
-                                'name'  => 'colors',
-                                'items' => array('TextColor', 'BGColor'),
-                            )
-                        ),
-                        'uiColor' => '#ffffff',
-                        'config_name' => 'my_config',
                     )))
             ->add('exercice', 'ckeditor', array(
                 'config' => array(
@@ -103,10 +60,14 @@ class AjoutType extends AbstractType{
                     'uiColor' => '#ffffff',
                     'config_name' => 'my_config',
                 )))
-            ->add('structure', 'choice', array(
-                    'choices' => $this->listStructure,
-                    'empty_value' => 'Choisir le chapitre'
-                    ))
+            ->add('domaine_nom', 'choice')
+            ->add('domaine_lien', 'text')
+            ->add('matiere_nom', 'choice')
+            ->add('matiere_lien', 'text')
+            ->add('theme_nom', 'choice')
+            ->add('theme_lien', 'text')
+            ->add('chapitre_nom', 'choice')
+            ->add('chapitre_lien', 'text')
             ->add('type', 'choice', array(
                     'choices' => array(
                         'Exercice' => 'Exercice',

@@ -36,10 +36,10 @@ class DonneesController extends Controller
             ->getManager()
             ->getRepository('UknowPlatformBundle:Donnees')
             ->findBy(array(
-                'domaine' => $lienDomaine,
-                'matiere' => $lienMatiere,
-                'theme' => $lienTheme,
-                'chapitre' => $lienChapitre
+                'domaine_lien' => $lienDomaine,
+                'matiere_lien' => $lienMatiere,
+                'theme_lien' => $lienTheme,
+                'chapitre_lien' => $lienChapitre
             ), null, null, null);
         $listDonnees = $servicesModifications->listAJour($listDonnees);
 
@@ -75,7 +75,7 @@ class DonneesController extends Controller
         }
 
         if($lienChapitre != null){
-            $chapitre = $servicesTri->findObject($lienChapitre, 'chapitre', $lienDomaine, $lienMatiere, $lienChapitre);
+            $chapitre = $servicesTri->findObject($lienChapitre, 'chapitre', $lienDomaine, $lienMatiere, $lienTheme);
             if($chapitre == null){
                 return $this->render('UknowPlatformBundle::erreur.html.twig');
             }
@@ -85,8 +85,8 @@ class DonneesController extends Controller
         $em->persist($compte);
         $em->flush();
         $listDonnees = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
-        $tableauInfoSauvegarde = $servicesTri->triDonneesSauvegardees($list, $compte->getDonneesSauvegardees());
-        $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonneesAffichage, $compte->getDonneesEvaluees());
+        $tableauInfoSauvegarde = $servicesTri->triDonneesSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
+        $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonnees, $compte->getDonneesEvaluees());
 
         return $this->render('UknowPlatformBundle:donnees:donnees.html.twig', array(
             'domaine' => $domaine,
