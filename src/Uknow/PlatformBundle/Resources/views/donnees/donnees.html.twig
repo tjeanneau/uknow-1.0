@@ -42,7 +42,7 @@
 
                             <div class="row" style="margin:0">
                                 <span id="details">
-                                    {{ donnees.matiere }} : {{ donnees.type }} : {{ donnees.niveau }}
+                                    {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
                                 </span>
                             </div>
                             <div class="row" style="margin:0">
@@ -69,13 +69,13 @@
 
                         <div class="row" style="margin:0">
                             <div id="pertinent" class="col-md-2">
-                                {{ donnees.positive }}
+                                {{ donnees.pertinent }}
                             </div>
                             <div id="developper" class="col-md-2">
-                                {{ donnees.negative }}
+                                {{ donnees.developper }}
                             </div>
                             <div id="inutile" class="col-md-2">
-                                {{ donnees.negative }}
+                                {{ donnees.inutile }}
                             </div>
 
                             <button type="submit" name="bouton" value="Modifier" class="col-md-2" id="modifier">

@@ -25,7 +25,7 @@ class ServiceSauvegarde {
 
         $tableauMatiere = array();
         for( $i = 0 ; $i < count($listDonnees) ; $i++){
-            $tableauMatiere = $listDonnees[$i]->getMatiere();
+            $tableauMatiere = $listDonnees[$i]->getMatiereNom();
         }
         $tableauMatiere = $this->affichage->tableauNomLien($tableauMatiere);
 

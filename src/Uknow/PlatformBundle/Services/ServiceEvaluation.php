@@ -11,7 +11,7 @@ namespace Uknow\PlatformBundle\Services;
 class ServiceEvaluation {
 
     public function ratio($donnee){
-        $ratio = $donnee->getPositive() - $donnee->getNegative();
+        $ratio = $donnee->getPertinent() - $donnee->getInutile();
         return $ratio;
     }
 

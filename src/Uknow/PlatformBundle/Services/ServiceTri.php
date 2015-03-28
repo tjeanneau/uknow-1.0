@@ -227,6 +227,22 @@ class ServiceTri{
 
     }
 
+    public function tableauDonneesSauvegardees($listDonnees, $chaineSauvegardees){
+
+        $donneesSauvegardees = array();
+        $tableauSauvegardees = explode('/', $chaineSauvegardees);
+        for($i = 0 ; $i < count($listDonnees) ; $i++ ){
+            for($j = 0 ; $j < count($tableauSauvegardees) ; $j++){
+                $donneesSauvegardees[$i] = 0;
+                if($listDonnees[$i]->getId() == $tableauSauvegardees[$j]){
+                    $donneesSauvegardees[$i] = 1;
+                }
+            }
+        }
+        return $donneesSauvegardees;
+
+    }
+
     public function triDonneesEvaluees($listDonneesAffichages, $chaineEvaluees){
 
         $tableauInfo = array();

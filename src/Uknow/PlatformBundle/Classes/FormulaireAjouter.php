@@ -43,9 +43,9 @@ class FormulaireAjouter {
         return $this->ckeditor;
     }
 
-    public function setDomaineNom($domaineNom)
+    public function setDomaineNom($domaine_nom)
     {
-        $this->domaine_nom = $domaineNom;
+        $this->domaine_nom = $domaine_nom;
 
         return $this;
     }
@@ -55,9 +55,9 @@ class FormulaireAjouter {
         return $this->domaine_nom;
     }
 
-    public function setMatiereNom($matiereNom)
+    public function setMatiereNom($matiere_nom)
     {
-        $this->matiere_nom = $matiereNom;
+        $this->matiere_nom = $matiere_nom;
 
         return $this;
     }
@@ -67,9 +67,9 @@ class FormulaireAjouter {
         return $this->matiere_nom;
     }
 
-    public function setThemeNom($themeNom)
+    public function setThemeNom($theme_nom)
     {
-        $this->theme_nom = $themeNom;
+        $this->theme_nom = $theme_nom;
 
         return $this;
     }
@@ -79,9 +79,9 @@ class FormulaireAjouter {
         return $this->theme_nom;
     }
 
-    public function setChapitreNom($chapitreNom)
+    public function setChapitreNom($chapitre_nom)
     {
-        $this->chapitre_nom = $chapitreNom;
+        $this->chapitre_nom = $chapitre_nom;
 
         return $this;
     }

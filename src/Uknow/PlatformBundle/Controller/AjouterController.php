@@ -36,13 +36,13 @@ class AjouterController extends Controller{
         $formDonnees = $this->get('form.factory')->create(new AjoutCoursType($domaines, $matieres, $themes, $chapitres), $formAjout);
         if ($formDonnees->handleRequest($request)->isValid()){
             $donnees->setDomaineNom($formAjout->getDomaineNom());
-            $donnees->setDomaineLien($servicesTri->findObjectNom($formAjout->getDomaineNom(), 'domaine', null, null, null));
+            $donnees->setDomaineLien($servicesTri->findObjectNom($formAjout->getDomaineNom(), 'domaine', null, null, null)->getLien());
             $donnees->setMatiereNom($formAjout->getMatiereNom());
-            $donnees->setMatiereLien($servicesTri->findObjectNom($formAjout->getMatiereNom(), 'matiere', $donnees->getDomaineLien(), null, null));
+            $donnees->setMatiereLien($servicesTri->findObjectNom($formAjout->getMatiereNom(), 'matiere', $donnees->getDomaineLien(), null, null)->getLien());
             $donnees->setThemeNom($formAjout->getThemeNom());
-            $donnees->setThemeLien($servicesTri->findObjectNom($formAjout->getThemeNom(), 'theme', $donnees->getDomaineLien(), $donnees->getMatiereLien(), null));
+            $donnees->setThemeLien($servicesTri->findObjectNom($formAjout->getThemeNom(), 'theme', $donnees->getDomaineLien(), $donnees->getMatiereLien(), null)->getLien());
             $donnees->setChapitreNom($formAjout->getChapitreNom());
-            $donnees->setChapitreLien($servicesTri->findObjectNom($formAjout->getChapitreNom(), 'chapitre', $donnees->getDomaineLien(), $donnees->getMatiereLien(), $donnees->getThemeLien()));
+            $donnees->setChapitreLien($servicesTri->findObjectNom($formAjout->getChapitreNom(), 'chapitre', $donnees->getDomaineLien(), $donnees->getMatiereLien(), $donnees->getThemeLien())->getLien());
             $donnees->setTitre($formAjout->getTitre());
             $donnees->setTexte($formAjout->getCkeditor());
             $donnees->setType($formAjout->getType());

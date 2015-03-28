@@ -85,7 +85,7 @@ class DonneesController extends Controller
         $em->persist($compte);
         $em->flush();
         $listDonnees = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
-        $tableauInfoSauvegarde = $servicesTri->triDonneesSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
+        $tableauInfoSauvegarde = $servicesTri->tableauDonneesSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
         $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonnees, $compte->getDonneesEvaluees());
 
         return $this->render('UknowPlatformBundle:donnees:donnees.html.twig', array(

@@ -25,10 +25,10 @@ class ServiceModification {
                 $listModification[] = $listDonnees[$i];
             }
             for($j = 0; $j < count($listModification); $j++){
-                if($listDonnees[$i]->getDomaine() == $listModification[$j]->getDomaine()
-                    && $listDonnees[$i]->getMatiere() == $listModification[$j]->getMatiere()
-                    && $listDonnees[$i]->getTheme() == $listModification[$j]->getTheme()
-                    && $listDonnees[$i]->getChapitre() == $listModification[$j]->getChapitre()
+                if($listDonnees[$i]->getDomaineLien() == $listModification[$j]->getDomaineLien()
+                    && $listDonnees[$i]->getMatiereLien() == $listModification[$j]->getMatiereLien()
+                    && $listDonnees[$i]->getThemeLien() == $listModification[$j]->getThemeLien()
+                    && $listDonnees[$i]->getChapitreLien() == $listModification[$j]->getChapitreLien()
                     && $listDonnees[$i]->getTitre() == $listModification[$j]->getTitre()){
                     if($this->evaluation->ratio($listDonnees[$i]) > $this->evaluation->ratio($listModification[$j])){
                         $listModification[$j] = $listDonnees[$i];
