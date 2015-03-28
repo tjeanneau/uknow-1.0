@@ -18,7 +18,7 @@ class ServiceList {
         $jsonDomaine = json_decode($json, true);
 
         foreach ($jsonDomaine['domaine'] as $domaine){
-            $listDomaine[$domaine['nom']] = $domaine['nom'];
+            $listDomaine[$domaine['lien']] = $domaine['nom'];
         }
 
         return $listDomaine;
@@ -33,7 +33,7 @@ class ServiceList {
 
         foreach ($jsonMatiere['matiere'] as $domaine){
             foreach ($domaine as $matiere){
-                $listMatiere[$matiere['nom']] = $matiere['nom'];
+                $listMatiere[$matiere['lien']] = $matiere['nom'];
             }
         }
 
@@ -50,7 +50,7 @@ class ServiceList {
         foreach ($jsonTheme['theme'] as $domaine){
             foreach ($domaine as $matiere){
                 foreach ($matiere as $theme){
-                    $listTheme[$theme['nom']] = $theme['nom'];
+                    $listTheme[$theme['lien']] = $theme['nom'];
                 }
             }
         }
@@ -69,7 +69,7 @@ class ServiceList {
             foreach ($domaine as $matiere){
                 foreach ($matiere as $theme){
                     foreach ($theme as $chapitre){
-                        $listChapitre[$chapitre['nom']] = $chapitre['nom'];
+                        $listChapitre[$chapitre['lien']] = $chapitre['nom'];
                     }
                 }
             }
