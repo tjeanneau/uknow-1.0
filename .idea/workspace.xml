@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f96ba57-0716-4b09-b8d6-8e12cbbea2fb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceList.php" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/ajouter/cours.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/ajouter/cours.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/uknowAjouter.js" afterPath="$PROJECT_DIR$/web/js/uknowAjouter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/uknowRecherche.js" afterPath="$PROJECT_DIR$/web/js/uknowRecherche.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Uknow.iws" />
@@ -112,8 +111,18 @@
       <file leaf-file-name="uknowAjouter.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/uknowAjouter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43137255" vertical-offset="54" max-vertical-offset="2862">
-              <caret line="25" column="127" selection-start-line="25" selection-start-column="127" selection-end-line="25" selection-end-column="127" />
+            <state vertical-scroll-proportion="3.6470587" vertical-offset="198" max-vertical-offset="4356">
+              <caret line="197" column="5" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.814816" vertical-offset="23" max-vertical-offset="1044">
+              <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="29" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -198,6 +207,28 @@
   <component name="ProjectFrameBounds">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JSJQueryEfficiency</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -732,7 +763,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22329059" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14957266" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -906,14 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4204793" vertical-offset="68158" max-vertical-offset="118584">
           <caret line="3808" column="25" selection-start-line="3808" selection-start-column="25" selection-end-line="3808" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.037037" vertical-offset="62" max-vertical-offset="954">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,10 +1191,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.814816" vertical-offset="23" max-vertical-offset="1044">
+          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="29" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/uknowAjouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43137255" vertical-offset="54" max-vertical-offset="2862">
-          <caret line="25" column="127" selection-start-line="25" selection-start-column="127" selection-end-line="25" selection-end-column="127" />
+        <state vertical-scroll-proportion="3.6470587" vertical-offset="198" max-vertical-offset="4356">
+          <caret line="197" column="5" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
           <folding />
         </state>
       </provider>
