@@ -68,28 +68,22 @@ class AjoutCoursType extends AbstractType{
                         'uiColor' => '#ffffff',
                         'config_name' => 'my_config',
                     )))
-            ->add('domaine_nom', 'choice', array(
+            ->add('domaine_lien', 'choice', array(
                 'choices' => $this->domaine,
                 'empty_value' => 'Choisir le domaine'
             ))
-            ->add('matiere_nom', 'choice', array(
+            ->add('matiere_lien', 'choice', array(
                 'choices' => $this->matiere,
                 'empty_value' => 'Choisir la matière'
             ))
-            ->add('theme_nom', 'choice', array(
+            ->add('theme_lien', 'choice', array(
                 'choices' => $this->theme,
                 'empty_value' => 'Choisir le thème'
             ))
-            ->add('chapitre_nom', 'choice', array(
+            ->add('chapitre_lien', 'choice', array(
                 'choices' => $this->chapitre,
                 'empty_value' => 'Choisir le chapitre'
             ))
-            ->add('type', 'choice', array(
-                    'choices' => array(
-                        'Exercice' => 'Exercice',
-                        'Cours' => 'Cours'),
-                    'empty_value' => 'Choisir le type'
-                    ))
             ->add('temps', 'choice', array('choices' => array(
                     '5' => '5',
                     '10' => '10',

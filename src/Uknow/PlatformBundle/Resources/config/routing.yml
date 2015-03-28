@@ -30,5 +30,10 @@ uknow_platform_ajax:
     resource: "@UknowPlatformBundle/Resources/config/routing/ajax.yml"
     prefix:   /ajax
 
+uknow_platform_modifier:
+    resource: "@UknowPlatformBundle/Resources/config/routing/modifier.yml"
+    prefix:   /modifier
+
+
 
 

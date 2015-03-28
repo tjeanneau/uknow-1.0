@@ -12,11 +12,10 @@ class FormulaireAjouter {
 
     private $titre;
     private $ckeditor;
-    private $domaine_nom;
-    private $matiere_nom;
-    private $theme_nom;
-    private $chapitre_nom;
-    private $type;
+    private $domaine_lien;
+    private $matiere_lien;
+    private $theme_lien;
+    private $chapitre_lien;
     private $niveau;
     private $modification;
     private $temps;
@@ -43,64 +42,54 @@ class FormulaireAjouter {
         return $this->ckeditor;
     }
 
-    public function setDomaineNom($domaine_nom)
+    public function setDomaineLien($domaine_lien)
     {
-        $this->domaine_nom = $domaine_nom;
+        $this->domaine_lien = $domaine_lien;
 
         return $this;
     }
 
-    public function getDomaineNom()
+    public function getDomaineLien()
     {
-        return $this->domaine_nom;
+        return $this->domaine_lien;
     }
 
-    public function setMatiereNom($matiere_nom)
+    public function setMatiereLien($matiere_lien)
     {
-        $this->matiere_nom = $matiere_nom;
+        $this->matiere_lien = $matiere_lien;
 
         return $this;
     }
 
-    public function getMatiereNom()
+    public function getMatiereLien()
     {
-        return $this->matiere_nom;
+        return $this->matiere_lien;
     }
 
-    public function setThemeNom($theme_nom)
+    public function setThemeLien($theme_lien)
     {
-        $this->theme_nom = $theme_nom;
+        $this->theme_lien = $theme_lien;
 
         return $this;
     }
 
-    public function getThemeNom()
+    public function getThemeLien()
     {
-        return $this->theme_nom;
+        return $this->theme_lien;
     }
 
-    public function setChapitreNom($chapitre_nom)
+    public function setChapitreLien($chapitre_lien)
     {
-        $this->chapitre_nom = $chapitre_nom;
+        $this->chapitre_lien = $chapitre_lien;
 
         return $this;
     }
 
-    public function getChapitreNom()
+    public function getChapitreLien()
     {
-        return $this->chapitre_nom;
+        return $this->chapitre_lien;
     }
 
-    public function setType($type)
-    {
-        $this->type = $type;
-        return $type;
-    }
-
-    public function getType()
-    {
-        return $this->type;
-    }
 
     public function setNiveau($niveau)
     {

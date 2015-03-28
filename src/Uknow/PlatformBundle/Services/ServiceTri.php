@@ -172,10 +172,10 @@ class ServiceTri{
         for( $i = 0 ; $i < count($jsonChapitre['chapitre'][$domaine][$matiere][$theme]) ; $i++){
             $nombreDonnees[$i] = 0;
             for( $j = 0 ; $j < count($listDonnee) ; $j++){
-                if($domaine == $listDonnee[$j]->getDomaine()
-                    && $matiere == $listDonnee[$j]->getMatiere()
-                    && $theme == $listDonnee[$j]->getTheme()
-                    && $jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['lien'] == $listDonnee[$j]->getChapitre()){
+                if($domaine == $listDonnee[$j]->getDomaineLien()
+                    && $matiere == $listDonnee[$j]->getMatiereLien()
+                    && $theme == $listDonnee[$j]->getThemeLien()
+                    && $jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['lien'] == $listDonnee[$j]->getChapitreLien()){
                     $nombreDonnees[$i] = $nombreDonnees[$i]+1;
                 }
             }

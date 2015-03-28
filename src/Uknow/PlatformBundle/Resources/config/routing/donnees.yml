@@ -1,7 +1,3 @@
-uknow_platform_donnees_modifier:
-    path:     /modifier/{id}
-    defaults: { _controller: UknowPlatformBundle:Donnees:modifier, id: null}
-
 uknow_platform_donnees_modification:
     path:     /modifications/{id}
     defaults: { _controller: UknowPlatformBundle:Donnees:modifications, id: null}

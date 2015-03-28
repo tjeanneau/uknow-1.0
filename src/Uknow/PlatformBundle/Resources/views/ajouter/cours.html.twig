@@ -2,16 +2,16 @@
 
 {% extends "UknowPlatformBundle::index.html.twig" %}
 
-{% block title %}Ajout{% endblock %}
+{% block title %}Ajout d'un cours{% endblock %}
 
 {% block contenu %}
     <div class="row">
         <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
-            <div class="titre">Ajout d'un cours ou d'un exercice</div>
+            <div class="titre">Ajout d'un cours</div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-9" style="margin-top: 36px; z-index: 0">
+    <div class="row" style="margin-top: 36px">
+        <div class="col-md-9" style="padding: 15px; z-index: 0">
             <div class="form-group" id="ajouter">
                 {{ form_start(formAjout) }}
                     {{ form_errors(formAjout) }}
@@ -23,39 +23,34 @@
                     <div class="form-group">
                         <div id="domaine" class="input-group">
                             <span class="input-group-addon">Domaine:</span>
-                            {{ form_errors(formAjout.domaine_nom) }}
-                            {{ form_widget(formAjout.domaine_nom, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(formAjout.domaine_lien) }}
+                            {{ form_widget(formAjout.domaine_lien, {'attr': {'class': 'form-control'}}) }}
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">Matière:</span>
-                            {{ form_errors(formAjout.matiere_nom) }}
-                            {{ form_widget(formAjout.matiere_nom, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(formAjout.matiere_lien) }}
+                            {{ form_widget(formAjout.matiere_lien, {'attr': {'class': 'form-control'}}) }}
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">Thème:</span>
-                            {{ form_errors(formAjout.theme_nom) }}
-                            {{ form_widget(formAjout.theme_nom, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(formAjout.theme_lien) }}
+                            {{ form_widget(formAjout.theme_lien, {'attr': {'class': 'form-control'}}) }}
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">Chapitre:</span>
-                            {{ form_errors(formAjout.chapitre_nom) }}
-                            {{ form_widget(formAjout.chapitre_nom, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(formAjout.chapitre_lien) }}
+                            {{ form_widget(formAjout.chapitre_lien, {'attr': {'class': 'form-control'}}) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="form-inline">
-                            <div class="input-group">
-                                <span class="input-group-addon">Type:</span>
-                                {{ form_errors(formAjout.type) }}
-                                {{ form_widget(formAjout.type, {'attr': {'class': 'form-control'}}) }}
-                            </div>
                             <div class="input-group">
                                 <span class="input-group-addon">Niveau:</span>
                                 {{ form_errors(formAjout.niveau) }}
@@ -70,13 +65,13 @@
                         </div>
                     </div>
 
-                    <div id="cours" class="form-group">
+                    <div class="form-group">
                         {{ form_errors(formAjout.ckeditor) }}
                         {{ form_widget(formAjout.ckeditor) }}
                     </div>
 
                     <div class="form-group">
-                        {{ form_widget(formAjout.ajouter, {'attr': {'class': 'btn btn-default'}}) }}
+                        {{ form_widget(formAjout.ajouter, {'attr': {'class': 'btn btn-default', 'style':'float:right'}}) }}
                     </div>
                 {{ form_end(formAjout) }}
             </div>

@@ -1,12 +1,12 @@
 uknow_platform_ajouter_cours:
-    path:     /cours
-    defaults: { _controller: UknowPlatformBundle:Ajouter:cours}
+    path:     /cours/{lienDomaine}/{lienMatiere}/{lienTheme}/{lienChapitre}
+    defaults: { _controller: UknowPlatformBundle:Ajouter:cours, lienDomaine: null, lienMatiere: null, lienTheme: null, lienChapitre: null}
     
 uknow_platform_ajouter_exercices:
-    path:     /exercices
-    defaults: { _controller: UknowPlatformBundle:Ajouter:exercices}
+    path:     /exercice/{lienDomaine}/{lienMatiere}/{lienTheme}/{lienChapitre}
+    defaults: { _controller: UknowPlatformBundle:Ajouter:exercice, lienDomaine: null, lienMatiere: null, lienTheme: null, lienChapitre: null}
 
 uknow_platform_ajouter_correction:
-    path:     /correction
-    defaults: { _controller: UknowPlatformBundle:Ajouter:correction}
+    path:     /correction/{lienDomaine}/{lienMatiere}/{lienTheme}/{lienChapitre}
+    defaults: { _controller: UknowPlatformBundle:Ajouter:correction, lienDomaine: null, lienMatiere: null, lienTheme: null, lienChapitre: null}
     

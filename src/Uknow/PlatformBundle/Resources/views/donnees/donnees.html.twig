@@ -19,7 +19,7 @@
     <div class="row" style="margin-top: 36px">
         <div class="col-md-9" style="padding: 15px; text-align: center">
             {%  if listDonnees == null %}
-                <h4>Il n'existe pas de cours pour cette section.<br/> Mais vous pouvez <em><a href="{{ path('uknow_platform_ajouter_cours') }}">en créer un</a></em> !</h4>
+                <h4>Il n'existe pas de cours pour cette section.<br/> Mais vous pouvez <em><a href="{{ path('uknow_platform_ajouter_cours', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien, 'lienTheme': theme.lien, 'lienChapitre':chapitre.lien }) }}">en créer un</a></em> !</h4>
             {% else %}
                 {% for donnees in listDonnees %}
                     <div id="donnee{{ loop.index }}" class="donnee">

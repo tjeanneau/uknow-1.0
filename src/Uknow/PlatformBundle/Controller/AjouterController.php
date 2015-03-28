@@ -14,16 +14,19 @@ use Uknow\PlatformBundle\Form\AjoutCoursType;
 use Uknow\PlatformBundle\Services;
 use Uknow\PlatformBundle\Classes\FormulaireAjouter;
 use Uknow\PlatformBundle\Entity\Donnees;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class AjouterController extends Controller{
 
-    public function coursAction( Request $request){
+    public function coursAction($lienDomaine, $lienMatiere, $lienTheme, $lienChapitre, Request $request){
 
         // Initialisation des variables principales
 
         $donnees = new Donnees();
         $formAjout = new FormulaireAjouter();
+        $formAjout->setDomaineLien($lienDomaine);
+        $formAjout->setMatiereLien($lienMatiere);
+        $formAjout->setThemeLien($lienTheme);
+        $formAjout->setChapitreLien($lienChapitre);
         $servicesTri = $this->container->get('uknow_platform.tri');
         $servicesList = $this->container->get('uknow_platform.list');
         $em = $this->getDoctrine()->getManager();
@@ -35,17 +38,17 @@ class AjouterController extends Controller{
 
         $formDonnees = $this->get('form.factory')->create(new AjoutCoursType($domaines, $matieres, $themes, $chapitres), $formAjout);
         if ($formDonnees->handleRequest($request)->isValid()){
-            $donnees->setDomaineNom($formAjout->getDomaineNom());
-            $donnees->setDomaineLien($servicesTri->findObjectNom($formAjout->getDomaineNom(), 'domaine', null, null, null)->getLien());
-            $donnees->setMatiereNom($formAjout->getMatiereNom());
-            $donnees->setMatiereLien($servicesTri->findObjectNom($formAjout->getMatiereNom(), 'matiere', $donnees->getDomaineLien(), null, null)->getLien());
-            $donnees->setThemeNom($formAjout->getThemeNom());
-            $donnees->setThemeLien($servicesTri->findObjectNom($formAjout->getThemeNom(), 'theme', $donnees->getDomaineLien(), $donnees->getMatiereLien(), null)->getLien());
-            $donnees->setChapitreNom($formAjout->getChapitreNom());
-            $donnees->setChapitreLien($servicesTri->findObjectNom($formAjout->getChapitreNom(), 'chapitre', $donnees->getDomaineLien(), $donnees->getMatiereLien(), $donnees->getThemeLien())->getLien());
+            $donnees->setDomaineLien($formAjout->getDomaineLien());
+            $donnees->setDomaineNom($servicesTri->findObjectLien($formAjout->getDomaineLien(), 'domaine', null, null, null)->getLien());
+            $donnees->setMatiereLien($formAjout->getMatiereLien());
+            $donnees->setMatiereNom($servicesTri->findObjectLien($formAjout->getMatiereLien(), 'matiere', $donnees->getDomaineLien(), null, null)->getLien());
+            $donnees->setThemeLien($formAjout->getThemeLien());
+            $donnees->setThemeNom($servicesTri->findObjectLien($formAjout->getThemeLien(), 'theme', $donnees->getDomaineLien(), $donnees->getMatiereLien(), null)->getLien());
+            $donnees->setChapitreLien($formAjout->getChapitreLien());
+            $donnees->setChapitreNom($servicesTri->findObjectLien($formAjout->getChapitreLien(), 'chapitre', $donnees->getDomaineLien(), $donnees->getMatiereLien(), $donnees->getThemeLien())->getLien());
             $donnees->setTitre($formAjout->getTitre());
             $donnees->setTexte($formAjout->getCkeditor());
-            $donnees->setType($formAjout->getType());
+            $donnees->setType('Cours');
             $donnees->setNiveau($formAjout->getNiveau());
             $donnees->setTemps($formAjout->getTemps());
             $donnees->setModification(0);
@@ -69,7 +72,7 @@ class AjouterController extends Controller{
             ));
     }
 
-    public function exercicesAction( Request $request){
+    public function exerciceAction( Request $request){
 
         // Initialisation des variables principales
 
