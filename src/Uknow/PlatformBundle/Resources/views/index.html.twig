@@ -6,8 +6,8 @@
         <meta charset="utf-8" />
         {% stylesheets
         '@bootstrap_css'
-        'css/uknowIndex.css'
-        'css/uknowDonnees.css'
+        'css/Uknow/Index.css'
+        'css/Uknow/Donnees.css'
         %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
@@ -42,9 +42,11 @@
         {% javascripts
         '@jquery'
         '@bootstrap_js'
-        'js/uknowAjouter.js'
-        'js/uknowRecherche.js'
-        'js/uknowDonnees.js'
+        'js/Uknow/ajouter/AjouterCours.js'
+        'js/Uknow/ajouter/AjouterCorrection.js'
+        'js/Uknow/ajouter/AjouterExercice.js'
+        'js/Uknow/Recherche.js'
+        'js/Uknow/Donnees.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
