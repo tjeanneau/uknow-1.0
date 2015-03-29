@@ -13,15 +13,9 @@
                     <span class="glyphicon glyphicon-floppy-saved"></span>
                 </button>
             {% else %}
-                {% if donnees.type == 'Cours' %}
-                    <button class="boutonAffiche">
-                        <span class="glyphicon glyphicon-floppy-disk"></span>
-                    </button>
-                {% else %}
-                    <button class="boutonAffiche">
-                        <span class="glyphicon glyphicon-floppy-disk"></span>
-                    </button>
-                {% endif %}
+                <button class="boutonAffiche" onclick="enregistrer()">
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
             {% endif %}
         </span>
 
@@ -29,12 +23,29 @@
             <span class="glyphicon glyphicon-th"></span>
         </button>
 
-        <button class="boutonAffiche" onclick="modifier()">
-            <span class="glyphicon glyphicon-edit"></span>
-        </button>
+        {% if donnees.type == 'Cours' %}
+            <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
+                <button class="boutonAffiche">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </button>
+            </a>
+        {% elseif donnees.type == 'Exercice' %}
+            <a href="{{ path('uknow_platform_modifier_exercice', {'id': donnees.id }) }}">
+                <button class="boutonAffiche">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </button>
+            </a>
+        {% elseif donnees.type == 'Correction' %}
+            <a href="{{ path('uknow_platform_modifier_correction', {'id': donnees.id }) }}">
+                <button class="boutonAffiche">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </button>
+            </a>
+        {% endif %}
+
     </div>
 
-    <div class="textedonnee">
+    <div>
         {{ donnees.texte|raw}}
     </div>
 

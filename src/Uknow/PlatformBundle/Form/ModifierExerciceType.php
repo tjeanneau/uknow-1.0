@@ -16,7 +16,7 @@ class ModifierExerciceType extends AbstractType{
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('exercice', 'ckeditor', array(
+        $builder->add('text', 'ckeditor', array(
                 'config' => array(
                     'toolbar' => array(
                         array(
@@ -68,13 +68,13 @@ class ModifierExerciceType extends AbstractType{
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Uknow\PlatformBundle\Classes\FormulaireModifierExercice'
+            'data_class' => 'Uknow\PlatformBundle\Classes\FormulaireModifier'
         ));
     }
 
     public function getName()
     {
-        return 'uknow_platformbundle_modifier';
+        return 'uknow_platformbundle_modifier_exercice';
     }
 
 }

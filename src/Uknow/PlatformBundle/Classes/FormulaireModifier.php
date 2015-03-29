@@ -8,20 +8,20 @@
 
 namespace Uknow\PlatformBundle\Classes;
 
-class FormulaireModifierCours {
+class FormulaireModifier {
 
-    private $cours;
+    private $ckeditor;
     private $temps;
 
-    public function setCours($cours)
+    public function setCkeditor($ckeditor)
     {
-        $this->cours = $cours;
+        $this->ckeditor = $ckeditor;
         return $this;
     }
 
-    public function getCours()
+    public function getCkeditor()
     {
-        return $this->cours;
+        return $this->ckeditor;
     }
 
     public function setTemps($temps)

@@ -1,11 +1,11 @@
 uknow_platform_modifier_cours:
     path:     /cours/{id}
-    defaults: { _controller: UknowPlatformBundle:Ajouter:cours, id: null}
+    defaults: { _controller: UknowPlatformBundle:Modifier:cours, id: null}
 
-uknow_platform_modifier_exercices:
+uknow_platform_modifier_exercice:
     path:     /exercice/{id}
-    defaults: { _controller: UknowPlatformBundle:Ajouter:exercice, id: null}
+    defaults: { _controller: UknowPlatformBundle:Modifier:exercice, id: null}
 
 uknow_platform_modifier_correction:
     path:     /correction/{id}
-    defaults: { _controller: UknowPlatformBundle:Ajouter:correction, id: null}
+    defaults: { _controller: UknowPlatformBundle:Modifier:correction, id: null}

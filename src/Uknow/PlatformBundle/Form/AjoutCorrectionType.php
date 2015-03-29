@@ -12,7 +12,19 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AjoutCoursType extends AbstractType{
+class AjoutCorrectionType extends AbstractType{
+
+    private $domaine;
+    private $matiere;
+    private $theme;
+    private $chapitre;
+
+    public function __construct($domaine, $matiere, $theme, $chapitre){
+        $this->domaine = $domaine;
+        $this->matiere = $matiere;
+        $this->theme = $theme;
+        $this->chapitre = $chapitre;
+    }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -20,7 +32,7 @@ class AjoutCoursType extends AbstractType{
                     'attr' => array(
                         'placeholder' => 'Titre'
                     )))
-            ->add('exercice', 'ckeditor', array(
+            ->add('ckeditor', 'ckeditor', array(
                 'config' => array(
                     'toolbar' => array(
                         array(
@@ -60,52 +72,54 @@ class AjoutCoursType extends AbstractType{
                     'uiColor' => '#ffffff',
                     'config_name' => 'my_config',
                 )))
-            ->add('domaine_nom', 'choice')
-            ->add('domaine_lien', 'text')
-            ->add('matiere_nom', 'choice')
-            ->add('matiere_lien', 'text')
-            ->add('theme_nom', 'choice')
-            ->add('theme_lien', 'text')
-            ->add('chapitre_nom', 'choice')
-            ->add('chapitre_lien', 'text')
-            ->add('type', 'choice', array(
-                    'choices' => array(
-                        'Exercice' => 'Exercice',
-                        'Cours' => 'Cours'),
-                    'empty_value' => 'Choisir le type'
-                    ))
+            ->add('domaine_lien', 'choice', array(
+                'choices' => $this->domaine,
+                'empty_value' => 'Choisir le domaine'
+            ))
+            ->add('matiere_lien', 'choice', array(
+                'choices' => $this->matiere,
+                'empty_value' => 'Choisir la matière'
+            ))
+            ->add('theme_lien', 'choice', array(
+                'choices' => $this->theme,
+                'empty_value' => 'Choisir le thème'
+            ))
+            ->add('chapitre_lien', 'choice', array(
+                'choices' => $this->chapitre,
+                'empty_value' => 'Choisir le chapitre'
+            ))
             ->add('temps', 'choice', array('choices' => array(
-                    '5' => '5',
-                    '10' => '10',
-                    '15' => '15',
-                    '20' => '20',
-                    '25' => '25',
-                    '30' => '30',
-                    '35' => '35',
-                    '40' => '40',
-                    '45' => '45',
-                    '50' => '50',
-                    '55' => '55',
-                    '60' => '60'
-                    ), 'empty_value' => 'Choisir le temps'
-                    ))
+                '5' => '5',
+                '10' => '10',
+                '15' => '15',
+                '20' => '20',
+                '25' => '25',
+                '30' => '30',
+                '35' => '35',
+                '40' => '40',
+                '45' => '45',
+                '50' => '50',
+                '55' => '55',
+                '60' => '60'
+            ), 'empty_value' => 'Choisir le temps'
+            ))
             ->add('niveau', 'choice', array('choices' => array(
-                    'Sixième' => 'Sixième',
-                    'Cinquième' => 'Cinquième',
-                    'Quatrième' => 'Quatrième',
-                    'Troisième' => 'Troisième',
-                    'Seconde' => 'Seconde',
-                    'Première' => 'Première',
-                    'Terminal' => 'Terminal',
-                    'Bac + 1' => 'Bac + 1',
-                    'Bac + 2' => 'Bac + 2',
-                    'Bac + 3' => 'Bac + 3',
-                    'Bac + 4' => 'Bac + 4',
-                    'Bac + 5' => 'Bac + 5',
-                    'Bac + 6' => 'Bac + 6',
-                    'Bac + 7' => 'Bac + 7',
-                    'Bac + 8' => 'Bac + 8'), 'empty_value' => 'Choisir le niveau'
-                    ))
+                'Sixième' => 'Sixième',
+                'Cinquième' => 'Cinquième',
+                'Quatrième' => 'Quatrième',
+                'Troisième' => 'Troisième',
+                'Seconde' => 'Seconde',
+                'Première' => 'Première',
+                'Terminal' => 'Terminal',
+                'Bac + 1' => 'Bac + 1',
+                'Bac + 2' => 'Bac + 2',
+                'Bac + 3' => 'Bac + 3',
+                'Bac + 4' => 'Bac + 4',
+                'Bac + 5' => 'Bac + 5',
+                'Bac + 6' => 'Bac + 6',
+                'Bac + 7' => 'Bac + 7',
+                'Bac + 8' => 'Bac + 8'), 'empty_value' => 'Choisir le niveau'
+            ))
             ->add('ajouter', 'submit');
     }
 
@@ -118,6 +132,6 @@ class AjoutCoursType extends AbstractType{
 
     public function getName()
     {
-        return 'uknow_platformbundle_ajout';
+        return 'uknow_platformbundle_ajout_correction';
     }
 }

@@ -1,0 +1,67 @@
+{# src/Uknow/PlatformBundle/Resources/views/modifier/cours.html.twig#}
+
+{% extends "UknowPlatformBundle::index.html.twig" %}
+
+{% block title %}Modification{% endblock %}
+
+{% block contenu %}
+    <div class="row">
+        <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+            <ol class="breadcrumb">
+                <li><a href="{{ path('uknow_platform_recherche_acceuil')}}">Accueil</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_domaine', {
+                        'lienDomaine': donnee.domaineLien
+                    }) }}">{{ donnee.domaineNom }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_matiere', {
+                        'lienDomaine': donnee.domaineLien,
+                        'lienMatiere': donnee.matiereLien
+                    }) }}">{{ donnee.matiereNom }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_theme', {
+                        'lienDomaine': donnee.domaineLien,
+                        'lienMatiere': donnee.matiereLien,
+                        'lienTheme': donnee.themeLien
+                    }) }}">{{ donnee.themeNom }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_chapitre', {
+                        'lienDomaine': donnee.domaineLien,
+                        'lienMatiere': donnee.matiereLien,
+                        'lienTheme': donnee.themeLien,
+                        'lienChapitre': donnee.chapitreLien
+                    }) }}">{{ donnee.chapitreNom }}</a></li>
+                <li class="active">{{ donnee.titre }}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 36px">
+        <div class="col-md-9" style="padding: 15px; z-index: 0">
+            <div class="form-group" id="ajouter">
+                {{ form_start(formModifier) }}
+                {{ form_errors(formModifier) }}
+
+                <div class="form-group">
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">Niveau:</span>
+                            <input class="form-control" disabled="disabled" value="{{ donnee.niveau }}"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">Temps:</span>
+                            {{ form_errors(formModifier.temps) }}
+                            {{ form_widget(formModifier.temps, {'attr': {'class': 'form-control'}}) }}
+                            <span class="input-group-addon">minutes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_errors(formModifier.ckeditor) }}
+                    {{ form_widget(formModifier.ckeditor) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(formModifier.modifier, {'attr': {'class': 'btn btn-default', 'style':'float:right'}}) }}
+                </div>
+                {{ form_end(formModifier) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

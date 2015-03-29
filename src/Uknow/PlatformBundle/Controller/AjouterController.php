@@ -11,6 +11,8 @@ namespace Uknow\PlatformBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Uknow\PlatformBundle\Form\AjoutCoursType;
+use Uknow\PlatformBundle\Form\AjoutExerciceType;
+use Uknow\PlatformBundle\Form\AjoutCorrectionType;
 use Uknow\PlatformBundle\Services;
 use Uknow\PlatformBundle\Classes\FormulaireAjouter;
 use Uknow\PlatformBundle\Entity\Donnees;
@@ -18,8 +20,6 @@ use Uknow\PlatformBundle\Entity\Donnees;
 class AjouterController extends Controller{
 
     public function coursAction($lienDomaine, $lienMatiere, $lienTheme, $lienChapitre, Request $request){
-
-        // Initialisation des variables principales
 
         $donnees = new Donnees();
         $formAjout = new FormulaireAjouter();
@@ -65,134 +65,110 @@ class AjouterController extends Controller{
             )));
         }
 
-
-
         return $this->render('UknowPlatformBundle:ajouter:cours.html.twig', array(
             'formAjout' => $formDonnees->createView(),
             ));
     }
 
-    public function exerciceAction( Request $request){
-
-        // Initialisation des variables principales
+    public function exerciceAction($lienDomaine, $lienMatiere, $lienTheme, $lienChapitre, Request $request){
 
         $donnees = new Donnees();
         $formAjout = new FormulaireAjouter();
+        $formAjout->setDomaineLien($lienDomaine);
+        $formAjout->setMatiereLien($lienMatiere);
+        $formAjout->setThemeLien($lienTheme);
+        $formAjout->setChapitreLien($lienChapitre);
+        $servicesTri = $this->container->get('uknow_platform.tri');
+        $servicesList = $this->container->get('uknow_platform.list');
         $em = $this->getDoctrine()->getManager();
 
-        $formDonnees = $this->get('form.factory')->create(new AjoutType(), $formAjout);
+        $domaines = $servicesList->listDomaine();
+        $matieres = $servicesList->listMatiere();
+        $themes = $servicesList->listTheme();
+        $chapitres = $servicesList->listChapitre();
+
+        $formDonnees = $this->get('form.factory')->create(new AjoutExerciceType($domaines, $matieres, $themes, $chapitres), $formAjout);
         if ($formDonnees->handleRequest($request)->isValid()){
-            for ($i = 0; $i < count($listStructure); $i++){
-                if ($listStructure[$i]->getChapitreLien() == $formAjout->getStructure()){
-                    $donnees->setDomaine($listStructure[$i]->getDomaineLien());
-                    $donnees->setMatiere($listStructure[$i]->getMatiereLien());
-                    $donnees->setTheme($listStructure[$i]->getThemeLien());
-                    $donnees->setChapitre($listStructure[$i]->getChapitreLien());
-                    $donnees->setTitre($formAjout->getTitre());
-                    if($formAjout->getType() == 'Exercice'){
-                        $donnees->setTexte($formAjout->getExercice());
-                    }else{
-                        $donnees->setTexte($formAjout->getCours());
-                    }
-                    $donnees->setType($formAjout->getType());
-                    $donnees->setNiveau($formAjout->getNiveau());
-                    $donnees->setTemps($formAjout->getTemps());
-                    $donnees->setModification(0);
-                }
-            }
+            $donnees->setDomaineLien($formAjout->getDomaineLien());
+            $donnees->setDomaineNom($servicesTri->findObjectLien($formAjout->getDomaineLien(), 'domaine', null, null, null)->getNom());
+            $donnees->setMatiereLien($formAjout->getMatiereLien());
+            $donnees->setMatiereNom($servicesTri->findObjectLien($formAjout->getMatiereLien(), 'matiere', $donnees->getDomaineLien(), null, null)->getNom());
+            $donnees->setThemeLien($formAjout->getThemeLien());
+            $donnees->setThemeNom($servicesTri->findObjectLien($formAjout->getThemeLien(), 'theme', $donnees->getDomaineLien(), $donnees->getMatiereLien(), null)->getNom());
+            $donnees->setChapitreLien($formAjout->getChapitreLien());
+            $donnees->setChapitreNom($servicesTri->findObjectLien($formAjout->getChapitreLien(), 'chapitre', $donnees->getDomaineLien(), $donnees->getMatiereLien(), $donnees->getThemeLien())->getNom());
+            $donnees->setTitre($formAjout->getTitre());
+            $donnees->setTexte($formAjout->getCkeditor());
+            $donnees->setType('Exercice');
+            $donnees->setNiveau($formAjout->getNiveau());
+            $donnees->setTemps($formAjout->getTemps());
+            $donnees->setModification(0);
+            $donnees->setPertinent(0);
+            $donnees->setDevelopper(0);
+            $donnees->setInutile(0);
             $em->persist($donnees);
             $em->flush();
             return $this->redirect($this->generateUrl('uknow_platform_recherche_chapitre', array(
-                'domaine' => $donnees->getDomaine(),
-                'matiere' => $donnees->getMatiere(),
-                'theme' => $donnees->getTheme(),
-                'chapitre' => $donnees->getChapitre(),
+                'lienDomaine' => $donnees->getDomaineLien(),
+                'lienMatiere' => $donnees->getMatiereLien(),
+                'lienTheme' => $donnees->getThemeLien(),
+                'lienChapitre' => $donnees->getChapitreLien(),
             )));
         }
 
-        return $this->render('UknowPlatformBundle:ajouter:ajouter.html.twig', array(
+        return $this->render('UknowPlatformBundle:ajouter:exercice.html.twig', array(
             'formAjout' => $formDonnees->createView(),
         ));
     }
 
-    public function correctionAction( Request $request){
-
-        // Initialisation des variables principales
+    public function correctionAction($lienDomaine, $lienMatiere, $lienTheme, $lienChapitre, Request $request){
 
         $donnees = new Donnees();
         $formAjout = new FormulaireAjouter();
-        $em = $this->getDoctrine()->getManager();
+        $formAjout->setDomaineLien($lienDomaine);
+        $formAjout->setMatiereLien($lienMatiere);
+        $formAjout->setThemeLien($lienTheme);
+        $formAjout->setChapitreLien($lienChapitre);
         $servicesTri = $this->container->get('uknow_platform.tri');
-        $servicesRecherche = $this->container->get('uknow_platform.recherche');
-        $servicesQuestion = $this->container->get('uknow_platform.question');
-        $formRecherche = $servicesRecherche->initialisationRecherche($this);
-        $formQuestion = $servicesQuestion->initialisationQuestion($this);
+        $servicesList = $this->container->get('uknow_platform.list');
+        $em = $this->getDoctrine()->getManager();
 
+        $domaines = $servicesList->listDomaine();
+        $matieres = $servicesList->listMatiere();
+        $themes = $servicesList->listTheme();
+        $chapitres = $servicesList->listChapitre();
 
-        // Initialisation des bases de données à utiliser
-
-        $listStructure = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Structure')
-            ->findAll();
-
-
-        // Gestion des requètes demandées
-
-        if ($formQuestion->handleRequest($request)->isValid()){
-
-        }
-
-        if ($formRecherche->handleRequest($request)->isValid()){
-
-        }
-
-        $formDonnees = $this->get('form.factory')->create(new AjoutType($servicesTri->triTableau($listStructure)), $formAjout);
+        $formDonnees = $this->get('form.factory')->create(new AjoutCorrectionType($domaines, $matieres, $themes, $chapitres), $formAjout);
         if ($formDonnees->handleRequest($request)->isValid()){
-            for ($i = 0; $i < count($listStructure); $i++){
-                if ($listStructure[$i]->getChapitreLien() == $formAjout->getStructure()){
-                    $donnees->setDomaine($listStructure[$i]->getDomaineLien());
-                    $donnees->setMatiere($listStructure[$i]->getMatiereLien());
-                    $donnees->setTheme($listStructure[$i]->getThemeLien());
-                    $donnees->setChapitre($listStructure[$i]->getChapitreLien());
-                    $donnees->setTitre($formAjout->getTitre());
-                    if($formAjout->getType() == 'Exercice'){
-                        $donnees->setTexte($formAjout->getExercice());
-                    }else{
-                        $donnees->setTexte($formAjout->getCours());
-                    }
-                    $donnees->setType($formAjout->getType());
-                    $donnees->setNiveau($formAjout->getNiveau());
-                    $donnees->setTemps($formAjout->getTemps());
-                    $donnees->setModification(0);
-                }
-            }
+            $donnees->setDomaineLien($formAjout->getDomaineLien());
+            $donnees->setDomaineNom($servicesTri->findObjectLien($formAjout->getDomaineLien(), 'domaine', null, null, null)->getNom());
+            $donnees->setMatiereLien($formAjout->getMatiereLien());
+            $donnees->setMatiereNom($servicesTri->findObjectLien($formAjout->getMatiereLien(), 'matiere', $donnees->getDomaineLien(), null, null)->getNom());
+            $donnees->setThemeLien($formAjout->getThemeLien());
+            $donnees->setThemeNom($servicesTri->findObjectLien($formAjout->getThemeLien(), 'theme', $donnees->getDomaineLien(), $donnees->getMatiereLien(), null)->getNom());
+            $donnees->setChapitreLien($formAjout->getChapitreLien());
+            $donnees->setChapitreNom($servicesTri->findObjectLien($formAjout->getChapitreLien(), 'chapitre', $donnees->getDomaineLien(), $donnees->getMatiereLien(), $donnees->getThemeLien())->getNom());
+            $donnees->setTitre($formAjout->getTitre());
+            $donnees->setTexte($formAjout->getCkeditor());
+            $donnees->setType('Correction');
+            $donnees->setNiveau($formAjout->getNiveau());
+            $donnees->setTemps($formAjout->getTemps());
+            $donnees->setModification(0);
+            $donnees->setPertinent(0);
+            $donnees->setDevelopper(0);
+            $donnees->setInutile(0);
             $em->persist($donnees);
             $em->flush();
             return $this->redirect($this->generateUrl('uknow_platform_recherche_chapitre', array(
-                'domaine' => $donnees->getDomaine(),
-                'matiere' => $donnees->getMatiere(),
-                'theme' => $donnees->getTheme(),
-                'chapitre' => $donnees->getChapitre(),
+                'lienDomaine' => $donnees->getDomaineLien(),
+                'lienMatiere' => $donnees->getMatiereLien(),
+                'lienTheme' => $donnees->getThemeLien(),
+                'lienChapitre' => $donnees->getChapitreLien(),
             )));
         }
 
-
-        // Mise à jour des bases de données modifiées à afficher
-
-        $listQuestion = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Question')
-            ->findAll();
-
-
-        // Gestion de l'affichage des données
-
-        return $this->render('UknowPlatformBundle::ajouter.html.twig', array(
-            'formQuestion' => $formQuestion->createView(),
-            'formRecherche' => $formRecherche->createView(),
+        return $this->render('UknowPlatformBundle:ajouter:correction.html.twig', array(
             'formAjout' => $formDonnees->createView(),
-            'listQuestion' => $listQuestion,
         ));
     }
 }

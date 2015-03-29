@@ -42,11 +42,7 @@ function cacher(index){
         .show(1000);
 }
 
-function modifier(index){
-
-}
-
-function modification(index){
+function enregistrer(index){
 
 }
 

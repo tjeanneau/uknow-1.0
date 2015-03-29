@@ -12,20 +12,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ModifierCoursType extends AbstractType{
+class ModifierCorrectionType extends AbstractType{
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('ckeditor', 'ckeditor', array(
+        $builder->add('text', 'ckeditor', array(
             'config' => array(
                 'toolbar' => array(
                     array(
                         'name'  => 'document',
-                        'items' => array('Maximize', '-', 'NewPage', 'DocProps', 'Preview', 'Print', 'Templates'),
+                        'items' => array('Maximize', '-', 'DocProps', 'Preview', 'Print'),
+                    ),
+                    array(
+                        'name'  => 'editing',
+                        'items' => array('Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'),
                     ),
                     array(
                         'name'  => 'clipboard',
-                        'items' => array('Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord','Undo', 'Redo'),
+                        'items' => array('Undo', 'Redo'),
                     ),
                     array(
                         'name'  => 'indent',
@@ -52,21 +56,7 @@ class ModifierCoursType extends AbstractType{
                 'uiColor' => '#ffffff',
                 'config_name' => 'my_config',
             )))
-            ->add('temps', 'choice', array('choices' => array(
-                '5' => '5',
-                '10' => '10',
-                '15' => '15',
-                '20' => '20',
-                '25' => '25',
-                '30' => '30',
-                '35' => '35',
-                '40' => '40',
-                '45' => '45',
-                '50' => '50',
-                '55' => '55',
-                '60' => '60'
-            ), 'empty_value' => 'Choisir le temps'
-            ))
+            ->add('temps', 'text', array('attr' => array('size' => 3)))
             ->add('modifier', 'submit');
 
     }
@@ -80,7 +70,7 @@ class ModifierCoursType extends AbstractType{
 
     public function getName()
     {
-        return 'uknow_platformbundle_modifier_cours';
+        return 'uknow_platformbundle_modifier_correction';
     }
 
 }

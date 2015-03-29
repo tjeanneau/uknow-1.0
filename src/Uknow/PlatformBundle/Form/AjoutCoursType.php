@@ -128,6 +128,6 @@ class AjoutCoursType extends AbstractType{
 
     public function getName()
     {
-        return 'uknow_platformbundle_ajout';
+        return 'uknow_platformbundle_ajout_cours';
     }
 }

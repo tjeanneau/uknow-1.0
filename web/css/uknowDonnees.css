@@ -80,14 +80,6 @@ h5.titre:hover
     margin-right: 10px;
 }
 
-#textedonnee
-{
-    border: 1px solid black;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
 #temps
 {
     float: right;
@@ -192,7 +184,7 @@ h5.titre:hover
 .pertinentAfficher:hover,
 .developperAfficher:hover
 {
-    background-color: #ffffff;
+    background-color: #f5f5f5;
 }
 
 #modifier,
