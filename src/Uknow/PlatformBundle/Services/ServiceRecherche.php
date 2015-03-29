@@ -50,13 +50,13 @@ class ServiceRecherche {
             $donneeCaracteristiques['niveau'] = $listDonnees[$i]->getNiveau();
 
             if ($exist == false) {
-                if (stripos($donneeCaracteristiques['domaine'], $lettres) === 0) {
+                if (stripos($donneeCaracteristiques['domaine_nom'], $lettres) === 0) {
                     $donneesRecherche[] = $donneeCaracteristiques;
-                } elseif (stripos($donneeCaracteristiques['matiere'], $lettres) === 0) {
+                } elseif (stripos($donneeCaracteristiques['matiere_nom'], $lettres) === 0) {
                     $donneesRecherche[] = $donneeCaracteristiques;
-                } elseif (stripos($donneeCaracteristiques['theme'], $lettres) === 0) {
+                } elseif (stripos($donneeCaracteristiques['theme_nom'], $lettres) === 0) {
                     $donneesRecherche[] = $donneeCaracteristiques;
-                } elseif (stripos($donneeCaracteristiques['chapitre'], $lettres) === 0) {
+                } elseif (stripos($donneeCaracteristiques['chapitre_nom'], $lettres) === 0) {
                     $donneesRecherche[] = $donneeCaracteristiques;
                 } elseif (stripos($donneeCaracteristiques['titre'], $lettres) === 0) {
                     $donneesRecherche[] = $donneeCaracteristiques;

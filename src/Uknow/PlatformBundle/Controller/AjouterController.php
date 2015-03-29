@@ -39,13 +39,13 @@ class AjouterController extends Controller{
         $formDonnees = $this->get('form.factory')->create(new AjoutCoursType($domaines, $matieres, $themes, $chapitres), $formAjout);
         if ($formDonnees->handleRequest($request)->isValid()){
             $donnees->setDomaineLien($formAjout->getDomaineLien());
-            $donnees->setDomaineNom($servicesTri->findObjectLien($formAjout->getDomaineLien(), 'domaine', null, null, null)->getLien());
+            $donnees->setDomaineNom($servicesTri->findObjectLien($formAjout->getDomaineLien(), 'domaine', null, null, null)->getNom());
             $donnees->setMatiereLien($formAjout->getMatiereLien());
-            $donnees->setMatiereNom($servicesTri->findObjectLien($formAjout->getMatiereLien(), 'matiere', $donnees->getDomaineLien(), null, null)->getLien());
+            $donnees->setMatiereNom($servicesTri->findObjectLien($formAjout->getMatiereLien(), 'matiere', $donnees->getDomaineLien(), null, null)->getNom());
             $donnees->setThemeLien($formAjout->getThemeLien());
-            $donnees->setThemeNom($servicesTri->findObjectLien($formAjout->getThemeLien(), 'theme', $donnees->getDomaineLien(), $donnees->getMatiereLien(), null)->getLien());
+            $donnees->setThemeNom($servicesTri->findObjectLien($formAjout->getThemeLien(), 'theme', $donnees->getDomaineLien(), $donnees->getMatiereLien(), null)->getNom());
             $donnees->setChapitreLien($formAjout->getChapitreLien());
-            $donnees->setChapitreNom($servicesTri->findObjectLien($formAjout->getChapitreLien(), 'chapitre', $donnees->getDomaineLien(), $donnees->getMatiereLien(), $donnees->getThemeLien())->getLien());
+            $donnees->setChapitreNom($servicesTri->findObjectLien($formAjout->getChapitreLien(), 'chapitre', $donnees->getDomaineLien(), $donnees->getMatiereLien(), $donnees->getThemeLien())->getNom());
             $donnees->setTitre($formAjout->getTitre());
             $donnees->setTexte($formAjout->getCkeditor());
             $donnees->setType('Cours');

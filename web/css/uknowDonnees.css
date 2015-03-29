@@ -65,7 +65,6 @@ h5.titre:hover
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
-    display: none;
 }
 
 #temps
@@ -107,21 +106,26 @@ h5.titre:hover
     background-color: #d9534f;
 }
 
-#modifier,#modification,#enregistrer
+#modifier,#modification,#enregistrer,#agrandir,#diminuer
 {
     background-color: #f5f5f5;
     border: 0;
-    height: 40px;
+    height: 36px;
 }
 
-#modifier:hover,#modification:hover,#enregistrer:hover
+#modifier:hover,#modification:hover,#enregistrer:hover,#agrandir:hover,#diminuer:hover
 {
     background-color: #555;
     color:#ffffff;
 }
 
-#modifier:focus,#modification:focus,#enregistrer:focus
+#modifier:focus,#modification:focus,#enregistrer:focus,#agrandir:focus,#diminuer:focus
 {
     outline: none;
+}
+
+#agrandir{
+    float: right;
+    width: 36px;
 }
 

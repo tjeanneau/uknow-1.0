@@ -1,0 +1,72 @@
+<div id="donneeCache_{{ loop.index }}" class="donnee">
+
+    <h5 class="titre" id="titre.{{ loop.index }}" onclick="afficher({{ loop.index }})">{{ donnees.titre }}<br/></h5>
+
+    {#<div class="textedonnee" id="textedonnee.{{ loop.index }}">
+        {{ donnees.texte|raw}}
+    </div>#}
+
+    <div class="row" style="margin:0">
+                                <span id="details">
+                                    {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
+                                </span>
+    </div>
+    <div class="row" style="margin:0">
+        <div class="col-md-6" id="fiable">{{ donnees.fiabilite }}%</div>
+        <div class="col-md-6" id="temps">{{ donnees.temps }} minutes</div>
+    </div>
+
+    {#<div id="bouton{{ loop.index }}">
+        <div class="null">
+            {% if tableauEvaluation[loop.index0] == 1 %}
+                <div class="jugement">C'est à développer.</div>
+                Pertinence : {{ donnees.positive }}, à développer: {{ donnees.negative }},
+            {% elseif tableauEvaluation[loop.index0] == 2 %}
+                <div class="jugement">C'est pertinent !</div>
+                Pertinence : {{ donnees.positive }}, à développer: {{ donnees.negative }}
+            {% else %}
+                <input type="submit" name="bouton" value="Pertinent">: {{ donnees.positive }},
+                <input type="submit" name="bouton" value="A développer">: {{ donnees.negative }},
+            {% endif %}
+            <input type="submit" name="bouton" value="Modifier">
+            <input type="submit" name="bouton" value="Modifications">
+        </div>
+    </div>#}
+
+    <div class="row" style="margin:0">
+        <div id="pertinent" class="col-md-2">
+
+            {{ donnees.pertinent }}
+        </div>
+        <div id="developper" class="col-md-2">
+            {{ donnees.developper }}
+        </div>
+        <div id="inutile" class="col-md-2">
+            {{ donnees.inutile }}
+        </div>
+
+        <button type="button" name="bouton" value="Modifier" class="col-md-2" id="modifier" onclick="modifier()">
+            <span class="glyphicon glyphicon-edit"></span>
+        </button>
+        <button type="button" name="bouton" value="Modifications" class="col-md-2" id="modification" onclick="modification()">
+            <span class="glyphicon glyphicon-th"></span>
+        </button>
+        <span id="enregistrer{{ loop.index }}">
+            {% if tableauSauvegarde[loop.index0] == 1 %}
+                <button type="button" name="bouton" value="Enlever" class="col-md-2" id="enregistrer">
+                    <span class="glyphicon glyphicon-floppy-saved"></span>
+                </button>
+            {% else %}
+                {% if donnees.type == 'Cours' %}
+                    <button type="button" name="bouton" value="Suivre" class="col-md-2" id="enregistrer">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                {% else %}
+                    <button type="button" name="bouton" value="Enregistrer" class="col-md-2" id="enregistrer">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                {% endif %}
+            {% endif %}
+        </span>
+    </div>
+</div>

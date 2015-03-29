@@ -18,13 +18,13 @@
     <body>
         <div class="container-fluid" style="height: 100%">
 
-            <header class="row">
+            <header class="row" id="header">
                 {{ render(controller('UknowPlatformBundle:Navigation:home')) }}
                 {{ render(controller('UknowPlatformBundle:Navigation:recherche')) }}
                 {{ render(controller('UknowPlatformBundle:Navigation:lien')) }}
             </header>
 
-            <div style="
+            <div id="affichage" style="
             margin-top: 54px;
             font-family: 'Open Sans', sans-serif;
             font-weight: 400;
@@ -44,7 +44,7 @@
         '@bootstrap_js'
         'js/uknowAjouter.js'
         'js/uknowRecherche.js'
-        'js/uknowStructure.js'
+        'js/uknowDonnees.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
