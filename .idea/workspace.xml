@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f96ba57-0716-4b09-b8d6-8e12cbbea2fb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/afficher.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/uknowDonnees.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/uknowNavigation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/uknowStructure.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/AjouterController.php" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Controller/AjouterController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceRecherche.php" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Services/ServiceRecherche.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/afficher.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/afficher.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/uknowDonnees.css" afterPath="$PROJECT_DIR$/web/css/uknowDonnees.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/uknowRecherche.js" afterPath="$PROJECT_DIR$/web/js/uknowRecherche.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/uknowDonnees.js" afterPath="$PROJECT_DIR$/web/js/uknowDonnees.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Uknow.iws" />
@@ -40,11 +33,21 @@
             <file leaf-file-name="uknowDonnees.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/web/js/uknowDonnees.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.88139284" vertical-offset="0" max-vertical-offset="1134">
-                    <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+                  <state vertical-scroll-proportion="0.1969532" vertical-offset="89" max-vertical-offset="1008">
+                    <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
                     <folding>
                       <element signature="n#!!doc;n#agrandir#0" expanded="false" />
                     </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="uknowDonnees.css" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/web/css/uknowDonnees.css">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.0" vertical-offset="2064" max-vertical-offset="4806">
+                    <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+                    <folding />
                   </state>
                 </provider>
               </entry>
@@ -60,11 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="donnees.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="donnees.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.666666" vertical-offset="0" max-vertical-offset="756">
-              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.6060606" vertical-offset="0" max-vertical-offset="891">
+              <caret line="30" column="81" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -74,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cacher.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cacher.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13533835" vertical-offset="0" max-vertical-offset="1386">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -88,36 +91,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="afficher.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/afficher.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1368">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uknowDonnees.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/uknowDonnees.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="743" max-vertical-offset="2466">
-              <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-17.148148" vertical-offset="23" max-vertical-offset="1044">
               <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="afficher.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/afficher.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="1566">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#button#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#2;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#3;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#button#4;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#5;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#6;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#7;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#span#0;n#button#8;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#9;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#10;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#11;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uknowIndex.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/uknowIndex.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="5040">
+              <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="98" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -177,11 +194,11 @@
         <option value="$PROJECT_DIR$/web/js/uknowNavigation.js" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig.css" />
-        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/uknowDonnees.css" />
-        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/afficher.html.twig" />
+        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig" />
+        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig" />
         <option value="$PROJECT_DIR$/web/js/uknowDonnees.js" />
+        <option value="$PROJECT_DIR$/web/css/uknowDonnees.css" />
       </list>
     </option>
   </component>
@@ -842,13 +859,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/json/themes.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.37037" vertical-offset="6668" max-vertical-offset="7884">
-          <caret line="398" column="14" selection-start-line="398" selection-start-column="14" selection-end-line="398" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09667025" vertical-offset="0" max-vertical-offset="931">
@@ -1157,6 +1167,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/uknowIndex.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="5040">
+          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="98" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.148148" vertical-offset="23" max-vertical-offset="1044">
@@ -1165,10 +1183,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/afficher.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="1566">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#button#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#2;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#3;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#button#4;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#5;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#6;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#7;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#button#8;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#9;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#10;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#11;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.666666" vertical-offset="0" max-vertical-offset="756">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.6060606" vertical-offset="0" max-vertical-offset="891">
+          <caret line="30" column="81" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -1179,41 +1236,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/uknowDonnees.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="743" max-vertical-offset="2466">
-          <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2064" max-vertical-offset="4806">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/afficher.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1368">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13533835" vertical-offset="0" max-vertical-offset="1386">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/uknowDonnees.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88139284" vertical-offset="0" max-vertical-offset="1134">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.1969532" vertical-offset="89" max-vertical-offset="1008">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
           <folding>
             <element signature="n#!!doc;n#agrandir#0" expanded="false" />
           </folding>

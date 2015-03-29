@@ -4,12 +4,33 @@
     display: inline-block;
 }
 
-.donnee
+.donneeCacher
 {
     width: 240px;
     background-color: #f5f5f5;
     margin: 15px;
     display: inline-block;
+}
+
+.donneeAffiche
+{
+    width: 100%;
+    background-color: #ffffff;
+    display: block;
+}
+
+.titreAfficher
+{
+    height: 40px;
+    background-color: #555;
+    color: #ffffff;
+}
+
+.barreAfficher
+{
+    height: 40px;
+    color: #555;
+    background-color: #f5f5f5;
 }
 
 h5.titre
@@ -83,43 +104,152 @@ h5.titre:hover
     padding: 10px;
 }
 
-#inutile, #pertinent,#developper
+#inutile,
+#pertinent,
+#developper,
 {
     height: 40px;
     padding: 9px;
-    color:#ffffff;
-    font-weight: bold;
 }
 
-#pertinent
+#inutile,
+#pertinent,
+#developper
+{
+    color:#ffffff;
+    font-weight: bold;
+    height: 40px;
+    padding: 10px;
+}
+
+#pertinent,
+.pertinentChoix,
+.pertinentAfficher
 {
     background-color: #5cb85c;
 }
 
-#developper
+#developper,
+.developperChoix,
+.developperAfficher
 {
     background-color: #f0ad4e;
 }
 
-#inutile
+#inutile,
+.inutileChoix,
+.inutileAfficher
 {
     background-color: #d9534f;
 }
 
-#modifier,#modification,#enregistrer,#agrandir,#diminuer
+.inutileChoix,
+.pertinentChoix,
+.developperChoix,
+.inutileAfficher,
+.pertinentAfficher,
+.developperAfficher
+{
+    border:0;
+    border-radius: 0;
+    height: 40px;
+    width: 140px;
+    color: #ffffff;
+    float:right;
+    margin:0;
+}
+
+.pertinentAfficher:hover
+{
+    color: #5cb85c;
+}
+
+.developperAfficher:hover
+{
+    color: #f0ad4e;
+}
+
+.inutileAfficher:hover
+{
+    color: #d9534f;
+}
+
+.inutileAfficher,
+.pertinentAfficher,
+.developperAfficher
+{
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    -moz-transition-property: background-color, color;
+    -moz-transition-duration: 250ms;
+    -webkit-transition-property: background-color, color;
+    -webkit-transition-duration: 250ms;
+    -o-transition-property: background-color, color;
+    -o-transition-duration: 250ms;
+}
+
+.inutileAfficher:hover,
+.pertinentAfficher:hover,
+.developperAfficher:hover
+{
+    background-color: #ffffff;
+}
+
+#modifier,
+#modification,
+#enregistrer,
+#agrandir,
+#diminuer
 {
     background-color: #f5f5f5;
     border: 0;
+}
+
+#agrandir,
+#diminuer
+{
     height: 36px;
 }
 
-#modifier:hover,#modification:hover,#enregistrer:hover,#agrandir:hover,#diminuer:hover
+#modifier,
+#modification,
+#enregistrer
 {
+    height: 40px;
     background-color: #555;
     color:#ffffff;
 }
 
-#modifier:focus,#modification:focus,#enregistrer:focus,#agrandir:focus,#diminuer:focus
+.boutonAffiche
+{
+    background-color: #555;
+    color: #ffffff;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    float: right;
+}
+
+#modifier:hover,
+#modification:hover,
+#enregistrer:hover,
+#agrandir:hover,
+#diminuer:hover,
+.boutonAffiche:hover
+{
+    background-color: #f5f5f5;
+    color:#555;
+}
+
+#modifier:focus,
+#modification:focus,
+#enregistrer:focus,
+#agrandir:focus,
+#diminuer:focus,
+.boutonAffiche:focus,
+.inutileAfficher:focus,
+.pertinentAfficher:focus,
+.developperAfficher:focus
 {
     outline: none;
 }

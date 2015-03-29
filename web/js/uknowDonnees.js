@@ -12,7 +12,7 @@ function agrandir(){
     $('#agrandir')
         .html('')
         .append('<span class="glyphicon glyphicon-resize-small"></span>')
-        .attr('onclick','diminuer()');
+        .attr('onclick','diminuer(1)');
 }
 
 function diminuer(){
@@ -29,24 +29,17 @@ function diminuer(){
 }
 
 function afficher(index){
-    agrandir();
     $('#donneeCache_' + index)
-        .hide(1000)
-        .css('display', 'none');
+        .hide(1000);
     $('#donneeAffiche_' + index)
-        .hide(1)
-        .css('display', 'block')
         .show(1000);
-
 }
 
 function cacher(index){
     $('#donneeAffiche_' + index)
-        .hide(1000)
-        .css('display', 'none');
+        .hide(1000);
     $('#donneeCache_' + index)
-        .hide(1)
-        .css('display', 'inline-block').show(1000);
+        .show(1000);
 }
 
 function modifier(index){

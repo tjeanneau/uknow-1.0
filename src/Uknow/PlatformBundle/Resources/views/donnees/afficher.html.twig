@@ -1,71 +1,82 @@
-<div id="donneeAffiche_{{ loop.index }}" class="donnee" style="display: none">
+<div id="donneeAffiche_{{ loop.index }}" class="donneeAffiche" style="display: none">
 
-    <h5 class="titre" id="titre.{{ loop.index }}" onclick="cacher({{ loop.index }})">{{ donnees.titre }}<br/></h5>
+    <div class="titreAfficher">
+        <div style="font-size: 1.3em; margin:7px; float: left; display:inline-block">{{ donnees.titre }}</div>
 
-    <div class="textedonnee" id="textedonnee.{{ loop.index }}">
-        {{ donnees.texte|raw}}
-    </div>
-
-    <div class="row" style="margin:0">
-                                <span id="details">
-                                    {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
-                                </span>
-    </div>
-    <div class="row" style="margin:0">
-        <div class="col-md-6" id="fiable">{{ donnees.fiabilite }}%</div>
-        <div class="col-md-6" id="temps">{{ donnees.temps }} minutes</div>
-    </div>
-
-    {#<div id="bouton{{ loop.index }}">
-        <div class="null">
-            {% if tableauEvaluation[loop.index0] == 1 %}
-                <div class="jugement">C'est à développer.</div>
-                Pertinence : {{ donnees.positive }}, à développer: {{ donnees.negative }},
-            {% elseif tableauEvaluation[loop.index0] == 2 %}
-                <div class="jugement">C'est pertinent !</div>
-                Pertinence : {{ donnees.positive }}, à développer: {{ donnees.negative }}
-            {% else %}
-                <input type="submit" name="bouton" value="Pertinent">: {{ donnees.positive }},
-                <input type="submit" name="bouton" value="A développer">: {{ donnees.negative }},
-            {% endif %}
-            <input type="submit" name="bouton" value="Modifier">
-            <input type="submit" name="bouton" value="Modifications">
-        </div>
-    </div>#}
-
-    <div class="row" style="margin:0">
-        <div id="pertinent" class="col-md-2">
-            {{ donnees.pertinent }}
-        </div>
-        <div id="developper" class="col-md-2">
-            {{ donnees.developper }}
-        </div>
-        <div id="inutile" class="col-md-2">
-            {{ donnees.inutile }}
-        </div>
-
-        <button type="button" name="bouton" value="Modifier" class="col-md-2" id="modifier" onclick="modifier()">
-            <span class="glyphicon glyphicon-edit"></span>
+        <button class="boutonAffiche" onclick="cacher({{ loop.index }})">
+            <span class="glyphicon glyphicon-remove"></span>
         </button>
-        <button type="button" name="bouton" value="Modifications" class="col-md-2" id="modification" onclick="modification()">
-            <span class="glyphicon glyphicon-th"></span>
-        </button>
+
         <span id="enregistrer{{ loop.index }}">
             {% if tableauSauvegarde[loop.index0] == 1 %}
-                <button type="button" name="bouton" value="Enlever" class="col-md-2" id="enregistrer">
+                <button class="boutonAffiche">
                     <span class="glyphicon glyphicon-floppy-saved"></span>
                 </button>
             {% else %}
                 {% if donnees.type == 'Cours' %}
-                    <button type="button" name="bouton" value="Suivre" class="col-md-2" id="enregistrer">
+                    <button class="boutonAffiche">
                         <span class="glyphicon glyphicon-floppy-disk"></span>
                     </button>
                 {% else %}
-                    <button type="button" name="bouton" value="Enregistrer" class="col-md-2" id="enregistrer">
+                    <button class="boutonAffiche">
                         <span class="glyphicon glyphicon-floppy-disk"></span>
                     </button>
                 {% endif %}
             {% endif %}
         </span>
+
+        <button class="boutonAffiche" onclick="modification()">
+            <span class="glyphicon glyphicon-th"></span>
+        </button>
+
+        <button class="boutonAffiche" onclick="modifier()">
+            <span class="glyphicon glyphicon-edit"></span>
+        </button>
+    </div>
+
+    <div class="textedonnee">
+        {{ donnees.texte|raw}}
+    </div>
+
+    <div class="barreAfficher">
+        <div class="row" style="margin:0">
+            <span style="font-size: 1.1em; margin:10px 20px; float:left">
+                {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
+            </span>
+            <div style="font-size: 1.1em; margin:10px 20px; float:left">{{ donnees.fiabilite }}%</div>
+            <div style="font-size: 1.1em; margin:10px 20px; float:left">{{ donnees.temps }} minutes</div>
+            {% if tableauEvaluation[loop.index0] == 1 %}
+                <button class="pertinentChoix">
+                    <span class="glyphicon glyphicon-ok"></span>Pertinent
+                    <span style="background-color: #ffffff; color:#5cb85c" class="badge">{{ donnees.pertinent }}</span></button>
+                <button class="developperChoix">A développer
+                    <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
+                <button class="inutileChoix">Inadéquat
+                    <span style="background-color: #ffffff; color:#d9534f" class="badge">{{ donnees.inutile }}</span></button>
+            {% elseif tableauEvaluation[loop.index0] == 2 %}
+                <button class="pertinentChoix">Pertinent
+                    <span style="background-color: #ffffff; color:#5cb85c" class="badge">{{ donnees.pertinent }}</span></button>
+                <button class="developperChoix">
+                    <span class="glyphicon glyphicon-ok"></span>A développer
+                    <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
+                <button class="inutileChoix">Inadéquat
+                    <span style="background-color: #ffffff; color:#d9534f" class="badge">{{ donnees.inutile }}</span></button>
+            {% elseif tableauEvaluation[loop.index0] == 3 %}
+                <button class="pertinentChoix">Pertinent
+                    <span style="background-color: #ffffff; color:#5cb85c" class="badge">{{ donnees.pertinent }}</span></button>
+                <button class="developperChoix">A développer
+                    <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
+                <button class="inutileChoix">
+                    <span class="glyphicon glyphicon-ok">Inadéquat
+                        <span style="background-color: #ffffff; color:#d9534f" class="badge">{{ donnees.inutile }}</span></button>
+            {% else %}
+                <button class="pertinentAfficher">Pertinent
+                    <span style="background-color: #ffffff; color:#5cb85c" class="badge">{{ donnees.pertinent }}</span></button>
+                <button class="developperAfficher">A développer
+                    <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
+                <button class="inutileAfficher">Inadéquat
+                    <span style="background-color: #ffffff; color:#d9534f" class="badge">{{ donnees.inutile }}</span></button>
+            {% endif %}
+        </div>
     </div>
 </div>
