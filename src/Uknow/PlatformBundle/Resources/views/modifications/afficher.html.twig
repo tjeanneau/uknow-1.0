@@ -1,27 +1,13 @@
+{# src/Uknow/PlatformBundle/Resources/views/modifications/afficher.html.twig#}
+
 <div id="donneeAffiche_{{ loop.index }}" class="donneeAffiche" style="display: none">
 
     <div class="titreAfficher">
-        <div style="font-size: 1.3em; margin:7px; float: left; display:inline-block">{{ donnees.titre }}</div>
+        <div style="font-size: 1.3em; margin:7px; float: left; display:inline-block">{{ donnees.date|date("d/m/Y") }}</div>
 
         <button class="boutonAffiche" onclick="cacher({{ loop.index }})">
             <span class="glyphicon glyphicon-remove"></span>
         </button>
-
-            {% if tableauSauvegarde[loop.index0] == 1 %}
-                <button class="boutonAffiche">
-                    <span class="glyphicon glyphicon-floppy-saved"></span>
-                </button>
-            {% else %}
-                <button class="boutonAffiche" onclick="enregistrer({{ loop.index }})">
-                    <span class="glyphicon glyphicon-floppy-disk"></span>
-                </button>
-            {% endif %}
-
-        <a href="{{ path('uknow_platform_donnees_modification', {'id': donnees.id }) }}">
-            <button class="boutonAffiche">
-                <span class="glyphicon glyphicon-th-list"></span>
-            </button>
-        </a>
 
         {% if donnees.type == 'Cours' %}
             <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
@@ -51,9 +37,6 @@
 
     <div class="barreAfficher">
         <div class="row" style="margin:0">
-            <span style="font-size: 1.1em; margin:10px 20px; float:left">
-                {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
-            </span>
             <div style="font-size: 1.1em; margin:10px 20px; float:left">{{ donnees.fiabilite }}%</div>
             <div style="font-size: 1.1em; margin:10px 20px; float:left">{{ donnees.temps }} minutes</div>
 

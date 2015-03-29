@@ -269,10 +269,10 @@ class ServiceTri{
         $listDonneesTriee = array();
         $newListDonneesTriee = array();
         for($i = 0 ; $i < count($listDonnees) ; $i++ ) {
-            if ($listDonnees[$i]->getDomaine() == $donneeId->getDomaine()
-                && $listDonnees[$i]->getMatiere() == $donneeId->getMatiere()
-                && $listDonnees[$i]->getTheme() == $donneeId->getTheme()
-                && $listDonnees[$i]->getChapitre() == $donneeId->getChapitre()
+            if ($listDonnees[$i]->getDomaineLien() == $donneeId->getDomaineLien()
+                && $listDonnees[$i]->getMatiereLien() == $donneeId->getMatiereLien()
+                && $listDonnees[$i]->getThemeLien() == $donneeId->getThemeLien()
+                && $listDonnees[$i]->getChapitreLien() == $donneeId->getChapitreLien()
                 && $listDonnees[$i]->getTitre() == $donneeId->getTitre()
             ) {
                 $newListDonneesTriee[$k] = $listDonnees[$i];

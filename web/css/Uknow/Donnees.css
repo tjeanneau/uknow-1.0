@@ -4,19 +4,30 @@
     display: inline-block;
 }
 
-.donneeCacher
+.donneeCacher, .donneeCacherModification
 {
-    width: 240px;
     background-color: #f5f5f5;
-    margin: 15px;
     display: inline-block;
 }
 
-.donneeAffiche
+.donneeCacher
+{
+    width: 240px;
+    margin: 15px;
+}
+
+.donneeCacherModification
+{
+    width: 160px;
+    margin: 10px;
+}
+
+.donneeAffiche, .donneeAfficheModification
 {
     width: 100%;
     background-color: #ffffff;
     display: block;
+    margin-bottom: 15px;
 }
 
 .titreAfficher
@@ -26,6 +37,11 @@
     color: #ffffff;
 }
 
+.texteDonnee
+{
+    text-align: left;
+}
+
 .barreAfficher
 {
     height: 40px;
@@ -33,13 +49,18 @@
     background-color: #f5f5f5;
 }
 
-h5.titre
+.maj
+{
+    height: 120px;
+    font-size: 1.2em;
+    padding-top: 50px;
+    padding-left: 0;
+}
+
+h5.titre, .maj
 {
     background-color: #555;
     color: #ffffff;
-    height: 180px;
-    padding-top: 80px;
-    font-size: 1.4em;
     transition-property: background-color, color;
     transition-duration: 500ms;
     -moz-transition-property: background-color, color;
@@ -50,7 +71,14 @@ h5.titre
     -o-transition-duration: 500ms;
 }
 
-h5.titre:hover
+h5.titre
+{
+    height: 180px;
+    font-size: 1.4em;
+    padding-top: 80px;
+}
+
+h5.titre:hover,.maj:hover
 {
     background-color: #ffffff;
     color: #555;
@@ -98,7 +126,7 @@ h5.titre:hover
 
 #inutile,
 #pertinent,
-#developper,
+#developper
 {
     height: 40px;
     padding: 9px;
@@ -191,16 +219,12 @@ h5.titre:hover
 #modification,
 #enregistrer,
 #agrandir,
-#diminuer
+#diminuer,
+#boutonEnregistrer,
+#boutonEnregistrerValid
 {
     background-color: #f5f5f5;
     border: 0;
-}
-
-#agrandir,
-#diminuer
-{
-    height: 36px;
 }
 
 #modifier,
@@ -225,12 +249,22 @@ h5.titre:hover
 #modifier:hover,
 #modification:hover,
 #enregistrer:hover,
-#agrandir:hover,
-#diminuer:hover,
 .boutonAffiche:hover
 {
     background-color: #f5f5f5;
     color:#555;
+}
+
+#agrandir:hover,
+#boutonEnregistrer:hover
+{
+    background-color: #555 ;
+    color: #ffffff;
+}
+
+#boutonEnregistrerValid:hover
+{
+    cursor: default;
 }
 
 #modifier:focus,
@@ -238,6 +272,8 @@ h5.titre:hover
 #enregistrer:focus,
 #agrandir:focus,
 #diminuer:focus,
+#boutonEnregistrer:focus,
+#boutonEnregistrerValid:focus,
 .boutonAffiche:focus,
 .inutileAfficher:focus,
 .pertinentAfficher:focus,
@@ -246,8 +282,12 @@ h5.titre:hover
     outline: none;
 }
 
-#agrandir{
+#agrandir,
+#boutonEnregistrer,
+#boutonEnregistrerValid
+{
     float: right;
     width: 36px;
+    height: 36px;
 }
 

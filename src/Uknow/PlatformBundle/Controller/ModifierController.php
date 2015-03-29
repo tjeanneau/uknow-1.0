@@ -55,10 +55,10 @@ class ModifierController extends Controller{
                 $em->flush();
             }
             return $this->redirect($this->generateUrl('uknow_platform_recherche_chapitre', array(
-                'lienDomaine' => $donnees->getDomaineLien(),
-                'lienMatiere' => $donnees->getMatiereLien(),
-                'lienTheme' => $donnees->getThemeLien(),
-                'lienChapitre' => $donnees->getChapitreLien(),
+                'lienDomaine' => $donneerecu->getDomaineLien(),
+                'lienMatiere' => $donneerecu->getMatiereLien(),
+                'lienTheme' => $donneerecu->getThemeLien(),
+                'lienChapitre' => $donneerecu->getChapitreLien(),
             )));
         }
 

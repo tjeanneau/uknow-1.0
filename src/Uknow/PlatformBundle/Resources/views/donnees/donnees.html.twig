@@ -7,7 +7,7 @@
 {% block contenu %}
     <div class="row">
         <div class="col-md-8" style="padding: 0; position: fixed; z-index: 1" id="colLien">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb" style="margin: 0">
                 <li><a href="{{ path('uknow_platform_recherche_acceuil')}}">Accueil</a></li>
                 <li><a href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien }) }}">{{ domaine.nom }}</a></li>
                 <li><a href="{{ path('uknow_platform_recherche_matiere', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien }) }}">{{ matiere.nom }}</a></li>
@@ -16,7 +16,7 @@
             </ol>
         </div>
         <div class="col-md-offset-8 col-md-1" style="padding: 0; position: fixed; z-index: 1; background-color: #f5f5f5" id="colButton">
-            <button type="button" name="bouton" id="agrandir" onclick="agrandir()">
+            <button id="agrandir" onclick="agrandir()">
                 <span class="glyphicon glyphicon-resize-full"></span>
             </button>
         </div>

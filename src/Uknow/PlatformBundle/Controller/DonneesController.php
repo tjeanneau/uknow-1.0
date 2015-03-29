@@ -29,9 +29,6 @@ class DonneesController extends Controller
         $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
         $servicesModifications = $this->container->get('uknow_platform.modification');
 
-
-        // Initialisation des bases de données à utiliser
-
         $listDonnees = $this->getDoctrine()
             ->getManager()
             ->getRepository('UknowPlatformBundle:Donnees')
@@ -283,27 +280,11 @@ class DonneesController extends Controller
     public function modificationsAction($id, Request $request)
     {
 
-        // Initialisation des variables principales
-
-        $k = 0;
         $em = $this->getDoctrine()->getManager();
         $servicesTri = $this->container->get('uknow_platform.tri');
-        $servicesBoutons = $this->container->get('uknow_platform.boutons');
         $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
-        $servicesRecherche = $this->container->get('uknow_platform.recherche');
-        $servicesQuestion = $this->container->get('uknow_platform.question');
-        $formQuestion = $servicesQuestion->initialisationQuestion($this);
-        $formRecherche = $servicesRecherche->initialisationRecherche($this);
 
-
-        // Initialisation des bases de données à utiliser
-
-        $compte = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowUtilisateurBundle:Compte')
-            ->find($this->getUser()->getId());
-
-        $donneeId = $this->getDoctrine()
+        $donneerecu = $this->getDoctrine()
             ->getManager()
             ->getRepository('UknowPlatformBundle:Donnees')
             ->find($id);
@@ -311,56 +292,6 @@ class DonneesController extends Controller
         $listDonnees = $this->getDoctrine()
             ->getManager()
             ->getRepository('UknowPlatformBundle:Donnees')
-            ->findAll();
-
-        $listStructure = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Structure')
-            ->findAll();
-
-        $listDonnees = $servicesTri->triDonneesModifiee($donneeId, $listDonnees);
-
-
-        // Gestion des requètes demandées
-
-        if ($formQuestion->handleRequest($request)->isValid()){
-
-        }
-
-        if ($request->request->get('bouton', null) == 'Modifier') {
-            $id = $listDonnees[$request->request->get('valeur', null) - 1]->getId();
-            return $this->redirect($this->generateUrl('uknow_platform_modifier', array('id' => $id)));
-        }
-
-        if ($request->request->get('bouton', null) == 'Pertinent') {
-            $servicesBoutons->boutonPertinent($listStructure, $listDonnees, $compte, $request, $em);
-        }
-
-        if ($request->request->get('bouton', null) == 'A développer') {
-            $servicesBoutons->boutonDevelopper($listStructure, $listDonnees, $compte, $request, $em);
-        }
-
-
-        // Mise à jour des bases de données modifiées à afficher
-
-        $donneeId = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Donnees')
-            ->find($id);
-
-        $listDonnees = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Donnees')
-            ->findAll();
-
-        $listStructure = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Structure')
-            ->findAll();
-
-        $listQuestion = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Question')
             ->findAll();
 
         $compte = $this->getDoctrine()
@@ -373,34 +304,17 @@ class DonneesController extends Controller
             ->getRepository('UknowUtilisateurBundle:Compte')
             ->findAll();
 
-
-        // Gestion de l'affichage des données
-
+        $listDonnees = $servicesTri->triDonneesModifiee($donneerecu, $listDonnees);
         $listDonneesAffichage = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
-        $listDonneesAffichage = $servicesTri->triDonneesModifiee($donneeId, $listDonneesAffichage);
+        $listDonneesAffichage = $servicesTri->triDonneesModifiee($donneerecu, $listDonneesAffichage);
+        $tableauInfoSauvegarde = $servicesTri->tableauDonneesSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
         $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonneesAffichage, $compte->getDonneesEvaluees());
 
-        for ($i = 0; $i < count($listStructure); $i++) {
-            if ($listStructure[$i]->getChapitreLien() == $donneeId->getChapitre()
-                && $listStructure[$i]->getThemeLien() == $donneeId->getTheme()
-                && $listStructure[$i]->getMatiereLien() == $donneeId->getMatiere()
-                && $listStructure[$i]->getDomaineLien() == $donneeId->getDomaine()
-            ){
-                $k = $i;
-            }
-        }
-
-        return $this->render('UknowPlatformBundle::modifications.html.twig', array(
-            'formQuestion' => $formQuestion->createView(),
-            'formRecherche' => $formRecherche->createView(),
-            'listQuestion' => $listQuestion,
-            'listDonnees' => $listDonneesAffichage,
-            'id' => $id,
-            'titreDomaine' => $listStructure[$k]->getDomaine(),
-            'titreMatiere' => $listStructure[$k]->getMatiere(),
-            'titreTheme' => $listStructure[$k]->getTheme(),
-            'titreChapitre' => $listStructure[$k]->getChapitre(),
+        return $this->render('UknowPlatformBundle:modifications:modifications.html.twig', array(
+            'donnee' => $donneerecu,
+            'listDonnees' => $listDonnees,
             'tableauEvaluation' => $tableauInfoEvaluation,
+            'sauvegarder' => $tableauInfoSauvegarde,
         ));
     }
 }

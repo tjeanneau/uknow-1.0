@@ -12,7 +12,7 @@ function agrandir(){
     $('#agrandir')
         .html('')
         .append('<span class="glyphicon glyphicon-resize-small"></span>')
-        .attr('onclick','diminuer(1)');
+        .attr('onclick','diminuer()');
 }
 
 function diminuer(){

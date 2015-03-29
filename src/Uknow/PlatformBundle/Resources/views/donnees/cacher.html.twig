@@ -3,9 +3,9 @@
     <h5 class="titre" id="titre_{{ loop.index }}" onclick="afficher({{ loop.index }})">{{ donnees.titre }}<br/></h5>
 
     <div class="row" style="margin:0">
-                                <span id="details">
-                                    {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
-                                </span>
+        <span id="details">
+            {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
+        </span>
     </div>
     <div class="row" style="margin:0">
         <div class="col-md-6" id="fiable">{{ donnees.fiabilite }}%</div>
@@ -43,19 +43,20 @@
             </a>
         {% endif %}
 
-        <button class="col-md-2" id="modification" onclick="modification()">
-            <span class="glyphicon glyphicon-th"></span>
-        </button>
-        <span id="enregistrer{{ loop.index }}">
-            {% if tableauSauvegarde[loop.index0] == 1 %}
-                <button class="col-md-2" id="enregistrer">
-                    <span class="glyphicon glyphicon-floppy-saved"></span>
+        <a href="{{ path('uknow_platform_donnees_modification', {'id': donnees.id }) }}">
+            <button class="col-md-2" id="modification">
+                <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+        </a>
+
+        {% if tableauSauvegarde[loop.index0] == 1 %}
+            <button class="col-md-2" id="enregistrer">
+                <span class="glyphicon glyphicon-floppy-saved"></span>
+            </button>
+        {% else %}
+                <button class="col-md-2" id="enregistrer" onclick="enregistrer({{ loop.index }})">
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
                 </button>
-            {% else %}
-                    <button class="col-md-2" id="enregistrer" onclick="enregistrer()">
-                        <span class="glyphicon glyphicon-floppy-disk"></span>
-                    </button>
-            {% endif %}
-        </span>
+        {% endif %}
     </div>
 </div>

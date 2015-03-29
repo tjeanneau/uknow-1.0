@@ -3,7 +3,6 @@
  */
 
 $(function(){
-    $('#resultats_recherche').css('display', 'block');
     $('#uknow_platformbundle_recherche_recherche').keyup(function(e){
         if(e.which >= 65 && e.which <= 90 || e.which == 222 || e.which == 8 || e.which == 46){
             var lettres = encodeURIComponent($('#uknow_platformbundle_recherche_recherche').val());
@@ -13,7 +12,7 @@ $(function(){
                 success: function(donnees) {
                     if(donnees != null){
                         $('#donnees').html('');
-                        $('#resultats_recherche').hide(500);
+                        $('#resultats_recherche').hide(1);
                         $.each(donnees, function(i, donnee){
                             $('#donnees').append(
                                 '<a id="lienResultat" href="http://localhost/Uknow/web/app_dev.php/recherche/' +
