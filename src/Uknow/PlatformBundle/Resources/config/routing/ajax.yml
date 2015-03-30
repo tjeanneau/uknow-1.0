@@ -1,3 +1,7 @@
 uknow_platform_ajax_autocompletion:
     path:     /autocompletion
     defaults: { _controller: UknowPlatformBundle:Ajax:autocompletion }
+
+uknow_platform_ajax_enregistrement:
+    path:     /enregistrement
+    defaults: { _controller: UknowPlatformBundle:Ajax:enregistrement }

@@ -6,54 +6,60 @@
 
 {% block contenu %}
     <div class="row">
-        <div class="col-md-9" style="padding: 0">
+        <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
             <ol class="breadcrumb">
-                <li><a href="{{ path('uknow_platform_recherche')}}">Accueil</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_domaine', {'domaine': domaine }) }}">{{ titreDomaine }}</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_matiere', {'domaine': domaine, 'matiere': matiere }) }}">{{ titreMatiere }}</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_theme', {'domaine': domaine, 'matiere': matiere, 'theme': theme }) }}">{{ titreTheme }}</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_chapitre', {'domaine': domaine, 'matiere': matiere, 'theme': theme, 'chapitre': chapitre }) }}">{{ titreChapitre }}</a></li>
-                <li class="active">{{ titredonnee }}</li>
+                <li><a href="{{ path('uknow_platform_recherche_acceuil')}}">Accueil</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_domaine', {
+                        'lienDomaine': donnee.domaineLien
+                    }) }}">{{ donnee.domaineNom }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_matiere', {
+                        'lienDomaine': donnee.domaineLien,
+                        'lienMatiere': donnee.matiereLien
+                    }) }}">{{ donnee.matiereNom }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_theme', {
+                        'lienDomaine': donnee.domaineLien,
+                        'lienMatiere': donnee.matiereLien,
+                        'lienTheme': donnee.themeLien
+                    }) }}">{{ donnee.themeNom }}</a></li>
+                <li><a href="{{ path('uknow_platform_recherche_chapitre', {
+                        'lienDomaine': donnee.domaineLien,
+                        'lienMatiere': donnee.matiereLien,
+                        'lienTheme': donnee.themeLien,
+                        'lienChapitre': donnee.chapitreLien
+                    }) }}">{{ donnee.chapitreNom }}</a></li>
+                <li class="active">{{ donnee.titre }}</li>
             </ol>
         </div>
     </div>
-    <div class="row" style="margin-top: 36px">
-        <div class="col-md-9">
-            <h3>Modification d'un cours ou d'un exercice.</h3>
-            <div class="form-group">
+    <div class="row" style="margin-top: 36px" id="marge">
+        <div class="col-md-9" style="padding: 15px; z-index: 0">
+            <div class="form-group" id="ajouter">
                 {{ form_start(formModifier) }}
+                {{ form_errors(formModifier) }}
+
                 <div class="form-group">
-                    {{ form_errors(formModifier) }}
-                    {{ type }} de niveau {{ niveau }}.
-                </div>
-                    <div class="form-group">
-                        <div class="form-inline">
-                            <div class="input-group">
-                                {% if type == 'Cours' %}
-                                    <span class="input-group-addon">Mettre à jour le temps d'apprentissage:</span>
-                                {% else %}
-                                    <span class="input-group-addon">Mettre à jour le temps de réalisation:</span>
-                                {% endif %}
-                                {{ form_errors(formModifier.temps) }}
-                                {{ form_widget(formModifier.temps, {'attr': {'class': 'form-control', 'style': 'text-align:right'}}) }}
-                                <span class="input-group-addon">minutes.</span>
-                            </div>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">Niveau:</span>
+                            <input class="form-control" disabled="disabled" value="{{ donnee.niveau }}"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">Temps:</span>
+                            {{ form_errors(formModifier.temps) }}
+                            {{ form_widget(formModifier.temps, {'attr': {'class': 'form-control'}}) }}
+                            <span class="input-group-addon">minutes</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        {% if type == 'Exercice' %}
-                            {{ form_errors(formModifier.exercice) }}
-                            {{ form_widget(formModifier.exercice) }}
-                        {% else %}
-                            {{ form_errors(formModifier.cours) }}
-                            {{ form_widget(formModifier.cours) }}
-                        {% endif %}
-                    </div>
+                <div class="form-group">
+                    {{ form_errors(formModifier.ckeditor) }}
+                    {{ form_widget(formModifier.ckeditor) }}
+                </div>
 
-                    <div id="form_bouton">
-                        {{ form_widget(formModifier.modifier) }}
-                    </div>
+                <div class="form-group">
+                    {{ form_widget(formModifier.modifier, {'attr': {'class': 'btn btn-default', 'style':'float:right'}}) }}
+                </div>
                 {{ form_end(formModifier) }}
             </div>
         </div>

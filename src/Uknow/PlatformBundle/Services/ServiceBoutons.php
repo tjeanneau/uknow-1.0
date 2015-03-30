@@ -16,14 +16,12 @@ class ServiceBoutons {
         $this->affichage = $affichage;
     }
 
-    public function boutonSauvegarder($listStructure, $listDonnees, $compte, $request, $em){
-
-        $listDonnees = $this->affichage->correctionLien($listStructure, $listDonnees);
+    public function boutonSauvegarder($donnee, $compte, $em){
 
         if ($compte->getDonneesSauvegardees() != null) {
-            $compte->setDonneesSauvegardees($compte->getDonneesSauvegardees() . '/' . $listDonnees[$request->request->get('valeur', null)-1]->getId());
+            $compte->setDonneesSauvegardees($compte->getDonneesSauvegardees() . '/' . $donnee->getId());
         }else{
-            $compte->setDonneesSauvegardees($listDonnees[$request->request->get('valeur', null)-1]->getId());
+            $compte->setDonneesSauvegardees($donnee->getId());
         }
         $em->persist($compte);
         $em->flush();

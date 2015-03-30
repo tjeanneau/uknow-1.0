@@ -124,39 +124,33 @@ h5.titre:hover,.maj:hover
     padding: 10px;
 }
 
-#inutile,
-#pertinent,
-#developper
-{
-    height: 40px;
-    padding: 9px;
-}
-
-#inutile,
-#pertinent,
-#developper
+.inutile,
+.pertinent,
+.developper
 {
     color:#ffffff;
     font-weight: bold;
     height: 40px;
+    width: 40px;
     padding: 10px;
+    display: inline-block;
 }
 
-#pertinent,
+.pertinent,
 .pertinentChoix,
 .pertinentAfficher
 {
     background-color: #5cb85c;
 }
 
-#developper,
+.developper,
 .developperChoix,
 .developperAfficher
 {
     background-color: #f0ad4e;
 }
 
-#inutile,
+.inutile,
 .inutileChoix,
 .inutileAfficher
 {
@@ -215,9 +209,6 @@ h5.titre:hover,.maj:hover
     background-color: #f5f5f5;
 }
 
-#modifier,
-#modification,
-#enregistrer,
 #agrandir,
 #diminuer,
 #boutonEnregistrer,
@@ -227,13 +218,21 @@ h5.titre:hover,.maj:hover
     border: 0;
 }
 
-#modifier,
-#modification,
-#enregistrer
+.modifier,
+.modification,
+.enregistrer
 {
     height: 40px;
+    width: 40px;
     background-color: #555;
     color:#ffffff;
+    border: 0;
+}
+
+a.modifier,
+a.modification
+{
+    width: 40px;
 }
 
 .boutonAffiche
@@ -246,9 +245,9 @@ h5.titre:hover,.maj:hover
     float: right;
 }
 
-#modifier:hover,
-#modification:hover,
-#enregistrer:hover,
+.modifier:hover,
+.modification:hover,
+.enregistrer:hover,
 .boutonAffiche:hover
 {
     background-color: #f5f5f5;
@@ -267,9 +266,9 @@ h5.titre:hover,.maj:hover
     cursor: default;
 }
 
-#modifier:focus,
-#modification:focus,
-#enregistrer:focus,
+.modifier:focus,
+.modification:focus,
+.enregistrer:focus,
 #agrandir:focus,
 #diminuer:focus,
 #boutonEnregistrer:focus,

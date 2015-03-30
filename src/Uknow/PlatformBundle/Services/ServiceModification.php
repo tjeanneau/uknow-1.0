@@ -70,10 +70,10 @@ class ServiceModification {
     public function donneeAJour($donnee, $listDonnees){
 
         for($k = 0; $k < count($listDonnees) ; $k++){
-            if($listDonnees[$k]->getDomaine() == $donnee->getDomaine()
-                && $listDonnees[$k]->getMatiere() == $donnee->getMatiere()
-                && $listDonnees[$k]->getTheme() == $donnee->getTheme()
-                && $listDonnees[$k]->getChapitre() == $donnee->getChapitre()
+            if($listDonnees[$k]->getDomaineLien() == $donnee->getDomaineLien()
+                && $listDonnees[$k]->getMatiereLien() == $donnee->getMatiereLien()
+                && $listDonnees[$k]->getThemeLien() == $donnee->getThemeLien()
+                && $listDonnees[$k]->getChapitreLien() == $donnee->getChapitreLien()
                 && $listDonnees[$k]->getTitre() == $donnee->getTitre()){
                 if($this->evaluation->ratio($listDonnees[$k]) > $this->evaluation->ratio($donnee)){
                     $donnee = $listDonnees[$k];

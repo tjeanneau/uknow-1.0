@@ -13,49 +13,49 @@
     </div>
 
     <div class="row" style="margin:0">
-        <div id="pertinent" class="col-md-2">
+        <div  class="pertinent">
             {{ donnees.pertinent }}
         </div>
-        <div id="developper" class="col-md-2">
+        <div  class="developper">
             {{ donnees.developper }}
         </div>
-        <div id="inutile" class="col-md-2">
+        <div  class="inutile">
             {{ donnees.inutile }}
         </div>
 
         {% if donnees.type == 'Cours' %}
             <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
-                <button class="col-md-2" id="modifier">
+                <button class="modifier">
                     <span class="glyphicon glyphicon-edit"></span>
                 </button>
             </a>
         {% elseif donnees.type == 'Exercice' %}
             <a href="{{ path('uknow_platform_modifier_exercice', {'id': donnees.id }) }}">
-                <button class="col-md-2" id="modifier">
+                <button class="modifier">
                     <span class="glyphicon glyphicon-edit"></span>
                 </button>
             </a>
         {% elseif donnees.type == 'Correction' %}
             <a href="{{ path('uknow_platform_modifier_correction', {'id': donnees.id }) }}">
-                <button class="col-md-2" id="modifier">
+                <button class="modifier">
                     <span class="glyphicon glyphicon-edit"></span>
                 </button>
             </a>
         {% endif %}
 
-        <a href="{{ path('uknow_platform_donnees_modification', {'id': donnees.id }) }}">
-            <button class="col-md-2" id="modification">
+        {#<a href="{{ path('uknow_platform_donnees_modification', {'id': donnees.id }) }}">#}
+            <button class="modification">
                 <span class="glyphicon glyphicon-th-list"></span>
             </button>
-        </a>
+        {#</a>#}
 
         {% if tableauSauvegarde[loop.index0] == 1 %}
-            <button class="col-md-2" id="enregistrer">
+            <button class="enregistrer">
                 <span class="glyphicon glyphicon-floppy-saved"></span>
             </button>
         {% else %}
-                <button class="col-md-2" id="enregistrer" onclick="enregistrer({{ loop.index }})">
-                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                <button class="enregistrer" id="enregistrer_{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
+                    <span id="{{ loop.index }}" class="glyphicon glyphicon-floppy-disk"></span>
                 </button>
         {% endif %}
     </div>

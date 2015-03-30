@@ -17,6 +17,13 @@ use Uknow\PlatformBundle\Form\RechercheType;
 
 class DonneesController extends Controller
 {
+    /**
+     * @param $lienDomaine
+     * @param $lienMatiere
+     * @param $lienTheme
+     * @param $lienChapitre
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function rechercheAction($lienDomaine, $lienMatiere, $lienTheme, $lienChapitre)
     {
 

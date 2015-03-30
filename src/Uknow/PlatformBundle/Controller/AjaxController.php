@@ -37,4 +37,28 @@ class AjaxController extends Controller{
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
+
+    public function enregistrementAction(Request $request){
+
+        $servicesBoutons = $this->container->get('uknow_platform.boutons');
+        $id = $request->request->get('id');
+
+        if ($this->container->get('request')->isXmlHttpRequest()) {
+
+            $donnee = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowPlatformBundle:Donnees')
+                ->find($id);
+
+            $compte = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowUtilisateurBundle:Compte')
+                ->find($this->getUser()->getId());
+
+            $em = $this->getDoctrine()->getManager();
+            $servicesBoutons->boutonSauvegarder($donnee, $compte, $em);
+        }
+
+        return new Response();
+    }
 }

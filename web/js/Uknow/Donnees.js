@@ -42,7 +42,15 @@ function cacher(index){
         .show(1000);
 }
 
-function enregistrer(index){
-
+function enregistrer(id, index){
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost/Uknow/web/app_dev.php/ajax/enregistrement',
+        data: 'id=' + id,
+        error: function() {
+            alert('La requête n\'a pas abouti.');
+        }
+    });
+    $('#' + index).attr('class', 'glyphicon glyphicon-floppy-saved');
+    $('#enregistrer_' + index).attr('onclick','');
 }
-
