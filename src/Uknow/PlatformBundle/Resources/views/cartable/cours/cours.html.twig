@@ -19,10 +19,14 @@
     </div>
     <div class="row" style="margin-top: 36px">
         <div class="col-md-9" style="padding: 15px; text-align: center" id="colCours">
-            {% for donnees in listDonnees %}
-                {{ include('UknowPlatformBundle:cartable:afficher.html.twig') }}
-                {{ include('UknowPlatformBundle:cartable:cacher.html.twig') }}
-            {% endfor %}
+            {%  if listDonnees == null %}
+                <h4>Vous n'avez pas enregistré de cours.<br/> Mais vous pouvez <em><a href="{{ path('uknow_platform_recherche_acceuil')}}">en trouver ici</a></em> !</h4>
+            {% else %}
+                {% for donnees in listDonnees %}
+                    {{ include('UknowPlatformBundle:cartable:afficher.html.twig') }}
+                    {{ include('UknowPlatformBundle:cartable:cacher.html.twig') }}
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}

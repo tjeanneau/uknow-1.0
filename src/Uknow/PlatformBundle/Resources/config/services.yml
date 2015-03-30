@@ -1,14 +1,13 @@
 services:
     uknow_platform.tri:
         class: Uknow\PlatformBundle\Services\ServiceTri
-        arguments: [@uknow_platform.modification, @uknow_platform.evaluation, @uknow_platform.affichage]
+        arguments: [@uknow_platform.modification, @uknow_platform.evaluation,]
     uknow_platform.list:
         class: Uknow\PlatformBundle\Services\ServiceList
     uknow_platform.recherche:
         class: Uknow\PlatformBundle\Services\ServiceRecherche
     uknow_platform.boutons:
         class: Uknow\PlatformBundle\Services\ServiceBoutons
-        arguments: [@uknow_platform.affichage]
     uknow_platform.question:
         class: Uknow\PlatformBundle\Services\ServiceQuestion
     uknow_platform.evaluation:
@@ -16,8 +15,6 @@ services:
     uknow_platform.modification:
         class: Uknow\PlatformBundle\Services\ServiceModification
         arguments: [@uknow_platform.evaluation]
-    uknow_platform.affichage:
-        class: Uknow\PlatformBundle\Services\ServiceAffichage
     uknow_platform.sauvegarde:
         class: Uknow\PlatformBundle\Services\ServiceSauvegarde
-        arguments: [@uknow_platform.tri, @uknow_platform.affichage]
+        arguments: [@uknow_platform.tri]

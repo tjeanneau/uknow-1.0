@@ -10,12 +10,6 @@ namespace Uknow\PlatformBundle\Services;
 
 class ServiceBoutons {
 
-    private $affichage;
-
-    public function __construct( $affichage){
-        $this->affichage = $affichage;
-    }
-
     public function boutonSauvegarder($donnee, $compte, $em){
 
         if ($compte->getDonneesSauvegardees() != null) {

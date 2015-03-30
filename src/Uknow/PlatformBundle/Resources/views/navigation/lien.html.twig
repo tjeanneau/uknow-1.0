@@ -1,7 +1,6 @@
 {# src/Uknow/PlatformBundle/Resources/views/navigation/lien.html.twig#}
 
 <div class="col-md-3" style="text-align: center">
-
     <div class="btn-group" style="margin-right: 5%; margin-left: 5%;">
         <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
             <span class="glyphicon glyphicon-pencil"></span>
@@ -19,25 +18,17 @@
         </button>
         <ul class="dropdown-menu">
             <li class="dropdown-header"> Cartable</li>
-            <li><a href="{{ path('uknow_platform_cartable_cours')}}">Cours sauvegardés</a></li>
+            <li><a href="{{ path('uknow_platform_cartable_cours')}}">Cours enregistrés</a></li>
             <li><a href="{{ path('uknow_platform_cartable_exercices')}}">Exercices enregistrés</a></li>
             <li class="divider"></li>
-            <li class="dropdown-submenu">
-                <a tabindex="-1" href="#"> Matières</a>
-                <ul class="dropdown-menu">
-                    {% for matiere in  listMatiere %}
-                        <li><a href="{{ path('uknow_platform_cartable_matieres', {'matiere' : matiere.lien}) }}">{{ matiere.nom }}</a></li>
-                    {% endfor %}
-                </ul>
-            </li>
-            <li class="dropdown-submenu">
-                <a tabindex="-1" href="#"> Niveaux</a>
-                <ul class="dropdown-menu">
-                    {% for niveaux in  listNiveaux %}
-                        <li><a href="{{ path('uknow_platform_cartable_niveaux', {'niveaux' : niveaux.lien}) }}">{{ niveaux.nom }}</a></li>
-                    {% endfor %}
-                </ul>
-            </li>
+            <li class="dropdown-header"> Matières</li>
+            {% for matiere in  listMatiere %}
+                <li><a href="{{ path('uknow_platform_cartable_matieres', {'matiere' : matiere.lien}) }}">{{ matiere.nom }}</a></li>
+            {% endfor %}
+            <li class="dropdown-header"> Niveaux</li>
+            {% for niveaux in  listNiveaux %}
+                <li><a href="{{ path('uknow_platform_cartable_niveaux', {'niveau' : niveaux.lien}) }}">{{ niveaux.nom }}</a></li>
+            {% endfor %}
         </ul>
     </div>
 

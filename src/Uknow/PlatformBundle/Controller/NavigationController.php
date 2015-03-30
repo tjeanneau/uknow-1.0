@@ -83,13 +83,12 @@ class NavigationController extends Controller{
             ->getManager()
             ->getRepository('UknowPlatformBundle:Donnees')
             ->findAll();
+        $listDonnees = $servicesModification->listAJour($listDonnees);
 
         $compte = $this->getDoctrine()
             ->getManager()
             ->getRepository('UknowUtilisateurBundle:Compte')
             ->find($this->getUser()->getId());
-
-        $listDonnees = $servicesModification->listAJour($listDonnees);
 
         $listMatiere = $servicesSauvegarde->matiereSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
         $listNiveaux = $servicesSauvegarde->niveauxSauvegardees($listDonnees, $compte->getDonneesSauvegardees());

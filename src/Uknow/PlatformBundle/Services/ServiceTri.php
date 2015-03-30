@@ -14,12 +14,11 @@ class ServiceTri{
 
     private $modification;
     private $evaluation;
-    private $affichage;
 
-    public function __construct($modification, $evaluation, $affichage){
+
+    public function __construct($modification, $evaluation){
         $this->modification = $modification;
         $this->evaluation = $evaluation;
-        $this->affichage = $affichage;
     }
 
     public function triListStructure($domaine, $matiere, $theme){
@@ -297,14 +296,37 @@ class ServiceTri{
     public function triExercice($listDonnees, $chaineSauvegardees){
 
         $listDonnees = $this->triDonneesSauvegardees($listDonnees, $chaineSauvegardees);
-        $listCours = array();
+        $listExercice = array();
 
         for( $i = 0 ; $i < count($listDonnees) ; $i++){
             if($listDonnees[$i]->getType() == 'Exercice'){
-                $listCours[] = $listDonnees[$i];
+                $listExercice[] = $listDonnees[$i];
             }
         }
 
-        return $listCours;
+        return $listExercice;
+    }
+
+    public function triDoublonStructure($list){
+
+        $listri = array();
+        $exist = false;
+        for( $i = 0 ; $i < count($list) ; $i++){
+            if($i == 0){
+                $listri[] = $list[$i];
+            }else{
+                for( $j = 0 ; $j < count($listri) ; $j++){
+                    if($listri[$j]->getNom() == $list[$i]->getNom() && $listri[$j]->getLien() == $list[$i]->getLien()){
+                        $exist = true;
+                    }
+                }
+                if($exist == false){
+                    $listri[] = $list[$i];
+                }
+                $exist = false;
+            }
+        }
+
+        return $listri;
     }
 }
