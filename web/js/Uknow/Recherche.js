@@ -16,9 +16,9 @@ $(function(){
                         $.each(donnees, function(i, donnee){
                             $('#donnees').append(
                                 '<a id="lienResultat" href="http://localhost/Uknow/web/app_dev.php/recherche/' +
-                                donnee['domaine_lien'] + '/' + donnee['matiere_lien'] + '/' + donnee['theme_lien'] + '/' + donnee['chapitre_lien'] + '">' +
-                                '<div class="blockDonnee"><b>' + donnee.titre + '</b><div class="texteDroite">' + donnee.type + ' de ' + donnee.niveau + '</div></br>' +
-                                '<h5>' + donnee['domaine_nom'] + ' / ' + donnee['matiere_nom'] + ' / ' + donnee['theme_nom'] + ' / ' + donnee['chapitre_nom'] + '</h5></div></a>');
+                                donnee['domaine_lien'] + '/' + donnee['matiere_lien'] + '/' + donnee['theme_lien'] + '/' + donnee['chapitre_lien'] + '/' + donnee['id'] + '">' +
+                                '<div class="blockDonnee"><b>' + donnee.titre + '</b><div class="texteDroite">' + donnee['type'] + ' de ' + donnee['niveau'] + '</div></br>' +
+                                '<h5>' + donnee['domaine_nom'] + ' / ' + donnee['matiere_nom'] + ' / ' + donnee['theme_nom'] + ' / ' + donnee['chapitre_nom'] +  '</h5></div></a>');
                         });
                         $('#resultats_recherche').show(500);
                     }else{

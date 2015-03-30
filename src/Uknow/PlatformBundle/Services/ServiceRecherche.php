@@ -13,22 +13,6 @@ use Uknow\PlatformBundle\Form\RechercheType;
 
 class ServiceRecherche {
 
-    private $affichage;
-    private $modification;
-    private $rechercher;
-
-    public function __construct($affichage, $modification){
-        $this->affichage = $affichage;
-        $this->modification = $modification;
-    }
-
-    public function initialisationRecherche($thisController){
-
-        $question = new FormulaireRechercher();
-        $formQuestion = $thisController->get('form.factory')->create(new RechercheType(), $question);
-        return $formQuestion;
-    }
-
     public function donneesRecherche($listDonnees, $lettres){
 
         $donneesRecherche = null;
@@ -48,6 +32,7 @@ class ServiceRecherche {
             $donneeCaracteristiques['titre'] = $listDonnees[$i]->getTitre();
             $donneeCaracteristiques['type'] = $listDonnees[$i]->getType();
             $donneeCaracteristiques['niveau'] = $listDonnees[$i]->getNiveau();
+            $donneeCaracteristiques['id'] = $listDonnees[$i]->getId();
 
             if ($exist == false) {
                 if (stripos($donneeCaracteristiques['domaine_nom'], $lettres) === 0) {

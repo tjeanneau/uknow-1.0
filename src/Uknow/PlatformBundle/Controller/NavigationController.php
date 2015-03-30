@@ -9,8 +9,10 @@
 namespace Uknow\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Uknow\PlatformBundle\Classes\FormulaireRechercher;
+use Uknow\PlatformBundle\Form\RechercheType;
 use Uknow\PlatformBundle\Services;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class NavigationController extends Controller{
 
@@ -18,10 +20,51 @@ class NavigationController extends Controller{
         return $this->render('UknowPlatformBundle:navigation:home.html.twig');
     }
 
-    public function rechercheAction(){
+    public function rechercheAction(Request $request){
 
-        $servicesRecherche = $this->container->get('uknow_platform.recherche');
-        $formRecherche = $servicesRecherche->initialisationRecherche($this);
+        $recherche = new FormulaireRechercher();
+        $formRecherche = $this->get('form.factory')->create(new RechercheType(), $recherche);
+
+        if($formRecherche->handleRequest($request)->isValid()){
+
+            $lettres = $recherche->getRecherche();
+            $em = $this->getDoctrine()->getManager();
+            $servicesTri = $this->container->get('uknow_platform.tri');
+            $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
+            $servicesModifications = $this->container->get('uknow_platform.modification');
+            $servicesRecherche = $this->container->get('uknow_platform.recherche');
+
+            $listDonnees = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowPlatformBundle:Donnees')
+                ->findAll();
+            $listDonnees = $servicesModifications->listAJour($listDonnees);
+
+            $compte = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowUtilisateurBundle:Compte')
+                ->find($this->getUser()->getId());
+
+            $listCompte = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowUtilisateurBundle:Compte')
+                ->findAll();
+
+            $compte->setDonneesSauvegardees($servicesModifications->idAJour($compte->getDonneesSauvegardees(), $listDonnees));
+            $em->persist($compte);
+            $em->flush();
+
+            $listDonnees = $servicesRecherche->affichageRecherche($listDonnees, $lettres);
+            $listDonneesAffichage = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
+            $tableauInfoSauvegarde = $servicesTri->tableauDonneesSauvegardees($listDonneesAffichage, $compte->getDonneesSauvegardees());
+            $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonneesAffichage, $compte->getDonneesEvaluees());
+
+            return $this->render('UknowPlatformBundle:recherche:recherche.html.twig', array(
+                'tableauSauvegarde' => $tableauInfoSauvegarde,
+                'tableauEvaluation' => $tableauInfoEvaluation,
+                'listDonnees' => $listDonneesAffichage
+            ));
+        }
 
         return $this->render('UknowPlatformBundle:navigation:recherche.html.twig', array(
             'formRecherche' => $formRecherche->createView(),

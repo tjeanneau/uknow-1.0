@@ -1,27 +1,26 @@
 {# src/Uknow/PlatformBundle/Resources/views/navigation/lien.html.twig#}
 
 <div class="col-md-3" style="text-align: center">
-    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+
+    <div class="btn-group" style="margin-right: 5%; margin-left: 5%;">
         <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-globe"></span>
+            <span class="glyphicon glyphicon-pencil"></span>
         </button>
         <ul class="dropdown-menu">
-            <li class="dropdown-header"> Actualités</li>
-            <li><a href="{{ path('uknow_platform_actualites_cours')}}">Cours</a></li>
-            <li><a href="{{ path('uknow_platform_actualites_exercices')}}">Exercices</a></li>
-            <li><a href="{{ path('uknow_platform_actualites_evaluations')}}">Evaluations</a></li>
-            <li><a href="{{ path('uknow_platform_actualites_questions')}}">Questions</a></li>
+            <li class="dropdown-header"> Ajouter</li>
+            <li><a href="{{ path('uknow_platform_ajouter_cours')}}">Créer un cours</a></li>
+            <li><a href="{{ path('uknow_platform_ajouter_exercices')}}">Créer un exercice</a></li>
         </ul>
     </div>
 
-    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+    <div class="btn-group" style="margin-right: 5%; margin-left: 5%;">
         <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
             <span class="glyphicon glyphicon-briefcase"></span>
         </button>
         <ul class="dropdown-menu">
             <li class="dropdown-header"> Cartable</li>
-            <li><a href="{{ path('uknow_platform_cartable_cours')}}">Cours</a></li>
-            <li><a href="{{ path('uknow_platform_cartable_exercices')}}">Exercices</a></li>
+            <li><a href="{{ path('uknow_platform_cartable_cours')}}">Cours sauvegardés</a></li>
+            <li><a href="{{ path('uknow_platform_cartable_exercices')}}">Exercices enregistrés</a></li>
             <li class="divider"></li>
             <li class="dropdown-submenu">
                 <a tabindex="-1" href="#"> Matières</a>
@@ -42,39 +41,31 @@
         </ul>
     </div>
 
-    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+    <div class="btn-group" style="margin-right: 5%; margin-left: 5%;">
         <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-pencil"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li class="dropdown-header"> Ajouter</li>
-            <li><a href="{{ path('uknow_platform_ajouter_cours')}}">Cours</a></li>
-            <li><a href="{{ path('uknow_platform_ajouter_exercices')}}">Exercice</a></li>
-            <li><a href="{{ path('uknow_platform_ajouter_correction')}}">Correction</a></li>
-        </ul>
-    </div>
-
-    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
-        <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-list-alt"></span>
+            <span class="glyphicon glyphicon-education"></span>
         </button>
         <ul class="dropdown-menu">
             <li class="dropdown-header"> Evaluation</li>
-            <li><a href="{{ path('uknow_platform_evaluation_exercice')}}">Exercice</a></li>
-            <li><a href="{{ path('uknow_platform_evaluation_test')}}">Test</a></li>
-            <li><a href="{{ path('uknow_platform_evaluation_examen')}}">Examen</a></li>
-            <li><a href="{{ path('uknow_platform_evaluation_progression')}}">Progression</a></li>
-            <li><a href="{{ path('uknow_platform_evaluation_niveaux')}}">Niveaux</a></li>
+            <li><a href="{{ path('uknow_platform_evaluation_exercice')}}">Faire un exercice</a></li>
+            <li><a href="{{ path('uknow_platform_evaluation_test')}}">Faire un test</a></li>
+            <li><a href="{{ path('uknow_platform_evaluation_examen')}}">Passer un examen</a></li>
+            <li><a href="{{ path('uknow_platform_evaluation_resultats')}}">Mes résultats</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header"> Evaluer</li>
+            <li><a href="{{ path('uknow_platform_evaluation_corriger')}}">Corriger quelqu'un</a></li>
         </ul>
     </div>
 
-    <div class="btn-group" style="margin-right: 3%; margin-left: 3%;">
+    <div class="btn-group" style="margin-right: 5%; margin-left: 5%;">
         <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
             <span class="glyphicon glyphicon-user"></span>
         </button>
         <ul class="dropdown-menu">
             <li class="dropdown-header"> Compte</li>
-            <li><a href="{{ path('uknow_platform_compte_profil')}}">Profil</a></li>
+            <li><a href="{{ path('uknow_platform_compte_profil')}}">Mon profil</a></li>
+            <li><a href="{{ path('uknow_platform_compte_progression')}}">Mes progrès</a></li>
+            <li class="divider"></li>
             <li><a href="{{ path('uknow_platform_compte_parametres')}}">Paramètres</a></li>
             <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
         </ul>

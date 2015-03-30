@@ -5,5 +5,9 @@ uknow_platform_compte_profil:
 uknow_platform_compte_parametres:
     path:     /parametres
     defaults: { _controller: UknowPlatformBundle:Compte:parametres}
+
+uknow_platform_compte_progression:
+    path:     /progression
+    defaults: { _controller: UknowPlatformBundle:Compte:progression}
     
 

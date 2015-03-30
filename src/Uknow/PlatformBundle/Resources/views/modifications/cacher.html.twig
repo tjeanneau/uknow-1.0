@@ -10,33 +10,45 @@
     </div>
 
     <div class="row" style="margin:0">
-        <div id="pertinent" class="col-md-3">
-            {{ donnees.pertinent }}
+        <div class="col-md-3" style="padding: 0">
+            <div class="pertinent">
+                {{ donnees.pertinent }}
+            </div>
         </div>
-        <div id="developper" class="col-md-3">
-            {{ donnees.developper }}
+        <div class="col-md-3" style="padding: 0">
+            <div class="developper">
+                {{ donnees.developper }}
+            </div>
         </div>
-        <div id="inutile" class="col-md-3">
-            {{ donnees.inutile }}
+        <div class="col-md-3" style="padding: 0">
+            <div class="inutile">
+                {{ donnees.inutile }}
+            </div>
         </div>
 
         {% if donnees.type == 'Cours' %}
             <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
-                <button class="col-md-3" id="modifier">
-                    <span class="glyphicon glyphicon-edit"></span>
-                </button>
+                <div class="col-md-3" style="padding: 0">
+                    <button class="modifier">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                </div>
             </a>
         {% elseif donnees.type == 'Exercice' %}
             <a href="{{ path('uknow_platform_modifier_exercice', {'id': donnees.id }) }}">
-                <button class="col-md-3" id="modifier">
-                    <span class="glyphicon glyphicon-edit"></span>
-                </button>
+                <div class="col-md-3" style="padding: 0">
+                    <button class="modifier">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                </div>
             </a>
         {% elseif donnees.type == 'Correction' %}
             <a href="{{ path('uknow_platform_modifier_correction', {'id': donnees.id }) }}">
-                <button class="col-md-3" id="modifier">
-                    <span class="glyphicon glyphicon-edit"></span>
-                </button>
+                <div class="col-md-3" style="padding: 0">
+                    <button class="modifier">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                </div>
             </a>
         {% endif %}
     </div>

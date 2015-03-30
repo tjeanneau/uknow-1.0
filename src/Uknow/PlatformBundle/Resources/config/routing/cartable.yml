@@ -13,3 +13,7 @@ uknow_platform_cartable_matieres:
 uknow_platform_cartable_niveaux:
     path:     /{niveau}
     defaults: { _controller: UknowPlatformBundle:Cartable:niveaux}
+
+uknow_platform_cartable_modification:
+    path:     /{type}/modifications/{id}
+    defaults: { _controller: UknowPlatformBundle:Cartable:modifications, type: null id: null}

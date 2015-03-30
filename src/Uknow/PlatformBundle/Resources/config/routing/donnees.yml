@@ -4,4 +4,6 @@ uknow_platform_donnees_modification:
 
 uknow_platform_donnees_rechercher:
     path:     /rechercher
-    defaults: { _controller: UknowPlatformBundle:Donnees:rechercher}
+    defaults: { _controller: UknowPlatformBundle:Navigation:recherche}
+    requirements:
+        _method: POST

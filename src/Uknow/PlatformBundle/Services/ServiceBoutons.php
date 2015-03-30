@@ -27,14 +27,12 @@ class ServiceBoutons {
         $em->flush();
     }
 
-    public function boutonEnlever($listStructure, $listDonnees, $compte, $request, $em){
-
-        $listDonnees = $this->affichage->correctionLien($listStructure, $listDonnees);
+    public function boutonSupprimer($donnee, $compte, $em){
 
         $tableauDonnees = explode('/', $compte->getDonneesSauvegardees());
         if(count($tableauDonnees) > 1){
            for ($i = 0; $i < count($tableauDonnees); $i++) {
-                if ($tableauDonnees[$i] == $listDonnees[$request->request->get('valeur', null)-1]->getId()) {
+                if ($tableauDonnees[$i] == $donnee->getId()) {
                     unset($tableauDonnees[$i]);
                     $compte->setDonneesSauvegardees(implode('/', $tableauDonnees));
                 }

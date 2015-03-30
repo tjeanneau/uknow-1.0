@@ -10,10 +10,10 @@ uknow_platform_evaluation_examen:
     path:     /test
     defaults: { _controller: UknowPlatformBundle:Evaluation:examen}
 
-uknow_platform_evaluation_progression:
-    path:     /progression
-    defaults: { _controller: UknowPlatformBundle:Evaluation:progression}
+uknow_platform_evaluation_resultats:
+    path:     /resultats
+    defaults: { _controller: UknowPlatformBundle:Evaluation:resultats}
 
-uknow_platform_evaluation_niveaux:
-    path:     /niveaux
-    defaults: { _controller: UknowPlatformBundle:Evaluation:niveaux}
+uknow_platform_evaluation_corriger:
+    path:     /corriger
+    defaults: { _controller: UknowPlatformBundle:Evaluation:corriger}

@@ -16,4 +16,8 @@ uknow_platform_recherche_theme:
 
 uknow_platform_recherche_chapitre:
     path:     /{lienDomaine}/{lienMatiere}/{lienTheme}/{lienChapitre}
+    defaults: { _controller: UknowPlatformBundle:Donnees:recherche, id: null}
+
+uknow_platform_recherche_id:
+    path:     /{lienDomaine}/{lienMatiere}/{lienTheme}/{lienChapitre}/{id}
     defaults: { _controller: UknowPlatformBundle:Donnees:recherche}

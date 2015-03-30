@@ -4,7 +4,7 @@
 
     <div class="row" style="margin:0">
         <span id="details">
-            {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
+            {{ donnees.matiereNom }} : {{ donnees.niveau }}
         </span>
     </div>
     <div class="row" style="margin:0">
@@ -58,7 +58,7 @@
             </a>
         {% endif %}
 
-        <a href="{{ path('uknow_platform_donnees_modification', {'id': donnees.id }) }}">
+        <a href="{{ path('uknow_platform_cartable_modification', {'type': type, 'id': donnees.id }) }}">
             <div class="col-md-2" style="padding: 0">
                 <button class="modification">
                     <span class="glyphicon glyphicon-th-list"></span>
@@ -66,14 +66,8 @@
             </div>
         </a>
 
-        {% if tableauSauvegarde[loop.index0] == 1 %}
-            <button class="enregistrer">
-                <span class="glyphicon glyphicon-floppy-saved"></span>
-            </button>
-        {% else %}
-            <button class="enregistrer" id="enregistrer{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
-                <span class="glyphicon glyphicon-floppy-disk"></span>
-            </button>
-        {% endif %}
+        <button class="boutonAffiche" id="enregistrer_{{ loop.index }}" onclick="supprimer({{ donnees.id }}, {{ loop.index }})">
+            <span id="{{ loop.index }}" class="glyphicon glyphicon-floppy-remove"></span>
+        </button>
     </div>
 </div>

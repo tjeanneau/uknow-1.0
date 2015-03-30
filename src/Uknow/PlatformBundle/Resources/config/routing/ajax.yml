@@ -5,3 +5,7 @@ uknow_platform_ajax_autocompletion:
 uknow_platform_ajax_enregistrement:
     path:     /enregistrement
     defaults: { _controller: UknowPlatformBundle:Ajax:enregistrement }
+
+uknow_platform_ajax_suppression:
+    path:     /suppression
+    defaults: { _controller: UknowPlatformBundle:Ajax:suppression }

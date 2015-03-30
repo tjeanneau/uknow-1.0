@@ -51,6 +51,35 @@ function enregistrer(id, index){
             alert('La requête n\'a pas abouti.');
         }
     });
-    $('#' + index).attr('class', 'glyphicon glyphicon-floppy-saved');
-    $('#enregistrer_' + index).attr('onclick','');
+    if(index != null){
+        $('#enregistrer' + index)
+            .html('')
+            .append('<span class="glyphicon glyphicon-floppy-saved"></span>')
+            .attr('onclick','');
+    }else{
+        $('#boutonEnregistrer')
+            .html('')
+            .append('<span class="glyphicon glyphicon-floppy-saved"></span>')
+            .attr('onclick','');
+    }
+}
+
+function supprimer(id, index){
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost/Uknow/web/app_dev.php/ajax/suppression',
+        data: 'id=' + id,
+        error: function() {
+            alert('La requête n\'a pas abouti.');
+        }
+    });
+    if(index != null){
+        $('#donneeAffiche_' + index)
+            .hide(1000);
+        $('#donneeCache_' + index)
+            .hide(1000);
+    }else{
+        $(location).attr('href',"http://localhost/Uknow/web/app_dev.php/cartable/cours");
+    }
+
 }

@@ -183,35 +183,6 @@ class ServiceTri{
         return $nombreDonnees;
     }
 
-    public function triDonneesAfficher( $listDonnees, $chaineDonnees, $newlistdonnees, $type, $action){
-
-        $listDonnees = $this->modification->listAJour($listDonnees);
-
-        if($type != 'boutonRecherche' && $type != 'boutonFavoris'){
-           $listDonnees = $this->affichage->affichageLien( $listDonnees);
-        }
-
-        if($action == 'rechercher')
-        {
-           return $listDonnees;
-        }elseif($chaineDonnees != null && ($type == 'favoris' || $type == 'boutonFavoris')){
-            $tableauDonnees = explode('/', $chaineDonnees);
-            for($j = 0; $j < count($listDonnees); $j++){
-                for ($i = 0; $i < count($tableauDonnees); $i++) {
-                    if ($listDonnees[$j]->getId() == $tableauDonnees[$i]) {
-                        $newlistdonnees[] = $listDonnees[$j];
-                    }
-                }
-            }
-
-            return $newlistdonnees;
-        }elseif ( $type == 'recherche' || $type == 'boutonRecherche') {
-            return $listDonnees;
-        }else{
-            return null;
-        }
-    }
-
     public function triDonneesSauvegardees($listDonnees, $chaineSauvegardees){
 
         $donneesSauvegardees = array();
@@ -232,15 +203,25 @@ class ServiceTri{
         $donneesSauvegardees = array();
         $tableauSauvegardees = explode('/', $chaineSauvegardees);
         for($i = 0 ; $i < count($listDonnees) ; $i++ ){
+            $donneesSauvegardees[$i] = 0;
             for($j = 0 ; $j < count($tableauSauvegardees) ; $j++){
-                $donneesSauvegardees[$i] = 0;
                 if($listDonnees[$i]->getId() == $tableauSauvegardees[$j]){
                     $donneesSauvegardees[$i] = 1;
                 }
             }
         }
         return $donneesSauvegardees;
+    }
 
+    public function donneesSauvegardees($donnee, $chaineSauvegardees){
+
+        $tableauSauvegardees = explode('/', $chaineSauvegardees);
+        for($j = 0 ; $j < count($tableauSauvegardees) ; $j++){
+            if($donnee->getId() == $tableauSauvegardees[$j]){
+                return true;
+            }
+        }
+        return false;
     }
 
     public function triDonneesEvaluees($listDonneesAffichages, $chaineEvaluees){
@@ -297,5 +278,19 @@ class ServiceTri{
         }
 
         return $listDonneesTriee;
+    }
+
+    public function triCours($listDonnees, $chaineSauvegardees){
+
+        $listDonnees = $this->triDonneesSauvegardees($listDonnees, $chaineSauvegardees);
+        $listCours = array();
+
+        for( $i = 0 ; $i < count($listDonnees) ; $i++){
+            if($listDonnees[$i]->getType() == 'Cours'){
+                $listCours[] = $listDonnees[$i];
+            }
+        }
+
+        return $listCours;
     }
 }
