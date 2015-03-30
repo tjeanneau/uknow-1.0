@@ -2,6 +2,10 @@ uknow_platform_recherche_acceuil:
     path:     /
     defaults: { _controller: UknowPlatformBundle:Structure:structure, lienDomaine: null, lienMatiere: null, lienTheme:null }
 
+uknow_platform_recherche_modification:
+    path:     /{lettres}/modifications/{id}
+    defaults: { _controller: UknowPlatformBundle:Structure:modifications}
+
 uknow_platform_recherche_domaine:
     path:     /{lienDomaine}
     defaults: { _controller: UknowPlatformBundle:Structure:structure, lienMatiere: null, lienTheme:null }
@@ -21,3 +25,4 @@ uknow_platform_recherche_chapitre:
 uknow_platform_recherche_id:
     path:     /{lienDomaine}/{lienMatiere}/{lienTheme}/{lienChapitre}/{id}
     defaults: { _controller: UknowPlatformBundle:Donnees:recherche}
+

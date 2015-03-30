@@ -12,7 +12,7 @@
                     <span class="glyphicon glyphicon-floppy-saved"></span>
                 </button>
             {% else %}
-                <button class="boutonAffiche" id="enregistrer_{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
+                <button class="boutonAffiche" id="enregistrer{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
                     <span id="{{ loop.index }}" class="glyphicon glyphicon-floppy-disk"></span>
                 </button>
             {% endif %}

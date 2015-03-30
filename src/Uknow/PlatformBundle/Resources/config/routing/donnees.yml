@@ -3,7 +3,11 @@ uknow_platform_donnees_modification:
     defaults: { _controller: UknowPlatformBundle:Donnees:modifications, id: null}
 
 uknow_platform_donnees_rechercher:
-    path:     /rechercher
-    defaults: { _controller: UknowPlatformBundle:Navigation:recherche}
+    path:     /rechercher/
+    defaults: { _controller: UknowPlatformBundle:Navigation:recherche, lettres: null}
     requirements:
         _method: POST
+
+uknow_platform_donnees_trouver:
+    path:     /rechercher/{lettres}
+    defaults: { _controller: UknowPlatformBundle:Navigation:recherche}

@@ -293,4 +293,18 @@ class ServiceTri{
 
         return $listCours;
     }
+
+    public function triExercice($listDonnees, $chaineSauvegardees){
+
+        $listDonnees = $this->triDonneesSauvegardees($listDonnees, $chaineSauvegardees);
+        $listCours = array();
+
+        for( $i = 0 ; $i < count($listDonnees) ; $i++){
+            if($listDonnees[$i]->getType() == 'Exercice'){
+                $listCours[] = $listDonnees[$i];
+            }
+        }
+
+        return $listCours;
+    }
 }

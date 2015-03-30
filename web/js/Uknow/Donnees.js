@@ -81,5 +81,4 @@ function supprimer(id, index){
     }else{
         $(location).attr('href',"http://localhost/Uknow/web/app_dev.php/cartable/cours");
     }
-
 }

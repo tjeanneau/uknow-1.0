@@ -16,7 +16,7 @@ class ModifierExerciceType extends AbstractType{
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('text', 'ckeditor', array(
+        $builder->add('ckeditor', 'ckeditor', array(
                 'config' => array(
                     'toolbar' => array(
                         array(

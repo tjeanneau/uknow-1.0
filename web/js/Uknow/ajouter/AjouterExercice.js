@@ -213,10 +213,13 @@ $(function() {
         }
 
         $.getJSON("http://localhost/Uknow/web/json/chapitres.json", function (donneeschapitre) {
-            $('#uknow_platformbundle_ajout_exercice_chapitre_nom')
+            $('#uknow_platformbundle_ajout_exercice_chapitre_lien')
                 .html('')
                 .append('<option value selected="selected">Choisir le chapitre</option>');
-            $.each(donneeschapitre['chapitre'][$('#uknow_platformbundle_ajout_exercice_domaine_lien').val()][$('#uknow_platformbundle_ajout_exercice_matiere_lien').val()][$('#uknow_platformbundle_ajout_exercice_theme_lien').val()], function (i, chapitre) {
+            $.each(donneeschapitre['chapitre']
+                [$('#uknow_platformbundle_ajout_exercice_domaine_lien').val()]
+                [$('#uknow_platformbundle_ajout_exercice_matiere_lien').val()]
+                [$('#uknow_platformbundle_ajout_exercice_theme_lien').val()], function (i, chapitre) {
                 $('#uknow_platformbundle_ajout_exercice_chapitre_lien')
                     .append('<option value="' + chapitre.lien + '">' + chapitre.nom + '</option>');
             })

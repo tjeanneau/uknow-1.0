@@ -65,4 +65,47 @@ class StructureController extends Controller
             'theme' => $theme
             ));
     }
+
+    public function modificationsAction($lettres, $id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $servicesTri = $this->container->get('uknow_platform.tri');
+        $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
+
+        $donneerecu = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowPlatformBundle:Donnees')
+            ->find($id);
+
+        $listDonnees = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowPlatformBundle:Donnees')
+            ->findAll();
+
+        $compte = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->find($this->getUser()->getId());
+
+        $listCompte = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->findAll();
+
+        $listDonnees = $servicesTri->triDonneesModifiee($donneerecu, $listDonnees);
+        $listDonneesAffichage = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
+        $listDonneesAffichage = $servicesTri->triDonneesModifiee($donneerecu, $listDonneesAffichage);
+        $sauvegarder = $servicesTri->donneesSauvegardees($donneerecu, $compte->getDonneesSauvegardees());
+        $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonneesAffichage, $compte->getDonneesEvaluees());
+
+        return $this->render('UknowPlatformBundle:recherche/modification:modifications.html.twig', array(
+            'donnee' => $donneerecu,
+            'listDonnees' => $listDonnees,
+            'tableauEvaluation' => $tableauInfoEvaluation,
+            'sauvegarder' => $sauvegarder,
+            'id' => $id,
+            'lettres' => $lettres,
+        ));
+    }
 }

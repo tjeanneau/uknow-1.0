@@ -20,14 +20,16 @@ class NavigationController extends Controller{
         return $this->render('UknowPlatformBundle:navigation:home.html.twig');
     }
 
-    public function rechercheAction(Request $request){
+    public function rechercheAction($lettres, Request $request){
 
         $recherche = new FormulaireRechercher();
         $formRecherche = $this->get('form.factory')->create(new RechercheType(), $recherche);
 
-        if($formRecherche->handleRequest($request)->isValid()){
+        if($formRecherche->handleRequest($request)->isValid() || $lettres != null){
 
-            $lettres = $recherche->getRecherche();
+            if($lettres == null){
+                $lettres = $recherche->getRecherche();
+            }
             $em = $this->getDoctrine()->getManager();
             $servicesTri = $this->container->get('uknow_platform.tri');
             $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
@@ -62,7 +64,8 @@ class NavigationController extends Controller{
             return $this->render('UknowPlatformBundle:recherche:recherche.html.twig', array(
                 'tableauSauvegarde' => $tableauInfoSauvegarde,
                 'tableauEvaluation' => $tableauInfoEvaluation,
-                'listDonnees' => $listDonneesAffichage
+                'listDonnees' => $listDonneesAffichage,
+                'lettres' => $lettres,
             ));
         }
 

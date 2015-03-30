@@ -29,6 +29,12 @@
                 {% for donnees in listDonnees %}
                     {{ include('UknowPlatformBundle:donnees:afficher.html.twig') }}
                     {{ include('UknowPlatformBundle:donnees:cacher.html.twig') }}
+                    {% if id == donnees.id %}
+                        <script>
+                            document.getElementById('donneeCache_{{ loop.index }}').style.display = 'none';
+                            document.getElementById('donneeAffiche_{{ loop.index }}').style.display = 'block';
+                        </script>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         </div>

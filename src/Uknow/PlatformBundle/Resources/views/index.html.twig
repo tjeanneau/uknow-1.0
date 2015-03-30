@@ -20,7 +20,7 @@
 
             <header class="row" id="header">
                 {{ render(controller('UknowPlatformBundle:Navigation:home')) }}
-                {{ render(controller('UknowPlatformBundle:Navigation:recherche')) }}
+                {{ render(controller('UknowPlatformBundle:Navigation:recherche', {'lettres': null})) }}
                 {{ render(controller('UknowPlatformBundle:Navigation:lien')) }}
             </header>
 

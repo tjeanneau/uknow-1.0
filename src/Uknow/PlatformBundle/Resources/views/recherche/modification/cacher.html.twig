@@ -1,0 +1,79 @@
+<div id="donneeCache_{{ loop.index }}" class="donneeCacher">
+
+    <h5 class="titre" id="titre_{{ loop.index }}" onclick="afficher({{ loop.index }})">{{ donnees.titre }}<br/></h5>
+
+    <div class="row" style="margin:0">
+        <span id="details">
+            {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
+        </span>
+    </div>
+    <div class="row" style="margin:0">
+        <div class="col-md-6" id="fiable">{{ donnees.fiabilite }}%</div>
+        <div class="col-md-6" id="temps">{{ donnees.temps }} minutes</div>
+    </div>
+
+    <div class="row" style="margin:0">
+
+        <div class="col-md-2" style="padding: 0">
+            <div  class="pertinent" >
+                {{ donnees.pertinent }}
+            </div>
+        </div>
+
+        <div class="col-md-2" style="padding: 0">
+            <div  class="developper">
+                {{ donnees.developper }}
+            </div>
+        </div>
+
+        <div class="col-md-2" style="padding: 0">
+            <div  class="inutile" >
+                {{ donnees.inutile }}
+            </div>
+        </div>
+
+        {% if donnees.type == 'Cours' %}
+            <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
+                <div class="col-md-2" style="padding: 0">
+                    <button class="modifier">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                </div>
+            </a>
+        {% elseif donnees.type == 'Exercice' %}
+            <a href="{{ path('uknow_platform_modifier_exercice', {'id': donnees.id }) }}">
+                <div class="col-md-2" style="padding: 0">
+                    <button class="modifier">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                </div>
+            </a>
+        {% elseif donnees.type == 'Correction' %}
+            <a href="{{ path('uknow_platform_modifier_correction', {'id': donnees.id }) }}">
+                <div class="col-md-2" style="padding: 0">
+                    <button class="modifier">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                </div>
+            </a>
+        {% endif %}
+
+        <a href="{{ path('uknow_platform_recherche_modification', {'lettres': lettres, 'id': donnees.id }) }}">
+            <div class="col-md-2" style="padding: 0">
+                <button class="modification">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </button>
+            </div>
+        </a>
+
+        {% if tableauSauvegarde[loop.index0] == 1 %}
+            <button class="enregistrer">
+                <span class="glyphicon glyphicon-floppy-saved"></span>
+            </button>
+        {% else %}
+            <button class="enregistrer" id="enregistrer{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+        {% endif %}
+    </div>
+</div>
