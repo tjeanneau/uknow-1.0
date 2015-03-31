@@ -167,12 +167,17 @@ header
     margin-top: 1px;
 }
 
-#resultats_recherche
+#resultats_recherche,
+.dropdown-menu
 {
-    display: none;
     background-color:  #065DB0;
     box-shadow: 0 0 15px black;
     color: #ffffff;
+}
+
+#resultats_recherche
+{
+    display: none;
     width: 100%;
     overflow: auto;
     margin-top: 10px;
@@ -271,4 +276,3 @@ h5
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
-

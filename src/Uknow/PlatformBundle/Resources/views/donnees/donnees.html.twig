@@ -8,10 +8,10 @@
     <div class="row">
         <div class="col-md-8" style="padding: 0; position: fixed; z-index: 1" id="colLien">
             <ol class="breadcrumb" style="margin: 0">
-                <li><a href="{{ path('uknow_platform_recherche_acceuil')}}">Accueil</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien }) }}">{{ domaine.nom }}</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_matiere', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien }) }}">{{ matiere.nom }}</a></li>
-                <li><a href="{{ path('uknow_platform_recherche_theme', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien, 'lienTheme': theme.lien }) }}">{{ theme.nom }}</a></li>
+                <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_acceuil')}}">Accueil</a></li>
+                <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien }) }}">{{ domaine.nom }}</a></li>
+                <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_matiere', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien }) }}">{{ matiere.nom }}</a></li>
+                <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_theme', {'lienDomaine': domaine.lien, 'lienMatiere': matiere.lien, 'lienTheme': theme.lien }) }}">{{ theme.nom }}</a></li>
                 <li class="active">{{ chapitre.nom }}</li>
             </ol>
         </div>
