@@ -49,7 +49,8 @@ class AjouterController extends Controller{
             $donnees->setTitre($formAjout->getTitre());
             $donnees->setTexte($formAjout->getCkeditor());
             $donnees->setType('Cours');
-            $donnees->setNiveau($formAjout->getNiveau());
+            $donnees->setNiveauLien($formAjout->getNiveau());
+            $donnees->setNiveauNom($servicesTri->findObjectLien($formAjout->getNiveau(), 'niveau', null, null, null)->getNom());
             $donnees->setTemps($formAjout->getTemps());
             $donnees->setModification(0);
             $donnees->setPertinent(0);
@@ -100,7 +101,8 @@ class AjouterController extends Controller{
             $donnees->setTitre($formAjout->getTitre());
             $donnees->setTexte($formAjout->getCkeditor());
             $donnees->setType('Exercice');
-            $donnees->setNiveau($formAjout->getNiveau());
+            $donnees->setNiveauLien($formAjout->getNiveau());
+            $donnees->setNiveauNom($servicesTri->findObjectLien($formAjout->getNiveau(), 'niveau', null, null, null)->getNom());
             $donnees->setTemps($formAjout->getTemps());
             $donnees->setModification(0);
             $donnees->setPertinent(0);
@@ -151,7 +153,8 @@ class AjouterController extends Controller{
             $donnees->setTitre($formAjout->getTitre());
             $donnees->setTexte($formAjout->getCkeditor());
             $donnees->setType('Correction');
-            $donnees->setNiveau($formAjout->getNiveau());
+            $donnees->setNiveauLien($formAjout->getNiveau());
+            $donnees->setNiveauNom($servicesTri->findObjectLien($formAjout->getNiveau(), 'niveau', null, null, null)->getNom());
             $donnees->setTemps($formAjout->getTemps());
             $donnees->setModification(0);
             $donnees->setPertinent(0);

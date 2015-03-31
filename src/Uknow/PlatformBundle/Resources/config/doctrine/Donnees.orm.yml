@@ -51,7 +51,10 @@ Uknow\PlatformBundle\Entity\Donnees:
         type:
             type: string
             length: 255
-        niveau:
+        niveau_nom:
+            type: string
+            length: 255
+        niveau_lien:
             type: string
             length: 255
         fiabilite:

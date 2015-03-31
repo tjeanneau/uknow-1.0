@@ -12,7 +12,7 @@
                     <span class="glyphicon glyphicon-floppy-saved"></span>
                 </button>
             {% else %}
-                <button class="boutonAffiche" id="enregistrer{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
+                <button class="boutonAffiche" id="enregistrerAfficher{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
                     <span id="{{ loop.index }}" class="glyphicon glyphicon-floppy-disk"></span>
                 </button>
             {% endif %}
@@ -52,7 +52,7 @@
     <div class="barreAfficher">
         <div class="row" style="margin:0">
             <span style="font-size: 1.1em; margin:10px 20px; float:left">
-                {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
+                {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveauNom }}
             </span>
             <div style="font-size: 1.1em; margin:10px 20px; float:left">{{ donnees.fiabilite }}%</div>
             <div style="font-size: 1.1em; margin:10px 20px; float:left">{{ donnees.temps }} minutes</div>

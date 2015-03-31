@@ -40,7 +40,7 @@ class ServiceBoutons {
 
     public function boutonPertinent($listStructure, $listDonnees, $compte, $request, $em){
 
-        $listDonnees = $this->affichage->correctionLien($listStructure, $listDonnees);
+        $listDonnees = $this->correctionLien($listStructure, $listDonnees);
 
         if ($compte->getDonneesEvaluees() != null) {
             $compte->setDonneesEvaluees($compte->getDonneesEvaluees() . '/' . $listDonnees[$request->request->get('valeur', null)-1]->getId() . '.1');
@@ -57,7 +57,7 @@ class ServiceBoutons {
 
     public function boutonDevelopper($listStructure, $listDonnees, $compte, $request, $em){
 
-        $listDonnees = $this->affichage->correctionLien($listStructure, $listDonnees);
+        $listDonnees = $this->correctionLien($listStructure, $listDonnees);
 
         if ($compte->getDonneesEvaluees() != null) {
             $compte->setDonneesEvaluees($compte->getDonneesEvaluees() . '/' . $listDonnees[$request->request->get('valeur', null)-1]->getId() . '.0');

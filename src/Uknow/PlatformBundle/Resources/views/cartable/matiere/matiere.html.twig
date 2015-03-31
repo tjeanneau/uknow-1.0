@@ -2,13 +2,13 @@
 
 {% extends "UknowPlatformBundle::index.html.twig" %}
 
-{% block title %}{{ matiere }}{% endblock %}
+{% block title %}{{ matiere.nom }}{% endblock %}
 
 {% block contenu %}
     <div class="row">
         <div class="col-md-8" style="padding: 0; position: fixed; z-index: 1" id="colLien">
             <ol class="breadcrumb">
-                <li class="active">{{ matiere }}</li>
+                <li class="active">{{ matiere.nom }}</li>
             </ol>
         </div>
         <div class="col-md-offset-8 col-md-1" style="padding: 0; position: fixed; z-index: 1; background-color: #f5f5f5" id="colButton">

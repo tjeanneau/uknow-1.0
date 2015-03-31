@@ -100,21 +100,21 @@ class AjoutCoursType extends AbstractType{
                     ), 'empty_value' => 'Choisir le temps'
                     ))
             ->add('niveau', 'choice', array('choices' => array(
-                    'Sixième' => 'Sixième',
-                    'Cinquième' => 'Cinquième',
-                    'Quatrième' => 'Quatrième',
-                    'Troisième' => 'Troisième',
-                    'Seconde' => 'Seconde',
-                    'Première' => 'Première',
-                    'Terminal' => 'Terminal',
-                    'Bac + 1' => 'Bac + 1',
-                    'Bac + 2' => 'Bac + 2',
-                    'Bac + 3' => 'Bac + 3',
-                    'Bac + 4' => 'Bac + 4',
-                    'Bac + 5' => 'Bac + 5',
-                    'Bac + 6' => 'Bac + 6',
-                    'Bac + 7' => 'Bac + 7',
-                    'Bac + 8' => 'Bac + 8'), 'empty_value' => 'Choisir le niveau'
+                    'sixieme' => 'Sixième',
+                    'cinquieme' => 'Cinquième',
+                    'quatrieme' => 'Quatrième',
+                    'troisieme' => 'Troisième',
+                    'seconde' => 'Seconde',
+                    'premiere' => 'Première',
+                    'terminal' => 'Terminal',
+                    'bac+1' => 'Bac + 1',
+                    'bac+2' => 'Bac + 2',
+                    'bac+3' => 'Bac + 3',
+                    'bac+4' => 'Bac + 4',
+                    'bac+5' => 'Bac + 5',
+                    'bac+6' => 'Bac + 6',
+                    'bac+7' => 'Bac + 7',
+                    'bac+8' => 'Bac + 8'), 'empty_value' => 'Choisir le niveau'
                     ))
             ->add('ajouter', 'submit');
     }

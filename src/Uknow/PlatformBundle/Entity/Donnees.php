@@ -136,9 +136,16 @@ class Donnees
     /**
      * @var string
      *
-     * @ORM\Column(name="niveau", type="string", length=255)
+     * @ORM\Column(name="niveau_nom", type="string", length=255)
      */
-    private $niveau;
+    private $niveau_nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="niveau_lien", type="string", length=255)
+     */
+    private $niveau_lien;
 
     /**
      * @var integer
@@ -542,29 +549,6 @@ class Donnees
     }
 
     /**
-     * Set niveau
-     *
-     * @param string $niveau
-     * @return Donnees
-     */
-    public function setNiveau($niveau)
-    {
-        $this->niveau = $niveau;
-
-        return $this;
-    }
-
-    /**
-     * Get niveau
-     *
-     * @return string 
-     */
-    public function getNiveau()
-    {
-        return $this->niveau;
-    }
-
-    /**
      * Set fiabilite
      *
      * @param integer $fiabilite
@@ -608,5 +592,51 @@ class Donnees
     public function getTemps()
     {
         return $this->temps;
+    }
+
+    /**
+     * Set niveauNom
+     *
+     * @param string $niveauNom
+     * @return Donnees
+     */
+    public function setNiveauNom($niveauNom)
+    {
+        $this->niveau_nom = $niveauNom;
+
+        return $this;
+    }
+
+    /**
+     * Get niveauNom
+     *
+     * @return string 
+     */
+    public function getNiveauNom()
+    {
+        return $this->niveau_nom;
+    }
+
+    /**
+     * Set niveauLien
+     *
+     * @param string $niveauLien
+     * @return Donnees
+     */
+    public function setNiveauLien($niveauLien)
+    {
+        $this->niveau_lien = $niveauLien;
+
+        return $this;
+    }
+
+    /**
+     * Get niveauLien
+     *
+     * @return string 
+     */
+    public function getNiveauLien()
+    {
+        return $this->niveau_lien;
     }
 }

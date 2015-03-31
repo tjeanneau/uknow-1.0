@@ -31,7 +31,7 @@ class ServiceRecherche {
             $donneeCaracteristiques['chapitre_lien'] = $listDonnees[$i]->getChapitreLien();
             $donneeCaracteristiques['titre'] = $listDonnees[$i]->getTitre();
             $donneeCaracteristiques['type'] = $listDonnees[$i]->getType();
-            $donneeCaracteristiques['niveau'] = $listDonnees[$i]->getNiveau();
+            $donneeCaracteristiques['niveau'] = $listDonnees[$i]->getNiveauNom();
             $donneeCaracteristiques['id'] = $listDonnees[$i]->getId();
 
             if ($exist == false) {
@@ -74,7 +74,7 @@ class ServiceRecherche {
                 $donneesRecherche[] = $listDonnees[$i];
             }elseif(stripos($listDonnees[$i]->getType(), $lettres) === 0){
                 $donneesRecherche[] = $listDonnees[$i];
-            }elseif(stripos($listDonnees[$i]->getNiveau(), $lettres) === 0){
+            }elseif(stripos($listDonnees[$i]->getNiveauNom(), $lettres) === 0){
                 $donneesRecherche[] = $listDonnees[$i];
             }
         }

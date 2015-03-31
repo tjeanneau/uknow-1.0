@@ -89,11 +89,85 @@ class CartableController extends Controller{
         ));
     }
 
-    public function matiereAction(Request $request){
+    public function matiereAction($matiere){
+
+        $em = $this->getDoctrine()->getManager();
+        $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
+        $servicesModifications = $this->container->get('uknow_platform.modification');
+        $servicesTri = $this->container->get('uknow_platform.tri');
+
+        $listDonnees = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowPlatformBundle:Donnees')
+            ->findAll();
+        $listDonnees = $servicesModifications->listAJour($listDonnees);
+
+        $compte = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->find($this->getUser()->getId());
+
+        $listCompte = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->findAll();
+
+        $compte->setDonneesSauvegardees($servicesModifications->idAJour($compte->getDonneesSauvegardees(), $listDonnees));
+        $em->persist($compte);
+        $em->flush();
+
+        $listDonnees = $servicesTri->triMatiere($listDonnees, $compte->getDonneesSauvegardees(), $matiere);
+        $listDonneesAffichage = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
+        $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonneesAffichage, $compte->getDonneesEvaluees());
+        $matiereStructure = $servicesTri->findMatiereLien($matiere);
+
+        return $this->render('UknowPlatformBundle:cartable/matiere:matiere.html.twig', array(
+            'tableauEvaluation' => $tableauInfoEvaluation,
+            'listDonnees' => $listDonneesAffichage,
+            'type' => 'matiere',
+            'matiere' => $matiereStructure,
+        ));
 
     }
 
-    public function niveauxAction(Request $request){
+    public function niveauxAction($niveau){
+
+        $em = $this->getDoctrine()->getManager();
+        $servicesFiabilite = $this->container->get('uknow_platform.evaluation');
+        $servicesModifications = $this->container->get('uknow_platform.modification');
+        $servicesTri = $this->container->get('uknow_platform.tri');
+
+        $listDonnees = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowPlatformBundle:Donnees')
+            ->findAll();
+        $listDonnees = $servicesModifications->listAJour($listDonnees);
+
+        $compte = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->find($this->getUser()->getId());
+
+        $listCompte = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('UknowUtilisateurBundle:Compte')
+            ->findAll();
+
+        $compte->setDonneesSauvegardees($servicesModifications->idAJour($compte->getDonneesSauvegardees(), $listDonnees));
+        $em->persist($compte);
+        $em->flush();
+
+        $listDonnees = $servicesTri->triNiveaux($listDonnees, $compte->getDonneesSauvegardees(), $niveau);
+        $listDonneesAffichage = $servicesFiabilite->fiabilite($listDonnees, $listCompte, $em);
+        $tableauInfoEvaluation = $servicesTri->triDonneesEvaluees($listDonneesAffichage, $compte->getDonneesEvaluees());
+        $niveauStructure = $servicesTri->findObjectLien($niveau, 'niveau', null, null, null);
+
+        return $this->render('UknowPlatformBundle:cartable/niveaux:niveaux.html.twig', array(
+            'tableauEvaluation' => $tableauInfoEvaluation,
+            'listDonnees' => $listDonneesAffichage,
+            'type' => 'niveaux',
+            'niveau' => $niveauStructure,
+        ));
 
     }
 
@@ -160,6 +234,7 @@ class CartableController extends Controller{
             'listDonnees' => $listDonnees,
             'tableauEvaluation' => $tableauInfoEvaluation,
             'sauvegarder' => $sauvegarder,
+
             'id' => $id,
         ));
         }else{

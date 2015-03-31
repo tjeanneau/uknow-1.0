@@ -4,7 +4,7 @@
 
     <div class="row" style="margin:0">
         <span id="details">
-            {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
+            {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveauNom }}
         </span>
     </div>
     <div class="row" style="margin:0">
@@ -12,7 +12,7 @@
         <div class="col-md-6" id="temps">{{ donnees.temps }} minutes</div>
     </div>
 
-    <div class="row" style="margin:0">
+    <div class="row" style="margin:0; background-color: #555">
 
         <div class="col-md-2" style="padding: 0">
             <div  class="pertinent" >
@@ -71,7 +71,7 @@
                 <span class="glyphicon glyphicon-floppy-saved"></span>
             </button>
         {% else %}
-            <button class="enregistrer" id="enregistrer{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
+            <button class="enregistrer" id="enregistrerCacher{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }}, '{{ donnees.matiereNom }}', '{{ donnees.niveauNom }}', '{{ donnees.matiereLien }}', '{{ donnees.niveauLien }}')">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
             </button>
         {% endif %}

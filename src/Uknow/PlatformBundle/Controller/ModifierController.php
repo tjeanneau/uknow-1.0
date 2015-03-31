@@ -45,7 +45,8 @@ class ModifierController extends Controller{
                 $donnees->setTitre($donneerecu->getTitre());
                 $donnees->setTexte($formModifier->getCkeditor());
                 $donnees->setType('Cours');
-                $donnees->setNiveau($donneerecu->getNiveau());
+                $donnees->setNiveauNom($donneerecu->getNiveauNom());
+                $donnees->setNiveauLien($donneerecu->getNiveauLien());
                 $donnees->setTemps($formModifier->getTemps());
                 $donnees->setModification(0);
                 $donnees->setPertinent(0);
@@ -94,7 +95,8 @@ class ModifierController extends Controller{
                 $donnees->setTitre($donneerecu->getTitre());
                 $donnees->setTexte($formModifier->getCkeditor());
                 $donnees->setType('Exercice');
-                $donnees->setNiveau($donneerecu->getNiveau());
+                $donnees->setNiveauNom($donneerecu->getNiveauNom());
+                $donnees->setNiveauLien($donneerecu->getNiveauLien());
                 $donnees->setTemps($formModifier->getTemps());
                 $donnees->setModification(0);
                 $donnees->setPertinent(0);
@@ -143,7 +145,8 @@ class ModifierController extends Controller{
                 $donnees->setTitre($donneerecu->getTitre());
                 $donnees->setTexte($formModifier->getCkeditor());
                 $donnees->setType('Correction');
-                $donnees->setNiveau($donneerecu->getNiveau());
+                $donnees->setNiveauNom($donneerecu->getNiveauNom());
+                $donnees->setNiveauLien($donneerecu->getNiveauLien());
                 $donnees->setTemps($formModifier->getTemps());
                 $donnees->setModification(0);
                 $donnees->setPertinent(0);

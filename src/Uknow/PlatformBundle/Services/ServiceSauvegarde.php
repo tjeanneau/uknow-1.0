@@ -54,15 +54,14 @@ class ServiceSauvegarde {
 
     public function tableauMatiere($listDonnees){
 
-        $donnee = new Structure();
         $newTableau = array();
         $json = file_get_contents('json/domaines.json');
         $jsonDomaine = json_decode($json, true);
         $json = file_get_contents('json/matieres.json');
         $jsonMatiere = json_decode($json, true);
-       for($k = 0 ; $k < count($listDonnees) ; $k++){
+        for($k = 0 ; $k < count($listDonnees) ; $k++){
             for($i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++){
-                 for($j = 0 ; $j < count($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']]) ; $j++){
+                for($j = 0 ; $j < count($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']]) ; $j++){
                     if($listDonnees[$k]->getMatiereLien() == $jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']][$j]['lien']){
                         $donnee = new Structure();
                         $donnee->setLien($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']][$j]['lien']);
@@ -84,7 +83,7 @@ class ServiceSauvegarde {
         $jsonNiveaux = json_decode($json, true);
         for($i = 0 ; $i < count($jsonNiveaux['niveaux']) ; $i++){
             for( $j = 0 ; $j < count($listDonnees) ; $j++){
-                if($jsonNiveaux['niveaux'][$i]['nom'] == $listDonnees[$j]->getNiveau()){
+                if($jsonNiveaux['niveaux'][$i]['nom'] == $listDonnees[$j]->getNiveauNom()){
                     $donnee = new Structure();
                     $donnee->setLien($jsonNiveaux['niveaux'][$i]['lien']);
                     $donnee->setNom($jsonNiveaux['niveaux'][$i]['nom']);
@@ -95,5 +94,21 @@ class ServiceSauvegarde {
 
         $newTableau = $this->tri->triDoublonStructure($newTableau);
         return $newTableau;
+    }
+
+    public function donneeLien($listmatiere, $listniveaux){
+        $newlist = array();
+
+        for( $i = 0 ; $i < count($listmatiere) ; $i++){
+            $newlist['matiere'][$i]['lien'] = $listmatiere[$i]->getLien();
+            $newlist['matiere'][$i]['nom'] = $listmatiere[$i]->getNom();
+        }
+
+        for( $i = 0 ; $i < count($listniveaux) ; $i++){
+            $newlist['niveau'][$i]['lien'] = $listniveaux[$i]->getLien();
+            $newlist['niveau'][$i]['nom'] = $listniveaux[$i]->getNom();
+        }
+
+        return $newlist;
     }
 }

@@ -111,6 +111,15 @@ class ServiceTri{
                     return $structureLien;
                 }
             }
+        }elseif($type == 'niveau'){
+            $json = file_get_contents('json/niveaux.json');
+            $jsonNiveaux = json_decode($json, true);
+            for( $i = 0 ; $i < count($jsonNiveaux['niveaux']) ; $i++){
+                if($structureLien->getLien() == $jsonNiveaux['niveaux'][$i]['lien']){
+                    $structureLien->setNom($jsonNiveaux['niveaux'][$i]['nom']);
+                    return $structureLien;
+                }
+            }
         }
 
         return null;
@@ -155,6 +164,26 @@ class ServiceTri{
                 if($structureNom->getNom() == $jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['nom']){
                     $structureNom->setLien($jsonChapitre['chapitre'][$domaine][$matiere][$theme][$i]['lien']);
                     return $structureNom;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public function findMatiereLien($lien){
+
+        $json = file_get_contents('json/domaines.json');
+        $jsonDomaine = json_decode($json, true);
+        $json = file_get_contents('json/matieres.json');
+        $jsonMatiere = json_decode($json, true);
+        for($i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++){
+            for($j = 0 ; $j < count($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']]) ; $j++){
+                if($lien == $jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']][$j]['lien']){
+                    $donnee = new Structure();
+                    $donnee->setLien($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']][$j]['lien']);
+                    $donnee->setNom($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']][$j]['nom']);
+                    return $donnee;
                 }
             }
         }
@@ -300,6 +329,44 @@ class ServiceTri{
 
         for( $i = 0 ; $i < count($listDonnees) ; $i++){
             if($listDonnees[$i]->getType() == 'Exercice'){
+                $listExercice[] = $listDonnees[$i];
+            }
+        }
+
+        return $listExercice;
+    }
+
+    public function triMatiere($listDonnees, $chaineSauvegardees, $matiere){
+
+        $listDonnees = $this->triDonneesSauvegardees($listDonnees, $chaineSauvegardees);
+        $listExercice = array();
+
+        for( $i = 0 ; $i < count($listDonnees) ; $i++){
+            if($listDonnees[$i]->getMatiereLien() == $matiere){
+                $listExercice[] = $listDonnees[$i];
+            }
+        }
+
+        return $listExercice;
+    }
+
+    public function triNiveaux($listDonnees, $chaineSauvegardees, $niveau){
+
+        $listDonnees = $this->triDonneesSauvegardees($listDonnees, $chaineSauvegardees);
+        $listExercice = array();
+
+        $json = file_get_contents('json/niveaux.json');
+        $jsonNiveaux = json_decode($json, true);
+        for( $i = 0 ; $i < count($jsonNiveaux['niveaux']) ; $i++){
+            if($niveau == $jsonNiveaux['niveaux'][$i]['lien']){
+                $niveau = new Structure();
+                $niveau->setNom($jsonNiveaux['niveaux'][$i]['nom']);
+                $niveau->setLien($jsonNiveaux['niveaux'][$i]['lien']);
+            }
+        }
+
+        for( $i = 0 ; $i < count($listDonnees) ; $i++){
+            if($listDonnees[$i]->getNiveauNom() == $niveau->getNom()){
                 $listExercice[] = $listDonnees[$i];
             }
         }

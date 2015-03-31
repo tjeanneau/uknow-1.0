@@ -16,18 +16,18 @@
         <button class="btn btn-default dropdown-toggle" id="btn-rd" data-toggle="dropdown">
             <span class="glyphicon glyphicon-briefcase"></span>
         </button>
-        <ul class="dropdown-menu">
-            <li class="dropdown-header"> Cartable</li>
-            <li><a href="{{ path('uknow_platform_cartable_cours')}}">Cours enregistrés</a></li>
-            <li><a href="{{ path('uknow_platform_cartable_exercices')}}">Exercices enregistrés</a></li>
+        <ul class="dropdown-menu" id="lienNav">
+            <li class="dropdown-header">Mon cartable</li>
+            <li><a href="{{ path('uknow_platform_cartable_cours')}}">Cours</a></li>
+            <li><a href="{{ path('uknow_platform_cartable_exercices')}}">Exercices</a></li>
             <li class="divider"></li>
-            <li class="dropdown-header"> Matières</li>
+            <li class="dropdown-header" id="matiereNav"> Matières</li>
             {% for matiere in  listMatiere %}
-                <li><a href="{{ path('uknow_platform_cartable_matieres', {'matiere' : matiere.lien}) }}">{{ matiere.nom }}</a></li>
+                <li><a id="matiereNav{{ loop.index0 }}" href="{{ path('uknow_platform_cartable_matieres', {'matiere' : matiere.lien}) }}">{{ matiere.nom }}</a></li>
             {% endfor %}
-            <li class="dropdown-header"> Niveaux</li>
+            <li class="dropdown-header" id="niveauNav"> Niveaux</li>
             {% for niveaux in  listNiveaux %}
-                <li><a href="{{ path('uknow_platform_cartable_niveaux', {'niveau' : niveaux.lien}) }}">{{ niveaux.nom }}</a></li>
+                <li><a id="niveauNav{{ loop.index0 }}" href="{{ path('uknow_platform_cartable_niveaux', {'niveau' : niveaux.lien}) }}">{{ niveaux.nom }}</a></li>
             {% endfor %}
         </ul>
     </div>

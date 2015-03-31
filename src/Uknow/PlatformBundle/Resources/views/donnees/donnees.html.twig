@@ -6,7 +6,7 @@
 
 {% block contenu %}
     <div class="row">
-        <div class="col-md-8" style="padding: 0; position: fixed; z-index: 1">
+        <div class="col-md-8" style="padding: 0; position: fixed; z-index: 1" id="colLien">
             <ol class="breadcrumb" style="margin: 0">
                 <li><a href="{{ path('uknow_platform_recherche_acceuil')}}">Accueil</a></li>
                 <li><a href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien }) }}">{{ domaine.nom }}</a></li>

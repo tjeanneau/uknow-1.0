@@ -44,15 +44,34 @@ function cacher(index){
 
 function enregistrer(id, index){
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: 'http://localhost/Uknow/web/app_dev.php/ajax/enregistrement',
         data: 'id=' + id,
+        success: function(list){
+            if(list != null) {
+                $('#lienNav').html('').append('<li class="dropdown-header"> Cartable</li><li><a ' +
+                'href="http://localhost/Uknow/web/app_dev.php/cartable/cours">Cours</a></li><li><a ' +
+                'href="http://localhost/Uknow/web/app_dev.php/cartable/exercices">Exercices</a></li><li ' +
+                'class="divider"></li><li class="dropdown-header" id="matiereNav"> Matières</li>');
+                $.each(list['matiere'], function (i, donnee) {
+                    $('#lienNav').append('<li><a href="http://localhost/Uknow/web/app_dev.php/cartable/' + donnee['lien'] + '">' + donnee['nom'] + '</a></li>');
+                });
+                $('#lienNav').append('<li class="dropdown-header" id="niveauNav"> Niveaux</li>');
+                $.each(list['niveau'], function (i, donnee) {
+                    $('#lienNav').append('<li><a href="http://localhost/Uknow/web/app_dev.php/cartable/' + donnee['lien'] + '">' + donnee['nom'] + '</a></li>');
+                })
+            }
+        },
         error: function() {
             alert('La requête n\'a pas abouti.');
         }
     });
     if(index != null){
-        $('#enregistrer' + index)
+        $('#enregistrerCacher' + index)
+            .html('')
+            .append('<span class="glyphicon glyphicon-floppy-saved"></span>')
+            .attr('onclick','');
+        $('#enregistrerAfficher' + index)
             .html('')
             .append('<span class="glyphicon glyphicon-floppy-saved"></span>')
             .attr('onclick','');
@@ -66,9 +85,24 @@ function enregistrer(id, index){
 
 function supprimer(id, index){
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: 'http://localhost/Uknow/web/app_dev.php/ajax/suppression',
         data: 'id=' + id,
+        success: function(list){
+            if(list != null) {
+                $('#lienNav').html('').append('<li class="dropdown-header"> Cartable</li><li><a ' +
+                'href="http://localhost/Uknow/web/app_dev.php/cartable/cours">Cours</a></li><li><a ' +
+                'href="http://localhost/Uknow/web/app_dev.php/cartable/exercices">Exercices</a></li><li ' +
+                'class="divider"></li><li class="dropdown-header" id="matiereNav"> Matières</li>');
+                $.each(list['matiere'], function (i, donnee) {
+                    $('#lienNav').append('<li><a href="http://localhost/Uknow/web/app_dev.php/cartable/' + donnee['lien'] + '">' + donnee['nom'] + '</a></li>');
+                });
+                $('#lienNav').append('<li class="dropdown-header" id="niveauNav"> Niveaux</li>');
+                $.each(list['niveau'], function (i, donnee) {
+                    $('#lienNav').append('<li><a href="http://localhost/Uknow/web/app_dev.php/cartable/' + donnee['lien'] + '">' + donnee['nom'] + '</a></li>');
+                })
+            }
+        },
         error: function() {
             alert('La requête n\'a pas abouti.');
         }

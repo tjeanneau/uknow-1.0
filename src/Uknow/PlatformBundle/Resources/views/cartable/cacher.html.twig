@@ -4,7 +4,7 @@
 
     <div class="row" style="margin:0">
         <span id="details">
-            {{ donnees.matiereNom }} : {{ donnees.niveau }}
+            {{ donnees.matiereNom }} : {{ donnees.niveauNom }}
         </span>
     </div>
     <div class="row" style="margin:0">
@@ -12,7 +12,7 @@
         <div class="col-md-6" id="temps">{{ donnees.temps }} minutes</div>
     </div>
 
-    <div class="row" style="margin:0">
+    <div class="row" style="margin:0; background-color: #555">
 
         <div class="col-md-2" style="padding: 0">
             <div  class="pertinent" >
@@ -66,7 +66,7 @@
             </div>
         </a>
 
-        <button class="boutonAffiche" id="enregistrer_{{ loop.index }}" onclick="supprimer({{ donnees.id }}, {{ loop.index }})">
+        <button class="boutonAffiche" id="enregistrer_{{ loop.index }}" onclick="supprimer({{ donnees.id }}, {{ loop.index }}, {{ loop.length }}, '{{ donnees.matiereNom }}', '{{ donnees.niveauNom }}')">
             <span id="{{ loop.index }}" class="glyphicon glyphicon-floppy-remove"></span>
         </button>
     </div>

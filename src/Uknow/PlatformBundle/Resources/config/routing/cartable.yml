@@ -6,14 +6,16 @@ uknow_platform_cartable_exercices:
     path:     /exercices
     defaults: { _controller: UknowPlatformBundle:Cartable:exercices}
 
+uknow_platform_cartable_niveaux:
+    path:     /{niveau}
+    defaults: { _controller: UknowPlatformBundle:Cartable:niveaux}
+    requirements:
+        niveau: sixieme|cinquieme|quatrieme|troisieme|seconde|premiere|terminale|bac+1|bac+2|bac+3|bac+4|bac+5|bac+6|bac+7|bac+8
+
 uknow_platform_cartable_matieres:
     path:     /{matiere}
     defaults: { _controller: UknowPlatformBundle:Cartable:matiere}
 
-uknow_platform_cartable_niveaux:
-    path:     /{niveau}
-    defaults: { _controller: UknowPlatformBundle:Cartable:niveaux}
-
 uknow_platform_cartable_modification:
     path:     /{type}/modifications/{id}
-    defaults: { _controller: UknowPlatformBundle:Cartable:modifications, type: null id: null}
+    defaults: { _controller: UknowPlatformBundle:Cartable:modifications, type: null, id: null}

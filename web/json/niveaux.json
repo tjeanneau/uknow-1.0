@@ -18,15 +18,15 @@
     },
     {
       "nom": "Seconde",
-      "lien": "Seconde"
+      "lien": "seconde"
     },
     {
       "nom": "Première",
-      "lien": "Première"
+      "lien": "premiere"
     },
     {
       "nom": "Terminale",
-      "lien": "Terminale"
+      "lien": "terminale"
     },
     {
       "nom": "Bac + 1",
@@ -42,7 +42,7 @@
     },
     {
       "nom": "Bac + 4",
-      "lien": "bac+5"
+      "lien": "bac+4"
     },
     {
       "nom": "Bac + 5",

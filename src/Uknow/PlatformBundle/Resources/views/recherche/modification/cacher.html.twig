@@ -4,7 +4,7 @@
 
     <div class="row" style="margin:0">
         <span id="details">
-            {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveau }}
+            {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveauNom }}
         </span>
     </div>
     <div class="row" style="margin:0">
@@ -71,7 +71,7 @@
                 <span class="glyphicon glyphicon-floppy-saved"></span>
             </button>
         {% else %}
-            <button class="enregistrer" id="enregistrer{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
+            <button class="enregistrer" id="enregistrerCacher{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
             </button>
         {% endif %}
