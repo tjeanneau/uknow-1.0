@@ -1,0 +1,6 @@
+.form-control,
+.input-group-addon,
+.btn
+{
+    border-radius: 0;
+}

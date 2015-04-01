@@ -29,14 +29,14 @@ class Compte extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="niveau_chapitre", type="text")
+     * @ORM\Column(name="niveau_chapitre", type="text", nullable=true)
      */
     protected $niveauChapitre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="voix_chapitre", type="text")
+     * @ORM\Column(name="voix_chapitre", type="text", nullable=true)
      */
     protected $voixChapitre;
 

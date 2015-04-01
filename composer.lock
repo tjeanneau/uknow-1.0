@@ -337,21 +337,24 @@
         },
         {
             "name": "doctrine/data-fixtures",
-            "version": "v1.0.1",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "b6e28afc4a52bfbb6768091f890d08085aa77e70"
+                "reference": "bd44f6b6e40247b6530bc8abe802e4e4d914976a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/b6e28afc4a52bfbb6768091f890d08085aa77e70",
-                "reference": "b6e28afc4a52bfbb6768091f890d08085aa77e70",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/bd44f6b6e40247b6530bc8abe802e4e4d914976a",
+                "reference": "bd44f6b6e40247b6530bc8abe802e4e4d914976a",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.2",
                 "php": ">=5.3.2"
+            },
+            "conflict": {
+                "doctrine/orm": "< 2.4"
             },
             "require-dev": {
                 "doctrine/orm": "~2.4"
@@ -364,7 +367,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -387,7 +390,7 @@
             "keywords": [
                 "database"
             ],
-            "time": "2015-03-23 01:13:09"
+            "time": "2015-03-30 12:14:13"
         },
         {
             "name": "doctrine/dbal",

@@ -10,8 +10,12 @@ Uknow\UtilisateurBundle\Entity\Compte:
     fields:
         niveauChapitre:
             type: text
+            length: 255
+            nullable: true
         voixChapitre:
             type: text
+            length: 255
+            nullable: true
         donneesSauvegardees:
             type: string
             length: 255

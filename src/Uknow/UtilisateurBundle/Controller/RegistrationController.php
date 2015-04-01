@@ -49,15 +49,8 @@ class RegistrationController extends BaseController {
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-            $listStructure = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('UknowPlatformBundle:Structure')
-                ->findAll();
-            $fonctions = $this->container->get('uknow_platform.evaluation');
-            $chaineNiveauC = $fonctions->niveauChapitreIni($listStructure);
-            $chaineVoixC = $fonctions->voixChapitreIni($listStructure);
-            $user->setNiveauChapitre($chaineNiveauC);
-            $user->setVoixChapitre($chaineVoixC);
+            $user->setNiveauChapitre(null);
+            $user->setVoixChapitre(null);
             $user->setDonneesSauvegardees(null);
             $user->setDonneesEvaluees(null);
 

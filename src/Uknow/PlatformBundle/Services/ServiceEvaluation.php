@@ -48,11 +48,16 @@ class ServiceEvaluation {
                 }
             }
 
-            if(($nbEva*100/$nbPers) > 0){
-                $listDonnees[$l]->setFiabilite($nbEva*100/$nbPers);
+            if($nbPers != 0){
+                if(($nbEva*100/$nbPers) > 0){
+                    $listDonnees[$l]->setFiabilite($nbEva*100/$nbPers);
+                }else{
+                    $listDonnees[$l]->setFiabilite(0);
+                }
             }else{
                 $listDonnees[$l]->setFiabilite(0);
             }
+            
             $em->persist($listDonnees[$l]);
             $em->flush();
         }
@@ -60,9 +65,31 @@ class ServiceEvaluation {
         return $listDonnees;
     }
 
-    public function niveauChapitreIni($listStructure){
+    public function niveauChapitreIni(){
 
         $chaineNiveau = '';
+        $json = file_get_contents('json/domaines.json');
+        $jsonDomaine = json_decode($json, true);
+        $json = file_get_contents('json/matieres.json');
+        $jsonMatiere = json_decode($json, true);
+        $json = file_get_contents('json/themes.json');
+        $jsonTheme = json_decode($json, true);
+        $json = file_get_contents('json/chapitres.json');
+        $jsonChapitre = json_decode($json, true);
+        for($i = 0 ; $i < count($jsonDomaine['domaine']) ; $i++){
+            for($j = 0 ; $j < count($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']]) ; $j++){
+                for($j = 0 ; $j < count($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']]) ; $j++){
+                    for($j = 0 ; $j < count($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']]) ; $j++){
+                        if($lien == $jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']][$j]['lien']){
+                            $donnee = new Structure();
+                            $donnee->setLien($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']][$j]['lien']);
+                            $donnee->setNom($jsonMatiere['matiere'][$jsonDomaine['domaine'][$i]['lien']][$j]['nom']);
+                            return $donnee;
+                        }
+                    }
+                }
+            }
+        }
 
         for ( $i = 0; $i < (count($listStructure)); $i++){
             if($i == 0){
@@ -74,7 +101,7 @@ class ServiceEvaluation {
         return $chaineNiveau;
     }
 
-    public function voixChapitreIni($listStructure)
+    public function voixChapitreIni()
     {
 
         $chaineNiveau = '';
