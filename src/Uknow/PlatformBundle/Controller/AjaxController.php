@@ -111,10 +111,39 @@ class AjaxController extends Controller{
             $listNiveaux = $servicesSauvegarde->niveauxSauvegardees($listDonnees, $compte->getDonneesSauvegardees());
         }
 
-        $donneesEnvoyee = $servicesSauvegarde->donneeLien($listMatiere, $listNiveaux);
         $donneesEnvoyee = array('matiere' => $listMatiere, 'niveau' => $listNiveaux);
         $response = new Response(json_encode($donneesEnvoyee));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
+    }
+
+    public function evaluationAction(Request $request){
+
+        $servicesBoutons = $this->container->get('uknow_platform.boutons');
+        $id = $request->query->get('id');
+        $type = $request->query->get('type');
+
+        if ($this->container->get('request')->isXmlHttpRequest()) {
+
+            $donnee = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowPlatformBundle:Donnees')
+                ->find($id);
+            $compte = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('UknowUtilisateurBundle:Compte')
+                ->find($this->getUser()->getId());
+
+            $em = $this->getDoctrine()->getManager();
+            if($type == 'inutile'){
+                $servicesBoutons->boutonInutile($donnee, $compte, $em);
+            }elseif($this == 'developper'){
+                $servicesBoutons->boutonDevelopper($donnee, $compte, $em);
+            }elseif($this == 'pertinent'){
+                $servicesBoutons->boutonPertinent($donnee, $compte, $em);
+            }
+        }
+
+        return new Response();
     }
 }

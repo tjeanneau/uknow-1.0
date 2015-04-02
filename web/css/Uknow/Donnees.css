@@ -30,13 +30,6 @@
     margin-bottom: 15px;
 }
 
-.titreAfficher
-{
-    height: 33px;
-    background-color: #555;
-    color: #ffffff;
-}
-
 .titreAfficherGauche
 {
     font-size: 1.3em;
@@ -153,7 +146,7 @@ h5.titre
     font-weight: bold;
     height: 33px;
     width: 33px;
-    padding: 10px;
+    padding: 7px;
     display: inline-block;
 }
 
@@ -188,7 +181,7 @@ h5.titre
     border:0;
     border-radius: 0;
     height: 33px;
-    width: 140px;
+    width: 160px;
     color: #ffffff;
     float:right;
     margin:0;

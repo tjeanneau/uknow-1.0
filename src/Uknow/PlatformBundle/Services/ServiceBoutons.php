@@ -38,35 +38,43 @@ class ServiceBoutons {
         $em->flush();
     }
 
-    public function boutonPertinent($listStructure, $listDonnees, $compte, $request, $em){
-
-        $listDonnees = $this->correctionLien($listStructure, $listDonnees);
+    public function boutonPertinent($donnee, $compte, $em){
 
         if ($compte->getDonneesEvaluees() != null) {
-            $compte->setDonneesEvaluees($compte->getDonneesEvaluees() . '/' . $listDonnees[$request->request->get('valeur', null)-1]->getId() . '.1');
+            $compte->setDonneesEvaluees($compte->getDonneesEvaluees() . '/' . $donnee->getId() . '.1');
         }else{
-            $compte->setDonneesEvaluees($listDonnees[$request->request->get('valeur', null)-1]->getId() . '.1');
+            $compte->setDonneesEvaluees($donnee->getId() . '.1');
         }
-        $listDonnees[$request->request->get('valeur', null)-1]->setPositive(
-            $listDonnees[$request->request->get('valeur', null)-1]->getPositive()+1);
-        $em->persist($listDonnees[$request->request->get('valeur', null)-1]);
+        $donnee->setPertinent($donnee->getPertinent() + 1);
+        $em->persist($donnee);
         $em->flush();
         $em->persist($compte);
         $em->flush();
     }
 
-    public function boutonDevelopper($listStructure, $listDonnees, $compte, $request, $em){
-
-        $listDonnees = $this->correctionLien($listStructure, $listDonnees);
+    public function boutonDevelopper($donnee, $compte, $em){
 
         if ($compte->getDonneesEvaluees() != null) {
-            $compte->setDonneesEvaluees($compte->getDonneesEvaluees() . '/' . $listDonnees[$request->request->get('valeur', null)-1]->getId() . '.0');
+            $compte->setDonneesEvaluees($compte->getDonneesEvaluees() . '/' . $donnee->getId() . '.2');
         }else{
-            $compte->setDonneesEvaluees($listDonnees[$request->request->get('valeur', null)-1]->getId() . '.0');
+            $compte->setDonneesEvaluees($donnee->getId() . '.2');
         }
-        $listDonnees[$request->request->get('valeur', null)-1]->setNegative(
-            $listDonnees[$request->request->get('valeur', null)-1]->getNegative()+1);
-        $em->persist($listDonnees[$request->request->get('valeur', null)-1]);
+        $donnee->setDevelopper($donnee->getDevelopper() + 1);
+        $em->persist($donnee);
+        $em->flush();
+        $em->persist($compte);
+        $em->flush();
+    }
+
+    public function boutonInutile($donnee, $compte, $em){
+
+        if ($compte->getDonneesEvaluees() != null) {
+            $compte->setDonneesEvaluees($compte->getDonneesEvaluees() . '/' . $donnee->getId() . '.3');
+        }else{
+            $compte->setDonneesEvaluees($donnee->getId() . '.3');
+        }
+        $donnee->setInutile($donnee->getInutile() + 1);
+        $em->persist($donnee);
         $em->flush();
         $em->persist($compte);
         $em->flush();

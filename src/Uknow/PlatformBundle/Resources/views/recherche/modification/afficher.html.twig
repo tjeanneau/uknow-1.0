@@ -1,8 +1,10 @@
 <div id="donneeAffiche_{{ loop.index }}" class="donneeAffiche" style="display: none">
 
-    <div class="titreAfficher">
-        <div class="titreAfficherGauche">{{ donnees.titre }}<br/></div>
-
+    <div class="row" style="background-color: #555;color: #ffffff; margin: 0">
+        <div class="col-md-9">
+            <div class="titreAfficherGauche">{{ donnees.titre }} ({{ donnees.temps }} minutes)</div>
+        </div>
+        <div class="col-md-3" style=padding:0;">
         <button class="boutonAffiche" onclick="cacher({{ loop.index }})">
             <span class="glyphicon glyphicon-remove"></span>
         </button>
@@ -39,7 +41,7 @@
                 <span class="glyphicon glyphicon-check"></span>
             </button>
         {% endif %}
-
+</div>
     </div>
 
     <div class="texteDonnee">
@@ -59,7 +61,6 @@
                 {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveauNom }}
             </span>
             {#<div  class="barreAfficherEnd">{{ donnees.fiabilite }}%</div>#}
-            <div class="barreAfficherEnd">{{ donnees.temps }} minutes</div>
 
             {% if tableauEvaluation[loop.index0] == 1 %}
 
@@ -92,11 +93,11 @@
 
             {% else %}
 
-                <button class="inutileAfficher">Inadéquat
+                <button class="inutileAfficher" onclick="evaluation({{ donnees.id }}, 'inutile', {{ donnees.inutile }})">Inadéquat
                     <span style="background-color: #ffffff; color:#d9534f" class="badge">{{ donnees.inutile }}</span></button>
-                <button class="developperAfficher">A développer
+                <button class="developperAfficher" onclick="evaluation({{ donnees.id }}, 'developper', {{ donnees.developper }})">A développer
                     <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
-                <button class="pertinentAfficher">Pertinent
+                <button class="pertinentAfficher" onclick="evaluation({{ donnees.id }}, 'pertinent', {{ donnees.pertinent }})">Pertinent
                     <span style="background-color: #ffffff; color:#5cb85c" class="badge">{{ donnees.pertinent }}</span></button>
 
             {% endif %}

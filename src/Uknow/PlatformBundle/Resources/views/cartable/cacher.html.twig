@@ -1,10 +1,10 @@
 <div id="donneeCache_{{ loop.index }}" class="donneeCacher">
     <div class="blockTitre" onclick="afficher({{ loop.index }})">
-        <h5 class="titre" id="titre_{{ loop.index }}" onclick="afficher({{ loop.index }})">{{ donnees.titre }}<br/></h5>
+        <h5 class="titre" id="titre_{{ loop.index }}">{{ donnees.titre }}<br/></h5>
     </div>
     <div class="row" style="margin:0">
         <span id="details">
-            {{ donnees.matiereNom }} : {{ donnees.niveauNom }}
+            {{ donnees.matiereNom }} : {{ donnees.type }} : {{ donnees.niveauNom }}
         </span>
     </div>
     <div class="row" style="margin:0">

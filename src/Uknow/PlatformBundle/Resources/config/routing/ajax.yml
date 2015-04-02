@@ -9,3 +9,7 @@ uknow_platform_ajax_enregistrement:
 uknow_platform_ajax_suppression:
     path:     /suppression
     defaults: { _controller: UknowPlatformBundle:Ajax:suppression }
+
+uknow_platform_ajax_evaluation:
+    path:     /evaluation
+    defaults: { _controller: UknowPlatformBundle:Ajax:evaluation }

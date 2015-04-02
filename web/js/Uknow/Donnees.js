@@ -126,3 +126,33 @@ function supprimer(id, index){
         $(location).attr('href',"http://localhost/Uknow/web/app_dev.php/cartable/cours");
     }
 }
+
+function evaluation(id, type, nb){
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost/Uknow/web/app_dev.php/ajax/evaluation',
+        data: 'id=' + id + '&type=' + type,
+        success: function(){
+            if(type == 'inutile'){
+                $('.inutileAfficher').html('').append('<span class="glyphicon glyphicon-ok"></span> Inadéquat ' +
+                '<span style="background-color: #ffffff; color:#d9534f" class="badge">' + (nb + 1) +'</span></button>');
+                $('.inutile').html(nb + 1);
+
+            }else if(type == 'developper'){
+                $('.developperAfficher').html('').append('<span class="glyphicon glyphicon-ok"></span> A développer ' +
+                '<span style="background-color: #ffffff; color:#f0ad4e" class="badge">' + (nb + 1) +'</span></button>');
+                $('.developper').html(nb + 1);
+            }else if(type == 'pertinent'){
+                $('.pertinentAfficher').html('').append('<span class="glyphicon glyphicon-ok"></span> Pertinent ' +
+                '<span style="background-color: #ffffff; color:#5cb85c" class="badge">' + (nb + 1) +'</span></button>');
+                $('.pertinent').html(nb + 1);
+            }
+            $('.inutileAfficher').attr('onclick','');
+            $('.developperAfficher').attr('onclick','');
+            $('.pertinentAfficher').attr('onclick','');
+        },
+        error: function() {
+            alert('La requête n\'a pas abouti.');
+        }
+    });
+}
