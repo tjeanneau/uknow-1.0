@@ -1,9 +1,9 @@
 {# src/Uknow/PlatformBundle/Resources/views/modifications/cacher.html.twig#}
 
 <div id="donneeCache_{{ loop.index }}" class="donneeCacherModification">
-
-    <h5 class="maj" onclick="afficher({{ loop.index }})">{{ donnees.date|date("d/m/Y") }}<br/></h5>
-
+    <div class="blockTitre">
+        <h5 class="maj" onclick="afficher({{ loop.index }})">{{ donnees.date|date("d/m/Y") }}<br/></h5>
+    </div>
     <div class="row" style="margin:0">
         <div class="col-md-6" id="fiable">{{ donnees.fiabilite }}%</div>
         <div class="col-md-6" id="temps" style="font-size: 1.0em">{{ donnees.temps }} min</div>

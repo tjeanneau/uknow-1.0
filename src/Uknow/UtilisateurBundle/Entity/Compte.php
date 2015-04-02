@@ -24,6 +24,10 @@ class Compte extends BaseUser
     public function __construct()
     {
         parent::__construct();
+        $this->niveauChapitre = null;
+        $this->voixChapitre = null;
+        $this->donneesSauvegardees = null;
+        $this->donneesEvaluees = null;
     }
 
     /**
@@ -55,9 +59,6 @@ class Compte extends BaseUser
      * @Assert\Null()
      */
     protected $donneesEvaluees;
-
-
-
 
     /**
      * Get id

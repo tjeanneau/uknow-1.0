@@ -12,13 +12,13 @@
 
 .donneeCacher
 {
-    width: 240px;
+    width: 198px;
     margin: 15px;
 }
 
 .donneeCacherModification
 {
-    width: 160px;
+    width: 132px;
     margin: 10px;
 }
 
@@ -57,7 +57,13 @@
     padding-left: 0;
 }
 
-h5.titre, .maj
+.blockTitre
+{
+    height: 140px;
+    line-height: 140px;
+}
+
+.blockTitre
 {
     background-color: #555;
     color: #ffffff;
@@ -73,12 +79,10 @@ h5.titre, .maj
 
 h5.titre
 {
-    height: 180px;
     font-size: 1.4em;
-    padding-top: 80px;
+    background-color: rgba(0, 0, 0, 0);
 }
-
-h5.titre:hover,.maj:hover
+.blockTitre:hover
 {
     background-color: #ffffff;
     color: #555;
@@ -130,8 +134,8 @@ h5.titre:hover,.maj:hover
 {
     color:#ffffff;
     font-weight: bold;
-    height: 40px;
-    width: 40px;
+    height: 33px;
+    width: 33px;
     padding: 10px;
     display: inline-block;
 }
@@ -222,8 +226,8 @@ h5.titre:hover,.maj:hover
 .modification,
 .enregistrer
 {
-    height: 40px;
-    width: 40px;
+    height: 33px;
+    width: 33px;
     background-color: #555;
     color:#ffffff;
     border: 0;
@@ -234,8 +238,8 @@ h5.titre:hover,.maj:hover
     background-color: #555;
     color: #ffffff;
     border: 0;
-    height: 40px;
-    width: 40px;
+    height: 33px;
+    width: 33px;
     float: right;
 }
 

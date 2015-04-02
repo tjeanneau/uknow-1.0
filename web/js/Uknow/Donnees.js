@@ -19,9 +19,9 @@ function diminuer(){
     $('#header').show(1000);
     $('#question').show(1000);
     $('#affichage').animate({'margin-top': '54'}, 1000);
-    $('#colCours').attr('class','col-md-9');
-    $('#colLien').attr('class','col-md-8');
-    $('#colButton').attr('class','col-md-offset-8 col-md-1');
+    $('#colCours').attr('class','col-md-offset-2 col-md-8');
+    $('#colLien').attr('class','col-md-11');
+    $('#colButton').attr('class','col-md-offset-11 col-md-1');
     $('#agrandir')
         .html('')
         .append('<span class="glyphicon glyphicon-resize-full"></span>')

@@ -57,7 +57,7 @@ class ServiceEvaluation {
             }else{
                 $listDonnees[$l]->setFiabilite(0);
             }
-            
+
             $em->persist($listDonnees[$l]);
             $em->flush();
         }

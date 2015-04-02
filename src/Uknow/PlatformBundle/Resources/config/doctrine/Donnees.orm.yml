@@ -38,6 +38,9 @@ Uknow\PlatformBundle\Entity\Donnees:
             length: 255
         texte:
             type: text
+        correction:
+            type: text
+            nullable: true
         date:
             type: datetime
         modification:

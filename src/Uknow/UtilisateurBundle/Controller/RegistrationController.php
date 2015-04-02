@@ -49,11 +49,6 @@ class RegistrationController extends BaseController {
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-            $user->setNiveauChapitre(null);
-            $user->setVoixChapitre(null);
-            $user->setDonneesSauvegardees(null);
-            $user->setDonneesEvaluees(null);
-
             $userManager->updateUser($user);
 
             if (null === $response = $event->getResponse()) {

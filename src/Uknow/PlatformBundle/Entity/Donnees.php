@@ -92,9 +92,16 @@ class Donnees
     private $texte;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="correction", type="text")
+     */
+    private $correction;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
 
@@ -164,8 +171,9 @@ class Donnees
     public function __construct(){
         $this->date = new \DateTime();
         $this->modification = 0;
-        $this->positive = 0;
-        $this->negative = 0;
+        $this->pertinent = 0;
+        $this->developper = 0;
+        $this->inutile = 0;
         $this->fiabilite = 0;
     }
     
@@ -638,5 +646,28 @@ class Donnees
     public function getNiveauLien()
     {
         return $this->niveau_lien;
+    }
+
+    /**
+     * Set correction
+     *
+     * @param string $correction
+     * @return Donnees
+     */
+    public function setCorrection($correction)
+    {
+        $this->correction = $correction;
+
+        return $this;
+    }
+
+    /**
+     * Get correction
+     *
+     * @return string 
+     */
+    public function getCorrection()
+    {
+        return $this->correction;
     }
 }

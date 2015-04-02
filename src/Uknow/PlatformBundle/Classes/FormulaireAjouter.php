@@ -12,6 +12,7 @@ class FormulaireAjouter {
 
     private $titre;
     private $ckeditor;
+    private $correction;
     private $domaine_lien;
     private $matiere_lien;
     private $theme_lien;
@@ -40,6 +41,17 @@ class FormulaireAjouter {
     public function getCkeditor()
     {
         return $this->ckeditor;
+    }
+
+    public function setCorrection($correction)
+    {
+        $this->correction = $correction;
+        return $this;
+    }
+
+    public function getCorrection()
+    {
+        return $this->correction;
     }
 
     public function setDomaineLien($domaine_lien)

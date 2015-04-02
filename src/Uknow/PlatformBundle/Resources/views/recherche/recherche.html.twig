@@ -6,19 +6,19 @@
 
 {% block contenu %}
     <div class="row">
-        <div class="col-md-8" style="padding: 0; position: fixed; z-index: 1" id="colLien">
+        <div class="col-md-11" style="padding: 0; position: fixed; z-index: 1" id="colLien">
             <ol class="breadcrumb">
                 <li class="active">Recherche</li>
             </ol>
         </div>
-        <div class="col-md-offset-8 col-md-1" style="padding: 0; position: fixed; z-index: 1; background-color: #f5f5f5" id="colButton">
+        <div class="col-md-offset-11 col-md-1" style="padding: 0; position: fixed; z-index: 1; background-color: #f5f5f5" id="colButton">
             <button id="agrandir" onclick="agrandir()">
                 <span class="glyphicon glyphicon-resize-full"></span>
             </button>
         </div>
     </div>
     <div class="row" style="margin-top: 36px">
-        <div class="col-md-9" style="padding: 15px; text-align: center" id="colCours">
+        <div class="col-md-offset-2 col-md-8" style="padding: 15px; text-align: center" id="colCours">
             {% for donnees in listDonnees %}
                 {{ include('UknowPlatformBundle:recherche/modification:afficher.html.twig') }}
                 {{ include('UknowPlatformBundle:recherche/modification:cacher.html.twig') }}

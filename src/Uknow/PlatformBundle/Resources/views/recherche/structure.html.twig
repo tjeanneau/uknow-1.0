@@ -8,14 +8,14 @@
 
     {% if domaine == null %}
         <div class="row">
-            <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+            <div class="col-md-12" style="padding: 0; position: fixed; z-index: 1">
                 <ol class="breadcrumb">
                     <li class="active">Accueil</li>
                 </ol>
             </div>
         </div>
         <div class="row" style="margin-top: 36px; height: 100%">
-            <div class="col-md-9" id="contenu">
+            <div class="col-md-offset-1 col-md-9" id="contenu">
                 <div class="strut"></div>
                 <div id="content">
                     {% for structure in listStructure %}
@@ -31,7 +31,7 @@
 
     {% elseif matiere == null %}
         <div class="row">
-            <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+            <div class="col-md-12" style="padding: 0; position: fixed; z-index: 1">
                 <ol class="breadcrumb">
                     <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_acceuil') }}">Accueil</a></li>
                     <li class="active">{{ domaine.nom }}</li>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="row" style="margin-top: 36px; height: 100%">
-            <div class="col-md-9" id="contenu">
+            <div class="col-md-offset-1 col-md-9" id="contenu">
                 <div class="strut"></div>
                 <div id="content">
                     {% for structure in listStructure %}
@@ -57,7 +57,7 @@
 
     {% elseif theme == null  %}
         <div class="row">
-            <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+            <div class="col-md-12" style="padding: 0; position: fixed; z-index: 1">
                 <ol class="breadcrumb">
                     <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_acceuil') }}">Accueil</a></li>
                     <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien}) }}">{{ domaine.nom }}</a></li>
@@ -67,7 +67,7 @@
         </div>
 
         <div class="row" style="margin-top: 36px; height: 100%">
-            <div class="col-md-9" id="contenu">
+            <div class="col-md-offset-1 col-md-9" id="contenu">
                 <div class="strut"></div>
                 <div id="content">
                     {% for structure in listStructure %}
@@ -86,7 +86,7 @@
 
     {% else %}
         <div class="row" style="margin-top: 36px">
-            <div class="col-md-9" style="padding: 0; position: fixed; z-index: 1">
+            <div class="col-md-12" style="padding: 0; position: fixed; z-index: 1">
                 <ol class="breadcrumb">
                     <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_acceuil') }}">Accueil</a></li>
                     <li><a style="text-decoration: none" href="{{ path('uknow_platform_recherche_domaine', {'lienDomaine': domaine.lien }) }}">{{ domaine.nom }}</a></li>
@@ -97,7 +97,7 @@
         </div>
 
         <div class="row" style="margin-top: 36px; height: 100%">
-            <div class="col-md-9" id="contenu">
+            <div class="col-md-offset-1 col-md-9" id="contenu">
                 <div class="strut"></div>
                 <div id="content">
 

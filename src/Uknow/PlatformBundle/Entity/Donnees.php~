@@ -92,6 +92,13 @@ class Donnees
     private $texte;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="correction", type="text")
+     */
+    private $correction;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
@@ -164,8 +171,9 @@ class Donnees
     public function __construct(){
         $this->date = new \DateTime();
         $this->modification = 0;
-        $this->positive = 0;
-        $this->negative = 0;
+        $this->pertinent = 0;
+        $this->developper = 0;
+        $this->inutile = 0;
         $this->fiabilite = 0;
     }
     
@@ -549,29 +557,6 @@ class Donnees
     }
 
     /**
-     * Set niveau
-     *
-     * @param string $niveau
-     * @return Donnees
-     */
-    public function setNiveau($niveau)
-    {
-        $this->niveau = $niveau;
-
-        return $this;
-    }
-
-    /**
-     * Get niveau
-     *
-     * @return string 
-     */
-    public function getNiveau()
-    {
-        return $this->niveau;
-    }
-
-    /**
      * Set fiabilite
      *
      * @param integer $fiabilite
@@ -625,7 +610,7 @@ class Donnees
      */
     public function setNiveauNom($niveauNom)
     {
-        $this->niveauNom = $niveauNom;
+        $this->niveau_nom = $niveauNom;
 
         return $this;
     }
@@ -637,7 +622,7 @@ class Donnees
      */
     public function getNiveauNom()
     {
-        return $this->niveauNom;
+        return $this->niveau_nom;
     }
 
     /**
@@ -648,7 +633,7 @@ class Donnees
      */
     public function setNiveauLien($niveauLien)
     {
-        $this->niveauLien = $niveauLien;
+        $this->niveau_lien = $niveauLien;
 
         return $this;
     }
@@ -660,6 +645,6 @@ class Donnees
      */
     public function getNiveauLien()
     {
-        return $this->niveauLien;
+        return $this->niveau_lien;
     }
 }
