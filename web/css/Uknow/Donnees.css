@@ -32,21 +32,37 @@
 
 .titreAfficher
 {
-    height: 40px;
+    height: 33px;
     background-color: #555;
     color: #ffffff;
+}
+
+.titreAfficherGauche
+{
+    font-size: 1.3em;
+    margin:3px 7px;
+    float: left;
+    display:inline-block;
 }
 
 .texteDonnee
 {
     text-align: left;
+    padding: 10px;
 }
 
 .barreAfficher
 {
-    height: 40px;
+    height: 33px;
     color: #555;
     background-color: #f5f5f5;
+}
+
+.barreAfficherEnd
+{
+    font-size: 1.1em;
+    margin:5px 10px;
+    float:left
 }
 
 .maj
@@ -80,6 +96,7 @@
 h5.titre
 {
     font-size: 1.4em;
+    padding-top: 12px;
     background-color: rgba(0, 0, 0, 0);
 }
 .blockTitre:hover
@@ -170,7 +187,7 @@ h5.titre
 {
     border:0;
     border-radius: 0;
-    height: 40px;
+    height: 33px;
     width: 140px;
     color: #ffffff;
     float:right;

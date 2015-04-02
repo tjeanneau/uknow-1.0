@@ -60,6 +60,46 @@ class ModifierExerciceType extends AbstractType{
                     'uiColor' => '#ffffff',
                     'config_name' => 'my_config',
                 )))
+            ->add('correction', 'ckeditor', array(
+                'config' => array(
+                    'toolbar' => array(
+                        array(
+                            'name'  => 'document',
+                            'items' => array('Maximize', '-', 'NewPage', 'DocProps', 'Preview', 'Print', 'Templates'),
+                        ),
+                        array(
+                            'name'  => 'clipboard',
+                            'items' => array('Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord','Undo', 'Redo'),
+                        ),
+                        array(
+                            'name'  => 'indent',
+                            'items' => array( 'NumberedList', 'BulletedList', 'Outdent', 'Indent','Blockquote', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'),
+                        ),
+                        array(
+                            'name'  => 'insert',
+                            'items' => array( 'SpecialChar','Image', 'Table', 'HorizontalRule'),
+                        ),
+                        '/',
+                        array(
+                            'name'  => 'style',
+                            'items' => array('Styles', 'Format', 'Font', 'FontSize'),
+                        ),
+                        array(
+                            'name'  => 'basic style',
+                            'items' => array('Bold', 'Italic', 'Underline','Strike', 'Subscript', 'Superscript', 'RemoveFormat'),
+                        ),
+                        array(
+                            'name'  => 'colors',
+                            'items' => array('TextColor', 'BGColor'),
+                        ),
+                        array(
+                            'name'  => 'form',
+                            'items' => array('Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton'),
+                        )
+                    ),
+                    'uiColor' => '#ffffff',
+                    'config_name' => 'my_config',
+                )))
             ->add('temps', 'text', array('attr' => array('size' => 3)))
             ->add('modifier', 'submit');
 

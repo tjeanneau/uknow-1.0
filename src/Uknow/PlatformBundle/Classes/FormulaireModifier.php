@@ -12,6 +12,7 @@ class FormulaireModifier {
 
     private $ckeditor;
     private $temps;
+    private $correction;
 
     public function setCkeditor($ckeditor)
     {
@@ -22,6 +23,17 @@ class FormulaireModifier {
     public function getCkeditor()
     {
         return $this->ckeditor;
+    }
+
+    public function setCorrection($correction)
+    {
+        $this->correction = $correction;
+        return $this;
+    }
+
+    public function getCorrection()
+    {
+        return $this->correction;
     }
 
     public function setTemps($temps)

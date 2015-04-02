@@ -3,7 +3,7 @@
 <div id="donneeAffiche_{{ loop.index }}" class="donneeAffiche" style="display: none">
 
     <div class="titreAfficher">
-        <div style="font-size: 1.3em; margin:7px; float: left; display:inline-block">{{ donnees.date|date("d/m/Y") }}</div>
+        <div class="titreAfficherGauche">{{ donnees.date|date("d/m/Y") }}</div>
 
         <button class="boutonAffiche" onclick="cacher({{ loop.index }})">
             <span class="glyphicon glyphicon-remove"></span>
@@ -21,12 +21,9 @@
                     <span class="glyphicon glyphicon-edit"></span>
                 </button>
             </a>
-        {% elseif donnees.type == 'Correction' %}
-            <a href="{{ path('uknow_platform_modifier_correction', {'id': donnees.id }) }}">
-                <button class="boutonAffiche">
-                    <span class="glyphicon glyphicon-edit"></span>
-                </button>
-            </a>
+            <button class="boutonAffiche" id="boutonCorrection" onclick="afficherCorrection({{ loop.index }})">
+                <span class="glyphicon glyphicon-check"></span>
+            </button>
         {% endif %}
 
     </div>
@@ -35,10 +32,17 @@
         {{ donnees.texte|raw}}
     </div>
 
+    <div id="correctionDonnee_{{ loop.index }}" style="display:none">
+        <div style="width: 100%; height: 1px; background-color: #555"></div>
+        <div class="texteDonnee">
+            {{ donnees.correction|raw}}
+        </div>
+    </div>
+
     <div class="barreAfficher">
         <div class="row" style="margin:0">
-            <div style="font-size: 1.1em; margin:10px 20px; float:left">{{ donnees.fiabilite }}%</div>
-            <div style="font-size: 1.1em; margin:10px 20px; float:left">{{ donnees.temps }} minutes</div>
+            {#<div  class="barreAfficherEnd">{{ donnees.fiabilite }}%</div>#}
+            <div class="barreAfficherEnd">{{ donnees.temps }} minutes</div>
 
             {% if tableauEvaluation[loop.index0] == 1 %}
 

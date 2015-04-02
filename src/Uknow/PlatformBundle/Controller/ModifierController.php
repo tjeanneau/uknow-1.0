@@ -80,6 +80,7 @@ class ModifierController extends Controller{
             ->find($id);
 
         $formModifier->setCkeditor($donneerecu->getTexte());
+        $formModifier->setCorrection($donneerecu->getCorrection());
         $formModifier->setTemps($donneerecu->getTemps());
         $formDonnees = $this->get('form.factory')->create(new ModifierExerciceType(), $formModifier);
         if ($formDonnees->handleRequest($request)->isValid()){
@@ -94,6 +95,7 @@ class ModifierController extends Controller{
                 $donnees->setChapitreNom($donneerecu->getChapitreNom());
                 $donnees->setTitre($donneerecu->getTitre());
                 $donnees->setTexte($formModifier->getCkeditor());
+                $donnees->setCorrection($formModifier->getCorrection());
                 $donnees->setType('Exercice');
                 $donnees->setNiveauNom($donneerecu->getNiveauNom());
                 $donnees->setNiveauLien($donneerecu->getNiveauLien());
@@ -113,57 +115,7 @@ class ModifierController extends Controller{
             )));
         }
 
-        return $this->render('UknowPlatformBundle:modifier:cours.html.twig', array(
-            'formModifier' => $formDonnees->createView(),
-            'donnee' => $donneerecu,
-        ));
-    }
-
-    public function correctionAction($id, Request $request){
-
-        $donnees = new Donnees();
-        $formModifier = new FormulaireModifier();
-        $em = $this->getDoctrine()->getManager();
-        $donneerecu = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('UknowPlatformBundle:Donnees')
-            ->find($id);
-
-        $formModifier->setCkeditor($donneerecu->getTexte());
-        $formModifier->setTemps($donneerecu->getTemps());
-        $formDonnees = $this->get('form.factory')->create(new ModifierCorrectionType(), $formModifier);
-        if ($formDonnees->handleRequest($request)->isValid()){
-            if($formModifier->getCkeditor() != $donneerecu->getTexte() && $formModifier->getTemps() != $donneerecu->getTemps()){
-                $donnees->setDomaineLien($donneerecu->getDomaineLien());
-                $donnees->setDomaineNom($donneerecu->getDomaineNom());
-                $donnees->setMatiereLien($donneerecu->getMatiereLien());
-                $donnees->setMatiereNom($donneerecu->getMatiereNom());
-                $donnees->setThemeLien($donneerecu->getThemeLien());
-                $donnees->setThemeNom($donneerecu->getThemeNom());
-                $donnees->setChapitreLien($donneerecu->getChapitreLien());
-                $donnees->setChapitreNom($donneerecu->getChapitreNom());
-                $donnees->setTitre($donneerecu->getTitre());
-                $donnees->setTexte($formModifier->getCkeditor());
-                $donnees->setType('Correction');
-                $donnees->setNiveauNom($donneerecu->getNiveauNom());
-                $donnees->setNiveauLien($donneerecu->getNiveauLien());
-                $donnees->setTemps($formModifier->getTemps());
-                $donnees->setModification(0);
-                $donnees->setPertinent(0);
-                $donnees->setDevelopper(0);
-                $donnees->setInutile(0);
-                $em->persist($donnees);
-                $em->flush();
-            }
-            return $this->redirect($this->generateUrl('uknow_platform_recherche_chapitre', array(
-                'lienDomaine' => $donnees->getDomaineLien(),
-                'lienMatiere' => $donnees->getMatiereLien(),
-                'lienTheme' => $donnees->getThemeLien(),
-                'lienChapitre' => $donnees->getChapitreLien(),
-            )));
-        }
-
-        return $this->render('UknowPlatformBundle:modifier:cours.html.twig', array(
+        return $this->render('UknowPlatformBundle:modifier:exercice.html.twig', array(
             'formModifier' => $formDonnees->createView(),
             'donnee' => $donneerecu,
         ));

@@ -6,7 +6,7 @@
 
 {% block contenu %}
     <div class="row">
-        <div class="col-md-11" style="padding: 0; position: fixed; z-index: 1">
+        <div class="col-md-12" style="padding: 0; position: fixed; z-index: 1">
             <ol class="breadcrumb">
                 <li><a href="{{ path('uknow_platform_recherche_acceuil')}}">Accueil</a></li>
                 <li><a href="{{ path('uknow_platform_recherche_domaine', {
@@ -53,6 +53,7 @@
                 </div>
 
                 <div class="form-group">
+                    {{ form_label(formModifier.ckeditor, "Intitulé de l'exercice:") }}
                     {{ form_errors(formModifier.ckeditor) }}
                     {{ form_widget(formModifier.ckeditor) }}
                 </div>

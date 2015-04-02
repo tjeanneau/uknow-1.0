@@ -42,6 +42,16 @@ function cacher(index){
         .show(1000);
 }
 
+function afficherCorrection(index){
+    $('#correctionDonnee_' + index).show(1000);
+    $('#boutonCorrection').attr('onclick','cacherCorrection(' + index + ')');
+}
+
+function cacherCorrection(index){
+    $('#correctionDonnee_' + index).hide(1000);
+    $('#boutonCorrection').attr('onclick','afficherCorrection(' + index + ')');
+}
+
 function enregistrer(id, index){
     $.ajax({
         type: 'GET',
