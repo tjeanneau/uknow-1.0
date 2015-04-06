@@ -375,6 +375,18 @@
         {
           "nom": "Responsabilité humaine en matière de santé et d'environnement",
           "lien": "responsabilite_humaine_en_matiere_de_sante_et_d_environnement"
+        },
+        {
+          "nom": "La Terre dans l'Univers, la vie et l'évolution du vivant: une planète habitée",
+          "lien": "la_terre_dans_univers_vie_et_evolution_du_vivant_planete_habitee"
+        },
+        {
+          "nom": "Enjeux planétaires contemporains: énergie, sol",
+          "lien": "enjeux_planetaires_contemporains_energie_sol"
+        },
+        {
+          "nom": "Corps humain et santé: l'exercice physique",
+          "lien": "corps_humain_sante_exercice_physique"
         }
       ],
       "technologie": [

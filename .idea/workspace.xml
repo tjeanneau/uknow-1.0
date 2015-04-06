@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/web/json/chapitres.json" line="2096" />
+    <bookmark url="file://$PROJECT_DIR$/web/json/chapitres.json" line="2236" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f96ba57-0716-4b09-b8d6-8e12cbbea2fb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/json/chapitres.json" afterPath="$PROJECT_DIR$/web/json/chapitres.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/UtilisateurBundle/Resources/views/Registration/register_content.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/UtilisateurBundle/Resources/views/Registration/register_content.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/structure.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/structure.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/recherche.html.twig" afterPath="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/recherche.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/json/themes.json" afterPath="$PROJECT_DIR$/web/json/themes.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Uknow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,21 +31,11 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="themes.json" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/web/json/themes.json">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="-22.0" vertical-offset="5058" max-vertical-offset="8316">
-                    <caret line="314" column="25" selection-start-line="314" selection-start-column="25" selection-end-line="314" selection-end-column="25" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
             <file leaf-file-name="chapitres.json" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/web/json/chapitres.json">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="-0.32071006" vertical-offset="39961" max-vertical-offset="45576">
-                    <caret line="2205" column="10" selection-start-line="2205" selection-start-column="10" selection-end-line="2205" selection-end-column="10" />
+                  <state vertical-scroll-proportion="0.04260355" vertical-offset="5184" max-vertical-offset="51372">
+                    <caret line="290" column="12" selection-start-line="290" selection-start-column="12" selection-end-line="290" selection-end-column="12" />
                     <folding />
                   </state>
                 </provider>
@@ -64,21 +52,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Connexion.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Connexion.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/Uknow/Connexion.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03640257" vertical-offset="308" max-vertical-offset="1404">
+            <state vertical-scroll-proportion="0.0" vertical-offset="308" max-vertical-offset="1404">
               <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig">
+      <file leaf-file-name="themes.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/json/themes.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-17.333334" vertical-offset="6516" max-vertical-offset="8532">
+              <caret line="388" column="55" selection-start-line="388" selection-start-column="19" selection-end-line="388" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -87,7 +75,7 @@
       <file leaf-file-name="structure.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/structure.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.7777777" vertical-offset="96" max-vertical-offset="2232">
+            <state vertical-scroll-proportion="38.22222" vertical-offset="1338" max-vertical-offset="2232">
               <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
               <folding>
                 <element signature="e#79#115#0#Twig" expanded="false" />
@@ -106,55 +94,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recherche.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="donnees.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.333334" vertical-offset="0" max-vertical-offset="900">
+              <caret line="26" column="155" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="155" />
+              <folding>
+                <element signature="e#85#121#0#Twig" expanded="false" />
+                <element signature="e#435#467#0#Twig" expanded="false" />
+                <element signature="e#558#590#0#Twig" expanded="false" />
+                <element signature="e#724#756#0#Twig" expanded="false" />
+                <element signature="e#919#949#0#Twig" expanded="false" />
+                <element signature="e#1758#1786#0#Twig" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recherche.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/recherche.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="612">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirmed.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Uknow/UtilisateurBundle/Resources/views/Registration/confirmed.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="288">
-              <caret line="8" column="122" selection-start-line="8" selection-start-column="122" selection-end-line="8" selection-end-column="122" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="intro1.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/images/intro1.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="intro2.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/images/intro2.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/Uknow/Index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2450" max-vertical-offset="5112">
-              <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="167" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="staroadThemes.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/staroadThemes.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="468">
-              <caret line="5" column="31" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.41675854" vertical-offset="0" max-vertical-offset="907">
+              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -190,7 +151,6 @@
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/modifications/modifications.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/modification/modifications.html.twig" />
-        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/recherche.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/cacher.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/modification/cacher.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Classes/FormulaireModifier.php" />
@@ -218,6 +178,7 @@
         <option value="$PROJECT_DIR$/src/Uknow/UtilisateurBundle/Resources/views/Registration/register_content.html.twig" />
         <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/structure.html.twig" />
         <option value="$PROJECT_DIR$/web/json/themes.json" />
+        <option value="$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/recherche.html.twig" />
         <option value="$PROJECT_DIR$/web/json/chapitres.json" />
       </list>
     </option>
@@ -655,6 +616,40 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="donnees" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uknow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlatformBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -841,13 +836,6 @@
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/cartable/niveaux/modifications.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="684">
-          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="900">
           <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
         </state>
       </provider>
@@ -1093,22 +1081,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/images/intro1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/images/intro2.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/UtilisateurBundle/Resources/views/Registration/confirmed.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="288">
-          <caret line="8" column="122" selection-start-line="8" selection-start-column="122" selection-end-line="8" selection-end-column="122" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/UtilisateurBundle/Resources/views/layout.html.twig">
@@ -1132,6 +1107,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/intro1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Uknow/UtilisateurBundle/Resources/views/Registration/confirmed.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15876517" vertical-offset="0" max-vertical-offset="907">
+          <caret line="8" column="122" selection-start-line="8" selection-start-column="122" selection-end-line="8" selection-end-column="122" />
+          <folding>
+            <element signature="e#277#309#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
@@ -1140,17 +1130,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/recherche.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/css/Uknow/Connexion.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="612">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="308" max-vertical-offset="1404">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/json/themes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.333334" vertical-offset="6516" max-vertical-offset="8532">
+          <caret line="388" column="55" selection-start-line="388" selection-start-column="19" selection-end-line="388" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/structure.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.7777777" vertical-offset="96" max-vertical-offset="2232">
+        <state vertical-scroll-proportion="38.22222" vertical-offset="1338" max-vertical-offset="2232">
           <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
           <folding>
             <element signature="e#79#115#0#Twig" expanded="false" />
@@ -1168,26 +1166,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/json/themes.json">
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/donnees/donnees.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.0" vertical-offset="5058" max-vertical-offset="8316">
-          <caret line="314" column="25" selection-start-line="314" selection-start-column="25" selection-end-line="314" selection-end-column="25" />
+        <state vertical-scroll-proportion="-17.333334" vertical-offset="0" max-vertical-offset="900">
+          <caret line="26" column="155" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="155" />
+          <folding>
+            <element signature="e#85#121#0#Twig" expanded="false" />
+            <element signature="e#435#467#0#Twig" expanded="false" />
+            <element signature="e#558#590#0#Twig" expanded="false" />
+            <element signature="e#724#756#0#Twig" expanded="false" />
+            <element signature="e#919#949#0#Twig" expanded="false" />
+            <element signature="e#1758#1786#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Uknow/PlatformBundle/Resources/views/recherche/recherche.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41675854" vertical-offset="0" max-vertical-offset="907">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/json/chapitres.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.32071006" vertical-offset="39961" max-vertical-offset="45576">
-          <caret line="2205" column="10" selection-start-line="2205" selection-start-column="10" selection-end-line="2205" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/Uknow/Connexion.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03640257" vertical-offset="308" max-vertical-offset="1404">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.04260355" vertical-offset="5184" max-vertical-offset="51372">
+          <caret line="290" column="12" selection-start-line="290" selection-start-column="12" selection-end-line="290" selection-end-column="12" />
           <folding />
         </state>
       </provider>

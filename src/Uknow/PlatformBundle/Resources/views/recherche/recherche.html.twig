@@ -19,6 +19,9 @@
     </div>
     <div class="row" style="margin-top: 36px">
         <div class="col-md-offset-2 col-md-8" style="padding: 15px; text-align: center" id="colCours">
+            {% if listDonnees == null %}
+            <h4>Il n'existe pas de cours ou d'exercice correspondant à cette recherche.</h4>
+            {% endif %}
             {% for donnees in listDonnees %}
                 {{ include('UknowPlatformBundle:recherche/modification:afficher.html.twig') }}
                 {{ include('UknowPlatformBundle:recherche/modification:cacher.html.twig') }}
