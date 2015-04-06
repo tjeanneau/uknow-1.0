@@ -44,12 +44,12 @@ function cacher(index){
 
 function afficherCorrection(index){
     $('#correctionDonnee_' + index).show(1000);
-    $('#boutonCorrection').attr('onclick','cacherCorrection(' + index + ')');
+    $('#boutonCorrection_' + index).attr('onclick','cacherCorrection(' + index + ')');
 }
 
 function cacherCorrection(index){
     $('#correctionDonnee_' + index).hide(1000);
-    $('#boutonCorrection').attr('onclick','afficherCorrection(' + index + ')');
+    $('#boutonCorrection_' + index).attr('onclick','afficherCorrection(' + index + ')');
 }
 
 function enregistrer(id, index){
@@ -127,29 +127,29 @@ function supprimer(id, index){
     }
 }
 
-function evaluation(id, type, nb){
+function evaluation(id, type, nb, index){
     $.ajax({
         type: 'GET',
         url: 'http://localhost/Uknow/web/app_dev.php/ajax/evaluation',
         data: 'id=' + id + '&type=' + type,
         success: function(){
             if(type == 'inutile'){
-                $('.inutileAfficher').html('').append('<span class="glyphicon glyphicon-ok"></span> Inadéquat ' +
+                $('#inutileAfficher_' + index).html('').append('<span class="glyphicon glyphicon-ok"></span> Inadéquat ' +
                 '<span style="background-color: #ffffff; color:#d9534f" class="badge">' + (nb + 1) +'</span></button>');
-                $('.inutile').html(nb + 1);
+                $('#inutile_' + index).html(nb + 1);
 
             }else if(type == 'developper'){
-                $('.developperAfficher').html('').append('<span class="glyphicon glyphicon-ok"></span> A développer ' +
+                $('#developperAfficher_' + index).html('').append('<span class="glyphicon glyphicon-ok"></span> A développer ' +
                 '<span style="background-color: #ffffff; color:#f0ad4e" class="badge">' + (nb + 1) +'</span></button>');
-                $('.developper').html(nb + 1);
+                $('#developper_' + index).html(nb + 1);
             }else if(type == 'pertinent'){
-                $('.pertinentAfficher').html('').append('<span class="glyphicon glyphicon-ok"></span> Pertinent ' +
+                $('#pertinentAfficher_' + index).html('').append('<span class="glyphicon glyphicon-ok"></span> Pertinent ' +
                 '<span style="background-color: #ffffff; color:#5cb85c" class="badge">' + (nb + 1) +'</span></button>');
-                $('.pertinent').html(nb + 1);
+                $('#pertinent_' + index).html(nb + 1);
             }
-            $('.inutileAfficher').attr('onclick','');
-            $('.developperAfficher').attr('onclick','');
-            $('.pertinentAfficher').attr('onclick','');
+            $('#inutileAfficher_' + index).attr('onclick','');
+            $('#developperAfficher_' + index).attr('onclick','');
+            $('#pertinentAfficher_' + index).attr('onclick','');
         },
         error: function() {
             alert('La requête n\'a pas abouti.');

@@ -122,6 +122,7 @@ class AjaxController extends Controller{
         $servicesBoutons = $this->container->get('uknow_platform.boutons');
         $id = $request->query->get('id');
         $type = $request->query->get('type');
+        $em = $this->getDoctrine()->getManager();
 
         if ($this->container->get('request')->isXmlHttpRequest()) {
 
@@ -134,12 +135,11 @@ class AjaxController extends Controller{
                 ->getRepository('UknowUtilisateurBundle:Compte')
                 ->find($this->getUser()->getId());
 
-            $em = $this->getDoctrine()->getManager();
             if($type == 'inutile'){
                 $servicesBoutons->boutonInutile($donnee, $compte, $em);
-            }elseif($this == 'developper'){
+            }elseif($type == 'developper'){
                 $servicesBoutons->boutonDevelopper($donnee, $compte, $em);
-            }elseif($this == 'pertinent'){
+            }elseif($type == 'pertinent'){
                 $servicesBoutons->boutonPertinent($donnee, $compte, $em);
             }
         }

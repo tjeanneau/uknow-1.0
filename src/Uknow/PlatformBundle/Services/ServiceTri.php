@@ -261,10 +261,12 @@ class ServiceTri{
         $tableauEvaluees = explode('/', $chaineEvaluees);
         for($i = 0 ; $i < count($listDonneesAffichages) ; $i++ ){
             for($j = 0 ; $j < count($tableauEvaluees) ; $j++){
-                if(($listDonneesAffichages[$i]->getId() . '.0') == $tableauEvaluees[$j]){
+                if(($listDonneesAffichages[$i]->getId() . '.1') == $tableauEvaluees[$j]){
                     $tableauInfo[$i] = 1;
-                }elseif(($listDonneesAffichages[$i]->getId() . '.1') == $tableauEvaluees[$j]){
+                }elseif(($listDonneesAffichages[$i]->getId() . '.2') == $tableauEvaluees[$j]){
                     $tableauInfo[$i] = 2;
+                }elseif(($listDonneesAffichages[$i]->getId() . '.3') == $tableauEvaluees[$j]){
+                    $tableauInfo[$i] = 3;
                 }
             }
         }

@@ -402,6 +402,66 @@
           "nom": "Réalisation",
           "lien": "realisation"
         }
+      ],
+      "informatique": [
+      ],
+      "electronique": [
+      ],
+      "mecanique": [
+      ],
+      "biologie": [
+      ]
+    },
+    "art": {
+      "musique": [
+      ],
+      "dessin": [
+      ],
+      "peinture": [
+      ],
+      "photographie": [
+      ],
+      "sculpture": [
+      ],
+      "architecture": [
+      ],
+      "theatre": [
+      ],
+      "danse": [
+      ],
+      "cinema": [
+      ]
+    },
+    "sport": {
+      "athletisme": [
+      ],
+      "collectif": [
+      ],
+      "gymnastique": [
+      ],
+      "mecanique": [
+      ],
+      "raquette": [
+      ],
+      "animaux": [
+      ],
+      "cyclisme": [
+      ],
+      "arts_martiaux": [
+      ],
+      "glace": [
+      ],
+      "force": [
+      ],
+      "nature": [
+      ],
+      "aériens": [
+      ],
+      "cible": [
+      ],
+      "nautiques": [
+      ],
+      "glisse": [
       ]
     }
   }

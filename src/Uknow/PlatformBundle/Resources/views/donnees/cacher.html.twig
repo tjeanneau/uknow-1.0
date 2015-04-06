@@ -1,5 +1,6 @@
 <div id="donneeCache_{{ loop.index }}" class="donneeCacher">
     <div class="blockTitre" onclick="afficher({{ loop.index }})">
+        <div class="strut"></div>
         <h5 class="titre" id="titre_{{ loop.index }}">{{ donnees.titre }}</h5>
     </div>
     <div class="row" style="margin:0">
@@ -15,19 +16,19 @@
     <div class="row" style="margin:0; background-color: #555">
 
         <div class="col-md-2" style="padding: 0">
-            <div  class="pertinent" >
+            <div  class="pertinent" id="pertinent_{{ loop.index }}" >
                 {{ donnees.pertinent }}
             </div>
         </div>
 
         <div class="col-md-2" style="padding: 0">
-            <div  class="developper">
+            <div  class="developper" id="developper_{{ loop.index }}">
                 {{ donnees.developper }}
             </div>
         </div>
 
         <div class="col-md-2" style="padding: 0">
-            <div  class="inutile" >
+            <div  class="inutile" id="inutile_{{ loop.index }}" >
                 {{ donnees.inutile }}
             </div>
         </div>

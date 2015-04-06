@@ -203,6 +203,15 @@ $(function() {
                                     if (theme.lien == $('#uknow_platformbundle_ajout_cours_theme_lien').val()) {
                                         $('#uknow_platformbundle_ajout_cours_domaine_lien').find('option[value="' + domaine.lien + '"]').prop('selected', true);
                                         $('#uknow_platformbundle_ajout_cours_matiere_lien').find('option[value="' + matiere.lien + '"]').prop('selected', true);
+                                        $.getJSON("http://localhost/Uknow/web/json/chapitres.json", function (donneeschapitre) {
+                                            $('#uknow_platformbundle_ajout_cours_chapitre_lien')
+                                                .html('')
+                                                .append('<option value selected="selected">Choisir le chapitre</option>');
+                                            $.each(donneeschapitre['chapitre'][domaine.lien][matiere.lien][$('#uknow_platformbundle_ajout_cours_theme_lien').val()], function (i, chapitre) {
+                                                $('#uknow_platformbundle_ajout_cours_chapitre_lien')
+                                                    .append('<option value="' + chapitre.lien + '">' + chapitre.nom + '</option>');
+                                            })
+                                        })
                                     }
                                 })
                             })
@@ -210,17 +219,17 @@ $(function() {
                     })
                 })
             });
-        }
-
-        $.getJSON("http://localhost/Uknow/web/json/chapitres.json", function (donneeschapitre) {
-            $('#uknow_platformbundle_ajout_cours_chapitre_lien')
-                .html('')
-                .append('<option value selected="selected">Choisir le chapitre</option>');
-            $.each(donneeschapitre['chapitre'][$('#uknow_platformbundle_ajout_cours_domaine_lien').val()][$('#uknow_platformbundle_ajout_cours_matiere_lien').val()][$('#uknow_platformbundle_ajout_cours_theme_lien').val()], function (i, chapitre) {
+        }else{
+            $.getJSON("http://localhost/Uknow/web/json/chapitres.json", function (donneeschapitre) {
                 $('#uknow_platformbundle_ajout_cours_chapitre_lien')
-                    .append('<option value="' + chapitre.lien + '">' + chapitre.nom + '</option>');
+                    .html('')
+                    .append('<option value selected="selected">Choisir le chapitre</option>');
+                $.each(donneeschapitre['chapitre'][$('#uknow_platformbundle_ajout_cours_domaine_lien').val()][$('#uknow_platformbundle_ajout_cours_matiere_lien').val()][$('#uknow_platformbundle_ajout_cours_theme_lien').val()], function (i, chapitre) {
+                    $('#uknow_platformbundle_ajout_cours_chapitre_lien')
+                        .append('<option value="' + chapitre.lien + '">' + chapitre.nom + '</option>');
+                })
             })
-        })
+        }
     }
 
     function chapitreSelect(){

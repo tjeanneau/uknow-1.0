@@ -31,7 +31,7 @@
                     <span class="glyphicon glyphicon-edit"></span>
                 </button>
             </a>
-            <button class="boutonAffiche" id="boutonCorrection" onclick="afficherCorrection({{ loop.index }})">
+            <button class="boutonAffiche" id="boutonCorrection_{{ loop.index }}" onclick="afficherCorrection({{ loop.index }})">
                 <span class="glyphicon glyphicon-check"></span>
             </button>
         {% endif %}
@@ -63,14 +63,14 @@
                 <button class="developperChoix">A développer
                     <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
                 <button class="pertinentChoix">
-                    <span class="glyphicon glyphicon-ok"></span>Pertinent
+                    <span class="glyphicon glyphicon-ok"></span> Pertinent
                         <span style="background-color: #ffffff; color:#5cb85c" class="badge">{{ donnees.pertinent }}</span></button>
 
             {% elseif tableauEvaluation[loop.index0] == 2 %}
                 <button class="inutileChoix">Inadéquat
                     <span style="background-color: #ffffff; color:#d9534f" class="badge">{{ donnees.inutile }}</span></button>
                 <button class="developperChoix">
-                    <span class="glyphicon glyphicon-ok"></span>A développer
+                    <span class="glyphicon glyphicon-ok"></span> A développer
                         <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
                 <button class="pertinentChoix">Pertinent
                     <span style="background-color: #ffffff; color:#5cb85c" class="badge">{{ donnees.pertinent }}</span></button>
@@ -78,7 +78,7 @@
             {% elseif tableauEvaluation[loop.index0] == 3 %}
 
                 <button class="inutileChoix">
-                    <span class="glyphicon glyphicon-ok"></span>Inadéquat
+                    <span class="glyphicon glyphicon-ok"></span> Inadéquat
                         <span style="background-color: #ffffff; color:#d9534f" class="badge">{{ donnees.inutile }}</span></button>
                 <button class="developperChoix">A développer
                     <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
@@ -87,11 +87,11 @@
 
             {% else %}
 
-                <button class="inutileAfficher" onclick="evaluation({{ donnees.id }}, 'inutile', {{ donnees.inutile }})">Inadéquat
+                <button class="inutileAfficher" id="inutileAfficher_{{ loop.index }}" onclick="evaluation({{ donnees.id }}, 'inutile', {{ donnees.inutile }}, {{ loop.index }})">Inadéquat
                     <span style="background-color: #ffffff; color:#d9534f" class="badge">{{ donnees.inutile }}</span></button>
-                <button class="developperAfficher" onclick="evaluation({{ donnees.id }}, 'developper', {{ donnees.developper }})">A développer
+                <button class="developperAfficher" id="developperAfficher_{{ loop.index }}" onclick="evaluation({{ donnees.id }}, 'developper', {{ donnees.developper }}, {{ loop.index }})">A développer
                     <span style="background-color: #ffffff; color:#f0ad4e" class="badge">{{ donnees.developper }}</span></button>
-                <button class="pertinentAfficher" onclick="evaluation({{ donnees.id }}, 'pertinent', {{ donnees.pertinent }})">Pertinent
+                <button class="pertinentAfficher" id="pertinentAfficher_{{ loop.index }}" onclick="evaluation({{ donnees.id }}, 'pertinent', {{ donnees.pertinent }}, {{ loop.index }})">Pertinent
                     <span style="background-color: #ffffff; color:#5cb85c" class="badge">{{ donnees.pertinent }}</span></button>
 
             {% endif %}

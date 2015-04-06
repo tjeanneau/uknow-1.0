@@ -33,7 +33,7 @@ class ModifierController extends Controller{
         $formModifier->setTemps($donneerecu->getTemps());
         $formDonnees = $this->get('form.factory')->create(new ModifierCoursType(), $formModifier);
         if ($formDonnees->handleRequest($request)->isValid()){
-            if($formModifier->getCkeditor() != $donneerecu->getTexte() && $formModifier->getTemps() != $donneerecu->getTemps()){
+            if($formModifier->getCkeditor() != $donneerecu->getTexte() || $formModifier->getTemps() != $donneerecu->getTemps()){
                 $donnees->setDomaineLien($donneerecu->getDomaineLien());
                 $donnees->setDomaineNom($donneerecu->getDomaineNom());
                 $donnees->setMatiereLien($donneerecu->getMatiereLien());
@@ -84,7 +84,7 @@ class ModifierController extends Controller{
         $formModifier->setTemps($donneerecu->getTemps());
         $formDonnees = $this->get('form.factory')->create(new ModifierExerciceType(), $formModifier);
         if ($formDonnees->handleRequest($request)->isValid()){
-            if($formModifier->getCkeditor() != $donneerecu->getTexte() && $formModifier->getTemps() != $donneerecu->getTemps()){
+            if($formModifier->getCkeditor() != $donneerecu->getTexte() || $formModifier->getCorrection() != $donneerecu->getCorrection() || $formModifier->getTemps() != $donneerecu->getTemps()){
                 $donnees->setDomaineLien($donneerecu->getDomaineLien());
                 $donnees->setDomaineNom($donneerecu->getDomaineNom());
                 $donnees->setMatiereLien($donneerecu->getMatiereLien());
@@ -108,10 +108,10 @@ class ModifierController extends Controller{
                 $em->flush();
             }
             return $this->redirect($this->generateUrl('uknow_platform_recherche_chapitre', array(
-                'lienDomaine' => $donnees->getDomaineLien(),
-                'lienMatiere' => $donnees->getMatiereLien(),
-                'lienTheme' => $donnees->getThemeLien(),
-                'lienChapitre' => $donnees->getChapitreLien(),
+                'lienDomaine' => $donneerecu->getDomaineLien(),
+                'lienMatiere' => $donneerecu->getMatiereLien(),
+                'lienTheme' => $donneerecu->getThemeLien(),
+                'lienChapitre' => $donneerecu->getChapitreLien(),
             )));
         }
 

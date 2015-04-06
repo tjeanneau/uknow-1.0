@@ -91,6 +91,10 @@ h5.titre
     font-size: 1.4em;
     padding-top: 12px;
     background-color: rgba(0, 0, 0, 0);
+    height: auto;
+    width: 97%;
+    display:inline-block;
+    vertical-align: middle;
 }
 .blockTitre:hover
 {
@@ -169,6 +173,13 @@ h5.titre
 .inutileAfficher
 {
     background-color: #d9534f;
+}
+
+.inutileChoix,
+.pertinentChoix,
+.developperChoix
+{
+    cursor: default;
 }
 
 .inutileChoix,
@@ -287,6 +298,9 @@ h5.titre
 .boutonAffiche:focus,
 .inutileAfficher:focus,
 .pertinentAfficher:focus,
+.inutileChoix:focus,
+.pertinentChoix:focus,
+.developperChoix:focus,
 .developperAfficher:focus
 {
     outline: none;
