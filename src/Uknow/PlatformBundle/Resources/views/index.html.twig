@@ -30,7 +30,7 @@
             margin-top: 54px;
             font-family: 'Open Sans', sans-serif;
             font-weight: 400;
-            height: calc(100% - 125px);
+            height: calc(100% - 54px);
             ">
                 {% block contenu %}
                 {% endblock %}
@@ -42,6 +42,12 @@
             </section>
             #}
         </div>
+
+        <footer id="footer">
+            <div style="float:left; display:inline-block">Une production Thomas Jeanneau.</div>
+            <div style="display:inline-block">Uknow - Version Beta - {{ "now"|date("m/d/Y") }}</div>
+            <div style="float:right; display:inline-block">Contact: <a href="mailto:thomasj230@gmail.com">thomasj230@gmail.com</a></div>
+        </footer>
 
         {% javascripts
         '@jquery'

@@ -1,9 +1,17 @@
-html, body
+html{
+    height:100%;
+}
+
+body
 {
     background-color: #FFFFFF;
     text-align: center;
     color: #0F79E0;
-    height: 100%;
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    position:relative;
 }
 
 h1
@@ -25,13 +33,25 @@ h4
 {
     height: 20%;
     text-align: center;
+
 }
 
-#footer
+footer
 {
-    bottom : 0;
     width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 10px;
     text-align: center;
+    background-color: #f5f5f5;
+    color: #555;
+    position:absolute;
+}
+
+.push
+{
+    height:40px;
+    clear:both;
 }
 
 .police3

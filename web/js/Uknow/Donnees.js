@@ -2,6 +2,10 @@
  * Created by thomas on 29/03/15.
  */
 
+$(function (){
+    $('a').tooltip({ placement:'bottom' });
+});
+
 function agrandir(){
     $('#header').hide(1000);
     $('#question').hide(1000);
