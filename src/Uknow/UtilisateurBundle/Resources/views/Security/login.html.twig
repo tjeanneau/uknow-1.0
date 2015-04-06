@@ -13,11 +13,11 @@
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
     <div class="form-group">
-        <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Adresse Mail"/>
     </div>
 
     <div class="form-group">
-        <input class="form-control" type="password" id="password" name="_password" required="required" />
+        <input class="form-control" type="password" id="password" name="_password" required="required" placeholder="Mot de passe"/>
     </div>
 
     <div class="form-group">
@@ -27,10 +27,10 @@
 
     <div class="form-group">
         <div class="col-md-6">
-            <input class="btn btn-default" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+            <input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
         </div>
         <div class="col-md-6">
-            <a href="{{ path('fos_user_registration_register') }}" class="btn btn-default" role="button">Nouveau ?</a>
+            <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary" role="button">Nouveau ?</a>
         </div>
     </div>
 

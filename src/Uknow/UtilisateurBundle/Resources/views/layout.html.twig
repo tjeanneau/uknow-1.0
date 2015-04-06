@@ -5,7 +5,7 @@
         {% stylesheets
         '@bootstrap_css'
         'css/Uknow/Connexion.css'
-        'css/Uknow/Inscription.css'
+        'css/Uknow/Form.css'
         %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
@@ -19,10 +19,13 @@
         <h1 class="police3">Uknow</h1>
         <h2 class="police3">Knowledge is universal.</h2>
     </div>
-    <div class="espace1"></div>
-    <div class="espace2">
 
-        <div class="container">
+    {% block presentation %}
+        <div class="espace1"></div>
+    {% endblock presentation %}
+
+    <div>
+        <div class="container" style="margin-top: 50px; margin-bottom: 200px;">
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
                     <div class="form-group" style="font-family: 'Open Sans', sans-serif; font-weight: 400">
@@ -35,7 +38,7 @@
                             {% endfor %}
                         {% endfor %}
 
-                        <div>
+                        <div >
                             {% block fos_user_content %}
                             {% endblock fos_user_content %}
                         </div>
@@ -51,8 +54,8 @@
     </footer>
 
     {% javascripts
-    '@bootstrap_js'
     '@jquery'
+    '@bootstrap_js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

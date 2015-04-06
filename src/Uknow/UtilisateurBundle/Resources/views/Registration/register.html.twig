@@ -2,6 +2,21 @@
 
 {% block title %}Inscription{% endblock title %}
 
+{% block presentation %}
+
+    <p class="police3" style="font-size: 2em;  padding: 50px 20px; margin-top: 10%">Et si toutes les connaissances scolaires étaient à porter de main ?</p>
+    <div class="intro1"></div>
+    <p class="police3" style="font-size: 2em; padding: 50px 20px">Et si un cours accessible à tous pouvait évoluer et se perfectionner dans le temps ?</p>
+    <div class="intro2"></div>
+    <p class="police3" style="font-size: 2em; padding: 50px 20px">Et si nous pouvions aussi bien enseigner qu'apprendre ce qu'il nous plait ?</p>
+    <div class="intro3"></div>
+    <p class="police3" style="font-size: 2em; padding: 50px 20px">Uknow est une plateforme te permettant de partager tes connaissances anonymement avec le reste de la communauté.
+        Tu peux créer, modifier, enregistrer et évaluer les cours ou les exercices de ton choix. </p>
+    <div class="intro4"></div>
+    <p class="police3" style="font-size: 2em; padding: 50px 20px">A toi de jouer !</p>
+
+{% endblock presentation %}
+
 {% block fos_user_content %}
 {% include "FOSUserBundle:Registration:register_content.html.twig" %}
 {% endblock fos_user_content %}

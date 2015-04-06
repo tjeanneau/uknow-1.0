@@ -1,14 +1,19 @@
 html, body
 {
-    background-color: #83BBF1;
+    background-color: #FFFFFF;
     text-align: center;
-    color: #FFFFFF;
+    color: #0F79E0;
     height: 100%;
 }
 
 h1
 {
     font-size: 80px;
+}
+
+h4
+{
+    text-align: justify;
 }
 
 .espace1
@@ -25,7 +30,6 @@ h1
 #footer
 {
     bottom : 0;
-    position: absolute;
     width: 100%;
     text-align: center;
 }
@@ -36,8 +40,34 @@ h1
     font-weight: 300;
 }
 
-.police4
-{
+.police4 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+}
+
+.intro1
+{
+    background: url("/Uknow/web/images/intro1.jpg") no-repeat center;
+}
+
+.intro2
+{
+    background: url("/Uknow/web/images/intro2.jpg") no-repeat center;
+}
+
+.intro3
+{
+    background: url("/Uknow/web/images/intro3.jpg") no-repeat center;
+}
+
+.intro4
+{
+    background: url("/Uknow/web/images/intro4.jpg") no-repeat center;
+}
+
+.intro1, .intro2, .intro3, .intro4
+{
+    height:500px;
+    width:100%;
+    background-size: cover;
 }

@@ -6,5 +6,5 @@
 
 {% block fos_user_content %}
     <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    <p><a href="{{ path('uknow_platform_recherche_acceuil')}}">Accéder à Uknow !</a></p>
+    <p><a href="{{ path('uknow_platform_recherche_acceuil')}}"><button class="btn btn-primary">Accéder à Uknow !</button></a></p>
 {% endblock fos_user_content %}
