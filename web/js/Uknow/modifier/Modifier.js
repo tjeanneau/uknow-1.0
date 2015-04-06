@@ -7,7 +7,10 @@ $(function(){
         var marge =  $('.breadcrumb').css('height');
         $('#marge').css('margin-top', marge);
         $('#colButton').css('height', marge);
-
+        if($('#ajoutFooter').val() == 1)
+        {
+            $('#footer').css('display', 'none');
+        }
         var posenfant = $('#footer').offset();
         if( posenfant.top < $(window).height() + 54){
             $('#footer').css('bottom', '0');

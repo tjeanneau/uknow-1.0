@@ -19,8 +19,7 @@
     </head>
     <body>
         <div class="container-fluid" style="height: 100%">
-
-            <header class="row" id="header">
+            <header class="row">
                 {{ render(controller('UknowPlatformBundle:Navigation:home')) }}
                 {{ render(controller('UknowPlatformBundle:Navigation:recherche', {'lettres': null})) }}
                 {{ render(controller('UknowPlatformBundle:Navigation:lien')) }}
@@ -45,7 +44,7 @@
 
         <footer id="footer">
             <div style="float:left; display:inline-block">Une production Thomas Jeanneau.</div>
-            <div style="display:inline-block">Uknow - Version Beta - {{ "now"|date("m/d/Y") }}</div>
+            <div style="display:inline-block">Uknow - Version Beta - {{ "now"|date("d/m/Y") }}</div>
             <div style="float:right; display:inline-block">Contact: <a href="mailto:thomasj230@gmail.com">thomasj230@gmail.com</a></div>
         </footer>
 
