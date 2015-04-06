@@ -157,6 +157,10 @@
         {
           "nom": "La vie politique en France",
           "lien": "la_vie_politique_en_france"
+        },
+        {
+          "nom": "Lecture historique",
+          "lien": "lecture_historique"
         }
       ],
       "geographie": [
@@ -287,8 +291,28 @@
           "lien": "energie_electrique_et_circuits_electriques_en_alternatif"
         },
         {
-          "nom": "De la gravitation à l'énergie mécanique",
-          "lien": "de_la_gravitation_a_energie_mecanique"
+          "nom": "Les ondes",
+          "lien": "les_ondes"
+        },
+        {
+          "nom": "Mouvements",
+          "lien": "mouvements"
+        },
+        {
+          "nom": "Forces",
+          "lien": "forces"
+        },
+        {
+          "nom": "Energies",
+          "lien": "energies"
+        },
+        {
+          "nom": "L'Univers",
+          "lien": "univers"
+        },
+        {
+          "nom": "Autres",
+          "lien": "autres"
         }
       ],
       "svt": [
