@@ -39,13 +39,17 @@
     </div>
 
     <div class="texteDonnee">
+        {% autoescape %}
         {{ donnees.texte|raw}}
+        {% endautoescape %}
     </div>
 
     <div id="correctionDonnee_{{ loop.index }}" style="display:none">
         <div style="width: 100%; height: 1px; background-color: #555"></div>
         <div class="texteDonnee">
+            {% autoescape %}
             {{ donnees.correction|raw}}
+            {% endautoescape %}
         </div>
     </div>
 
