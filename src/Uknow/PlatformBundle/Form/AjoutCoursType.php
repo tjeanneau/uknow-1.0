@@ -110,7 +110,7 @@ class AjoutCoursType extends AbstractType{
                     'troisieme' => 'Troisième',
                     'seconde' => 'Seconde',
                     'premiere' => 'Première',
-                    'terminal' => 'Terminal',
+                    'terminale' => 'Terminal',
                     'bac+1' => 'Bac + 1',
                     'bac+2' => 'Bac + 2',
                     'bac+3' => 'Bac + 3',

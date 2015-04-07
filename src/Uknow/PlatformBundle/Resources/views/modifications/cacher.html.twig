@@ -29,7 +29,7 @@
         {% if donnees.type == 'Cours' %}
             <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
                 <div class="col-md-3" style="padding: 0">
-                    <button class="modifier">
+                    <button title="Modifier" data-toggle="tooltip" class="modifier">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
                 </div>
@@ -37,15 +37,7 @@
         {% elseif donnees.type == 'Exercice' %}
             <a href="{{ path('uknow_platform_modifier_exercice', {'id': donnees.id }) }}">
                 <div class="col-md-3" style="padding: 0">
-                    <button class="modifier">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </button>
-                </div>
-            </a>
-        {% elseif donnees.type == 'Correction' %}
-            <a href="{{ path('uknow_platform_modifier_correction', {'id': donnees.id }) }}">
-                <div class="col-md-3" style="padding: 0">
-                    <button class="modifier">
+                    <button title="Modifier" data-toggle="tooltip" class="modifier">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
                 </div>

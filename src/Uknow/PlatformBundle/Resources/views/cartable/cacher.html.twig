@@ -35,7 +35,7 @@
         {% if donnees.type == 'Cours' %}
             <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
                 <div class="col-md-2" style="padding: 0">
-                    <button class="modifier">
+                    <button title="Modifier" data-toggle="tooltip" class="modifier">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
                 </div>
@@ -43,15 +43,7 @@
         {% elseif donnees.type == 'Exercice' %}
             <a href="{{ path('uknow_platform_modifier_exercice', {'id': donnees.id }) }}">
                 <div class="col-md-2" style="padding: 0">
-                    <button class="modifier">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </button>
-                </div>
-            </a>
-        {% elseif donnees.type == 'Correction' %}
-            <a href="{{ path('uknow_platform_modifier_correction', {'id': donnees.id }) }}">
-                <div class="col-md-2" style="padding: 0">
-                    <button class="modifier">
+                    <button title="Modifier" data-toggle="tooltip" class="modifier">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
                 </div>
@@ -60,13 +52,13 @@
 
         <a href="{{ path('uknow_platform_cartable_modification', {'type': type, 'id': donnees.id }) }}">
             <div class="col-md-2" style="padding: 0">
-                <button class="modification">
+                <button title="Liste des modifications" data-toggle="tooltip" class="modification">
                     <span class="glyphicon glyphicon-th-list"></span>
                 </button>
             </div>
         </a>
 
-        <button class="boutonAffiche" id="enregistrer_{{ loop.index }}" onclick="supprimer({{ donnees.id }}, {{ loop.index }}, {{ loop.length }}, '{{ donnees.matiereNom }}', '{{ donnees.niveauNom }}')">
+        <button title="Supprimer du cartable" data-toggle="tooltip" class="boutonAffiche" id="enregistrer_{{ loop.index }}" onclick="supprimer({{ donnees.id }}, {{ loop.index }}, {{ loop.length }}, '{{ donnees.matiereNom }}', '{{ donnees.niveauNom }}')">
             <span id="{{ loop.index }}" class="glyphicon glyphicon-floppy-remove"></span>
         </button>
     </div>

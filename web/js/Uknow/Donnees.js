@@ -48,12 +48,18 @@ function cacher(index){
 
 function afficherCorrection(index){
     $('#correctionDonnee_' + index).show(1000);
-    $('#boutonCorrection_' + index).attr('onclick','cacherCorrection(' + index + ')');
+    $('#boutonCorrection_' + index)
+        .attr('onclick', 'cacherCorrection(' + index + ')')
+        .attr('data-toggle', 'tooltip')
+        .html('<span class="glyphicon glyphicon-check"></span>');
 }
 
 function cacherCorrection(index){
     $('#correctionDonnee_' + index).hide(1000);
-    $('#boutonCorrection_' + index).attr('onclick','afficherCorrection(' + index + ')');
+    $('#boutonCorrection_' + index)
+        .attr('onclick','afficherCorrection(' + index + ')')
+        .attr('data-toggle', 'tooltip')
+        .html('<span class="glyphicon glyphicon-unchecked"></span>');
 }
 
 function enregistrer(id, index){

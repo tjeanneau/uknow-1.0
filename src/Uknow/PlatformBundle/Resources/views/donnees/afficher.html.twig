@@ -5,40 +5,40 @@
         <div class="titreAfficherGauche">{{ donnees.titre }} ({{ donnees.temps }} minutes)</div>
 </div>
             <div class="col-md-3" style=padding:0;">
-        <button class="boutonAffiche" onclick="cacher({{ loop.index }})">
+        <button title="Fermer" data-toggle="tooltip" class="boutonAffiche" onclick="cacher({{ loop.index }})">
             <span class="glyphicon glyphicon-remove"></span>
         </button>
 
             {% if tableauSauvegarde[loop.index0] == 1 %}
-                <button class="boutonAffiche">
+                <button title="Enregistré" data-toggle="tooltip" class="boutonAffiche">
                     <span class="glyphicon glyphicon-floppy-saved"></span>
                 </button>
             {% else %}
-                <button class="boutonAffiche" id="enregistrerAfficher{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }})">
+                <button title="Enregistrer dans mon cartable" data-toggle="tooltip" class="boutonAffiche" id="enregistrerAfficher{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }})">
                     <span id="{{ loop.index }}" class="glyphicon glyphicon-floppy-disk"></span>
                 </button>
             {% endif %}
 
         <a href="{{ path('uknow_platform_donnees_modification', {'id': donnees.id }) }}">
-            <button class="boutonAffiche">
+            <button title="Listes des modifications" data-toggle="tooltip" class="boutonAffiche">
                 <span class="glyphicon glyphicon-th-list"></span>
             </button>
         </a>
 
         {% if donnees.type == 'Cours' %}
             <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
-                <button class="boutonAffiche">
+                <button title="Modifier" data-toggle="tooltip" class="boutonAffiche">
                     <span class="glyphicon glyphicon-edit"></span>
                 </button>
             </a>
         {% elseif donnees.type == 'Exercice' %}
             <a href="{{ path('uknow_platform_modifier_exercice', {'id': donnees.id }) }}">
-                <button class="boutonAffiche">
+                <button title="Modifier" data-toggle="tooltip" class="boutonAffiche">
                     <span class="glyphicon glyphicon-edit"></span>
                 </button>
             </a>
-            <button class="boutonAffiche" id="boutonCorrection_{{ loop.index }}" onclick="afficherCorrection({{ loop.index }})">
-                <span class="glyphicon glyphicon-check"></span>
+            <button title="Correction" data-toggle="tooltip" class="boutonAffiche" id="boutonCorrection_{{ loop.index }}" onclick="afficherCorrection({{ loop.index }})">
+                <span class="glyphicon glyphicon-unchecked"></span>
             </button>
         {% endif %}
             </div>

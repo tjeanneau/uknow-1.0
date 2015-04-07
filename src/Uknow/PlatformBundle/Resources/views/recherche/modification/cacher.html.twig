@@ -35,7 +35,7 @@
         {% if donnees.type == 'Cours' %}
             <a href="{{ path('uknow_platform_modifier_cours', {'id': donnees.id }) }}">
                 <div class="col-md-2" style="padding: 0">
-                    <button class="modifier">
+                    <button title="Modifier" data-toggle="tooltip" class="modifier">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
                 </div>
@@ -43,15 +43,7 @@
         {% elseif donnees.type == 'Exercice' %}
             <a href="{{ path('uknow_platform_modifier_exercice', {'id': donnees.id }) }}">
                 <div class="col-md-2" style="padding: 0">
-                    <button class="modifier">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </button>
-                </div>
-            </a>
-        {% elseif donnees.type == 'Correction' %}
-            <a href="{{ path('uknow_platform_modifier_correction', {'id': donnees.id }) }}">
-                <div class="col-md-2" style="padding: 0">
-                    <button class="modifier">
+                    <button title="Modifier" data-toggle="tooltip" class="modifier">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
                 </div>
@@ -60,18 +52,18 @@
 
         <a href="{{ path('uknow_platform_recherche_modification', {'lettres': lettres, 'id': donnees.id }) }}">
             <div class="col-md-2" style="padding: 0">
-                <button class="modification">
+                <button title="Liste des modifications" data-toggle="tooltip" class="modification">
                     <span class="glyphicon glyphicon-th-list"></span>
                 </button>
             </div>
         </a>
 
         {% if tableauSauvegarde[loop.index0] == 1 %}
-            <button class="enregistrer">
+            <button title="Enregistré" data-toggle="tooltip" class="enregistrer">
                 <span class="glyphicon glyphicon-floppy-saved"></span>
             </button>
         {% else %}
-            <button class="enregistrer" id="enregistrerCacher{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
+            <button title="Enregistrer dans mon cartable" data-toggle="tooltip" class="enregistrer" id="enregistrerCacher{{ loop.index }}" onclick="enregistrer({{ donnees.id }}, {{ loop.index }} )">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
             </button>
         {% endif %}

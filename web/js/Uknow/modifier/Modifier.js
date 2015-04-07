@@ -18,5 +18,7 @@ $(function(){
         if(posenfant.top < $('#content').height() + 54){
             $('#footer').css('top', $('#content').height()+70);
         }
-    })
+    });
+    $('button').tooltip({ placement:'bottom', delay: { show: 400, hide: 200 } });
 });
+
