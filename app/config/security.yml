@@ -8,15 +8,15 @@ security:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/inscription, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/recherche, role: ROLE_USER }
         - { path: ^/modifier, role: ROLE_USER }
         - { path: ^/ajouter, role: ROLE_USER }
         - { path: ^/compte, role: ROLE_USER }
         - { path: ^/modification, role: ROLE_USER }
-        - { path: ^/mes_cours, role: ROLE_USER }
-        - { path: ^/mes_exercices, role: ROLE_USER }
+        - { path: ^/cartable, role: ROLE_USER }
+        - { path: ^/evaluation, role: ROLE_USER }
         - { path: ^/actualites, role: ROLE_USER }
-        - { path: ^/autocompletion, role: ROLE_USER }
+        - { path: ^/ajax, role: ROLE_USER }

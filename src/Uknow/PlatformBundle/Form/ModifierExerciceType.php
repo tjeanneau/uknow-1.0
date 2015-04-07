@@ -11,6 +11,7 @@ namespace Uknow\PlatformBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ModifierExerciceType extends AbstractType{
 
@@ -59,7 +60,10 @@ class ModifierExerciceType extends AbstractType{
                     ),
                     'uiColor' => '#ffffff',
                     'config_name' => 'my_config',
-                )))
+                ),
+            'constraints' => array(
+                new NotBlank,
+            )))
             ->add('correction', 'ckeditor', array(
                 'config' => array(
                     'toolbar' => array(
@@ -99,6 +103,9 @@ class ModifierExerciceType extends AbstractType{
                     ),
                     'uiColor' => '#ffffff',
                     'config_name' => 'my_config',
+                ),
+                'constraints' => array(
+                    new NotBlank,
                 )))
             ->add('temps', 'text', array('attr' => array('size' => 3)))
             ->add('modifier', 'submit');

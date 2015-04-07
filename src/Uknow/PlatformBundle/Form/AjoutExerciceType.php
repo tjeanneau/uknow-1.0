@@ -11,6 +11,7 @@ namespace Uknow\PlatformBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class AjoutExerciceType extends AbstractType{
 
@@ -71,6 +72,9 @@ class AjoutExerciceType extends AbstractType{
                     ),
                     'uiColor' => '#ffffff',
                     'config_name' => 'my_config',
+                ),
+                'constraints' => array(
+                    new NotBlank,
                 )))
             ->add('correction', 'ckeditor', array(
                 'config' => array(
@@ -111,6 +115,9 @@ class AjoutExerciceType extends AbstractType{
                     ),
                     'uiColor' => '#ffffff',
                     'config_name' => 'my_config',
+                ),
+                'constraints' => array(
+                    new NotBlank,
                 )))
             ->add('domaine_lien', 'choice', array(
                 'choices' => $this->domaine,

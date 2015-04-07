@@ -11,6 +11,7 @@ namespace Uknow\PlatformBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ModifierCoursType extends AbstractType{
 
@@ -51,6 +52,9 @@ class ModifierCoursType extends AbstractType{
                 ),
                 'uiColor' => '#ffffff',
                 'config_name' => 'my_config',
+            ),
+            'constraints' => array(
+                new NotBlank,
             )))
             ->add('temps', 'choice', array('choices' => array(
                 '5' => '5',

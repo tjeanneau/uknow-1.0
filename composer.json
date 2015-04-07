@@ -19,12 +19,13 @@
         "sensio/distribution-bundle": "~3.0,>=3.0.12",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-	"doctrine/doctrine-fixtures-bundle": "~2.2",
-	"twitter/bootstrap": "3.*",
+	    "doctrine/doctrine-fixtures-bundle": "~2.2",
+	    "twitter/bootstrap": "3.*",
         "components/jquery": "1.11.*",
         "egeloen/ckeditor-bundle": "3.0.1",
         "egeloen/json-builder": "~2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "coresphere/console-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

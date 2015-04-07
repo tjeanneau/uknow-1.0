@@ -9,7 +9,7 @@
         <div class="col-md-11" style="padding: 0; position: fixed; z-index: 1; background-color: #f5f5f5;" id="colLien">
             <ol class="breadcrumb" style="margin: 0">
                 <li><a href="{{ path('uknow_platform_cartable_exercices')}}">Mes exercices</a></li>
-                <li class="active">{{ donnee.titre }}</li>
+                <li id="ajoutFooter" value="1" class="active">{{ donnee.titre }}</li>
             </ol>
         </div>
         <div class="col-md-offset-11 col-md-1" style="padding: 0; position: fixed; z-index: 1; background-color: #f5f5f5" id="colButton">
@@ -22,11 +22,13 @@
         </div>
     </div>
     <div class="row" style="margin-top: 36px">
+        <div id="content">
         <div class="col-md-offset-2 col-md-8" style="padding: 15px; text-align: center" id="colCours">
             {% for donnees in listDonnees %}
                 {{ include('UknowPlatformBundle:modifications:afficher.html.twig') }}
                 {{ include('UknowPlatformBundle:modifications:cacher.html.twig') }}
             {% endfor %}
         </div>
+            </div>
     </div>
 {% endblock %}

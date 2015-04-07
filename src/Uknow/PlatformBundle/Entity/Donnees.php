@@ -3,6 +3,7 @@
 namespace Uknow\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Donnees
@@ -25,6 +26,7 @@ class Donnees
      * @var string
      *
      * @ORM\Column(name="domaine_nom", type="string", length=255)
+     *
      */
     private $domaine_nom;
 
