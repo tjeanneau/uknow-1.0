@@ -19,7 +19,7 @@
     </head>
     <body>
         <div class="container-fluid" style="height: 100%">
-            <header class="row">
+            <header id="header" class="row">
                 {% block header %}
                 {{ render(controller('UknowPlatformBundle:Navigation:home')) }}
                 {{ render(controller('UknowPlatformBundle:Navigation:recherche', {'lettres': null})) }}
