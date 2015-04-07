@@ -4,9 +4,14 @@
 
 {% block title %}Erreur{% endblock %}
 
+{% block header %}
+    {{ render(controller('UknowPlatformBundle:Navigation:home')) }}
+    {{ render(controller('UknowPlatformBundle:Navigation:recherche', {'lettres': null})) }}
+{% endblock header %}
+
 {% block contenu %}
     <div class="row">
-        <div class="col-md-9" style="padding: 50px">
+        <div class="col-md-12" style="padding: 50px">
             <h2>Bonjour,<br/><br/>La page que vous cherchez n'a pas été encore été crée, ou elle n'existe pas, ou plus... <br/>'fin, j'en sais rien, j'la trouve pas.<br/><br/>Cordialement,<br/>le concierge.</h2>
         </div>
     </div>

@@ -34,27 +34,27 @@ class StructureController extends Controller
         if($lienDomaine != null){
             $domaine = $servicesTri->findObjectLien($lienDomaine, 'domaine', null, null, null);
             if($domaine == null){
-                return $this->render('UknowPlatformBundle::erreur.html.twig');
+                return $this->render('TwigBundle:Exception:error.html.twig');
             }
         }
 
         if($lienMatiere != null){
             $matiere = $servicesTri->findObjectLien($lienMatiere, 'matiere', $lienDomaine, null, null);
             if($matiere == null){
-                return $this->render('UknowPlatformBundle::erreur.html.twig');
+                return $this->render('TwigBundle:Exception:error.html.twig');
             }
         }
 
         if($lienTheme != null){
             $theme = $servicesTri->findObjectLien($lienTheme, 'theme', $lienDomaine, $lienMatiere, null);
             if($theme == null){
-                return $this->render('UknowPlatformBundle::erreur.html.twig');
+                return $this->render('TwigBundle:Exception:error.html.twig');
             }
         }
 
         $listStructure = $servicesTri->triListStructure($lienDomaine, $lienMatiere, $lienTheme);
         if($listStructure == null){
-            return $this->render('UknowPlatformBundle::erreur.html.twig');
+            return $this->render('TwigBundle:Exception:error.html.twig');
         }
 
         return $this->render('UknowPlatformBundle:recherche:structure.html.twig', array(
